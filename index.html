@@ -15,10 +15,10 @@
     <link rel="stylesheet" href="fonts/fontawesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 
     <!-- Theme Style -->
     <link rel="stylesheet" href="css/style.css">
+    <script src="loader.js"></script>
   </head>
   <body>
     
@@ -93,30 +93,30 @@
           </div>
           <div class="col-md-1"></div>
           <div class="col-md-7">
-            <!-- Automatic Carousel Start -->
-            <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <img src="images/CONFERENCE 1.jpg" class="d-block w-100" alt="Luxury Room 1">
+            <!-- 3D coverflow effect -->
+            <div class="col-12 mb-4">
+              <h6 class="text-muted mt-3">3D coverflow effect</h6>
+              <div class="swiper" id="swiper-3d-coverflow-effect">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide" style="background-image: url(../../assets/img/elements/20.jpg)">
+                    Slide 1
+                  </div>
+                  <div class="swiper-slide" style="background-image: url(../../assets/img/elements/7.jpg)">
+                    Slide 2
+                  </div>
+                  <div class="swiper-slide" style="background-image: url(../../assets/img/elements/13.jpg)">
+                    Slide 3
+                  </div>
+                  <div class="swiper-slide" style="background-image: url(../../assets/img/elements/19.jpg)">
+                    Slide 4
+                  </div>
+                  <div class="swiper-slide" style="background-image: url(../../assets/img/elements/18.jpg)">
+                    Slide 5
+                  </div>
                 </div>
-                <div class="carousel-item">
-                  <img src="images/CONFERENCE 2.jpg" class="d-block w-100" alt="Luxury Room 2">
-                </div>
-                <div class="carousel-item">
-                  <img src="images/IT ROOM.jpg" class="d-block w-100" alt="Luxury Room 3">
-                </div>
-                <div class="carousel-item">
-                  <img src="images/ROOM 302.jpg" class="d-block w-100" alt="Luxury Room 4">
-                </div>
-                <div class="carousel-item">
-                  <img src="images/ROOM 303.jpg" class="d-block w-100" alt="Luxury Room 5">
-                </div>
-                <div class="carousel-item">
-                  <img src="images/ROOM 304.jpg" class="d-block w-100" alt="Luxury Room 6">
-                </div>
+                <div class="swiper-pagination"></div>
               </div>
             </div>
-            <!-- Automatic Carousel End -->
           </div>
         </div>
       </div>
