@@ -23,47 +23,8 @@
   </head>
   <body>
     
-    
     <header role="banner">
-      <nav>
-        <div class="container">
-          <a class="navbar-brand" href="index"><img src="/images/LOGO.png" alt="" style="height: 50px;"></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse navbar-light" id="navbarsExample05">
-            <ul class="navbar-nav ml-auto pl-lg-5 pl-0">
-              <li class="nav-item">
-                <a class="nav-link active" href="index">Home</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="rooms" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Rooms</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown04">
-                  <a class="dropdown-item" href="rooms302">Room 302</a>
-                  <a class="dropdown-item" href="rooms303">Room 303</a>
-                  <a class="dropdown-item" href="rooms304">Room 304</a>
-                  <a class="dropdown-item" href="roomsCon1">Conference Room 1</a>
-                  <a class="dropdown-item" href="roomsCon2">Conference Room 2</a>
-                  <a class="dropdown-item" href="roomsIT">IT Room</a>
-                </div>
-
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="contact">Contact</a>
-              </li>
-
-               <li class="nav-item cta">
-                <a class="nav-link" href="booknow"><span>Book Now</span></a>
-              </li>
-            </ul>
-            
-          </div>
-        </div>
-      </nav>
+      <div id="navigation"></div>
     </header>
     <!-- END header -->
 
@@ -199,7 +160,21 @@
     
     <!-- loader -->
     <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
-
+    <script>
+      // Function to load HTML files from the 'includes' folder into a specified element
+      function includeHTML(file, elementID) {
+        fetch(`includes/${file}.html`)
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById(elementID).innerHTML = data;
+          })
+          .catch(error => console.error('Error loading HTML:', error));
+      }
+  
+      // Load navigation and footer
+      includeHTML('nav', 'navigation');
+      includeHTML('footer', 'footer');
+    </script>
     <script src="sneat/assets/vendor/libs/swiper/swiper.js"></script>
     <script src="sneat/assets/js/ui-carousel.js"></script>
 
