@@ -11,7 +11,7 @@ navLinks.forEach(link => {
   
   // If the href matches the current path, add the 'nav-link-active' class
   if (linkHref === currentPath) {
-    link.classList.add('nav-link-active');
+    link.classList.add('nav-link active');
   }
 });
 
