@@ -1,6 +1,8 @@
  // Get the current URL path (without domain and query parameters)
  const currentPath = window.location.pathname.split('/').pop() || 'index';
 
+ console.log(currentPath);
+
  // Get all nav-link elements
  const navLinks = document.querySelectorAll('.nav-link');
 
