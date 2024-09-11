@@ -172,26 +172,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     
     <!-- loader -->
     <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
-    <script>
-       // Get the current URL path (without domain and query parameters)
- const currentPath = window.location.pathname.split('/').pop() || 'index';
-
-console.log(currentPath);
-
-// Get all nav-link elements
-const navLinks = document.querySelectorAll('.nav-link');
-
-// Iterate through each nav-link and compare its href with the current path
-navLinks.forEach(link => {
-  // Extract the relative path from the href attribute
-  const linkPath = link.getAttribute('href');
-
-  // If the href matches the current path, add the 'active' class
-  if (linkPath === currentPath) {
-    link.classList.add('active');
-  }
-});
-    </script>
+    <script src="js/sec-min.js"></script>
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/jquery-migrate-3.0.0.js"></script>
     <script src="js/popper.min.js"></script>
