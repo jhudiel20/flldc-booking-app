@@ -121,7 +121,7 @@
       pagination: {
         el: '.swiper-pagination'
       },
-      initialSlide: 2,
+      initialSlide: 4,
     });
   }
 
