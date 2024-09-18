@@ -13,7 +13,8 @@
 
 body {
   background: #fff;
-  font-family: "Rubik", arial, sans-serif;
+  /* font-family: "Rubik", arial, sans-serif; */
+  font-family: Tahoma, sans-serif;
   font-weight: 300;
   font-size: 15px;
   line-height: 1.8;
