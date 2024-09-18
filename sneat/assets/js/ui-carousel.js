@@ -120,7 +120,8 @@
       },
       pagination: {
         el: '.swiper-pagination'
-      }
+      },
+      initialSlide: 2,
     });
   }
 
