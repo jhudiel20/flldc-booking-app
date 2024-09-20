@@ -96,22 +96,23 @@
                           <label for="">Date of Reservation</label>
                             <input type="date" class="form-control" id="reserve_date" name="reserve_date"/>
                       </div>
+                      <div class="col-md-6 form-group">
+                        <label for="businessunit">Business Unit</label>
+                        <select name="businessunit" id="businessunit" class="form-control">
+                          <option value="FLC">FAST LOGISTICS CORPORATION</option>
+                          <option value="FSC">FAST SERVICES CORPORATION</option>
+                          <option value="FTMC">FAST TOLL MANUFACTURING CORPORATION</option>
+                          <option value="FCSI">FAST COLDCHAIN SOLUTION INC.</option>
+                          <option value="FDC">FAST DISTRIBUTION CORPORATION</option>
+                          <option value="FUI">FAST UNIMERCHANT INC.</option>
+                          <option value="other">OTHER</option>
+                        </select>
+                      </div>
                   </div>
 
 
                   <div class="row">
-                    <div class="col-md-6 form-group">
-                      <label for="businessunit">Business Unit</label>
-                      <select name="businessunit" id="businessunit" class="form-control">
-                        <option value="FLC">FAST LOGISTICS CORPORATION</option>
-                        <option value="FSC">FAST SERVICES CORPORATION</option>
-                        <option value="FTMC">FAST TOLL MANUFACTURING CORPORATION</option>
-                        <option value="FCSI">FAST COLDCHAIN SOLUTION INC.</option>
-                        <option value="FDC">FAST DISTRIBUTION CORPORATION</option>
-                        <option value="FUI">FAST UNIMERCHANT INC.</option>
-                        <option value="other">OTHER</option>
-                      </select>
-                    </div>
+
 
                     <div class="col-md-6 form-group">
                       <label for="room">Guests</label>
@@ -119,9 +120,7 @@
                         <option value="20">20 Guest</option>
                       </select>
                     </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-12 form-group">
+                    <div class="col-md-6 form-group"></div>
                       <label for="contact">Contact No.</label>
                       <input type="contact" id="contact" class="form-control ">
                     </div>
