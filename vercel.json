@@ -1,5 +1,7 @@
 {
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/$1" }
-  ]
+  ],
+  "cleanUrls": true,       // Remove .html from URLs
+  "trailingSlash": false  
 }
