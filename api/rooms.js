@@ -2,7 +2,7 @@ const { Pool } = require('pg');
 
 // PostgreSQL connection using connection string from environment variables
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL
+  connectionString: process.env.POSTGRES_URL
 });
 
 module.exports = async (req, res) => {
