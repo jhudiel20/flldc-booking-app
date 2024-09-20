@@ -90,7 +90,7 @@
         <div class="row">
           <div class="col-md-6">
             <h2 class="mb-5">Reservation Form</h2>
-            <form action="/rooms301" method="post">
+            <form action="#" method="post" id="bookingForm">
               <div class="row">
                 <div class="col-sm-6">
                   <label for="">Date of Reservation</label>
@@ -209,7 +209,47 @@
     
     <!-- loader -->
     <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
-    <script src="js/script.js"></script>
+    <script>
+document.getElementById('bookingForm').addEventListener('submit', async function(event) {
+  event.preventDefault(); // Prevent the default form submission behavior
+
+  // Collect form data
+  const formData = {
+    reserve_date: document.getElementById('reserve_date').value,
+    businessunit: document.getElementById('businessunit').value,
+    room: document.getElementById('room').value,
+    contact: document.getElementById('contact').value,
+    email: document.getElementById('email').value,
+    table: document.getElementById('table').checked, // Checkbox for table
+    hdmi: document.getElementById('hdmi').checked,  // Checkbox for HDMI
+    extension: document.getElementById('extension').checked, // Checkbox for extension
+    message: document.getElementById('message').value
+  };
+
+  try {
+    // Send form data to the API route
+    const response = await fetch('/api/room', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    });
+
+    const result = await response.json();
+
+    if (response.ok) {
+      alert(result.message); // Display success message
+    } else {
+      alert(result.error); // Display error message
+    }
+  } catch (error) {
+    console.error('Error:', error);
+  }
+});
+
+      
+    </script>
     <script src="js/sec-min.js"></script>
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/jquery-migrate-3.0.0.js"></script>
