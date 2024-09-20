@@ -42,7 +42,7 @@ module.exports = async (req, res) => {
       try {
         // SQL query to insert data into reservations table
         const result = await client.query(
-          `INSERT INTO reservations (reserve_date, business_unit, room, contact, email, table, hdmi, extension, message)
+          `INSERT INTO reservations (reserve_date, business_unit, room, contact, email, "table", hdmi, extension, message)
           VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING id`,
           [reserve_date, businessunit, room, contact, email, table, hdmi, extension, message]
         );
