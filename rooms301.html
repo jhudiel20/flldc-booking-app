@@ -94,10 +94,10 @@
                   <div class="row">
                       <div class="col-sm-6 form-group">
                           
-                          <label for="">Arrival Date</label>
+                          <label for="">Date of Reservation</label>
                           <div style="position: relative;">
                             <span class="fa fa-calendar icon" style="position: absolute; right: 10px; top: 10px;"></span>
-                            <input type='text' class="form-control" id='arrival_date' />
+                            <input type="date" class="form-control" id="reserve_date" name="reserve_date"/>
                           </div>
                       </div>
 
@@ -115,24 +115,21 @@
 
                   <div class="row">
                     <div class="col-md-6 form-group">
-                      <label for="room">Room</label>
-                      <select name="" id="room" class="form-control">
-                        <option value="">1 Room</option>
-                        <option value="">2 Rooms</option>
-                        <option value="">3 Rooms</option>
-                        <option value="">4 Rooms</option>
-                        <option value="">5 Rooms</option>
+                      <label for="businessunit">Business Unit</label>
+                      <select name="businessunit" id="businessunit" class="form-control">
+                        <option value="FLC">FAST LOGISTICS CORPORATION</option>
+                        <option value="FSC">FAST SERVICES CORPORATION</option>
+                        <option value="FTMC">FAST TOLL MANUFACTURING CORPORATION</option>
+                        <option value="FCSI">FAST COLDCHAIN SOLUTION INC.</option>
+                        <option value="FDC">FAST DISTRIBUTION CORPORATION</option>
+                        <option value="FUI">FAST UNIMERCHANT INC.</option>
                       </select>
                     </div>
 
                     <div class="col-md-6 form-group">
                       <label for="room">Guests</label>
-                      <select name="" id="room" class="form-control">
-                        <option value="">1 Guest</option>
-                        <option value="">2 Guests</option>
-                        <option value="">3 Guests</option>
-                        <option value="">4 Guests</option>
-                        <option value="">5+ Guests</option>
+                      <select name="" id="room" class="form-control" disabled>
+                        <option value="20">20 Guest</option>
                       </select>
                     </div>
                   </div>
@@ -159,7 +156,7 @@
               <div class="col-md-5">
                 <h3 class="mb-5">Featured Room</h3>
                 <div class="media d-block room mb-0">
-              <figure>
+              <figure class="zoom">
                 <img src="images/ROOM 301.jpg" alt="Generic placeholder image" class="img-fluid">
                 <div class="overlap-text">
                   <span>
