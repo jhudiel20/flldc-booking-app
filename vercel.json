@@ -1,12 +1,5 @@
 {
-    "rewrites": [
-      {
-        "source": "/:path",
-        "destination": "/:path.html"
-      }
-    ],
-    "redirects": [],
-    "headers": [],
-    "cleanUrls": true
-  }
-  
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/$1" }
+  ]
+}
