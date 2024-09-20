@@ -51,15 +51,15 @@ module.exports = async (req, res) => {
         res.status(200).json({ message: 'Booking successful!', reservationId: result.rows[0].id });
       } catch (error) {
         // Error handling for SQL query
-        console.error('Error booking room:', error);
-        res.status(500).json({ error: 'Error booking room' });
+        console.error('Error booking room:', error.message);
+        res.status(500).json({ error: `Error booking room: ${error.message}` });
       } finally {
         client.release();
       }
     } catch (error) {
       // Error handling for connection
-      console.error('Database connection error:', error);
-      res.status(500).json({ error: 'Failed to connect to the database' });
+      console.error('Database connection error:', error.message);
+      res.status(500).json({ error: `Failed to connect to the database: ${error.message}` });
     }
   } else {
     // Only allow POST requests
