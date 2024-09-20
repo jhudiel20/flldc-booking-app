@@ -34,6 +34,11 @@ pool.connect((err, client, release) => {
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));  // Parse URL-encoded bodies
 
+// Serve the HTML form
+app.get('/rooms301', (req, res) => {
+    res.sendFile(path.join(__dirname, 'rooms301.html'));  // Serve the HTML file
+});
+
 // Route to handle form submission
 app.post('/reserve301', (req, res) => {
   const { reserve_date, businessunit, contact, email, table, hdmi, extension, message } = req.body;
