@@ -92,24 +92,10 @@
             <h2 class="mb-5">Reservation Form</h2>
                 <form action="#" method="post">
                   <div class="row">
-                      <div class="col-sm-6 form-group">
-                          
+                      <div class="col-sm-6">
                           <label for="">Date of Reservation</label>
-                          <div style="position: relative;">
-                            <span class="fa fa-calendar icon" style="position: absolute; right: 10px; top: 10px;"></span>
                             <input type="date" class="form-control" id="reserve_date" name="reserve_date"/>
-                          </div>
                       </div>
-
-                      <div class="col-sm-6 form-group">
-                          
-                          <label for="">Departure Date</label>
-                          <div style="position: relative;">
-                            <span class="fa fa-calendar icon" style="position: absolute; right: 10px; top: 10px;"></span>
-                            <input type='text' class="form-control" id='departure_date' />
-                          </div>
-                      </div>
-                      
                   </div>
 
 
@@ -123,6 +109,7 @@
                         <option value="FCSI">FAST COLDCHAIN SOLUTION INC.</option>
                         <option value="FDC">FAST DISTRIBUTION CORPORATION</option>
                         <option value="FUI">FAST UNIMERCHANT INC.</option>
+                        <option value="other">OTHER</option>
                       </select>
                     </div>
 
@@ -131,6 +118,12 @@
                       <select name="" id="room" class="form-control" disabled>
                         <option value="20">20 Guest</option>
                       </select>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 form-group">
+                      <label for="contact">Contact No.</label>
+                      <input type="contact" id="contact" class="form-control ">
                     </div>
                   </div>
                   <div class="row">
