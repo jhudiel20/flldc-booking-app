@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const { Pool } = require('pg');  // Import the Pool class from 'pg'
+const path = require('path');
 
 // Create a new Pool instance with your PostgreSQL credentials
 const pool = new Pool({
