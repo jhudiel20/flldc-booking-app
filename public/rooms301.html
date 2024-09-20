@@ -228,7 +228,7 @@ document.getElementById('bookingForm').addEventListener('submit', async function
 
   try {
     // Send form data to the API route
-    const response = await fetch('/api/room', {
+    const response = await fetch('/api/rooms', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
