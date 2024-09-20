@@ -90,70 +90,71 @@
         <div class="row">
           <div class="col-md-6">
             <h2 class="mb-5">Reservation Form</h2>
-                <form action="#" method="post">
-                  <div class="row">
-                      <div class="col-sm-6">
-                          <label for="">Date of Reservation</label>
-                            <input type="date" class="form-control" id="reserve_date" name="reserve_date" onfocus="this.min=new Date().toISOString().split('T')[0]"/>
-                      </div>
-                      <div class="col-sm-6 form-group">
-                        <label for="businessunit">Business Unit</label>
-                        <select name="businessunit" id="businessunit" class="form-control">
-                          <option value="FLC">FAST LOGISTICS CORPORATION</option>
-                          <option value="FSC">FAST SERVICES CORPORATION</option>
-                          <option value="FTMC">FAST TOLL MANUFACTURING CORPORATION</option>
-                          <option value="FCSI">FAST COLDCHAIN SOLUTION INC.</option>
-                          <option value="FDC">FAST DISTRIBUTION CORPORATION</option>
-                          <option value="FUI">FAST UNIMERCHANT INC.</option>
-                          <option value="other">OTHER</option>
-                        </select>
-                      </div>
-                  </div>
-
-
-                  <div class="row">
-
-
-                    <div class="col-md-6 form-group">
-                      <label for="room">Guests</label>
-                      <select name="" id="room" class="form-control" disabled>
-                        <option value="20">20 Guest</option>
-                      </select>
-                    </div>
-                    <div class="col-md-6 form-group">
-                      <label for="contact">Contact No.</label>
-                      <input type="contact" id="contact" class="form-control ">
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-12 form-group">
-                      <label for="email">Email</label>
-                      <input type="email" id="email" class="form-control ">
-                    </div>
-                  </div>
-                  <label for="email">Addons</label>
-                  <div class="row">
-                      <div class="col-md-4">
-                        <label><input type="checkbox" class="form-control" name="table" id="table"> Table</label>
-                      </div>
-                      <div class="col-md-4">
-                        <label><input type="checkbox" class="form-control" name="hdmi" id="hdmi"> HDMI cable</label>
-                      </div>
-                      <div class="col-md-4">
-                        <label><input type="checkbox" class="form-control" name="extension" id="extension"> Extension cord</label>
-                      </div>
-                    
-                    <div class="col-md-12 form-group">
-                      <label for="message">Write a Note</label>
-                      <textarea name="message" id="message" class="form-control " cols="30" rows="8"></textarea>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6 form-group">
-                      <input type="submit" value="Reserve Now" class="btn btn-primary">
-                    </div>
-                  </div>
-                </form>
+            <form action="#" method="post">
+              <div class="row">
+                <div class="col-sm-6">
+                  <label for="">Date of Reservation</label>
+                  <input type="date" class="form-control" id="reserve_date" name="reserve_date" onfocus="this.min=new Date().toISOString().split('T')[0]" />
+                </div>
+                <div class="col-sm-6 form-group">
+                  <label for="businessunit">Business Unit</label>
+                  <select name="businessunit" id="businessunit" class="form-control">
+                    <option value="FLC">FAST LOGISTICS CORPORATION</option>
+                    <option value="FSC">FAST SERVICES CORPORATION</option>
+                    <option value="FTMC">FAST TOLL MANUFACTURING CORPORATION</option>
+                    <option value="FCSI">FAST COLDCHAIN SOLUTION INC.</option>
+                    <option value="FDC">FAST DISTRIBUTION CORPORATION</option>
+                    <option value="FUI">FAST UNIMERCHANT INC.</option>
+                    <option value="other">OTHER</option>
+                  </select>
+                </div>
+              </div>
+            
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <label for="room">Guests</label>
+                  <select name="room" id="room" class="form-control" disabled>
+                    <option value="20">20 Guest</option>
+                  </select>
+                </div>
+                <div class="col-md-6 form-group">
+                  <label for="contact">Contact No.</label>
+                  <input type="contact" id="contact" name="contact" class="form-control">
+                </div>
+              </div>
+            
+              <div class="row">
+                <div class="col-md-12 form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" class="form-control">
+                </div>
+              </div>
+            
+              <label for="addons">Addons</label>
+              <div class="row">
+                <div class="col-md-4">
+                  <label><input type="checkbox" name="table" id="table"> Table</label>
+                </div>
+                <div class="col-md-4">
+                  <label><input type="checkbox" name="hdmi" id="hdmi"> HDMI cable</label>
+                </div>
+                <div class="col-md-4">
+                  <label><input type="checkbox" name="extension" id="extension"> Extension cord</label>
+                </div>
+            
+                <div class="col-md-12 form-group">
+                  <label for="message">Write a Note</label>
+                  <textarea name="message" id="message" class="form-control" cols="30" rows="8"></textarea>
+                </div>
+              </div>
+            
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <input type="submit" value="Reserve Now" class="btn btn-primary">
+                </div>
+              </div>
+            </form>
+            
               </div>
               <div class="col-md-1"></div>
               <div class="col-md-5">
