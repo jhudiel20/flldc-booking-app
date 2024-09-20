@@ -41,7 +41,7 @@ app.get('/rooms301', (req, res) => {
 });
 
 // Route to handle form submission
-app.post('/reserve301', (req, res) => {
+app.post('/rooms301', (req, res) => {
   const { reserve_date, businessunit, contact, email, table, hdmi, extension, message } = req.body;
 
   // Insert query
