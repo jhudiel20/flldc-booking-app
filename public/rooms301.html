@@ -94,7 +94,7 @@
               <div class="row">
                 <div class="col-sm-6">
                   <label for="">Date of Reservation</label>
-                  <input type="date" class="form-control" id="reserve_date" name="reserve_date" onfocus="this.min=new Date().toISOString().split('T')[0]" />
+                  <input type="date" class="form-control" id="reserve_date" name="reserve_date" onfocus="this.min=new Date().toISOString().split('T')[0]" required/>
                 </div>
                 <div class="col-sm-6 form-group">
                   <label for="businessunit">Business Unit</label>
@@ -111,22 +111,23 @@
               </div>
             
               <div class="row">
+                <input type="hidden" name="room" id="room" value="Room-301">
                 <div class="col-md-6 form-group">
-                  <label for="room">Guests</label>
-                  <select name="room" id="room" class="form-control" disabled>
+                  <label for="guest">Guests</label>
+                  <select name="guest" id="guest" class="form-control" disabled>
                     <option value="20">20 Guest</option>
                   </select>
                 </div>
                 <div class="col-md-6 form-group">
                   <label for="contact">Contact No.</label>
-                  <input type="contact" id="contact" name="contact" class="form-control">
+                  <input type="contact" id="contact" name="contact" class="form-control" required>
                 </div>
               </div>
             
               <div class="row">
                 <div class="col-md-12 form-group">
                   <label for="email">Email</label>
-                  <input type="email" id="email" name="email" class="form-control">
+                  <input type="email" id="email" name="email" class="form-control" required>
                 </div>
               </div>
             
@@ -144,7 +145,7 @@
             
                 <div class="col-md-12 form-group">
                   <label for="message">Write a Note</label>
-                  <textarea name="message" id="message" class="form-control" cols="30" rows="8"></textarea>
+                  <textarea name="message" id="message" class="form-control" cols="30" rows="8" required></textarea>
                 </div>
               </div>
             
@@ -209,47 +210,6 @@
     
     <!-- loader -->
     <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
-    <script>
-document.getElementById('bookingForm').addEventListener('submit', async function(event) {
-  event.preventDefault(); // Prevent the default form submission behavior
-
-  // Collect form data
-  const formData = {
-    reserve_date: document.getElementById('reserve_date').value,
-    businessunit: document.getElementById('businessunit').value,
-    room: document.getElementById('room').value,
-    contact: document.getElementById('contact').value,
-    email: document.getElementById('email').value,
-    table: document.getElementById('table').checked, // Checkbox for table
-    hdmi: document.getElementById('hdmi').checked,  // Checkbox for HDMI
-    extension: document.getElementById('extension').checked, // Checkbox for extension
-    message: document.getElementById('message').value
-  };
-
-  try {
-    // Send form data to the API route
-    const response = await fetch('/api/rooms', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formData)
-    });
-
-    const result = await response.json();
-
-    if (response.ok) {
-      alert(result.message); // Display success message
-    } else {
-      alert(result.error); // Display error message
-    }
-  } catch (error) {
-    console.error('Error:', error);
-  }
-});
-
-      
-    </script>
     <script src="js/sec-min.js"></script>
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/jquery-migrate-3.0.0.js"></script>
