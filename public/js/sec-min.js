@@ -9,7 +9,7 @@
     const formData = new FormData(this);
 
     // Send form data to the backend via fetch
-    fetch('/api/book-room', {
+    fetch('/api/rooms', {
       method: 'POST',
       body: formData
     })
