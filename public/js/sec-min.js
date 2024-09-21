@@ -6,12 +6,27 @@
     e.preventDefault(); // Prevent default form submission
 
     // Gather form data
-    const formData = new FormData(this);
+    const formData = {
+      reserve_date: document.getElementById('reserve_date').value,
+      businessunit: document.getElementById('businessunit').value,
+      room: document.getElementById('room').value,
+      guest: document.getElementById('guest').value,
+      contact: document.getElementById('contact').value,
+      email: document.getElementById('email').value,
+      table: document.getElementById('table').checked, // Checkbox for table
+      hdmi: document.getElementById('hdmi').checked,  // Checkbox for HDMI
+      extension: document.getElementById('extension').checked, // Checkbox for extension
+      message: document.getElementById('message').value
+    };
+  
 
     // Send form data to the backend via fetch
     fetch('/api/rooms', {
       method: 'POST',
-      body: formData
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
     })
     .then(response => response.json())
     .then(data => {
@@ -43,7 +58,7 @@
       Swal.fire({
         icon: 'error',
         title: 'Error',
-        text: `An unexpected error occurred. Please try again. Error: ${err.message || err}`,
+        text: `An unexpected error occurred. Please try again. Error: ${err.message || err}`,y
       });
     });
   });
