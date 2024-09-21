@@ -1,5 +1,5 @@
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
   // Handle form submission
   document.querySelector('#bookingForm').addEventListener('submit', function (e) {
