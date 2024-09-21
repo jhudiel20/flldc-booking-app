@@ -36,21 +36,27 @@
           icon: 'error',
           title: 'Validation Error',
           html: data.errors.join('<br>'),  // Display each validation error on a new line
-        });
+        }).then(function() {
+          window.location.reload();
+      });
       } else if (data.error) {
         // If there is a backend error
         Swal.fire({
           icon: 'error',
           title: 'Booking Failed',
           text: data.error,
-        });
+        }).then(function() {
+          window.location.reload();
+      });
       } else {
         // On successful booking
         Swal.fire({
           icon: 'success',
           title: 'Booking Successful',
-          text: `Your reservation ID is ${data.reservationId}`,
-        });
+          text: `Please wait the email confirmation of your booking.`,
+        }).then(function() {
+          window.location.reload();
+      });
       }
     })
     .catch(err => {
@@ -58,8 +64,10 @@
       Swal.fire({
         icon: 'error',
         title: 'Error',
-        text: `An unexpected error occurred. Please try again. Error: ${err.message || err}`,y
-      });
+        text: `An unexpected error occurred. Please try again. Error: ${err.message || err}`,
+      }).then(function() {
+        window.location.reload();
+    });
     });
   });
 
