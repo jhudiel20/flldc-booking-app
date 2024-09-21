@@ -1,43 +1,52 @@
 
-document.getElementById('bookingForm').addEventListener('submit', async function(event) {
-  event.preventDefault(); // Prevent the default form submission behavior
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-  // Collect form data
-  const formData = {
-    reserve_date: document.getElementById('reserve_date').value,
-    businessunit: document.getElementById('businessunit').value,
-    room: document.getElementById('room').value,
-    guest: document.getElementById('guest').value,
-    contact: document.getElementById('contact').value,
-    email: document.getElementById('email').value,
-    table: document.getElementById('table').checked, // Checkbox for table
-    hdmi: document.getElementById('hdmi').checked,  // Checkbox for HDMI
-    extension: document.getElementById('extension').checked, // Checkbox for extension
-    message: document.getElementById('message').value
-  };
+  // Handle form submission
+  document.querySelector('#bookingForm').addEventListener('submit', function (e) {
+    e.preventDefault(); // Prevent default form submission
 
-  try {
-    // Send form data to the API route
-    const response = await fetch('/api/rooms', {
+    // Gather form data
+    const formData = new FormData(this);
+
+    // Send form data to the backend via fetch
+    fetch('/api/book-room', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formData)
+      body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.errors) {
+        // If there are validation errors, display them
+        Swal.fire({
+          icon: 'error',
+          title: 'Validation Error',
+          html: data.errors.join('<br>'),  // Display each validation error on a new line
+        });
+      } else if (data.error) {
+        // If there is a backend error
+        Swal.fire({
+          icon: 'error',
+          title: 'Booking Failed',
+          text: data.error,
+        });
+      } else {
+        // On successful booking
+        Swal.fire({
+          icon: 'success',
+          title: 'Booking Successful',
+          text: `Your reservation ID is ${data.reservationId}`,
+        });
+      }
+    })
+    .catch(err => {
+      // If there's a network error or other fetch issue
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'An unexpected error occurred. Please try again.',
+      });
     });
-
-    const result = await response.json();
-
-    if (response.ok) {
-      alert(result.message); // Display success message
-    } else {
-      alert(result.error); // Display error message
-    }
-  } catch (error) {
-    console.error('Error:', error);
-  }
-});
-
+  });
 
 
 // Get the current URL path (without domain and query parameters)
