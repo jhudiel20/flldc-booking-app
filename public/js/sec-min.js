@@ -43,7 +43,7 @@
       Swal.fire({
         icon: 'error',
         title: 'Error',
-        text: 'An unexpected error occurred. Please try again.',
+        text: `An unexpected error occurred. Please try again. Error: ${err.message || err}`,
       });
     });
   });
