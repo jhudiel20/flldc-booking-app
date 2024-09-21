@@ -32,6 +32,7 @@ module.exports = async (req, res) => {
     // Validate input
     const errors = validateInput(req.body);
     if (errors.length > 0) {
+      console.log('Validation errors:', errors);
       return res.status(400).json({ errors }); // Send validation errors to the front-end
     }
 
@@ -48,24 +49,30 @@ module.exports = async (req, res) => {
           [reserve_date, businessunit, room, guest, contact, email, table, hdmi, extension, message]
         );
 
+        const responseMessage = { message: 'Booking successful!', reservationId: result.rows[0].id };
+        console.log('Response:', responseMessage);
         // Return success message and the inserted reservation ID
-        res.status(200).json({ message: 'Booking successful!', reservationId: result.rows[0].id });
+        res.status(200).json(responseMessage);
       } catch (error) {
         // Handle SQL query error
         console.error('Error booking room:', error.message);
-        res.status(500).json({ error: `Error booking room: ${error.message}` });
+        const errorMessage = { error: `Error booking room: ${error.message}` };
+        console.log('Response:', errorMessage);
+        res.status(500).json(errorMessage);
       } finally {
         client.release(); // Release client after query execution
       }
     } catch (error) {
       // Handle connection error
       console.error('Database connection error:', error.message);
-      res.status(500).json({ error: `Failed to connect to the database: ${error.message}` });
+      const errorMessage = { error: `Failed to connect to the database: ${error.message}` };
+      console.log('Response:', errorMessage);
+      res.status(500).json(errorMessage);
     }
   } else {
     // Only allow POST requests
-    res.status(405).json({ error: 'Method not allowed' });
+    const errorMessage = { error: 'Method not allowed' };
+    console.log('Response:', errorMessage);
+    res.status(405).json(errorMessage);
   }
 };
-
-
