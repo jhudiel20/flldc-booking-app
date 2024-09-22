@@ -106,9 +106,21 @@
                 </div>
                
               </div>
-            
+
               <div class="row">
-                <div class="col-sm-6 form-group">
+                <div class="col-sm-6">
+                  <label for="setup">Seating Arrangement: <a id="previewLink" href="#" target="_blank" style="margin-left: 10px; text-decoration: none; color: blue;">Preview</a>
+                  </label>
+                    <select name="setup" id="setup" class="form-control">
+                      <option value="CLASS ROOM" data-img="images/CLASSROOM SETUP-Photoroom.png" selected>CLASS ROOM</option>
+                      <option value="FISHBONE" data-img="images/FISH BONE SETUP-Photoroom.png">FISHBONE</option>
+                      <option value="THEATER" data-img="images/THEATER SETUP-Photoroom.png">THEATER</option>
+                      <option value="U-SHAPE" data-img="images/U-SHAPE SETUP-Photoroom.png">U-SHAPE</option>
+                      <option value="CONFERENCE" data-img="images/CONFERENCE SETUP-Photoroom.png">CONFERENCE</option>
+                      <option value="OTHER">OTHER</option>
+                    </select>
+                </div>
+                <div class="col-sm-6 form-group">     
                   <label for="businessunit">Business Unit</label>
                   <select name="businessunit" id="businessunit" class="form-control">
                     <option value="FLC">FAST LOGISTICS CORPORATION</option>
@@ -121,21 +133,25 @@
                   </select>
                 </div>
                 <input type="hidden" name="room" id="room" value="Room-303">
+
+               
+              </div>
+            
+              <div class="row">
                 <div class="col-md-6 form-group">
                   <label for="guest">Guests</label>
                   <select name="guest" id="guest" class="form-control" disabled>
                     <option value="30">30 Guest</option>
                   </select>
                 </div>
-               
-              </div>
-            
-              <div class="row">
                 <div class="col-md-6 form-group">
                   <label for="contact">Contact No.</label>
                   <input type="contact" id="contact" name="contact" class="form-control" required>
                 </div>
-                <div class="col-md-6 form-group">
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 form-group">
                   <label for="email">Email</label>
                   <input type="email" id="email" name="email" class="form-control" required>
                 </div>
