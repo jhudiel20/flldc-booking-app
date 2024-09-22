@@ -72,10 +72,11 @@
   const selectElement = document.getElementById('setup');
   const previewLink = document.getElementById('previewLink');
 
-  selectElement.addEventListener('change', function() {
+  // Function to update the preview link
+  function updatePreviewLink() {
     const selectedOption = selectElement.options[selectElement.selectedIndex];
     const selectedImage = selectedOption.getAttribute('data-img');
-
+    
     if (selectedImage) {
       previewLink.href = selectedImage;  // Set the href of the link
       previewLink.style.pointerEvents = 'auto'; // Enable the link if image exists
@@ -84,4 +85,15 @@
       previewLink.style.pointerEvents = 'none'; // Disable the link if no image
       alert('No image available for this option.');
     }
-  });
+  }
+
+  // Trigger the change event on page load to set the default preview
+  window.onload = function() {
+    updatePreviewLink(); // Set preview for the default selected option
+  };
+
+  // Update the preview link when the user changes the selection
+  selectElement.addEventListener('change', updatePreviewLink);
+
+  // Optionally set the initial state to disabled
+  previewLink.style.pointerEvents = 'none';
