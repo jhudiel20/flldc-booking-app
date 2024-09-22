@@ -1,44 +1,3 @@
-<style>
-  .star-rating {
-    display: inline-flex;
-    direction: rtl;
-    font-size: 1.5rem;
-    margin-top: 10px;
-  }
-
-  .star-rating input {
-    display: none;
-  }
-
-  .star-rating label {
-    cursor: pointer;
-    color: #ccc;
-  }
-
-  .star-rating input:checked ~ label {
-    color: #f5c518;
-  }
-
-  .star-rating label:hover,
-  .star-rating label:hover ~ label {
-    color: #f5c518;
-  }
-
-  button {
-    padding: 8px 15px;
-    background-color: #f5c518;
-    border: none;
-    cursor: pointer;
-    font-size: 0.9rem;
-    color: #333;
-    border-radius: 5px;
-    margin-top: 10px;
-  }
-
-  button:hover {
-    background-color: #e1b517;
-  }
-</style>
 <footer class="site-footer">
     <div class="container">
       <div class="row mb-5">
@@ -61,27 +20,37 @@
         </div>
 
         <div class="col-md-4">
-          <h3>Rate Our Website</h3>
-          <form action="#" method="post" id="ratingForm">
-            <div class="star-rating">
-              <input type="radio" id="rating" name="rating" value="5">
-              <label for="star5" title="5 stars">★</label>
-              
-              <input type="radio" id="rating" name="rating" value="4">
-              <label for="star4" title="4 stars">★</label>
-              
-              <input type="radio" id="rating" name="rating" value="3">
-              <label for="star3" title="3 stars">★</label>
-              
-              <input type="radio" id="rating" name="rating" value="2">
-              <label for="star2" title="2 stars">★</label>
-              
-              <input type="radio" id="rating" name="rating" value="1">
-              <label for="star1" title="1 star">★</label>
-            </div>
-            <input type="submit" value="Submit Rating" class="btn btn-primary">
-          </form>
-        </div>
+          <h3>Quick Links</h3>
+          <ul class="navbar-nav ml-auto pl-lg-5 pl-0">
+            <li class="nav-item">
+              <a class="nav-link" href="index">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="rooms" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Rooms</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown04">
+                <a class="dropdown-item" href="rooms">All Rooms</a>
+                <a class="dropdown-item" href="rooms301">Room 301</a>
+                <a class="dropdown-item" href="rooms302">Room 302</a>
+                <a class="dropdown-item" href="rooms303">Room 303</a>
+                <a class="dropdown-item" href="rooms304">Room 304</a>
+                <a class="dropdown-item" href="roomsCon1">Conference Room 1</a>
+                <a class="dropdown-item" href="roomsCon2">Conference Room 2</a>
+                <a class="dropdown-item" href="roomsIT">IT Room</a>
+              </div>
+  
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact">Contact</a>
+            </li>
+  
+             <li class="nav-item cta">
+              <a class="nav-link" href="rooms"><span>Book Now</span></a>
+            </li>
+          </ul>
+      </div>
       
       
       </div>
@@ -94,67 +63,4 @@
       </div>
     </div>
   </footer>
-  <script>
-    document.querySelector('#ratingForm').addEventListener('submit', function (e) {
-e.preventDefault(); // Prevent default form submission
-
-// Show the loader
-document.getElementById('loader').classList.add('show');
-
-// Gather form data
-const formData = {
-  rating: document.getElementById('rating').value
-  };
-
-
-// Send form data to the backend via fetch
-fetch('/api/ratings', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify(formData)
-})
-.then(response => response.json())
-.then(data => {
-  if (data.errors) {
-    // If there are validation errors, display them
-    Swal.fire({
-      icon: 'error',
-      title: 'Validation Error',
-      html: data.errors.join('<br>'),  // Display each validation error on a new line
-    }).then(function() {
-      window.location.reload();
-  });
-  } else if (data.error) {
-    // If there is a backend error
-    Swal.fire({
-      icon: 'error',
-      title: 'Rating Failed',
-      text: data.error,
-    }).then(function() {
-      window.location.reload();
-  });
-  } else {
-    // On successful booking
-    Swal.fire({
-      icon: 'success',
-      title: 'Rating Submitted',
-    }).then(function() {
-      window.location.reload();
-  });
-  }
-})
-.catch(err => {
-  document.getElementById('loader').classList.remove('show');
-  // If there's a network error or other fetch issue
-  Swal.fire({
-    icon: 'error',
-    title: 'Error',
-    text: `An unexpected error occurred. Please try again. Error: ${err.message || err}`,
-  }).then(function() {
-    window.location.reload();
-});
-});
-});
-</script>
+ 
