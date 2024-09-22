@@ -6,6 +6,7 @@
     const formData = {
       reserve_date: document.getElementById('reserve_date').value,
       time: document.getElementById('time').value,
+      setup: document.getElementById('setup').value,
       businessunit: document.getElementById('businessunit').value,
       room: document.getElementById('room').value,
       guest: document.getElementById('guest').value,
@@ -71,19 +72,33 @@
 
   const selectElement = document.getElementById('setup');
   const previewLink = document.getElementById('previewLink');
+  const roomInput = document.getElementById('room');  // Hidden input for room
 
-  // Function to update the preview link
+  // Function to update the preview link and hidden input
   function updatePreviewLink() {
     const selectedOption = selectElement.options[selectElement.selectedIndex];
+    const selectedValue = selectedOption.value;
     const selectedImage = selectedOption.getAttribute('data-img');
-    
-    if (selectedImage) {
+
+    // Update the hidden input with the selected room value
+    roomInput.value = selectedValue;
+
+    // Special case for IT-Room
+    if (selectedValue === "IT-Room") {
+      previewLink.style.display = 'none';  // Hide the preview link for IT-Room
+    } else if (selectedImage) {
       previewLink.href = selectedImage;  // Set the href of the link
-      previewLink.style.pointerEvents = 'auto'; // Enable the link if image exists
+      previewLink.style.display = 'inline';  // Show the preview link if image exists
+      previewLink.style.pointerEvents = 'auto';  // Enable the link
     } else {
       previewLink.href = '#';  // Reset href if no image is available
-      previewLink.style.pointerEvents = 'none'; // Disable the link if no image
-      alert('No image available for this option.');
+      previewLink.style.pointerEvents = 'none';  // Disable the link
+      previewLink.style.display = 'inline';  // Show the preview link (for other cases)
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'No image available for this option.',
+      })
     }
   }
 
@@ -92,7 +107,7 @@
     updatePreviewLink(); // Set preview for the default selected option
   };
 
-  // Update the preview link when the user changes the selection
+  // Update the preview link and hidden input when the user changes the selection
   selectElement.addEventListener('change', updatePreviewLink);
 
   // Optionally set the initial state to disabled
