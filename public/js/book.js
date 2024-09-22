@@ -77,16 +77,13 @@
   // Function to update the preview link and hidden input
   function updatePreviewLink() {
     const selectedOption = selectElement.options[selectElement.selectedIndex];
-    const selectedValue = selectedOption.value;
+    const RoomselectedValue = roomInput.value;
     const selectedImage = selectedOption.getAttribute('data-img');
 
-    // Update the hidden input with the selected room value
-    roomInput.value = selectedValue;
-
     // Special case for IT-Room
-    if (selectedValue === "IT-Room") {
+    if (RoomselectedValue === "IT-Room") {
       previewLink.style.display = 'none';  // Hide the preview link for IT-Room
-    } else if (selectedImage) {
+    } else if (RoomselectedValue !== "IT-Room") {
       previewLink.href = selectedImage;  // Set the href of the link
       previewLink.style.display = 'inline';  // Show the preview link if image exists
       previewLink.style.pointerEvents = 'auto';  // Enable the link
