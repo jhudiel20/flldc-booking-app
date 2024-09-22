@@ -2,6 +2,9 @@
   document.querySelector('#bookingForm').addEventListener('submit', function (e) {
     e.preventDefault(); // Prevent default form submission
 
+    // Show the loader
+    document.getElementById('loader').classList.add('show');
+
     // Gather form data
     const formData = {
       reserve_date: document.getElementById('reserve_date').value,
@@ -59,6 +62,7 @@
       }
     })
     .catch(err => {
+      document.getElementById('loader').classList.remove('show');
       // If there's a network error or other fetch issue
       Swal.fire({
         icon: 'error',
