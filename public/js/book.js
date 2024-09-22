@@ -70,15 +70,18 @@
   });
 
   const selectElement = document.getElementById('setup');
-  const previewButton = document.getElementById('previewBtn');
+  const previewLink = document.getElementById('previewLink');
 
-  previewButton.addEventListener('click', function() {
+  selectElement.addEventListener('change', function() {
     const selectedOption = selectElement.options[selectElement.selectedIndex];
     const selectedImage = selectedOption.getAttribute('data-img');
-    
+
     if (selectedImage) {
-      window.open(selectedImage, '_blank'); // Open image in new tab
+      previewLink.href = selectedImage;  // Set the href of the link
+      previewLink.style.pointerEvents = 'auto'; // Enable the link if image exists
     } else {
-      alert('No image available for this option.'); // Show alert if no image
+      previewLink.href = '#';  // Reset href if no image is available
+      previewLink.style.pointerEvents = 'none'; // Disable the link if no image
+      alert('No image available for this option.');
     }
   });
