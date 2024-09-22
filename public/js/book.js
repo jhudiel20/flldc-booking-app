@@ -68,3 +68,17 @@
     });
     });
   });
+
+  const selectElement = document.getElementById('setup');
+  const previewButton = document.getElementById('previewBtn');
+
+  previewButton.addEventListener('click', function() {
+    const selectedOption = selectElement.options[selectElement.selectedIndex];
+    const selectedImage = selectedOption.getAttribute('data-img');
+    
+    if (selectedImage) {
+      window.open(selectedImage, '_blank'); // Open image in new tab
+    } else {
+      alert('No image available for this option.'); // Show alert if no image
+    }
+  });
