@@ -7,6 +7,7 @@
 
     // Gather form data
     const formData = {
+      reservation_id: 'PENDING', 
       reserve_date: document.getElementById('reserve_date').value,
       time: document.getElementById('time').value,
       setup: document.getElementById('setup').value,

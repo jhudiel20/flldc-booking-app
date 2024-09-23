@@ -29,7 +29,7 @@ const validateInput = (data) => {
 module.exports = async (req, res) => {
   if (req.method === 'POST') {
     // Destructure form fields from the request body
-    const { reserve_date, time, businessunit, room, setup, guest, contact, email, table, hdmi, extension, message } = req.body;
+    const { reservation_id,reserve_date, time, businessunit, room, setup, guest, contact, email, table, hdmi, extension, message } = req.body;
 
     // Validate input
     const errors = validateInput(req.body);
@@ -46,9 +46,9 @@ module.exports = async (req, res) => {
       try {
         // SQL query to insert data into the reservations table
         const result = await client.query(
-          `INSERT INTO reservations (reservation_id, reserve_date, time, setup, business_unit, room, guest, contact, email, "table", hdmi, extension, message)
-          VALUES (NULL, $1, $2, $3, $4, $5, $6, $7, $8, $9 ,$10 ,$11 ,$12) RETURNING id`,
-          [reserve_date, time, setup, businessunit, room, guest, contact, email, table, hdmi, extension, message]
+          `INSERT INTO reservations (reserve_date, time, setup, business_unit, room, guest, contact, email, "table", hdmi, extension, message, reservation_id)
+          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9 ,$10 ,$11 ,$12 ,$13) RETURNING id`,
+          [reserve_date, time, setup, businessunit, room, guest, contact, email, table, hdmi, extension, message, reservation_id]
         );
 
         const responseMessage = { message: 'Booking successful!', reservationId: result.rows[0].id };
