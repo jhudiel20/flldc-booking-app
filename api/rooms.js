@@ -18,7 +18,6 @@ function generateBookingId() {
 
 const booking_id = generateBookingId();
 const { Pool } = require('pg');
-const nodemailer = require('nodemailer');
 
 // PostgreSQL connection using connection string from environment variables
 const pool = new Pool({
@@ -51,89 +50,50 @@ const validateInput = (data) => {
 
 const nodemailer = require('nodemailer');
 
-// Function to send email with HTML content and attachment
-async function sendBookingEmail({ fname, lname, reserve_date, time, room, email, booking_id, business_unit, contact, setup, message }) {
-  const transporter = nodemailer.createTransport({
-    service: 'gmail', // Replace with your email provider (e.g., Gmail, SMTP server)
-    auth: {
-      user: process.env.EMAIL_USER, // Your email address from environment variables
-      pass: process.env.EMAIL_PASS  // Your email password from environment variables
+module.exports = async (req, res) => {
+  if (req.method === 'POST') {
+    // Destructure form fields from the request body
+    const { fname, lname, reserve_date, time, businessunit, room, setup, guest, contact, email, table, hdmi, extension, message } = req.body;
+
+    // Basic validation for required fields
+    if (!fname || !lname || !email || !contact || !room || !time) {
+      return res.status(400).json({ error: 'Missing required fields. Please provide all reservation details.' });
     }
-  });
 
-  const mailOptions = {
-    from: process.env.EMAIL_USER, // Sender's email address
-    to: email, // Recipient's email address
-    subject: `Booking Confirmation - ${booking_id}`,
-    html: `
-      <div style="background:#f3f3f3">
-        <div style="margin:0px auto;max-width:640px;background:transparent">
-          <table role="presentation" cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;background:transparent" align="center" border="0">
-            <tbody>
-              <tr>
-                <td style="text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:40px 0px">
-                  <div style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%">
-                    <table role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                      <tbody>
-                        <tr>
-                          <td style="word-break:break-word;font-size:0px;padding:0px" align="center">
-                            <table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-spacing:0px" align="center" border="0">
-                              <tbody>
-                                <tr>
-                                  <td style="width:138px">
-                                    <img alt="" title="" height="100px" width="200px" src="cid:logo_cid" style="">
-                                  </td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+    // Create the transporter for sending email
+    const transporter = nodemailer.createTransport({
+      service: 'gmail', // or your email service
+      auth: {
+        user: process.env.EMAIL_USER, // Your email
+        pass: process.env.EMAIL_PASS // Your email password or app password
+      }
+    });
 
-        <div style="max-width:640px;margin:0 auto;border-radius:4px;overflow:hidden">
-          <div style="margin:0px auto;max-width:640px;background:#fdfdfd">
-            <table role="presentation" cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;background:#fdfdfd" align="center" border="0">
+    const mailOptions = {
+      from: process.env.EMAIL_USER, // Sender's email address
+      to: email, // Recipient's email address
+      subject: `Booking Confirmation - ${booking_id}`,
+      html: `
+        <div style="background:#f3f3f3">
+          <div style="margin:0px auto;max-width:640px;background:transparent">
+            <table role="presentation" cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;background:transparent" align="center" border="0">
               <tbody>
                 <tr>
-                  <td style="text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:40px 50px">
+                  <td style="text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:40px 0px">
                     <div style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%">
                       <table role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
                         <tbody>
                           <tr>
-                            <td style="word-break:break-word;font-size:0px;padding:0px" align="left">
-                              <div style="color:#737f8d;font-family:Whitney,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;font-size:16px;line-height:24px;text-align:left">
-                                <h2 style="font-family:Whitney,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;font-weight:500;font-size:20px;color:#4f545c;letter-spacing:0.27px">Hi good day,</h2>
-                                <p>Your reservation has been approved! Below are the details of your reservation. Please present the reservation ID at the security desk when you arrive at the center.</p>
-
-                                <p><strong>Reservation Details:</strong><br>
-                                <b>Reservation ID:</b> ${booking_id}<br>
-                                <b>Reservation Date:</b> ${reserve_date}<br>
-                                <b>Business Unit:</b> ${business_unit}<br>
-                                <b>Room:</b> ${room}<br>
-                                <b>Contact:</b> ${contact}<br>
-                                <b>Email:</b> ${email}<br>
-                                <b>Time:</b> ${time}<br>
-                                <b>Setup:</b> ${setup}<br>
-                                <b>Reserved By:</b> ${fname} ${lname}<br>
-                                <b>Message:</b> ${message}<br>
-                                </p>
-
-                                <p style="text-align:justify">We look forward to assisting you at the FAST Learning and Development Center. If you have any questions, feel free to contact us at jppsolis@fast.com.ph | Viber Number: +63 969 450 9412.</p>
-
-                                <p style="text-align:justify">Thank you for choosing FAST Learning and Development Center.</p>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td style="word-break:break-word;font-size:0px;padding:30px 0px">
-                              <p style="font-size:1px;margin:0px auto;border-top:1px solid #dcddde;width:100%"></p>
+                            <td style="word-break:break-word;font-size:0px;padding:0px" align="center">
+                              <table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-spacing:0px" align="center" border="0">
+                                <tbody>
+                                  <tr>
+                                    <td style="width:138px">
+                                      <img alt="" title="" height="100px" width="200px" src="cid:logo_cid" style="">
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
                             </td>
                           </tr>
                         </tbody>
@@ -144,28 +104,87 @@ async function sendBookingEmail({ fname, lname, reserve_date, time, room, email,
               </tbody>
             </table>
           </div>
-          <div>
-            <table align="center">
-              <tr>
-                <td style="height:150px; border:none;border-radius:3px;color:black;padding:15px 19px" align="center" valign="middle">&copy; 2024-2025 <strong><span>FAST Learning and Development Center</span></strong></td>
-              </tr>
-            </table>
+
+          <div style="max-width:640px;margin:0 auto;border-radius:4px;overflow:hidden">
+            <div style="margin:0px auto;max-width:640px;background:#fdfdfd">
+              <table role="presentation" cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;background:#fdfdfd" align="center" border="0">
+                <tbody>
+                  <tr>
+                    <td style="text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:40px 50px">
+                      <div style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%">
+                        <table role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+                          <tbody>
+                            <tr>
+                              <td style="word-break:break-word;font-size:0px;padding:0px" align="left">
+                                <div style="color:#737f8d;font-family:Whitney,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;font-size:16px;line-height:24px;text-align:left">
+                                  <h2 style="font-family:Whitney,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;font-weight:500;font-size:20px;color:#4f545c;letter-spacing:0.27px">Hi good day,</h2>
+                                  <p>A new booking has been submitted: </p>
+
+                                  <p><strong>Reservation Details:</strong><br>
+                                  <b>Booking ID:</b> ${booking_id}<br>
+                                  <b>Booking Date:</b> ${reserve_date}<br>
+                                  <b>Business Unit:</b> ${business_unit}<br>
+                                  <b>Room:</b> ${room}<br>
+                                  <b>Contact:</b> ${contact}<br>
+                                  <b>Email:</b> ${email}<br>
+                                  <b>Time:</b> ${time}<br>
+                                  <b>Setup:</b> ${setup}<br>
+                                  <b>Reserved By:</b> ${fname} ${lname}<br>
+                                  <b>Message:</b> ${message}<br>
+                                  </p>
+
+                                  <p style="text-align:justify">We look forward to assisting you at the FAST Learning and Development Center. If you have any questions, feel free to contact us at jppsolis@fast.com.ph | Viber Number: +63 969 450 9412.</p>
+
+                                  <p style="text-align:justify">Thank you for choosing FAST Learning and Development Center.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="word-break:break-word;font-size:0px;padding:30px 0px">
+                                <p style="font-size:1px;margin:0px auto;border-top:1px solid #dcddde;width:100%"></p>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div>
+              <table align="center">
+                <tr>
+                  <td style="height:150px; border:none;border-radius:3px;color:black;padding:15px 19px" align="center" valign="middle">&copy; 2024-2025 <strong><span>FAST Learning and Development Center</span></strong></td>
+                </tr>
+              </table>
+            </div>
           </div>
         </div>
-      </div>
-    `,
-    attachments: [
-      {
-        filename: 'LOGO.png',
-        path: '/var/task/user/public/assets/img/LOGO.png', // Path to the logo image
-        cid: 'logo_cid' // The 'cid' should match the embedded image's "src"
-      }
-    ]
-  };
+      `,
+      attachments: [
+        {
+          filename: 'LOGO.png',
+          path: '/var/task/user/public/assets/img/LOGO.png', // Path to the logo image
+          cid: 'logo_cid' // The 'cid' should match the embedded image's "src"
+        }
+      ]
+    };
 
-  // Send the email
-  await transporter.sendMail(mailOptions);
-}
+    try {
+      // Send the email
+      await transporter.sendMail(mailOptions);
+      // Respond with success
+      return res.status(200).json({ message: 'Reservation confirmed and email sent successfully!' });
+    } catch (error) {
+      console.error('Error sending email:', error);
+      return res.status(500).json({ error: 'Failed to send confirmation email. Please try again later.' });
+    }
+  } else {
+    // Method not allowed
+    return res.status(405).json({ error: 'Method not allowed. Please use POST.' });
+  }
+};
 
 
 module.exports = async (req, res) => {
