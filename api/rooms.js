@@ -1,6 +1,8 @@
 const { Pool } = require('pg');
 const nodemailer = require('nodemailer');
+const path = require('path');
 
+const logoPath = path.join(__dirname, '../public/images/LOGO.png');
 // PostgreSQL connection using connection string from environment variables
 const pool = new Pool({
   connectionString: process.env.POSTGRES_URL
@@ -165,7 +167,7 @@ module.exports = async (req, res) => {
       attachments: [
         {
           filename: 'LOGO.png',
-          path: '../public/images/LOGO.png', // Path to the logo image
+          path: logoPath, // Path to the logo image
           cid: 'logo_cid' // The 'cid' should match the embedded image's "src"
         }
       ]
