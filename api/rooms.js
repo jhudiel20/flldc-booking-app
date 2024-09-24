@@ -55,12 +55,17 @@ module.exports = async (req, res) => {
       return res.status(400).json({ errors }); // Send validation errors to the front-end
     }
 
+    // Validate email before sending
+    if (!/\S+@\S+\.\S+/.test(email)) {
+      return res.status(400).json({ error: 'Invalid email address.' });
+    }
+
     const booking_id = generateBookingId();
 
     // Create the transporter for sending email
     const transporter = nodemailer.createTransport({
       host: 'smtp.gmail.com',
-      port: 465,
+      port: 587,
       secure: false, // true for 465, false for other ports
       auth: {
         user: process.env.EMAIL_USER, // Your email address
@@ -174,7 +179,7 @@ module.exports = async (req, res) => {
       try {
         // SQL query to insert data into the reservations table
         const result = await client.query(
-          `INSERT INTO reservations (fname, lname, reserve_date, time, setup, business_unit, room, guest, contact, email, "table", hdmi, extension, message, booking_id, date_created)
+          `INSERT INTO reservations (fname, lname, reserve_date, time, setup, businessunit, room, guest, contact, email, table_number, hdmi, extension, message, booking_id, created_at) 
           VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, NOW())`,
           [fname, lname, reserve_date, time, setup, businessunit, room, guest, contact, email, table, hdmi, extension, message, booking_id]
         );
