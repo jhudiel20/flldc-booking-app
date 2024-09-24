@@ -1,3 +1,12 @@
+const { Pool } = require('pg');
+const nodemailer = require('nodemailer');
+
+// PostgreSQL connection using connection string from environment variables
+const pool = new Pool({
+  connectionString: process.env.POSTGRES_URL
+});
+
+// Function to generate a unique booking ID
 function generateBookingId() {
   // Get the current date
   const date = new Date();
@@ -11,21 +20,8 @@ function generateBookingId() {
   const uniquePart = Math.floor(Math.random() * 1000000); // Generates a number between 0 and 999999
 
   // Combine them into the desired format MMDDYYYY-unique
-  const booking_id = `${month}${day}${year}-${uniquePart}`;
-
-  return booking_id;
+  return `${month}${day}${year}-${uniquePart}`;
 }
-
-const booking_id = generateBookingId();
-const { Pool } = require('pg');
-
-// PostgreSQL connection using connection string from environment variables
-const pool = new Pool({
-  connectionString: process.env.POSTGRES_URL
-});
-
-
-
 
 // Function to validate form input
 const validateInput = (data) => {
@@ -48,30 +44,23 @@ const validateInput = (data) => {
   return errors;
 };
 
-const nodemailer = require('nodemailer');
-
 module.exports = async (req, res) => {
   if (req.method === 'POST') {
-    // Destructure form fields from the request body
     const { fname, lname, reserve_date, time, businessunit, room, setup, guest, contact, email, table, hdmi, extension, message } = req.body;
 
-    // Basic validation for required fields
-    if (!fname || !lname || !email || !contact || !room || !time) {
-      return res.status(400).json({ error: 'Missing required fields. Please provide all reservation details.' });
+    // Validate input
+    const errors = validateInput(req.body);
+    if (errors.length > 0) {
+      console.log('Validation errors:', errors);
+      return res.status(400).json({ errors }); // Send validation errors to the front-end
     }
 
-    // // Create the transporter for sending email
-    // const transporter = nodemailer.createTransport({
-    //   service: 'gmail', // or your email service
-    //   auth: {
-    //     user: process.env.EMAIL_USER, // Your email
-    //     pass: process.env.EMAIL_PASS // Your email password or app password
-    //   }
-    // });
+    const booking_id = generateBookingId();
 
+    // Create the transporter for sending email
     const transporter = nodemailer.createTransport({
-      host: 'smtp.gmail.com', // e.g., smtp.gmail.com
-      port: 587, // TLS port
+      host: 'smtp.gmail.com',
+      port: 465,
       secure: false, // true for 465, false for other ports
       auth: {
         user: process.env.EMAIL_USER, // Your email address
@@ -80,9 +69,9 @@ module.exports = async (req, res) => {
     });
 
     const mailOptions = {
-      from: process.env.EMAIL_USER, // Sender's email address
-      to: email, // Recipient's email address
-      subject: `Booking Confirmation - ${booking_id}`,
+      from: process.env.EMAIL_USER,
+      to: process.env.EMAIL_USER, // Use process.env.EMAIL_USER for recipient
+      subject: `New Booking Inserted - ${booking_id}`,
       html: `
         <div style="background:#f3f3f3">
           <div style="margin:0px auto;max-width:640px;background:transparent">
@@ -114,7 +103,6 @@ module.exports = async (req, res) => {
               </tbody>
             </table>
           </div>
-
           <div style="max-width:640px;margin:0 auto;border-radius:4px;overflow:hidden">
             <div style="margin:0px auto;max-width:640px;background:#fdfdfd">
               <table role="presentation" cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;background:#fdfdfd" align="center" border="0">
@@ -129,11 +117,10 @@ module.exports = async (req, res) => {
                                 <div style="color:#737f8d;font-family:Whitney,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;font-size:16px;line-height:24px;text-align:left">
                                   <h2 style="font-family:Whitney,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;font-weight:500;font-size:20px;color:#4f545c;letter-spacing:0.27px">Hi good day,</h2>
                                   <p>A new booking has been submitted: </p>
-
                                   <p><strong>Reservation Details:</strong><br>
                                   <b>Booking ID:</b> ${booking_id}<br>
                                   <b>Booking Date:</b> ${reserve_date}<br>
-                                  <b>Business Unit:</b> ${business_unit}<br>
+                                  <b>Business Unit:</b> ${businessunit}<br>
                                   <b>Room:</b> ${room}<br>
                                   <b>Contact:</b> ${contact}<br>
                                   <b>Email:</b> ${email}<br>
@@ -142,9 +129,7 @@ module.exports = async (req, res) => {
                                   <b>Reserved By:</b> ${fname} ${lname}<br>
                                   <b>Message:</b> ${message}<br>
                                   </p>
-
                                   <p style="text-align:justify">We look forward to assisting you at the FAST Learning and Development Center. If you have any questions, feel free to contact us at jppsolis@fast.com.ph | Viber Number: +63 969 450 9412.</p>
-
                                   <p style="text-align:justify">Thank you for choosing FAST Learning and Development Center.</p>
                                 </div>
                               </td>
@@ -182,35 +167,7 @@ module.exports = async (req, res) => {
     };
 
     try {
-      // Send the email
-      await transporter.sendMail(mailOptions);
-      // Respond with success
-      return res.status(200).json({ message: 'Reservation confirmed and email sent successfully!' });
-    } catch (error) {
-      console.error('Error sending email:', error);
-      return res.status(500).json({ error: 'Failed to send confirmation email. Please try again later.' });
-    }
-  } else {
-    // Method not allowed
-    return res.status(405).json({ error: 'Method not allowed. Please use POST.' });
-  }
-};
-
-
-module.exports = async (req, res) => {
-  if (req.method === 'POST') {
-    // Destructure form fields from the request body
-    const { fname, lname, reserve_date, time, businessunit, room, setup, guest, contact, email, table, hdmi, extension, message } = req.body;
-
-    // Validate input
-    const errors = validateInput(req.body);
-    if (errors.length > 0) {
-      console.log('Validation errors:', errors);
-      return res.status(400).json({ errors }); // Send validation errors to the front-end
-    }
-
-    // Check database connection and execute query
-    try {
+      // Check database connection and execute query
       await pool.query('SELECT NOW()'); // Test the connection
 
       const client = await pool.connect();
@@ -218,34 +175,30 @@ module.exports = async (req, res) => {
         // SQL query to insert data into the reservations table
         const result = await client.query(
           `INSERT INTO reservations (fname, lname, reserve_date, time, setup, business_unit, room, guest, contact, email, "table", hdmi, extension, message, booking_id, date_created)
-          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9 ,$10 ,$11 ,$12 ,$13 ,$14 ,$15 ,NOW() AT TIME ZONE 'Asia/Manila') RETURNING id`,
+          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, NOW())`,
           [fname, lname, reserve_date, time, setup, businessunit, room, guest, contact, email, table, hdmi, extension, message, booking_id]
         );
 
-        const responseMessage = { message: 'Booking successful!', reservationId: result.rows[0].id };
-        console.log('Response:', responseMessage);
-        // Return success message and the inserted reservation ID
-        res.status(200).json(responseMessage);
-      } catch (error) {
-        // Handle SQL query error
-        console.error('Error booking room:', error.message);
-        const errorMessage = { error: `Error booking room: ${error.message}` };
-        console.log('Response:', errorMessage);
-        res.status(500).json(errorMessage);
+        console.log('Insert result:', result); // Log the result
+
+        // Send email
+        await transporter.sendMail(mailOptions);
+        console.log('Email sent successfully!');
+
+        // Respond with success
+        res.status(201).json({ message: 'Reservation created successfully!', booking_id });
+      } catch (insertError) {
+        console.error('Insert error:', insertError);
+        res.status(500).json({ error: 'Failed to insert booking into the database.' });
       } finally {
-        client.release(); // Release client after query execution
+        client.release(); // Release the database client
       }
-    } catch (error) {
-      // Handle connection error
-      console.error('Database connection error:', error.message);
-      const errorMessage = { error: `Failed to connect to the database: ${error.message}` };
-      console.log('Response:', errorMessage);
-      res.status(500).json(errorMessage);
+    } catch (dbError) {
+      console.error('Database connection error:', dbError);
+      res.status(500).json({ error: 'Database connection error.' });
     }
   } else {
-    // Only allow POST requests
-    const errorMessage = { error: 'Method not allowed' };
-    console.log('Response:', errorMessage);
-    res.status(405).json(errorMessage);
+    res.setHeader('Allow', ['POST']);
+    res.status(405).end(`Method ${req.method} Not Allowed`);
   }
 };
