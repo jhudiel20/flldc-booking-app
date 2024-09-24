@@ -124,8 +124,7 @@ module.exports = async (req, res) => {
                                 <div style="color:#737f8d;font-family:Whitney,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;font-size:16px;line-height:24px;text-align:left">
                                   <h2 style="font-family:Whitney,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;font-weight:500;font-size:20px;color:#4f545c;letter-spacing:0.27px">Hi good day,</h2>
                                   <p>A new booking has been submitted: </p>
-                                  <p><strong>Reservation Details:</strong><br>
-                                  <b>Booking ID:</b> ${booking_id}<br>
+                                  <p><b>Booking ID:</b> ${booking_id}<br>
                                   <b>Booking Date:</b> ${reserve_date}<br>
                                   <b>Business Unit:</b> ${businessunit}<br>
                                   <b>Room:</b> ${room}<br>
@@ -134,10 +133,10 @@ module.exports = async (req, res) => {
                                   <b>Time:</b> ${time}<br>
                                   <b>Setup:</b> ${setup}<br>
                                   <b>Reserved By:</b> ${fname} ${lname}<br>
-                                  <b>Message:</b> ${message}<br>
-                                  </p>
-                                  <p style="text-align:justify">We look forward to assisting you at the FAST Learning and Development Center. If you have any questions, feel free to contact us at jppsolis@fast.com.ph | Viber Number: +63 969 450 9412.</p>
-                                  <p style="text-align:justify">Thank you for choosing FAST Learning and Development Center.</p>
+                                  <b>Message:</b> ${message}<br></p>
+                                  <p> Please click the link below to Approved or Declined the booking :</p>
+                                  <a href="https://flldc-ims.vercel.app/request-list">Approved / Declined<a>
+                                  <p>Best Regards,<br>L&D Inventory Management System</p>
                                 </div>
                               </td>
                             </tr>
@@ -193,7 +192,7 @@ module.exports = async (req, res) => {
         console.log('Email sent successfully!');
 
         // Respond with success
-        res.status(201).json({ message: 'Reservation created successfully!', booking_id });
+        res.status(201).json({ message: 'Reservation created successfully!'});
       } catch (insertError) {
         console.error('Insert error:', insertError);
         res.status(500).json({ error: `Failed to insert booking into the database: ${insertError.message}` });
