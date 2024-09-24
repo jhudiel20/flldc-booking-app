@@ -164,18 +164,50 @@
                 </div>
               </div>
             
-              <label for="addons">Addons</label>
+              <label for="addons">Addons <input type="checkbox" id="showExtras" onclick="toggleExtras()"></label>
+              <div class="row d-none" id="extras" >
+                  <div class="col-md-6">
+                    <label><input type="checkbox" name="hdmi" id="hdmi"> HDMI cable</label>
+                  </div>
+                  <div class="col-md-6">
+                    <label><input type="checkbox" name="extension" id="extension"> Extension cord</label>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="table">Additional Tables:</label>
+                    <select name="table" id="table" class="form-control">
+                      <option value="" disabled selected>Select the number of tables</option>
+                      <option value="0">0</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="chair">Additional Chairs:</label>
+                    <select name="chair" id="chair" class="form-control">
+                      <option value="" disabled selected>Select the number of chairs</option>
+                      <option value="0">0</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                    </select>
+                  </div>
+              </div>
               <div class="row">
-                <div class="col-md-4">
-                  <label><input type="checkbox" name="table" id="table"> Table</label>
-                </div>
-                <div class="col-md-4">
-                  <label><input type="checkbox" name="hdmi" id="hdmi"> HDMI cable</label>
-                </div>
-                <div class="col-md-4">
-                  <label><input type="checkbox" name="extension" id="extension"> Extension cord</label>
-                </div>
-            
                 <div class="col-md-12 form-group">
                   <label for="message">Purpose / Message</label>
                   <textarea name="message" id="message" class="form-control" cols="30" rows="8" required></textarea>
