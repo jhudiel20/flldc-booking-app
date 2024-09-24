@@ -165,7 +165,7 @@ module.exports = async (req, res) => {
       attachments: [
         {
           filename: 'LOGO.png',
-          path: '../public/assets/img/LOGO.png', // Path to the logo image
+          path: '../public/images/LOGO.png', // Path to the logo image
           cid: 'logo_cid' // The 'cid' should match the embedded image's "src"
         }
       ]
