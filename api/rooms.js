@@ -179,8 +179,8 @@ module.exports = async (req, res) => {
       try {
         // SQL query to insert data into the reservations table
         const result = await client.query(
-          `INSERT INTO reservations (fname, lname, reserve_date, time, setup, businessunit, room, guest, contact, email, table_number, hdmi, extension, message, booking_id, created_at) 
-          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, NOW())`,
+          `INSERT INTO reservations (fname, lname, reserve_date, time, setup, businessunit, room, guest, contact, email, table_number, hdmi, extension, message, booking_id, date_created) 
+          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, NOW() AT TIME ZONE 'Asia/Manila')`,
           [fname, lname, reserve_date, time, setup, businessunit, room, guest, contact, email, table, hdmi, extension, message, booking_id]
         );
 
