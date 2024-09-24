@@ -1,3 +1,22 @@
+function generateBookingId() {
+  // Get the current date
+  const date = new Date();
+  
+  // Format the date as MMDDYYYY
+  const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
+  const day = String(date.getDate()).padStart(2, '0');
+  const year = date.getFullYear();
+
+  // Create a random unique number (you can adjust the length if needed)
+  const uniquePart = Math.floor(Math.random() * 1000000); // Generates a number between 0 and 999999
+
+  // Combine them into the desired format MMDDYYYY-unique
+  const booking_id = `${month}${day}${year}-${uniquePart}`;
+
+  return booking_id;
+}
+const booking_id = generateBookingId();
+
 const { Pool } = require('pg');
 
 // PostgreSQL connection using connection string from environment variables
@@ -46,9 +65,9 @@ module.exports = async (req, res) => {
       try {
         // SQL query to insert data into the reservations table
         const result = await client.query(
-          `INSERT INTO reservations (fname, lname, reserve_date, time, setup, business_unit, room, guest, contact, email, "table", hdmi, extension, message, date_created)
-          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9 ,$10 ,$11 ,$12 ,$13 ,$14 ,NOW() AT TIME ZONE 'Asia/Manila') RETURNING id`,
-          [fname, lname, reserve_date, time, setup, businessunit, room, guest, contact, email, table, hdmi, extension, message]
+          `INSERT INTO reservations (fname, lname, reserve_date, time, setup, business_unit, room, guest, contact, email, "table", hdmi, extension, message, booking_id, date_created)
+          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9 ,$10 ,$11 ,$12 ,$13 ,$14 ,$15 ,NOW() AT TIME ZONE 'Asia/Manila') RETURNING id`,
+          [fname, lname, reserve_date, time, setup, businessunit, room, guest, contact, email, table, hdmi, extension, message, booking_id]
         );
 
         const responseMessage = { message: 'Booking successful!', reservationId: result.rows[0].id };
