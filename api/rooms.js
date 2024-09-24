@@ -48,7 +48,7 @@ const validateInput = (data) => {
 
 module.exports = async (req, res) => {
   if (req.method === 'POST') {
-    const { fname, lname, reserve_date, time, businessunit, room, setup, guest, contact, email, table, hdmi, extension, message } = req.body;
+    const { fname, lname, reserve_date, time, businessunit, room, setup, guest, contact, email, table, chair, hdmi, extension, message } = req.body;
 
     // Validate input
     const errors = validateInput(req.body);
@@ -133,7 +133,10 @@ module.exports = async (req, res) => {
                                   <b>Time:</b> ${time}<br>
                                   <b>Setup:</b> ${setup}<br>
                                   <b>Reserved By:</b> ${fname} ${lname}<br>
-                                  <b>Message:</b> ${message}<br></p>
+                                  ${table ? `<b>Additional Tables:</b> ${table}<br>` : ''}
+                                  ${chair ? `<b>Additional Chairs:</b> ${chair}<br>` : ''}
+                                  ${extension ? `<b>Extension Cord:</b> ${extension}<br>` : ''}
+                                  ${hdmi ? `<b>HDMI Cable:</b> ${hdmi}<br>` : ''}
                                   <p> Please click the link below to Approved or Declined the booking :</p>
                                   <a href="https://flldc-ims.vercel.app/reservation-list">Approved / Declined<a>
                                   <p>Best Regards,<br>L&D Inventory Management System</p>
@@ -180,9 +183,9 @@ module.exports = async (req, res) => {
       try {
         // SQL query to insert data into the reservations table
         const result = await client.query(
-          `INSERT INTO reservations (fname, lname, reserve_date, time, setup, business_unit, room, guest, contact, email, "table", hdmi, extension, message, booking_id, date_created) 
-          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, NOW() AT TIME ZONE 'Asia/Manila')`,
-          [fname, lname, reserve_date, time, setup, businessunit, room, guest, contact, email, table, hdmi, extension, message, booking_id]
+          `INSERT INTO reservations (fname, lname, reserve_date, time, setup, business_unit, room, guest, contact, email, "table", chair, hdmi, extension, message, booking_id, date_created) 
+          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, NOW() AT TIME ZONE 'Asia/Manila')`,
+          [fname, lname, reserve_date, time, setup, businessunit, room, guest, contact, email, table, chair, hdmi, extension, message, booking_id]
         );
 
         console.log('Insert result:', result); // Log the result

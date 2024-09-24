@@ -17,7 +17,8 @@
       guest: document.getElementById('guest').value,
       contact: document.getElementById('contact').value,
       email: document.getElementById('email').value,
-      table: document.getElementById('table').checked, // Checkbox for table
+      table: document.getElementById('table').value, // Checkbox for table
+      chair: document.getElementById('chair').value,
       hdmi: document.getElementById('hdmi').checked,  // Checkbox for HDMI
       extension: document.getElementById('extension').checked, // Checkbox for extension
       message: document.getElementById('message').value
