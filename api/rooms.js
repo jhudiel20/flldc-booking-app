@@ -60,13 +60,23 @@ module.exports = async (req, res) => {
       return res.status(400).json({ error: 'Missing required fields. Please provide all reservation details.' });
     }
 
-    // Create the transporter for sending email
+    // // Create the transporter for sending email
+    // const transporter = nodemailer.createTransport({
+    //   service: 'gmail', // or your email service
+    //   auth: {
+    //     user: process.env.EMAIL_USER, // Your email
+    //     pass: process.env.EMAIL_PASS // Your email password or app password
+    //   }
+    // });
+
     const transporter = nodemailer.createTransport({
-      service: 'gmail', // or your email service
+      host: 'smtp.gmail.com', // e.g., smtp.gmail.com
+      port: 587, // TLS port
+      secure: false, // true for 465, false for other ports
       auth: {
-        user: process.env.EMAIL_USER, // Your email
-        pass: process.env.EMAIL_PASS // Your email password or app password
-      }
+        user: process.env.EMAIL_USER, // Your email address
+        pass: process.env.EMAIL_PASS, // Your email password
+      },
     });
 
     const mailOptions = {
