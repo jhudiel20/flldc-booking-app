@@ -1,8 +1,7 @@
 function toggleExtras() {
   const extrasDiv = document.getElementById('extras');
-  extrasDiv.style.display = extrasDiv.style.display === 'none' ? 'block' : 'none';
+  extrasDiv.classList.toggle('d-none');  // Toggle the d-none class
 }
-
 
 // Get the current URL path (without domain and query parameters)
  const currentPath = window.location.pathname.split('/').pop() || 'index';
