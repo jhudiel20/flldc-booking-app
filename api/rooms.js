@@ -194,7 +194,7 @@ module.exports = async (req, res) => {
         res.status(201).json({ message: 'Reservation created successfully!', booking_id });
       } catch (insertError) {
         console.error('Insert error:', insertError);
-        res.status(500).json({ error: 'Failed to insert booking into the database.' });
+        res.status(500).json({ error: 'Failed to insert booking into the database.'.insertError });
       } finally {
         client.release(); // Release the database client
       }
