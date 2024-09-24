@@ -78,7 +78,7 @@ module.exports = async (req, res) => {
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: process.env.EMAIL_USER, // Use process.env.EMAIL_USER for recipient
-      subject: `New Booking Inserted - ${booking_id}`,
+      subject: `New Booking Inserted - Booking ID: ${booking_id}`,
       html: `
         <div style="background:#f3f3f3">
           <div style="margin:0px auto;max-width:640px;background:transparent">
@@ -135,7 +135,7 @@ module.exports = async (req, res) => {
                                   <b>Reserved By:</b> ${fname} ${lname}<br>
                                   <b>Message:</b> ${message}<br></p>
                                   <p> Please click the link below to Approved or Declined the booking :</p>
-                                  <a href="https://flldc-ims.vercel.app/request-list">Approved / Declined<a>
+                                  <a href="https://flldc-ims.vercel.app/reservation-list">Approved / Declined<a>
                                   <p>Best Regards,<br>L&D Inventory Management System</p>
                                 </div>
                               </td>
