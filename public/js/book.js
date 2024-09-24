@@ -49,7 +49,8 @@
           icon: 'error',
           title: 'Booking Failed',
           text: data.error,
-        }).then(function() {
+          footer: data.details ? `<p>${data.details}</p>` : '' // Show detailed error message if available
+      }).then(function() {
           window.location.reload();
       });
       } else {
