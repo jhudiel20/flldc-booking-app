@@ -298,7 +298,7 @@
   document.addEventListener('DOMContentLoaded', function () {
     // Fetch approved reservations from the server
     async function fetchApprovedReservations() {
-      const response = await fetch('/api/reservations?room=Room-301');
+      const response = await fetch('/api/reserve?room=Room-301');
       const data = await response.json();
       return data;
     }
