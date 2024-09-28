@@ -22,6 +22,5 @@ Class DBConnection{
     }
 
 }
-
 $db = new DBConnection();
 $conn = $db->conn;
