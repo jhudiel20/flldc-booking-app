@@ -4,21 +4,35 @@ const pool = new Pool({
     connectionString: process.env.POSTGRES_URL
   });
 
+  const getReservedDatesAndTimes = async (room) => {
+    try {
+        const result = await pool.query(
+            `SELECT reserve_date, time FROM reservations 
+             WHERE room = $1 AND status = 'approved'`,
+            [room]
+        );
+        return result.rows; // Return the list of reserved dates and times
+    } catch (error) {
+        console.error('Error retrieving reserved dates and times:', error);
+        throw error; // Rethrow the error to be handled in the main function
+    }
+};
+
 module.exports = async (req, res) => {
     if (req.method === 'POST') {
         const { room, reserve_date, time } = req.body;
 
         try {
-            // Query to check for existing reservations
-            const result = await pool.query(
-                `SELECT * FROM reservations 
-                 WHERE room = $1 AND reserve_date = $2 AND time = $3 AND status = 'approved'`,
-                [room, reserve_date, time]
+            // Get reserved dates and times for the room
+            const reservedSlots = await getReservedDatesAndTimes(room);
+
+            // Check if the requested date and time are available
+            const isReserved = reservedSlots.some(slot => 
+                slot.reserve_date === reserve_date && slot.time === time
             );
 
-            // Check if there are any reservations
-            if (result.rows.length > 0) {
-                return res.status(200).json({ available: false, reservations: result.rows });
+            if (isReserved) {
+                return res.status(200).json({ available: false, message: 'Room is already reserved for this date and time.' });
             }
 
             res.status(200).json({ available: true });
