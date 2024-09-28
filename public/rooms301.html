@@ -103,11 +103,10 @@
                   <input type="text" class="form-control" id="lname" name="lname" required>
                 </div>
               </div>
-              <!-- onfocus="this.min=new Date().toISOString().split('T')[0]" -->
               <div class="row">
                 <div class="col-sm-6">
                   <label for="">Date of Reservation</label>
-                  <input type="date" class="form-control" id="reserve_date" name="reserve_date"  required/>
+                  <input type="date" class="form-control" id="reserve_date" name="reserve_date" onfocus="this.min=new Date().toISOString().split('T')[0]" required/>
                 </div>
                 <div class="col-sm-6 form-group">
                   <label for="businessunit">Time</label>
