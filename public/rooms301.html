@@ -21,6 +21,8 @@
         <link rel="stylesheet" href="sneat/assets/vendor/libs/swiper/swiper.css" />
         <link rel="stylesheet" href="sneat/assets/vendor/css/pages/ui-carousel.css">
         <link rel="stylesheet" href="sneat/assets/vendor/libs/rateyo/rateyo.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
       </head>
   <body>
     
@@ -291,42 +293,39 @@
     <!-- loader -->
     <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
     <!-- Include Flatpickr -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const roomNumber = 301;
-  const dateInput = document.getElementById('reserve_date');
+document.addEventListener('DOMContentLoaded', function () {
+  // Get the room number from the hidden input
+  const room = document.getElementById('room').value;
 
-  // Fetch approved reservations for the selected room
-  fetch(`/api/reserved?room=${roomNumber}`)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Failed to fetch reservations');
-      }
-      return response.json();
-    })
-    .then(reservations => {
-      const reservedDates = reservations.map(res => res.reserve_date);
-      
-      // Disable already reserved dates
-      dateInput.addEventListener('focus', function () {
-        const today = new Date().toISOString().split('T')[0];
-        this.setAttribute('min', today); // Disable past dates
-      });
+  // Fetch reserved dates for the selected room
+  fetch(`/api/reserved?room=${encodeURIComponent(room)}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    }
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.error) {
+      console.error('Error fetching reservations:', data.error);
+      return;
+    }
 
-      // Disable already reserved dates from the date picker
-      dateInput.addEventListener('input', function () {
-        if (reservedDates.includes(this.value)) {
-          alert('This date is already reserved and approved. Please choose another date.');
-          this.value = ''; // Clear the selected date
-        }
-      });
-    })
-    .catch(err => {
-      console.error('Error fetching reservations:', err.message);
+    // Extract reserved dates from the API response
+    const reservedDates = data.map(reservation => reservation.reserve_date);
+
+    // Initialize Flatpickr and disable the reserved dates
+    flatpickr('#reserve_date', {
+      disable: reservedDates, // Disable the reserved dates
+      dateFormat: 'Y-m-d',    // Set the date format
     });
+  })
+  .catch(err => {
+    console.error('Fetch error:', err.message || err);
+  });
 });
 
 </script>
