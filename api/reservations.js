@@ -17,9 +17,13 @@ async function fetchReservedSlots(room) {
     const values = [room];
 
     const result = await pool.query(query, values);
-    return result.rows;
+
+    // Log the raw result to see if it's coming as expected
+    console.log('Raw server response:', result);
+
+    return result.rows; // Assuming result.rows is an array of data
   } catch (error) {
-    console.error('Error fetching reserved slots:', error);
+    console.error('Error fetching reserved slots:', error.message);
     // Log the error for debugging
     console.log(`Query: ${query}, Values: ${values}`);
     throw error; // Re-throw the error after logging
