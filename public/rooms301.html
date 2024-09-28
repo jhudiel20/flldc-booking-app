@@ -301,7 +301,7 @@
       
           // Check if the room and date are selected
           if (room && reserveDate) {
-              fetch('/api/fetch_reservations.php', {
+              fetch('/fetch_reservations', {
                   method: 'POST',
                   headers: {
                       'Content-Type': 'application/json',
