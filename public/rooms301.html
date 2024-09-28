@@ -299,6 +299,7 @@
       document.addEventListener('DOMContentLoaded', async function() {
         const room = document.getElementById('room').value; // Get the room value
         const reservedSlots = await getReservedDatesAndTimes(room); // Fetch reserved dates and times
+        console.log(reservedSlots);
     
         const reservedDates = reservedSlots.map(slot => slot.reserve_date);
         const reservedTimes = reservedSlots.map(slot => slot.time);
