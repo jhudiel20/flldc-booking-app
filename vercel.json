@@ -7,12 +7,12 @@
   }, 
   "rewrites": [
     {
-      "src": "/fetch_reservations",
-      "dest": "/api/fetch_reservations.php",
+      "source": "/fetch_reservations",
+      "destination": "/api/fetch_reservations.php"
     },
     {
-      "src": "/api/(.*)",
-      "dest": "/api/$1"
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
     }
   ],
   "cleanUrls": true, 
