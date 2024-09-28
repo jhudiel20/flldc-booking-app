@@ -1,9 +1,9 @@
 <?php
 // Define constants for database connection
-if(!defined('host')) define('host', "ep-wild-tree-a4wwmube.us-east-1.aws.neon.tech");
-if(!defined('username')) define('username', "default");
-if(!defined('password')) define('password', "N7EiwAoCcI0h");
-if(!defined('db_tbl')) define('db_tbl', "verceldb");
+if(!defined('host')) define('host', $_ENV['POSTGRES_HOST']);
+if(!defined('username')) define('username', $_ENV['POSTGRES_USER']);
+if(!defined('password')) define('password', $_ENV['POSTGRES_PASSWORD']);
+if(!defined('db_tbl')) define('db_tbl', $_ENV['POSTGRES_DATABASE']);
 if(!defined('port')) define('port', 5432);
 
 Class DBConnection{
