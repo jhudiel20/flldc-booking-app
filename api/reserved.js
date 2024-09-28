@@ -4,6 +4,10 @@ const express = require('express');
 const { Pool } = require('pg');
 const app = express();
 
+const pool = new Pool({
+    connectionString: process.env.POSTGRES_URL
+  });
+
 app.get('/api/reserved', async (req, res) => {
     try {
       const { room } = req.query;
