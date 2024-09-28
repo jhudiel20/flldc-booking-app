@@ -295,35 +295,37 @@
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
 <script>
-  // Function to fetch approved reservations and disable those dates in the date picker
-  async function fetchReservations() {
-    try {
-      // Fetch approved reservations for room 301 from the backend
-      const response = await fetch('/api/reserved?room=301');
-      const reservations = await response.json();
+  document.addEventListener('DOMContentLoaded', () => {
+    const roomNumber = 301; // Example room number
+    const dateInput = document.getElementById('reserve_date');
 
-      const reservedDates = reservations.map(reservation => reservation.reserve_date);
-
-      // Get the date input element
-      const dateInput = document.getElementById('reserve_date');
-
-      // Disable reserved dates in the date picker
-      dateInput.addEventListener('input', function () {
-        const selectedDate = this.value;
-
-        if (reservedDates.includes(selectedDate)) {
-          alert('This date is already reserved.');
-          this.value = ''; // Clear the input if date is reserved
+    // Fetch approved reservations for the selected room
+    fetch(`/api/reserved?room=${roomNumber}`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Failed to fetch reservations');
         }
-      });
-    } catch (error) {
-      console.error('Error fetching reservations:', error);
-    }
-  }
+        return response.json();
+      })
+      .then(reservations => {
+        console.log('Fetched reservations:', reservations);
 
-  // Call fetchReservations when the page loads
-  fetchReservations();
-  </script>
+        // Disable dates that are already reserved and approved
+        const reservedDates = reservations.map(res => res.reserve_date);
+        dateInput.addEventListener('input', function () {
+          const selectedDate = this.value;
+
+          if (reservedDates.includes(selectedDate)) {
+            alert('This date is already reserved and approved. Please choose another date.');
+            this.value = ''; // Clear the selected date
+          }
+        });
+      })
+      .catch(err => {
+        console.error('Error fetching reservations:', err.message);
+      });
+  });
+</script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/book.js"></script>
