@@ -1,22 +1,33 @@
 const express = require('express');
-const { Pool } = require('pg'); // Ensure you're importing `Pool` from `pg`
-const app = express();
+const { Pool } = require('pg');
+require('dotenv').config();
 
-// Create a new Pool using the environment variable for the PostgreSQL connection URL
+const app = express();
+app.use(express.static('public'));
+
 const pool = new Pool({
-  connectionString: process.env.POSTGRES_URL,  // Environment variable for the database connection
+  connectionString: process.env.POSTGRES_URL,
 });
 
+// API endpoint to fetch approved reservations for Room 301
 app.get('/api/reserved', async (req, res) => {
   try {
-    const { room } = req.query; // optional: filter by room if needed
+    const { room } = req.query;
+
+    // Modify the query if reserve_date needs formatting in YYYY-MM-DD
     const reservations = await pool.query(
-      "SELECT reserve_date, time FROM reservations WHERE reserve_status = 'APPROVED' AND room = $1", 
+      "SELECT TO_CHAR(reserve_date, 'YYYY-MM-DD') as reserve_date, time FROM reservations WHERE reserve_status = 'APPROVED' AND room = $1",
       [room]
     );
+
     res.json(reservations.rows);
   } catch (err) {
-    console.error(err.message);
+    console.error('Error fetching reservations:', err.message);
     res.status(500).send('Server error');
   }
+});
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
