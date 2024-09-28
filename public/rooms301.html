@@ -301,7 +301,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const room = document.getElementById('room').value;
 
   // Fetch reserved dates for the selected room
-  fetch(`/api/reserved?room=${encodeURIComponent(room)}`, {
+  fetch('/api/reserved?room=Room-301', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
