@@ -294,41 +294,35 @@
     <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
     <!-- Include Flatpickr -->
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+      // JavaScript to fetch reserved dates and times
+      document.addEventListener('DOMContentLoaded', async function() {
+        const room = document.getElementById('room').value; // Get the room value
+        const reservedSlots = await getReservedDatesAndTimes(room); // Fetch reserved dates and times
+    
+        const reservedDates = reservedSlots.map(slot => slot.reserve_date);
+        const reservedTimes = reservedSlots.map(slot => slot.time);
+    
+        const reserveDateInput = document.getElementById('reserve_date');
+        const timeSelect = document.getElementById('time');
+    
+        // Logic to disable/erase unavailable dates
+        reserveDateInput.addEventListener('change', function() {
+          const selectedDate = reserveDateInput.value;
+          if (reservedDates.includes(selectedDate)) {
+            alert("This date is not available.");
+          }
+        });
+    
+        // Disable unavailable times
+        Array.from(timeSelect.options).forEach(option => {
+          if (reservedTimes.includes(option.value)) {
+            option.disabled = true; // Disable the option if it's reserved
+          }
+        });
+      });
+    </script>
 
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  // Get the room number from the hidden input
-  const room = document.getElementById('room').value;
-
-  // Fetch reserved dates for the selected room
-  fetch('/api/reserved?room=Room-301', {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    }
-  })
-  .then(response => response.json())
-  .then(data => {
-    if (data.error) {
-      console.error('Error fetching reservations:', data.error);
-      return;
-    }
-
-    // Extract reserved dates from the API response
-    const reservedDates = data.map(reservation => reservation.reserve_date);
-
-    // Initialize Flatpickr and disable the reserved dates
-    flatpickr('#reserve_date', {
-      disable: reservedDates, // Disable the reserved dates
-      dateFormat: 'Y-m-d',    // Set the date format
-    });
-  })
-  .catch(err => {
-    console.error('Fetch error:', err.message || err);
-  });
-});
-
-</script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/book.js"></script>

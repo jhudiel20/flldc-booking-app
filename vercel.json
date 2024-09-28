@@ -3,5 +3,21 @@
     { "source": "/api/(.*)", "destination": "/api/$1" }
   ],
   "cleanUrls": true, 
-  "trailingSlash": false  
+  "trailingSlash": false,  
+  "version": 2,
+  "functions": {
+      "api/*.js": {
+          "runtime": "nodejs16.x"
+      }
+  },
+  "routes": [
+      {
+          "src": "/api/reservation",
+          "dest": "/api/reservation.js"
+      },
+      {
+          "src": "/api/availability",
+          "dest": "/api/checkAvailability.js"
+      }
+  ]
 }
