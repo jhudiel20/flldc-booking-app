@@ -295,34 +295,39 @@
     <!-- Include Flatpickr -->
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
-      // JavaScript to fetch reserved dates and times
-      document.addEventListener('DOMContentLoaded', async function() {
-        const room = document.getElementById('room').value; // Get the room value
-        const reservedSlots = await getReservedDatesAndTimes(room); // Fetch reserved dates and times
-        console.log(reservedSlots);
-    
-        const reservedDates = reservedSlots.map(slot => slot.reserve_date);
-        const reservedTimes = reservedSlots.map(slot => slot.time);
-    
-        const reserveDateInput = document.getElementById('reserve_date');
-        const timeSelect = document.getElementById('time');
-    
-        // Logic to disable/erase unavailable dates
-        reserveDateInput.addEventListener('change', function() {
-          const selectedDate = reserveDateInput.value;
-          if (reservedDates.includes(selectedDate)) {
-            alert("This date is not available.");
+      document.getElementById('reserve_date').addEventListener('change', function() {
+          const room = document.getElementById('room').value; // Get selected room
+          const reserveDate = this.value; // Get selected date
+      
+          // Check if the room and date are selected
+          if (room && reserveDate) {
+              fetch('/api/fetch_reservations.php', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({ room: room, reserve_date: reserveDate }),
+              })
+              .then(response => response.json())
+              .then(data => {
+                  if (data.reservedTimes) {
+                      // Disable reserved times in the dropdown
+                      const timeSelect = document.getElementById('time');
+                      const options = timeSelect.querySelectorAll('option');
+      
+                      options.forEach(option => {
+                          if (data.reservedTimes.includes(option.value)) {
+                              option.disabled = true; // Disable the reserved time
+                          } else {
+                              option.disabled = false; // Enable the available time
+                          }
+                      });
+                  }
+              })
+              .catch(error => console.error('Error fetching reservations:', error));
           }
-        });
-    
-        // Disable unavailable times
-        Array.from(timeSelect.options).forEach(option => {
-          if (reservedTimes.includes(option.value)) {
-            option.disabled = true; // Disable the option if it's reserved
-          }
-        });
       });
-    </script>
+      </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/book.js"></script>
     <script src="js/sec-min.js"></script>
