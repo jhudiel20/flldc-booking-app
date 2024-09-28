@@ -13,7 +13,7 @@ module.exports = async (req, res) => {
     const query = `
       SELECT reserve_date, time
       FROM reservations
-      WHERE room = $1 AND reserved_status = 'APPROVED'
+      WHERE room = $1 AND reserve_status = 'APPROVED'
       AND reserve_date = $2
     `;
     const values = [room, date];
