@@ -295,77 +295,85 @@
     <!-- Include Flatpickr -->
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
-    document.addEventListener('DOMContentLoaded', function () {
-          const reserveDateInput = document.getElementById('reserve_date');
-          const timeSelect = document.getElementById('time');
+  document.addEventListener('DOMContentLoaded', function () {
+      const bookingForm = document.getElementById('bookingForm');
+      const reserveDateInput = document.getElementById('reserve_date');
+      const timeSelect = document.getElementById('time');
 
-          // Event listener for date change
-          reserveDateInput.addEventListener('change', function () {
-              const selectedDate = reserveDateInput.value;
-              const selectedRoom = document.getElementById('room').value;
+      // Event listener for date change
+      reserveDateInput.addEventListener('change', function () {
+          const selectedDate = reserveDateInput.value;
+          const selectedRoom = document.getElementById('room').value;
 
-              if (selectedRoom && selectedDate) {
-                  fetchReservations(selectedRoom, selectedDate);
+          fetchReservations(selectedRoom, selectedDate);
+      });
+
+      // Fetch reservations from the backend
+      function fetchReservations(room, date) {
+          fetch(`/api/reservations?room=${room}&date=${date}`)
+              .then(response => {
+                  if (!response.ok) {
+                      throw new Error(`HTTP error! Status: ${response.status}`);
+                  }
+                  return response.json();
+              })
+              .then(data => {
+                  updateAvailability(data);
+              })
+              .catch(error => alert(`Error fetching reservations: ${error.message}`));
+      }
+
+      // Update the time options based on reservations
+      function updateAvailability(reservations) {
+          // Clear current time options
+          const options = timeSelect.querySelectorAll('option');
+          options.forEach(option => {
+              option.remove();
+          });
+
+          // Initialize availability flags
+          let isFullyBooked = false;
+          let halfDayMorningBooked = false;
+          let halfDayAfternoonBooked = false;
+
+          // Check reservations
+          reservations.forEach(reservation => {
+              const reservedTime = reservation.time;
+
+              if (reservedTime === "7:00AM-6:00PM") {
+                  isFullyBooked = true;
+              } else if (reservedTime === "7:00AM-12:00PM") {
+                  halfDayMorningBooked = true;
+              } else if (reservedTime === "1:00PM-6:00PM") {
+                  halfDayAfternoonBooked = true;
               }
           });
 
-          // Fetch reservations from the backend
-          function fetchReservations(room, date) {
-              fetch(`/api/reservations?room=${room}&date=${date}`)
-                  .then(response => {
-                      if (!response.ok) {
-                          throw new Error(`HTTP error! Status: ${response.status}`);
-                      }
-                      return response.json();
-                  })
-                  .then(data => {
-                      updateAvailability(data);
-                  })
-                  .catch(error => {
-                      console.error('Error fetching reservations:', error);
-                      alert(`Error fetching reservations: ${error.message}`);
-                  });
-          }
+          // Update the time select options based on availability
+          const availableTimes = [
+              { value: "7:00AM-12:00PM", text: "HALFDAY (7:00AM-12:00PM)", remove: halfDayMorningBooked },
+              { value: "1:00PM-6:00PM", text: "HALFDAY (1:00PM-6:00PM)", remove: halfDayAfternoonBooked },
+              { value: "7:00AM-6:00PM", text: "WHOLE DAY (7:00AM-6:00PM)", remove: isFullyBooked }
+          ];
 
-          // Update the time options based on reservations
-          function updateAvailability(reservations) {
-              // Clear current time options
-              timeSelect.innerHTML = '';
-
-              // Predefined available time slots
-              const availableTimes = [
-                  { value: "7:00AM-12:00PM", text: "HALFDAY (7:00AM-12:00PM)" },
-                  { value: "1:00PM-6:00PM", text: "HALFDAY (1:00PM-6:00PM)" },
-                  { value: "7:00AM-6:00PM", text: "WHOLE DAY (7:00AM-6:00PM)" }
-              ];
-
-              // Disable times that are already booked
-              reservations.forEach(reservation => {
-                  const reservedTime = reservation.time;
-                  const index = availableTimes.findIndex(time => time.value === reservedTime);
-                  if (index > -1) {
-                      availableTimes.splice(index, 1); // Remove the reserved time
-                  }
-              });
-
-              // Populate time select with available times
-              if (availableTimes.length === 0) {
-                  const noTimesOption = document.createElement('option');
-                  noTimesOption.value = '';
-                  noTimesOption.textContent = 'No available time slots';
-                  noTimesOption.disabled = true;
-                  timeSelect.appendChild(noTimesOption);
-              } else {
-                  availableTimes.forEach(time => {
-                      const option = document.createElement('option');
-                      option.value = time.value;
-                      option.textContent = time.text;
-                      timeSelect.appendChild(option);
-                  });
+          // Populate time select with available times
+          availableTimes.forEach(time => {
+              if (!time.remove) {
+                  const option = document.createElement('option');
+                  option.value = time.value;
+                  option.textContent = time.text;
+                  timeSelect.appendChild(option);
               }
+          });
+
+          // If fully booked, change the input type to text
+          if (isFullyBooked) {
+              timeSelect.outerHTML = '<input type="text" id="time" placeholder="FULLY BOOKED" disabled />';
           }
-      });
-    </script>
+      }
+  });
+</script>
+
     
 
     </script>
