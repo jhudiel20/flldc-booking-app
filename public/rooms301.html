@@ -295,84 +295,116 @@
     <!-- Include Flatpickr -->
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
-  document.addEventListener('DOMContentLoaded', function () {
-      const bookingForm = document.getElementById('bookingForm');
-      const reserveDateInput = document.getElementById('reserve_date');
-      const timeSelect = document.getElementById('time');
-
-      // Event listener for date change
-      reserveDateInput.addEventListener('change', function () {
-          const selectedDate = reserveDateInput.value;
-          const selectedRoom = document.getElementById('room').value;
-
-          fetchReservations(selectedRoom, selectedDate);
-      });
-
-      // Fetch reservations from the backend
-      function fetchReservations(room, date) {
-          fetch(`/api/reservations?room=${room}&date=${date}`)
-              .then(response => {
-                  if (!response.ok) {
-                      throw new Error(`HTTP error! Status: ${response.status}`);
-                  }
-                  return response.json();
-              })
-              .then(data => {
-                  updateAvailability(data);
-              })
-              .catch(error => alert(`Error fetching reservations: ${error.message}`));
-      }
-
-      // Update the time options based on reservations
-      function updateAvailability(reservations) {
-          // Clear current time options
-          const options = timeSelect.querySelectorAll('option');
-          options.forEach(option => {
-              option.remove();
+      document.addEventListener('DOMContentLoaded', function () {
+          const bookingForm = document.getElementById('bookingForm');
+          const reserveDateInput = document.getElementById('reserve_date');
+          const timeSelect = document.getElementById('time');
+          const originalTimeHTML = timeSelect.outerHTML; // Store the original HTML of the time select
+    
+          // Event listener for date change
+          reserveDateInput.addEventListener('change', function () {
+              const selectedDate = reserveDateInput.value;
+              const selectedRoom = document.getElementById('room').value;
+    
+              fetchReservations(selectedRoom, selectedDate);
           });
-
-          // Initialize availability flags
-          let isFullyBooked = false;
-          let halfDayMorningBooked = false;
-          let halfDayAfternoonBooked = false;
-
-          // Check reservations
-          reservations.forEach(reservation => {
-              const reservedTime = reservation.time;
-
-              if (reservedTime === "7:00AM-6:00PM") {
-                  isFullyBooked = true;
-              } else if (reservedTime === "7:00AM-12:00PM") {
-                  halfDayMorningBooked = true;
-              } else if (reservedTime === "1:00PM-6:00PM") {
-                  halfDayAfternoonBooked = true;
-              }
-          });
-
-          // Update the time select options based on availability
-          const availableTimes = [
-              { value: "7:00AM-12:00PM", text: "HALFDAY (7:00AM-12:00PM)", remove: halfDayMorningBooked },
-              { value: "1:00PM-6:00PM", text: "HALFDAY (1:00PM-6:00PM)", remove: halfDayAfternoonBooked },
-              { value: "7:00AM-6:00PM", text: "WHOLE DAY (7:00AM-6:00PM)", remove: isFullyBooked }
-          ];
-
-          // Populate time select with available times
-          availableTimes.forEach(time => {
-              if (!time.remove) {
-                  const option = document.createElement('option');
-                  option.value = time.value;
-                  option.textContent = time.text;
-                  timeSelect.appendChild(option);
-              }
-          });
-
-          // If fully booked, change the input type to text
-          if (isFullyBooked) {
-              timeSelect.outerHTML = '<input type="text" class="form-control" id="time" placeholder="FULLY BOOKED" disabled />';
+    
+          // Fetch reservations from the backend
+          function fetchReservations(room, date) {
+              fetch(`/api/reservations?room=${room}&date=${date}`)
+                  .then(response => {
+                      if (!response.ok) {
+                          throw new Error(`HTTP error! Status: ${response.status}`);
+                      }
+                      return response.json();
+                  })
+                  .then(data => {
+                      updateAvailability(data);
+                  })
+                  .catch(error => alert(`Error fetching reservations: ${error.message}`));
           }
-      }
-  });
-</script>
+    
+          // Update the time options based on reservations
+          function updateAvailability(reservations) {
+              // Clear current time options
+              const options = timeSelect.querySelectorAll('option');
+              options.forEach(option => {
+                  option.remove();
+              });
+    
+              // Initialize availability flags
+              let isFullyBooked = false;
+              let halfDayMorningBooked = false;
+              let halfDayAfternoonBooked = false;
+    
+              // Check reservations
+              reservations.forEach(reservation => {
+                  const reservedTime = reservation.time;
+    
+                  if (reservedTime === "7:00AM-6:00PM") {
+                      isFullyBooked = true;
+                  } else if (reservedTime === "7:00AM-12:00PM") {
+                      halfDayMorningBooked = true;
+                  } else if (reservedTime === "1:00PM-6:00PM") {
+                      halfDayAfternoonBooked = true;
+                  }
+              });
+    
+              // Update the time select options based on availability
+              const availableTimes = [
+                  { value: "7:00AM-12:00PM", text: "HALFDAY (7:00AM-12:00PM)", remove: halfDayMorningBooked },
+                  { value: "1:00PM-6:00PM", text: "HALFDAY (1:00PM-6:00PM)", remove: halfDayAfternoonBooked },
+                  { value: "7:00AM-6:00PM", text: "WHOLE DAY (7:00AM-6:00PM)", remove: isFullyBooked }
+              ];
+    
+              // Populate time select with available times
+              availableTimes.forEach(time => {
+                  if (!time.remove) {
+                      const option = document.createElement('option');
+                      option.value = time.value;
+                      option.textContent = time.text;
+                      timeSelect.appendChild(option);
+                  }
+              });
+    
+              // If fully booked, change the input type to text
+              if (isFullyBooked) {
+                  // Create a new input element if fully booked
+                  const inputElement = document.createElement('input');
+                  inputElement.type = 'text';
+                  inputElement.id = 'time';
+                  inputElement.placeholder = 'FULLY BOOKED';
+                  inputElement.disabled = true;
+    
+                  // Replace the time select with the new input element
+                  timeSelect.parentNode.replaceChild(inputElement, timeSelect);
+              } else {
+                  // If not fully booked, ensure the time select is present
+                  if (document.getElementById('time') && document.getElementById('time').type === 'text') {
+                      // Replace the input element back with the original time select
+                      const newTimeSelect = document.createElement('select');
+                      newTimeSelect.id = 'time';
+                      newTimeSelect.className = 'form-control';
+                      newTimeSelect.required = true;
+    
+                      // Re-add original options
+                      availableTimes.forEach(time => {
+                          if (!time.remove) {
+                              const option = document.createElement('option');
+                              option.value = time.value;
+                              option.textContent = time.text;
+                              newTimeSelect.appendChild(option);
+                          }
+                      });
+    
+                      // Replace the input element with the time select
+                      inputElement.parentNode.replaceChild(newTimeSelect, inputElement);
+                  }
+              }
+          }
+      });
+    </script>
+    
 
     
 
