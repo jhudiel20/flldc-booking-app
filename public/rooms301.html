@@ -305,52 +305,68 @@
               const selectedDate = reserveDateInput.value;
               const selectedRoom = document.getElementById('room').value;
 
+              // Call fetchReservations when date changes
               fetchReservations(selectedRoom, selectedDate);
           });
 
           // Fetch reservations from the backend
           function fetchReservations(room, date) {
               fetch(`/api/reservations?room=${room}&date=${date}`)
-                  .then(response => response.json())
+                  .then(response => {
+                      if (!response.ok) {
+                          throw new Error(`HTTP error! Status: ${response.status}`);
+                      }
+                      return response.json();
+                  })
                   .then(data => {
                       updateAvailability(data);
                   })
-                  .catch(error => console.error('Error fetching reservations:', error));
+                  .catch(error => {
+                      console.error('Error fetching reservations:', error);
+                      alert(`Error fetching reservations: ${error.message}`);
+                  });
           }
 
           // Update the time options based on reservations
           function updateAvailability(reservations) {
-              // Clear current time options
-              const options = timeSelect.querySelectorAll('option');
-              options.forEach(option => {
-                  option.remove();
-              });
+              try {
+                  // Clear current time options
+                  const options = timeSelect.querySelectorAll('option');
+                  options.forEach(option => {
+                      option.remove();
+                  });
 
-              // Add available time slots based on reservations
-              const availableTimes = [
-                  { value: "7:00AM-12:00PM", text: "HALFDAY (7:00AM-12:00PM)" },
-                  { value: "1:00PM-6:00PM", text: "HALFDAY (1:00PM-6:00PM)" },
-                  { value: "7:00AM-6:00PM", text: "WHOLE DAY (7:00AM-6:00PM)" }
-              ];
+                  // Available time slots
+                  const availableTimes = [
+                      { value: "7:00AM-12:00PM", text: "HALFDAY (7:00AM-12:00PM)" },
+                      { value: "1:00PM-6:00PM", text: "HALFDAY (1:00PM-6:00PM)" },
+                      { value: "7:00AM-6:00PM", text: "WHOLE DAY (7:00AM-6:00PM)" }
+                  ];
 
-              // Filter out times that are already booked
-              reservations.forEach(reservation => {
-                  const reservedTime = reservation.time;
-                  const index = availableTimes.findIndex(time => time.value === reservedTime);
-                  if (index > -1) {
-                      availableTimes.splice(index, 1); // Remove the reserved time
-                  }
-              });
+                  // Filter out reserved times
+                  reservations.forEach(reservation => {
+                      const reservedTime = reservation.time;
+                      const index = availableTimes.findIndex(time => time.value === reservedTime);
+                      if (index > -1) {
+                          availableTimes.splice(index, 1); // Remove reserved time
+                      }
+                  });
 
-              // Populate time select with available times
-              availableTimes.forEach(time => {
-                  const option = document.createElement('option');
-                  option.value = time.value;
-                  option.textContent = time.text;
-                  timeSelect.appendChild(option);
-              });
+                  // Populate time select with available times
+                  availableTimes.forEach(time => {
+                      const option = document.createElement('option');
+                      option.value = time.value;
+                      option.textContent = time.text;
+                      timeSelect.appendChild(option);
+                  });
+              } catch (error) {
+                  console.error('Error updating availability:', error);
+                  alert(`Error updating availability: ${error.message}`);
+              }
           }
       });
+    </script>
+
     </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/book.js"></script>
