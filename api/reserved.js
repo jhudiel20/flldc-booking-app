@@ -9,25 +9,28 @@ const pool = new Pool({
   connectionString: process.env.POSTGRES_URL,
 });
 
-// API endpoint to fetch approved reservations for Room 301
 app.get('/api/reserved', async (req, res) => {
-  try {
-    const { room } = req.query;
+    try {
+      const { room } = req.query;
+  
+      // Log the room parameter to make sure it's received correctly
+      console.log('Room parameter received:', room);
+  
+      // Ensure reserve_date is formatted properly for input type="date"
+      const reservations = await pool.query(
+        "SELECT TO_CHAR(reserve_date, 'YYYY-MM-DD') as reserve_date, time FROM reservations WHERE reserve_status = 'APPROVED' AND room = $1",
+        [room]
+      );
+  
+      // Log the fetched reservations to see the response before sending it
+      console.log('Fetched reservations:', reservations.rows);
+  
+      res.json(reservations.rows);
+    } catch (err) {
+      // Log the exact error message for debugging
+      console.error('Error fetching reservations:', err.message);
+      res.status(500).json({ error: 'Server error', details: err.message });
+    }
+  });
+  
 
-    // Modify the query if reserve_date needs formatting in YYYY-MM-DD
-    const reservations = await pool.query(
-      "SELECT TO_CHAR(reserve_date, 'YYYY-MM-DD') as reserve_date, time FROM reservations WHERE reserve_status = 'APPROVED' AND room = $1",
-      [room]
-    );
-
-    res.json(reservations.rows);
-  } catch (err) {
-    console.error('Error fetching reservations:', err.message);
-    res.status(500).send('Server error');
-  }
-});
-
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
