@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const bookingForm = document.getElementById('bookingForm');
     const reserveDateInput = document.getElementById('reserve_date');
     const timeSelect = document.getElementById('time');
+    const reserveNowButton = document.getElementById('submit');
     const originalTimeHTML = timeSelect.outerHTML; // Store the original HTML of the time select
 
     // Event listener for date change
@@ -71,6 +72,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Handle fully booked condition
         if (isFullyBooked) {
+                      // Hide the Reserve Now button
+                        if (reserveNowButton) {
+                          reserveNowButton.style.display = 'none';
+                      }
             if (document.getElementById('time') && timeSelect.parentNode) {
                 // Create a new input element
                 const inputElement = document.createElement('input');
