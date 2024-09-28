@@ -295,47 +295,35 @@
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    // Fetch approved reservations from the server
-    async function fetchApprovedReservations() {
-      const response = await fetch('/api/reserved?room=Room-301');
-      const data = await response.json();
-      return data;
-    }
+  // Function to fetch approved reservations and disable those dates in the date picker
+  async function fetchReservations() {
+    try {
+      // Fetch approved reservations for room 301 from the backend
+      const response = await fetch('/api/reserved?room=301');
+      const reservations = await response.json();
 
-    // Initialize Flatpickr and disable dates
-    async function initializeDatePicker() {
-      const approvedReservations = await fetchApprovedReservations();
-      const disabledDates = approvedReservations.map(reservation => reservation.reserve_date);
-      
-      flatpickr('#reserve_date', {
-        minDate: new Date().toISOString().split('T')[0],  // Disable past dates
-        disable: disabledDates,  // Disable dates that are already approved
+      const reservedDates = reservations.map(reservation => reservation.reserve_date);
+
+      // Get the date input element
+      const dateInput = document.getElementById('reserve_date');
+
+      // Disable reserved dates in the date picker
+      dateInput.addEventListener('input', function () {
+        const selectedDate = this.value;
+
+        if (reservedDates.includes(selectedDate)) {
+          alert('This date is already reserved.');
+          this.value = ''; // Clear the input if date is reserved
+        }
       });
+    } catch (error) {
+      console.error('Error fetching reservations:', error);
     }
+  }
 
-    // Initialize time picker to disable unavailable times
-    document.getElementById('time').addEventListener('change', function() {
-      const selectedDate = document.getElementById('reserve_date').value;
-      disableUnavailableTimes(selectedDate);
-    });
-
-    async function disableUnavailableTimes(selectedDate) {
-      const approvedReservations = await fetchApprovedReservations();
-      const approvedTimes = approvedReservations
-        .filter(reservation => reservation.reserve_date === selectedDate)
-        .map(reservation => reservation.time);
-
-      const timeSelect = document.getElementById('time');
-      for (let option of timeSelect.options) {
-        option.disabled = approvedTimes.includes(option.value);
-      }
-    }
-
-    // Call the initialization functions
-    initializeDatePicker();
-  });
-</script>
+  // Call fetchReservations when the page loads
+  fetchReservations();
+  </script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/book.js"></script>
