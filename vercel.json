@@ -5,7 +5,7 @@
       "runtime": "vercel-php@0.7.1"
     }
   }, 
-  "rewrites": [
+  "routes": [
     {
       "source": "/fetch_reservations",
       "destination": "/api/fetch_reservations.php"
