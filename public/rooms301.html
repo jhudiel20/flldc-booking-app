@@ -295,39 +295,64 @@
     <!-- Include Flatpickr -->
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
-      document.getElementById('reserve_date').addEventListener('change', function() {
-          const room = document.getElementById('room').value; // Get selected room
-          const reserveDate = this.value; // Get selected date
-      
-          // Check if the room and date are selected
-          if (room && reserveDate) {
-              fetch('/api/php/fetch_reservations.php', {
-                  method: 'POST',
-                  headers: {
-                      'Content-Type': 'application/json',
-                  },
-                  body: JSON.stringify({ room: room, reserve_date: reserveDate }),
-              })
-              .then(response => response.json())
-              .then(data => {
-                  if (data.reservedTimes) {
-                      // Disable reserved times in the dropdown
-                      const timeSelect = document.getElementById('time');
-                      const options = timeSelect.querySelectorAll('option');
-      
-                      options.forEach(option => {
-                          if (data.reservedTimes.includes(option.value)) {
-                              option.disabled = true; // Disable the reserved time
-                          } else {
-                              option.disabled = false; // Enable the available time
-                          }
-                      });
-                  }
-              })
-              .catch(error => console.error('Error fetching reservations:', error));
-          }
-      });
-      </script>
+      document.addEventListener('DOMContentLoaded', function () {
+    const bookingForm = document.getElementById('bookingForm');
+    const reserveDateInput = document.getElementById('reserve_date');
+    const timeSelect = document.getElementById('time');
+
+    // Event listener for date change
+    reserveDateInput.addEventListener('change', function () {
+        const selectedDate = reserveDateInput.value;
+        const selectedRoom = document.getElementById('room').value;
+
+        fetchReservations(selectedRoom, selectedDate);
+    });
+
+    // Fetch reservations from the backend
+    function fetchReservations(room, date) {
+        fetch(`/api/reservations?room=${room}&date=${date}`)
+            .then(response => response.json())
+            .then(data => {
+                updateAvailability(data);
+            })
+            .catch(error => console.error('Error fetching reservations:', error));
+    }
+
+    // Update the time options based on reservations
+    function updateAvailability(reservations) {
+        // Clear current time options
+        const options = timeSelect.querySelectorAll('option');
+        options.forEach(option => {
+            option.remove();
+        });
+
+        // Add available time slots based on reservations
+        const availableTimes = [
+            { value: "7:00AM-12:00PM", text: "HALFDAY (7:00AM-12:00PM)" },
+            { value: "1:00PM-6:00PM", text: "HALFDAY (1:00PM-6:00PM)" },
+            { value: "7:00AM-6:00PM", text: "WHOLE DAY (7:00AM-6:00PM)" }
+        ];
+
+        // Filter out times that are already booked
+        reservations.forEach(reservation => {
+            const reservedTime = reservation.time;
+            const index = availableTimes.findIndex(time => time.value === reservedTime);
+            if (index > -1) {
+                availableTimes.splice(index, 1); // Remove the reserved time
+            }
+        });
+
+        // Populate time select with available times
+        availableTimes.forEach(time => {
+            const option = document.createElement('option');
+            option.value = time.value;
+            option.textContent = time.text;
+            timeSelect.appendChild(option);
+        });
+    }
+});
+
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/book.js"></script>
     <script src="js/sec-min.js"></script>
