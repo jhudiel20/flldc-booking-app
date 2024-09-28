@@ -7,7 +7,7 @@
   }, 
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/$1" },
-    { "source": "/fetch_reservations", "destination": "/api/fetch_reservations.php" }
+    { "source": "/fetch_reservations", "destination": "/api/php/fetch_reservations.php" }
   ],
   "cleanUrls": true, 
   "trailingSlash": false  
