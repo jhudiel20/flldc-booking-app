@@ -12,7 +12,7 @@ async function fetchReservedSlots(room) {
     const query = `
       SELECT reserve_date, time
       FROM reservations
-      WHERE room = $1 AND reserve_status = 'APPROVED'
+      WHERE room = $1 AND reserved_status = 'APPROVED'
     `;
     const values = [room];
 
@@ -24,8 +24,9 @@ async function fetchReservedSlots(room) {
     return result.rows; // Assuming result.rows is an array of data
   } catch (error) {
     console.error('Error fetching reserved slots:', error.message);
-    // Log the error for debugging
+    // Log and alert the error for debugging
     console.log(`Query: ${query}, Values: ${values}`);
+    alert(`Error fetching reserved slots: ${error.message}`);
     throw error; // Re-throw the error after logging
   }
 }
@@ -63,8 +64,9 @@ async function disableReservedDatesAndTimes(room) {
     }
   } catch (error) {
     console.error('Error disabling reserved dates and times:', error);
-    // Log the error for debugging
+    // Log and alert the error for debugging
     console.log(`Room: ${room}`);
+    alert(`Error disabling reserved dates and times: ${error.message}`);
   }
 }
 
@@ -73,5 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const room = document.getElementById('room').value; // Get the room value
   disableReservedDatesAndTimes(room).catch(err => {
     console.error('Failed to disable reserved dates and times:', err);
+    alert(`Failed to disable reserved dates and times: ${err.message}`);
   });
 });
