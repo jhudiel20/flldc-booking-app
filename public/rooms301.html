@@ -295,36 +295,40 @@
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const roomNumber = 301; // Example room number
-    const dateInput = document.getElementById('reserve_date');
+document.addEventListener('DOMContentLoaded', () => {
+  const roomNumber = 301;
+  const dateInput = document.getElementById('reserve_date');
 
-    // Fetch approved reservations for the selected room
-    fetch(`/api/reserved?room=${roomNumber}`)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Failed to fetch reservations');
-        }
-        return response.json();
-      })
-      .then(reservations => {
-        console.log('Fetched reservations:', reservations);
-
-        // Disable dates that are already reserved and approved
-        const reservedDates = reservations.map(res => res.reserve_date);
-        dateInput.addEventListener('input', function () {
-          const selectedDate = this.value;
-
-          if (reservedDates.includes(selectedDate)) {
-            alert('This date is already reserved and approved. Please choose another date.');
-            this.value = ''; // Clear the selected date
-          }
-        });
-      })
-      .catch(err => {
-        console.error('Error fetching reservations:', err.message);
+  // Fetch approved reservations for the selected room
+  fetch(`/api/reserved?room=${roomNumber}`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to fetch reservations');
+      }
+      return response.json();
+    })
+    .then(reservations => {
+      const reservedDates = reservations.map(res => res.reserve_date);
+      
+      // Disable already reserved dates
+      dateInput.addEventListener('focus', function () {
+        const today = new Date().toISOString().split('T')[0];
+        this.setAttribute('min', today); // Disable past dates
       });
-  });
+
+      // Disable already reserved dates from the date picker
+      dateInput.addEventListener('input', function () {
+        if (reservedDates.includes(this.value)) {
+          alert('This date is already reserved and approved. Please choose another date.');
+          this.value = ''; // Clear the selected date
+        }
+      });
+    })
+    .catch(err => {
+      console.error('Error fetching reservations:', err.message);
+    });
+});
+
 </script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
