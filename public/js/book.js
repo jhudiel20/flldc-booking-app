@@ -120,6 +120,17 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+function validateGuest() {
+  const input = document.getElementById('guest');
+  const max = parseInt(input.max);
+
+  // If the input exceeds the maximum, set it to the max
+  if (input.value > max) {
+      input.value = max;
+  }
+}
+
+
   
   // Handle form submission
   document.querySelector('#bookingForm').addEventListener('submit', function (e) {
