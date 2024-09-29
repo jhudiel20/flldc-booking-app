@@ -89,6 +89,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 timeSelect.parentNode.replaceChild(inputElement, timeSelect);
             }
         } else {
+          if (reserveNowButton) {
+              reserveNowButton.style.display = 'block';
+          }
             // If not fully booked, ensure the time select is present
             if (document.getElementById('time') && document.getElementById('time').type === 'text') {
                 // Create a new time select element
