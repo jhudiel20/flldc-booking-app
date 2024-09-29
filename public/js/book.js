@@ -214,17 +214,19 @@ function validateGuest() {
   const selectElement = document.getElementById('setup');
   const previewLink = document.getElementById('previewLink');
   const roomInput = document.getElementById('room');  // Hidden input for room
-
+  
   // Function to update the preview link and hidden input
   function updatePreviewLink() {
     const selectedOption = selectElement.options[selectElement.selectedIndex];
     const RoomselectedValue = roomInput.value;
     const selectedImage = selectedOption.getAttribute('data-img');
-
+    
     // Special case for IT-Room
     if (RoomselectedValue === "IT-Room") {
       previewLink.style.display = 'none';  // Hide the preview link for IT-Room
-    } else if (RoomselectedValue !== "IT-Room") {
+    } else if (selectedOption.value === "CUSTOM-SETUP") {
+      previewLink.style.display = 'none';  // Hide the preview link for Custom Setup
+    } else if (RoomselectedValue !== "IT-Room" && selectedImage) {
       previewLink.href = selectedImage;  // Set the href of the link
       previewLink.style.display = 'inline';  // Show the preview link if image exists
       previewLink.style.pointerEvents = 'auto';  // Enable the link
@@ -236,17 +238,18 @@ function validateGuest() {
         icon: 'error',
         title: 'Error',
         text: 'No image available for this option.',
-      })
+      });
     }
   }
-
+  
   // Trigger the change event on page load to set the default preview
   window.onload = function() {
     updatePreviewLink(); // Set preview for the default selected option
   };
-
+  
   // Update the preview link and hidden input when the user changes the selection
   selectElement.addEventListener('change', updatePreviewLink);
-
+  
   // Optionally set the initial state to disabled
   previewLink.style.pointerEvents = 'none';
+  

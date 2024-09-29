@@ -129,7 +129,7 @@
                       <option value="THEATER" data-img="images/THEATER SETUP-Photoroom.png">THEATER</option>
                       <option value="U-SHAPE" data-img="images/U-SHAPE SETUP-Photoroom.png">U-SHAPE</option>
                       <option value="CONFERENCE" data-img="images/CONFERENCE SETUP-Photoroom.png">CONFERENCE</option>
-                      <option value="OTHER">OTHER</option>
+                      <option value="CUSTOM-SETUP">Custom Setup / Message the admin</option>
                     </select>
                 </div>
                 <div class="col-sm-6 form-group">     
@@ -152,7 +152,7 @@
               <div class="row">
                 <div class="col-md-6 form-group">
                   <label for="guest">Guests</label>
-                  <input type="number" max="20" id="guest" name="guest" class="form-control" oninput="validateGuest()">
+                  <input type="number" max="20" id="guest" name="guest" class="form-control" oninput="validateGuest()" required>
                   <!-- <select name="guest" id="guest" class="form-control" disabled>
                     <option value="20">20 Guest</option>
                   </select> -->

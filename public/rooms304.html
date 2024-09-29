@@ -129,7 +129,7 @@
                       <option value="THEATER" data-img="images/THEATER SETUP-Photoroom.png">THEATER</option>
                       <option value="U-SHAPE" data-img="images/U-SHAPE SETUP-Photoroom.png">U-SHAPE</option>
                       <option value="CONFERENCE" data-img="images/CONFERENCE SETUP-Photoroom.png">CONFERENCE</option>
-                      <option value="OTHER">OTHER</option>
+                      <option value="CUSTOM-SETUP">Custom Setup / Advise the admin</option>
                     </select>
                 </div>
                 <div class="col-sm-6 form-group">     
@@ -141,7 +141,7 @@
                     <option value="FCSI">FAST COLDCHAIN SOLUTION INC.</option>
                     <option value="FDC">FAST DISTRIBUTION CORPORATION</option>
                     <option value="FUI">FAST UNIMERCHANT INC.</option>
-                    <option value="other">OTHER</option>
+                    <option value="EXTERNAL">External Clients</option>
                   </select>
                 </div>
                 <input type="hidden" name="room" id="room" value="Room-304">
@@ -152,9 +152,7 @@
               <div class="row">
                 <div class="col-md-6 form-group">
                   <label for="guest">Guests</label>
-                  <select name="guest" id="guest" class="form-control" disabled>
-                    <option value="20">20 Guest</option>
-                  </select>
+                  <input type="number" max="20" id="guest" name="guest" class="form-control" oninput="validateGuest()" required>
                 </div>
                 <div class="col-md-6 form-group">
                   <label for="contact">Contact No.</label>
