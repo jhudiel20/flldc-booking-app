@@ -287,15 +287,15 @@ module.exports = async (req, res) => {
           [fname, lname, reserve_date, time, setup, businessunit, room, guest, contact, email, table, chair, hdmi, extension, message, booking_id]
         );
 
-        console.log('Insert result:', result); // Log the result
-
-        // Send email
-        await transporter.sendMail(ClientNotif);
-        await transporter.sendMail(AdminNotif);
-        console.log('Email sent successfully!');
-
-        // Respond with success
-        res.status(201).json({ message: 'Reservation created successfully!'});
+        try {
+          await transporter.sendMail(AdminNotif);
+          await transporter.sendMail(ClientNotif);
+          res.status(200).json({ message: 'Booking submitted successfully.' });
+        } catch (error) {
+          console.error('Error sending email:', error);
+          res.status(500).json({ error: `There was a problem submitting the booking: ${error.message}` });
+        }
+        
       } catch (insertError) {
         console.error('Insert error:', insertError);
         res.status(500).json({ error: `Failed to insert booking into the database: ${insertError.message}` });
