@@ -75,7 +75,7 @@ module.exports = async (req, res) => {
       },
     });
 
-    const mailOptions = {
+    const AdminNotif = {
       from: process.env.EMAIL_USER,
       to: process.env.EMAIL_USER, // Use process.env.EMAIL_USER for recipient
       subject: `New Booking Inserted - Booking ID: ${booking_id}`,
@@ -174,6 +174,105 @@ module.exports = async (req, res) => {
         }
       ]
     };
+    const ClientNotif = {
+      from: process.env.EMAIL_USER,
+      to: email, // Use process.env.EMAIL_USER for recipient
+      subject: `Booking Submitted - Booking ID: ${booking_id}`,
+      html: `
+        <div style="background:#f3f3f3">
+          <div style="margin:0px auto;max-width:640px;background:transparent">
+            <table role="presentation" cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;background:transparent" align="center" border="0">
+              <tbody>
+                <tr>
+                  <td style="text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:40px 0px">
+                    <div style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%">
+                      <table role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+                        <tbody>
+                          <tr>
+                            <td style="word-break:break-word;font-size:0px;padding:0px" align="center">
+                              <table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-spacing:0px" align="center" border="0">
+                                <tbody>
+                                  <tr>
+                                    <td style="width:138px">
+                                      <img alt="" title="" height="100px" width="200px" src="cid:logo_cid" style="">
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="max-width:640px;margin:0 auto;border-radius:4px;overflow:hidden">
+            <div style="margin:0px auto;max-width:640px;background:#fdfdfd">
+              <table role="presentation" cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;background:#fdfdfd" align="center" border="0">
+                <tbody>
+                  <tr>
+                    <td style="text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:40px 50px">
+                      <div style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%">
+                        <table role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+                          <tbody>
+                            <tr>
+                              <td style="word-break:break-word;font-size:0px;padding:0px" align="left">
+                                <div style="color:#737f8d;font-family:Whitney,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;font-size:16px;line-height:24px;text-align:left">
+                                  <h2 style="font-family:Whitney,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;font-weight:500;font-size:20px;color:#4f545c;letter-spacing:0.27px">Hi good day,</h2>
+                                  <p>You submitted new booking: </p>
+                                  <p><b>Booking ID:</b> ${booking_id}<br>
+                                  <b>Booking Date:</b> ${reserve_date}<br>
+                                  <b>Business Unit:</b> ${businessunit}<br>
+                                  <b>Room:</b> ${room}<br>
+                                  <b>Contact:</b> ${contact}<br>
+                                  <b>Email:</b> ${email}<br>
+                                  <b>Time:</b> ${time}<br>
+                                  <b>Setup:</b> ${setup}<br>
+                                  <b>Reserved By:</b> ${fname} ${lname}<br>
+                                  ${table ? `<b>Additional Tables:</b> ${table}<br>` : ''}
+                                  ${chair ? `<b>Additional Chairs:</b> ${chair}<br>` : ''}
+                                  ${extension ? `<b>Extension Cord:</b> ${extension}<br>` : ''}
+                                  ${hdmi ? `<b>HDMI Cable:</b> ${hdmi}<br>` : ''}
+
+                                  <p style="text-align:justify">Please wait for the confirmation of your booking. We look forward to assisting you at the FAST Learning and Development Center. If you have any questions or need further assistance, feel free to contact us at jppsolis@fast.com.ph | Viber Number: +63 969 450 9412.</p>
+                                  <p style="text-align:justify">Thank you for choosing FAST Learning and Development Center.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="word-break:break-word;font-size:0px;padding:30px 0px">
+                                <p style="font-size:1px;margin:0px auto;border-top:1px solid #dcddde;width:100%"></p>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div>
+              <table align="center">
+                <tr>
+                  <td style="height:150px; border:none;border-radius:3px;color:black;padding:15px 19px" align="center" valign="middle">&copy; 2024-2025 <strong><span>FAST Learning and Development Center</span></strong></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      `,
+      attachments: [
+        {
+          filename: 'LOGO.png',
+          path: logoPath, // Path to the logo image
+          cid: 'logo_cid' // The 'cid' should match the embedded image's "src"
+        }
+      ]
+    };
 
     try {
       // Check database connection and execute query
@@ -191,7 +290,8 @@ module.exports = async (req, res) => {
         console.log('Insert result:', result); // Log the result
 
         // Send email
-        await transporter.sendMail(mailOptions);
+        await transporter.sendMail(ClientNotif);
+        await transporter.sendMail(AdminNotif);
         console.log('Email sent successfully!');
 
         // Respond with success
