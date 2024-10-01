@@ -53,10 +53,15 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
+        // If the morning is booked, the whole day should also be considered unavailable
+        if (halfDayMorningBooked) {
+            isFullyBooked = true;
+        }
+
         // Populate available times
         const availableTimes = [
-            { value: "7:00AM-12:00PM", text: "HALFDAY (7:00AM-12:00PM)", remove: halfDayMorningBooked , remove: isFullyBooked},
-            { value: "1:00PM-6:00PM", text: "HALFDAY (1:00PM-6:00PM)", remove: halfDayAfternoonBooked , remove: isFullyBooked},
+            { value: "7:00AM-12:00PM", text: "HALFDAY (7:00AM-12:00PM)", remove: halfDayMorningBooked },
+            { value: "1:00PM-6:00PM", text: "HALFDAY (1:00PM-6:00PM)", remove: halfDayAfternoonBooked },
             { value: "7:00AM-6:00PM", text: "WHOLE DAY (7:00AM-6:00PM)", remove: isFullyBooked }
         ];
 
