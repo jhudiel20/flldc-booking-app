@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const availableTimes = [
             { value: "7:00AM-12:00PM", text: "HALFDAY (7:00AM-12:00PM)", remove: halfDayMorningBooked },
             { value: "1:00PM-6:00PM", text: "HALFDAY (1:00PM-6:00PM)", remove: halfDayAfternoonBooked },
-            { value: "7:00AM-6:00PM", text: "WHOLE DAY (7:00AM-6:00PM)", remove: isFullyBooked }
+            { value: "7:00AM-6:00PM", text: "WHOLE DAY (7:00AM-6:00PM)", remove: isFullyBooked || halfDayMorningBooked || halfDayAfternoonBooked }
         ];
 
         // Populate time select with available times
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         // Handle fully booked condition
-        if (isFullyBooked) {
+        if (isFullyBooked && halfDayAfternoonBooked && halfDayMorningBooked) {
                       // Hide the Reserve Now button
                         if (reserveNowButton) {
                           reserveNowButton.style.display = 'none';
