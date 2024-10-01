@@ -45,23 +45,23 @@ document.addEventListener('DOMContentLoaded', function () {
             const reservedTime = reservation.time;
 
             if (reservedTime === "7:00AM-6:00PM") {
-                isFullyBooked = true;
+              isFullyBooked = true;
+              halfDayMorningBooked = true; // Automatically mark both morning and afternoon as booked
+              halfDayAfternoonBooked = true;
             } else if (reservedTime === "7:00AM-12:00PM") {
-                halfDayMorningBooked = true;
+                halfDayMorningBooked = true; // Morning half booked
             } else if (reservedTime === "1:00PM-6:00PM") {
-                halfDayAfternoonBooked = true;
+                halfDayAfternoonBooked = true; // Afternoon half booked
             }
         });
 
-        // If the morning is booked, the whole day should also be considered unavailable
-        if (halfDayMorningBooked) {
-            isFullyBooked = true;
-        }
-
-        // Populate available times
+          // Populate available times based on bookings
         const availableTimes = [
-            { value: "7:00AM-12:00PM", text: "HALFDAY (7:00AM-12:00PM)", remove: halfDayMorningBooked },
-            { value: "1:00PM-6:00PM", text: "HALFDAY (1:00PM-6:00PM)", remove: halfDayAfternoonBooked },
+            // If morning is not booked and whole day isn't booked, morning slot is available
+            { value: "7:00AM-12:00PM", text: "HALFDAY (7:00AM-12:00PM)", remove: halfDayMorningBooked || isFullyBooked },
+            // If afternoon is not booked and whole day isn't booked, afternoon slot is available
+            { value: "1:00PM-6:00PM", text: "HALFDAY (1:00PM-6:00PM)", remove: halfDayAfternoonBooked || isFullyBooked },
+            // If either morning or afternoon is booked, whole day option should be removed
             { value: "7:00AM-6:00PM", text: "WHOLE DAY (7:00AM-6:00PM)", remove: isFullyBooked || halfDayMorningBooked || halfDayAfternoonBooked }
         ];
 
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         // Handle fully booked condition
-        if (isFullyBooked && halfDayAfternoonBooked && halfDayMorningBooked) {
+        if (isFullyBooked) {
                       // Hide the Reserve Now button
                         if (reserveNowButton) {
                           reserveNowButton.style.display = 'none';
