@@ -65,6 +65,8 @@ document.addEventListener('DOMContentLoaded', function () {
             { value: "7:00AM-6:00PM", text: "WHOLE DAY (7:00AM-6:00PM)", remove: isFullyBooked || halfDayMorningBooked || halfDayAfternoonBooked }
         ];
 
+        let hasAvailableTimes = false;
+        
         // Populate time select with available times
         availableTimes.forEach(time => {
             if (!time.remove) {
@@ -72,11 +74,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 option.value = time.value;
                 option.textContent = time.text;
                 timeSelect.appendChild(option);
+                hasAvailableTimes = true;
             }
         });
 
         // Handle fully booked condition
-        if (isFullyBooked) {
+        if (!hasAvailableTimes) {
                       // Hide the Reserve Now button
                         if (reserveNowButton) {
                           reserveNowButton.style.display = 'none';
