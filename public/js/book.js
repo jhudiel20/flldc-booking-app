@@ -130,7 +130,12 @@ function validateGuest() {
   }
 }
 
-
+function validateMinDate(input) {
+  const today = new Date().toISOString().split('T')[0];
+  if (input.value < today) {
+      input.value = today;  // Reset the value to today if it's earlier
+  }
+}
   
   // Handle form submission
   document.querySelector('#bookingForm').addEventListener('submit', function (e) {
