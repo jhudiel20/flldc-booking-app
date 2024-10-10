@@ -23,7 +23,13 @@
   // --------------------------------------------------------------------
   if (swiperDefault) {
     new Swiper(swiperDefault, {
-      slidesPerView: 'auto'
+      slidesPerView: 'auto',
+      autoplay: {
+        delay: 1500, // 1.5 seconds for each slide
+        disableOnInteraction: false, // Continue autoplay after interactions
+      },
+      speed: 1000,
+      loop: true,
     });
   }
 
@@ -122,7 +128,7 @@
         el: '.swiper-pagination'
       },
       autoplay: {
-        delay: 1500,  // 2 seconds
+        delay: 1500,  // 1.5 seconds
         disableOnInteraction: false,  // Keep autoplay running even after user interactions
       },
       initialSlide: 3,
