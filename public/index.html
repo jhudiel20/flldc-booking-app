@@ -299,7 +299,13 @@
     <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
     <script src="js/sec-min.js"></script>
     <!-- Custom Cursor JavaScript -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
+  AOS.init({
+        duration: 1500, // Animation duration
+        once: false,    // Allows animations to happen every time you scroll past
+        mirror: true    // Repeat animations on scroll-up
+      });
   const cursor = document.querySelector('.custom-cursor');
 
   document.addEventListener('mousemove', e => {
@@ -309,7 +315,6 @@
 
   document.body.style.cursor = 'none';
 </script>
-    <script src="js/wow.min.js"></script>
     <script src="sneat/assets/vendor/libs/swiper/swiper.js"></script>
     <script src="sneat/assets/js/ui-carousel.js"></script>
 
