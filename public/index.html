@@ -21,34 +21,6 @@
     <link rel="stylesheet" href="sneat/assets/vendor/libs/swiper/swiper.css" />
     <link rel="stylesheet" href="sneat/assets/vendor/css/pages/ui-carousel.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
-    <style>
-      .custom-cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 40px;
-  height: 40px;
-  background: transparent;
-  border: 2px solid #000;
-  border-radius: 50%;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  z-index: 9999;
-}
-
-.custom-cursor::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 8px;
-  height: 8px;
-  background: #000;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-}
-    </style>
-
   </head>
   <body>
     <div class="custom-cursor"></div>
@@ -306,14 +278,6 @@
         once: false,    // Allows animations to happen every time you scroll past
         mirror: true    // Repeat animations on scroll-up
       });
-  const cursor = document.querySelector('.custom-cursor');
-
-  document.addEventListener('mousemove', e => {
-    cursor.style.top = e.clientY + 'px';
-    cursor.style.left = e.clientX + 'px';
-  });
-
-  document.body.style.cursor = 'none';
 </script>
     <script src="sneat/assets/vendor/libs/swiper/swiper.js"></script>
     <script src="sneat/assets/js/ui-carousel.js"></script>
