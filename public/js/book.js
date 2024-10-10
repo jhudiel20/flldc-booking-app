@@ -206,6 +206,7 @@ function validateMinDate(input) {
           icon: 'success',
           title: 'Booking Submitted',
           text: `Please wait the email confirmation of your booking.`,
+          button: false,
         }).then(function() {
           window.location.reload();
       });
