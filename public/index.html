@@ -21,6 +21,22 @@
     <link rel="stylesheet" href="sneat/assets/vendor/libs/swiper/swiper.css" />
     <link rel="stylesheet" href="sneat/assets/vendor/css/pages/ui-carousel.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/smooth-scrollbar@8.6.3/dist/smooth-scrollbar.css">
+    <style>
+      body::-webkit-scrollbar {
+          display: none;
+      }
+
+      /* Hide scrollbar in Firefox */
+      body {
+          scrollbar-width: none;  /* Firefox */
+      }
+
+      /* Ensure smooth scrolling */
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
   </head>
   <body>
     <header role="banner">
@@ -278,11 +294,30 @@
     <script src="js/sec-min.js"></script>
     <!-- Custom Cursor JavaScript -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/smooth-scrollbar@8.6.3/dist/smooth-scrollbar.js"></script>
 <script>
   AOS.init({
         duration: 1500, // Animation duration
         once: false,    // Allows animations to happen every time you scroll past
         mirror: true    // Repeat animations on scroll-up
+      });
+
+      var scrollbar = Scrollbar.init(document.body, {
+        damping: 0.07,
+        alwaysShowTracks: false  // Hide scrollbar track
+      });
+
+      // Optional: Add smooth scrolling to anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          scrollbar.scrollIntoView(target, {
+            offsetTop: -70,  // Adjust based on your navbar/header height
+            duration: 1000,  // Scroll duration in ms
+            easing: 'easeInOutQuart'
+          });
+        });
       });
 </script>
     <script src="sneat/assets/vendor/libs/swiper/swiper.js"></script>
