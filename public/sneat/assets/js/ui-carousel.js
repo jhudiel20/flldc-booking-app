@@ -122,11 +122,12 @@
         el: '.swiper-pagination'
       },
       autoplay: {
-        delay: 2000,  // 2 seconds
+        delay: 1500,  // 2 seconds
         disableOnInteraction: false,  // Keep autoplay running even after user interactions
       },
       initialSlide: 3,
       loop: true,
+      speed: 1000,
     });
   }
 
