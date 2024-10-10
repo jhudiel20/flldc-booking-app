@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="sneat/assets/vendor/libs/swiper/swiper.css" />
     <link rel="stylesheet" href="sneat/assets/vendor/css/pages/ui-carousel.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
     <style>
       .custom-cursor {
   position: fixed;
@@ -54,17 +55,17 @@
     <header role="banner">
       <nav class="navbar navbar-expand-md navbar-dark bg-light">
         <div class="container">
-          <a class="navbar-brand" href="index"><img src="/images/LOGO.png" alt="" style="height: 50px;"></a>
+          <a class="navbar-brand" href="index" data-aos="fade-down"><img src="/images/LOGO.png" alt="" style="height: 50px;"></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
     
           <div class="collapse navbar-collapse navbar-light" id="navbarsExample05">
-            <ul class="navbar-nav ml-auto pl-lg-5 pl-0">
-              <li class="nav-item animated fadeInRight">
+            <ul class="navbar-nav ml-auto pl-lg-5 pl-0" data-aos="fade-left">
+              <li class="nav-item ">
                 <a class="nav-link" href="index">Home</a>
               </li>
-              <li class="nav-item dropdown animated fadeInRight">
+              <li class="nav-item dropdown ">
                 <a class="nav-link dropdown-toggle" href="rooms" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Rooms</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown04">
                   <a class="dropdown-item" href="rooms">All Rooms</a>
@@ -78,14 +79,14 @@
                 </div>
     
               </li>
-              <li class="nav-item animated fadeInRight">
+              <li class="nav-item ">
                 <a class="nav-link" href="about">About</a>
               </li>
-              <li class="nav-item animated fadeInRight">
+              <li class="nav-item ">
                 <a class="nav-link" href="contact">Contact</a>
               </li>
     
-               <li class="nav-item cta animated fadeInRight">
+               <li class="nav-item cta ">
                 <a class="nav-link" href="rooms"><span>Book Now</span></a>
               </li>
             </ul>
@@ -101,18 +102,18 @@
       <div class="container">
         <div class="row align-items-center site-hero-inner justify-content-center">
           <div class="col-lg-12 text-center d-md-block d-lg-none">
-            <div class="mb-5 fadeOutDown element-animate">
+            <div class="mb-5" data-aos="fade-up">
               <h1><strong>FAST Learning and Development Center</strong></h1>
               <p>Experience the ideal venue for your <b>MEETINGS</b> and <b>PROGRAMS</b> at FAST Learning and Development Center!</p>
             </div>
           </div>
-          <div class="col-md-6 d-none d-lg-block" >
-            <div class="fadeOutDown element-animate">
+          <div class="col-md-6 d-none d-lg-block" data-aos="fade-right">
+            <div class="">
               <h1><strong>FAST Learning and Development Center</strong></h1>
               <p>Experience the ideal venue for your <b>MEETINGS</b> and <b>PROGRAMS</b> at FAST Learning and Development Center!</p>
             </div>
           </div>
-          <div class="col-md-6 d-none d-lg-block">
+          <div class="col-md-6 d-none d-lg-block" data-aos="fade-left">
             <div class="swiper" id="swiper-default">
               <div class="swiper-wrapper">
                 <div class="swiper-slide" style="background-image: url(images/bg_picture1.jpg);">
@@ -196,7 +197,7 @@
     <!-- END section -->
 
     <section class="site-section bg-light">
-      <div class="container">
+      <div class="container" data-aos="zoom-in">
         <div class="row mb-5">
           <div class="col-md-12 heading-wrap text-center">
             <h4 class="sub-heading">FAST Learning Development Rooms</h4>
