@@ -30,6 +30,8 @@
       },
       speed: 1000,
       loop: true,
+      pagination: false, // Disable pagination
+      navigation: false, // Disable navigation
     });
   }
 
@@ -128,7 +130,7 @@
         el: '.swiper-pagination'
       },
       autoplay: {
-        delay: 1500,  // 1.5 seconds
+        delay: 1100,  // 1.5 seconds
         disableOnInteraction: false,  // Keep autoplay running even after user interactions
       },
       initialSlide: 3,
