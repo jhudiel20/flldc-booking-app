@@ -21,6 +21,23 @@
     <link rel="stylesheet" href="sneat/assets/vendor/libs/swiper/swiper.css" />
     <link rel="stylesheet" href="sneat/assets/vendor/css/pages/ui-carousel.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    <style>
+body::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+/* Hide scrollbar in Firefox */
+body {
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Prevent content from shifting due to hidden scrollbars */
+html, body {
+    overflow: auto;
+
+}
+    </style>
   </head>
   <body>
     <header role="banner">
@@ -278,6 +295,13 @@
     <script src="js/sec-min.js"></script>
     <!-- Custom Cursor JavaScript -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init({
+        duration: 1500, // Animation duration
+        once: false,    // Allows animations to happen every time you scroll past
+        mirror: true    // Repeat animations on scroll-up
+      });
+</script>
     <script src="sneat/assets/vendor/libs/swiper/swiper.js"></script>
     <script src="sneat/assets/js/ui-carousel.js"></script>
 
