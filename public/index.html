@@ -34,9 +34,24 @@ body {
 
 /* Prevent content from shifting due to hidden scrollbars */
 html, body {
-    overflow: auto;
-    scroll-snap-type: y mandatory; /* Enable vertical snap scrolling */
-}
+        height: 100%;
+        margin: 0;
+        scroll-snap-type: y mandatory;
+        overflow-y: scroll;
+      }
+      section {
+        height: 100vh;
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2em;
+        background: #f8f9fa;
+      }
+      section:nth-child(even) {
+        background: #e9ecef;
+      }
     </style>
   </head>
   <body>
