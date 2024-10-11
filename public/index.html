@@ -22,39 +22,20 @@
     <link rel="stylesheet" href="sneat/assets/vendor/css/pages/ui-carousel.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
     <style>
-      body::-webkit-scrollbar {
-          display: none;
-      }
+body::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
 
-      /* Hide scrollbar in Firefox */
-      body {
-          scrollbar-width: none;  /* Firefox */
-      }
-      /* Custom content styling */
-      body {
-        margin: 0;
-        padding: 0;
-      }
+/* Hide scrollbar in Firefox */
+body {
+    scrollbar-width: none;  /* Firefox */
+}
 
-      section {
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 2rem;
-      }
-
-      #section1 {
-        background-color: lightcoral;
-      }
-
-      #section2 {
-        background-color: lightblue;
-      }
-
-      #section3 {
-        background-color: lightgreen;
-      }
+/* Prevent content from shifting due to hidden scrollbars */
+html, body {
+    overflow: hidden;
+}
     </style>
   </head>
   <body>
