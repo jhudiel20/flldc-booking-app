@@ -1,3 +1,9 @@
+AOS.init({
+  duration: 1500, // Animation duration
+  once: false,    // Allows animations to happen every time you scroll past
+  mirror: true    // Repeat animations on scroll-up
+});
+
 function toggleExtras() {
   const extrasDiv = document.getElementById('extras');
   extrasDiv.classList.toggle('d-none');  // Toggle the d-none class

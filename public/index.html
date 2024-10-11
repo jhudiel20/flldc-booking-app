@@ -21,38 +21,6 @@
     <link rel="stylesheet" href="sneat/assets/vendor/libs/swiper/swiper.css" />
     <link rel="stylesheet" href="sneat/assets/vendor/css/pages/ui-carousel.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
-    <style>
-body::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-}
-
-/* Hide scrollbar in Firefox */
-body {
-    scrollbar-width: none;  /* Firefox */
-}
-
-/* Prevent content from shifting due to hidden scrollbars */
-html, body {
-        height: 100%;
-        margin: 0;
-        scroll-snap-type: y mandatory;
-        overflow-y: scroll;
-      }
-      section {
-        height: 100vh;
-        scroll-snap-align: start;
-        scroll-snap-stop: always;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 2em;
-        background: #f8f9fa;
-      }
-      section:nth-child(even) {
-        background: #e9ecef;
-      }
-    </style>
   </head>
   <body>
     <header role="banner">
@@ -310,13 +278,6 @@ html, body {
     <script src="js/sec-min.js"></script>
     <!-- Custom Cursor JavaScript -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script>
-  AOS.init({
-        duration: 1500, // Animation duration
-        once: false,    // Allows animations to happen every time you scroll past
-        mirror: true    // Repeat animations on scroll-up
-      });
-</script>
     <script src="sneat/assets/vendor/libs/swiper/swiper.js"></script>
     <script src="sneat/assets/js/ui-carousel.js"></script>
 
