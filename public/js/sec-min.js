@@ -42,7 +42,7 @@ function includeHTML(file, elementID) {
   }
 
   // Load navigation and footer
-//   includeHTML('nav', 'navigation');
+  includeHTML('header', 'header');
   includeHTML('footer', 'footer');
 
 
