@@ -53,11 +53,7 @@ function includeHTML(file, elementID) {
   
   async function loadRooms() {
     const dropdown = document.getElementById('roomDropdown');
-    if (!dropdown) {
-      console.error('Dropdown element not found!');
-      return; // Exit if dropdown is not found
-  }
-    dropdown.innerHTML = '<a class="dropdown-item" href="#">Loading...</a>';
+   
     // Fetch rooms from the API
     const response = await fetch('/api/available_rooms.js');
   
