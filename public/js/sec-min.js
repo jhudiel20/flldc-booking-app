@@ -119,7 +119,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
   const dropdown = document.getElementById('roomDropdown');
 
-  try {
+  
     const response = await fetch('/api/available_rooms.js');
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -133,13 +133,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       roomLink.textContent = room.room_name;
       dropdown.appendChild(roomLink);
     });
-  } catch (error) {
-    console.error('Error fetching room data:', error);
-    const errorItem = document.createElement('a');
-    errorItem.className = 'dropdown-item';
-    errorItem.textContent = 'No rooms available';
-    dropdown.appendChild(errorItem);
-  }
+  
 });
 
 if (typeof AOS !== 'undefined') {
