@@ -38,46 +38,49 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Check if roomDropdown is found
   if (!roomDropdown) {
-    console.error('roomDropdown element not found!');
-    return;
+      console.error('roomDropdown element not found!');
+      return; // Exit if the element is not found
   }
 
   // Fetch room data from the backend
   fetch('/api/available_rooms')
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error('Failed to fetch room data');
-      }
-      return response.json();
-    })
-    .then((rooms) => {
-      console.log('Fetched Rooms:', rooms); // Log fetched rooms
+      .then((response) => {
+          if (!response.ok) {
+              throw new Error('Failed to fetch room data');
+          }
+          return response.json();
+      })
+      .then((rooms) => {
+          console.log('Fetched Rooms:', rooms); // Log fetched rooms
 
-      if (rooms.length === 0) {
-        const noRoomItem = document.createElement('p');
-        noRoomItem.classList.add('dropdown-item', 'text-muted');
-        noRoomItem.textContent = 'No rooms available';
-        roomDropdown.appendChild(noRoomItem);
-        return;
-      }
+          // Check if rooms data is empty
+          if (rooms.length === 0) {
+              const noRoomItem = document.createElement('p');
+              noRoomItem.classList.add('dropdown-item', 'text-muted');
+              noRoomItem.textContent = 'No rooms available';
+              roomDropdown.appendChild(noRoomItem);
+              return;
+          }
 
-      rooms.forEach((room) => {
-        const roomLink = document.createElement('a');
-        roomLink.classList.add('dropdown-item');
-        roomLink.href = `rooms?ID=${room.room_id}`; // Use query parameter
-        roomLink.textContent = room.name;
+          // Populate dropdown with room data
+          rooms.forEach((room) => {
+              const roomLink = document.createElement('a');
+              roomLink.classList.add('dropdown-item');
+              roomLink.href = `rooms?ID=${room.room_id}`; // Use query parameter for room ID
+              roomLink.textContent = room.name; // Assuming 'name' is a column in 'room_details'
 
-        roomDropdown.appendChild(roomLink);
+              roomDropdown.appendChild(roomLink);
+          });
+      })
+      .catch((error) => {
+          console.error('Error fetching room data:', error);
+          const errorItem = document.createElement('p');
+          errorItem.classList.add('dropdown-item', 'text-danger');
+          errorItem.textContent = 'Unable to load rooms';
+          roomDropdown.appendChild(errorItem);
       });
-    })
-    .catch((error) => {
-      console.error('Error fetching room data:', error);
-      const errorItem = document.createElement('p');
-      errorItem.classList.add('dropdown-item', 'text-danger');
-      errorItem.textContent = 'Unable to load rooms';
-      roomDropdown.appendChild(errorItem);
-    });
 });
+
 
 
 
