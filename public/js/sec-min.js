@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .then((rooms) => {
       // Clear the dropdown first (if needed)
-      roomDropdown.innerHTML = ''; 
+      // roomDropdown.innerHTML = ''; 
 
       // Add the "All Rooms" option at the top
       const allRoomsLink = document.createElement('a');
