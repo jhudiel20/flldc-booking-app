@@ -37,3 +37,42 @@
       </div>
     </nav>
   </header>
+
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const roomDropdownToggle = document.getElementById('dropdown04'); // The dropdown toggle element
+  const roomDropdown = document.getElementById('roomDropdown'); // The dropdown menu
+
+  // Add click event listener to the dropdown toggle
+  roomDropdownToggle.onclick = function () {
+      // Clear existing dropdown items to avoid duplicates
+      roomDropdown.innerHTML = '<a class="dropdown-item" href="rooms">All Rooms</a>'; // Reset to default item
+
+      // Fetch room data from the backend
+      fetch('/api/available_rooms')
+          .then((response) => {
+              if (!response.ok) {
+                  throw new Error('Failed to fetch room data');
+              }
+              return response.json();
+          })
+          .then((rooms) => {
+              rooms.forEach((room) => {
+                  const roomLink = document.createElement('a');
+                  roomLink.classList.add('dropdown-item');
+                  roomLink.href = `rooms?ID=${room.room_id}`; // Use query parameter for room ID
+                  roomLink.textContent = room.name; // Assuming 'name' is a column in 'room_details'
+
+                  roomDropdown.appendChild(roomLink);
+              });
+          })
+          .catch((error) => {
+              console.error('Error fetching room data:', error);
+              const errorItem = document.createElement('p');
+              errorItem.classList.add('dropdown-item', 'text-danger');
+              errorItem.textContent = 'Unable to load rooms';
+              roomDropdown.appendChild(errorItem);
+          });
+  };
+});
+  </script>
