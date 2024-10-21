@@ -84,10 +84,10 @@
 window.onload = function() {
   const roomDropdown = document.getElementById('roomDropdown');
 
-  if (!roomDropdown) {
-      console.error('roomDropdown element not found!');
-      return; // Exit if the element is not found
-  }
+  // if (!roomDropdown) {
+  //     console.error('roomDropdown element not found!');
+  //     return; // Exit if the element is not found
+  // }
 
   // Fetch room data from the backend
   fetch('/api/available_rooms')
