@@ -33,10 +33,9 @@
 // });
 
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('load', () => {
   const roomDropdown = document.getElementById('roomDropdown');
 
-  // Check if roomDropdown is found
   if (!roomDropdown) {
       console.error('roomDropdown element not found!');
       return; // Exit if the element is not found
@@ -80,6 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
           roomDropdown.appendChild(errorItem);
       });
 });
+
 
 
 
