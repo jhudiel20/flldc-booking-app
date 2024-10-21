@@ -54,12 +54,6 @@ function includeHTML(file, elementID) {
   async function loadRooms() {
     const dropdown = document.getElementById('roomDropdown');
   
-    // Check if the dropdown exists
-    if (!dropdown) {
-      console.error('Dropdown element not found!');
-      return; // Exit if dropdown is not found
-    }
-  
     // Fetch rooms from the API
     const response = await fetch('/api/available_rooms.js');
   
