@@ -1,36 +1,84 @@
+// document.addEventListener('DOMContentLoaded', () => {
+//   const roomDropdown = document.getElementById('roomDropdown');
+
+//   // Fetch room data from the backend
+//   fetch('/api/available_rooms')
+//     .then((response) => {
+//       if (!response.ok) {
+//         throw new Error(`HTTP error! Status: ${response.status}`);
+//       }
+//       return response.json();
+//     })
+//     .then((rooms) => {
+//       // Clear the dropdown first (if needed)
+//       // roomDropdown.innerHTML = ''; 
+
+//       // Add the "All Rooms" option at the top
+//       // const allRoomsLink = document.createElement('a');
+//       // allRoomsLink.classList.add('dropdown-item');
+//       // allRoomsLink.href = 'rooms';
+//       // allRoomsLink.textContent = 'All Rooms';
+//       // roomDropdown.appendChild(allRoomsLink);
+
+//       // Add each room dynamically
+//       rooms.forEach((room) => {
+//         const roomLink = document.createElement('a');
+//         roomLink.classList.add('dropdown-item');
+//         roomLink.href = `rooms?ID=${room.room_id}`;  // Example: rooms301
+//         roomLink.textContent = room.name;  // Assuming 'name' is a column
+
+//         roomDropdown.appendChild(roomLink);
+//       });
+//     });
+// });
+
+
 document.addEventListener('DOMContentLoaded', () => {
   const roomDropdown = document.getElementById('roomDropdown');
+
+  // Check if roomDropdown is found
+  if (!roomDropdown) {
+    console.error('roomDropdown element not found!');
+    return;
+  }
 
   // Fetch room data from the backend
   fetch('/api/available_rooms')
     .then((response) => {
       if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
+        throw new Error('Failed to fetch room data');
       }
       return response.json();
     })
     .then((rooms) => {
-      // Clear the dropdown first (if needed)
-      // roomDropdown.innerHTML = ''; 
+      console.log('Fetched Rooms:', rooms); // Log fetched rooms
 
-      // Add the "All Rooms" option at the top
-      // const allRoomsLink = document.createElement('a');
-      // allRoomsLink.classList.add('dropdown-item');
-      // allRoomsLink.href = 'rooms';
-      // allRoomsLink.textContent = 'All Rooms';
-      // roomDropdown.appendChild(allRoomsLink);
+      if (rooms.length === 0) {
+        const noRoomItem = document.createElement('p');
+        noRoomItem.classList.add('dropdown-item', 'text-muted');
+        noRoomItem.textContent = 'No rooms available';
+        roomDropdown.appendChild(noRoomItem);
+        return;
+      }
 
-      // Add each room dynamically
       rooms.forEach((room) => {
         const roomLink = document.createElement('a');
         roomLink.classList.add('dropdown-item');
-        roomLink.href = `rooms?ID=${room.room_id}`;  // Example: rooms301
-        roomLink.textContent = room.name;  // Assuming 'name' is a column
+        roomLink.href = `rooms?ID=${room.room_id}`; // Use query parameter
+        roomLink.textContent = room.name;
 
         roomDropdown.appendChild(roomLink);
       });
+    })
+    .catch((error) => {
+      console.error('Error fetching room data:', error);
+      const errorItem = document.createElement('p');
+      errorItem.classList.add('dropdown-item', 'text-danger');
+      errorItem.textContent = 'Unable to load rooms';
+      roomDropdown.appendChild(errorItem);
     });
 });
+
 
 
 
