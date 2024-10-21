@@ -14,11 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
       // roomDropdown.innerHTML = ''; 
 
       // Add the "All Rooms" option at the top
-      const allRoomsLink = document.createElement('a');
-      allRoomsLink.classList.add('dropdown-item');
-      allRoomsLink.href = 'rooms';
-      allRoomsLink.textContent = 'All Rooms';
-      roomDropdown.appendChild(allRoomsLink);
+      // const allRoomsLink = document.createElement('a');
+      // allRoomsLink.classList.add('dropdown-item');
+      // allRoomsLink.href = 'rooms';
+      // allRoomsLink.textContent = 'All Rooms';
+      // roomDropdown.appendChild(allRoomsLink);
 
       // Add each room dynamically
       rooms.forEach((room) => {
