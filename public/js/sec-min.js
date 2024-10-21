@@ -1,3 +1,27 @@
+document.addEventListener('DOMContentLoaded', () => {
+  const roomDropdown = document.getElementById('roomDropdown');
+
+  // Fetch room data from the backend
+  fetch('/api/rooms')
+    .then((response) => response.json())
+    .then((rooms) => {
+      rooms.forEach((room) => {
+        const roomLink = document.createElement('a');
+        roomLink.classList.add('dropdown-item');
+        roomLink.href = `rooms${room.id}`;  // Example: rooms301
+        roomLink.textContent = room.name;  // Assuming 'name' is a column in 'room_details'
+
+        roomDropdown.appendChild(roomLink);
+      });
+    })
+    .catch((error) => {
+      console.error('Error fetching room data:', error);
+    });
+});
+
+
+
+
 if (typeof AOS !== 'undefined') {
   AOS.init({
     duration: 1500, // Animation duration
