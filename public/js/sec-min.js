@@ -29,10 +29,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         roomDropdown.appendChild(roomLink);
       });
-    })
-    .catch((error) => {
-      console.error('Error fetching room data:', error);
     });
+    // .catch((error) => {
+    //   console.error('Error fetching room data:', error);
+    // });
 });
 
 
