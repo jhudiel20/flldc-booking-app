@@ -79,7 +79,7 @@ document.addEventListener('load', () => {
           roomDropdown.appendChild(errorItem);
       });
 });
-
+console.log(document.getElementById('roomDropdown'));
 
 
 
