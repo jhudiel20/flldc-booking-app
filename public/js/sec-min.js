@@ -81,7 +81,7 @@
 // });
 // console.log(document.getElementById('roomDropdown'));
 
-(function() {
+window.onload = function() {
   const roomDropdown = document.getElementById('roomDropdown');
 
   if (!roomDropdown) {
@@ -98,7 +98,6 @@
           return response.json();
       })
       .then((rooms) => {
-          // Populate dropdown with room data
           rooms.forEach((room) => {
               const roomLink = document.createElement('a');
               roomLink.classList.add('dropdown-item');
@@ -115,7 +114,7 @@
           errorItem.textContent = 'Unable to load rooms';
           roomDropdown.appendChild(errorItem);
       });
-})();
+};
 
 
 
