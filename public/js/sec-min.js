@@ -116,33 +116,31 @@
 // });
 
 
-document.addEventListener('DOMContentLoaded', () => {
-  const roomDropdown = document.getElementById('roomDropdown');
+document.addEventListener('DOMContentLoaded', async () => {
+  const dropdown = document.getElementById('roomDropdown');
 
-  // Fetch room data from the backend
-  fetch('/api/available_rooms')
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error('Failed to fetch room data');
-      }
-      return response.json();
-    })
-    .then((rooms) => {
-      rooms.forEach((room) => {
-        const roomLink = document.createElement('a');
-        roomLink.classList.add('dropdown-item');
-        roomLink.href = `rooms${room.room_id}`; // Example: rooms301
-        roomLink.textContent = room.room_name;  // Example: Room 301
+  try {
+    const response = await fetch('/api/available_room.js');
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const rooms = await response.json();
 
-        roomDropdown.appendChild(roomLink);
-      });
+    rooms.forEach(room => {
+      const roomLink = document.createElement('a');
+      roomLink.className = 'dropdown-item';
+      roomLink.href = `rooms?ID=${room.room_id}`; // Modify the href as needed
+      roomLink.textContent = room.room_name;
+      dropdown.appendChild(roomLink);
     });
+  } catch (error) {
+    console.error('Error fetching room data:', error);
+    const errorItem = document.createElement('a');
+    errorItem.className = 'dropdown-item';
+    errorItem.textContent = 'No rooms available';
+    dropdown.appendChild(errorItem);
+  }
 });
-
-
-
-
-
 
 if (typeof AOS !== 'undefined') {
   AOS.init({
