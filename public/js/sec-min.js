@@ -3,13 +3,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Fetch room data from the backend
   fetch('/api/available_rooms')
-    .then((response) => response.json())
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
     .then((rooms) => {
+      // Clear the dropdown first (if needed)
+      roomDropdown.innerHTML = ''; 
+
+      // Add the "All Rooms" option at the top
+      const allRoomsLink = document.createElement('a');
+      allRoomsLink.classList.add('dropdown-item');
+      allRoomsLink.href = 'rooms';
+      allRoomsLink.textContent = 'All Rooms';
+      roomDropdown.appendChild(allRoomsLink);
+
+      // Add each room dynamically
       rooms.forEach((room) => {
         const roomLink = document.createElement('a');
         roomLink.classList.add('dropdown-item');
         roomLink.href = `rooms${room.id}`;  // Example: rooms301
-        roomLink.textContent = room.name;  // Assuming 'name' is a column in 'room_details'
+        roomLink.textContent = room.name;  // Assuming 'name' is a column
 
         roomDropdown.appendChild(roomLink);
       });
@@ -18,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error('Error fetching room data:', error);
     });
 });
+
 
 
 
