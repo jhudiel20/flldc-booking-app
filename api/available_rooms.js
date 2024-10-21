@@ -8,7 +8,7 @@ const pool = new Pool({
 app.use(cors());
 
 // Route to fetch room details
-app.get('/api/rooms', async (req, res) => {
+app.get('/api/available_rooms', async (req, res) => {
     try {
       const result = await pool.query('SELECT * FROM room_details');
       res.json(result.rows); // Send all room data as JSON

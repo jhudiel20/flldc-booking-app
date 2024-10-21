@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const roomDropdown = document.getElementById('roomDropdown');
 
   // Fetch room data from the backend
-  fetch('/api/rooms')
+  fetch('/api/available_rooms')
     .then((response) => response.json())
     .then((rooms) => {
       rooms.forEach((room) => {
