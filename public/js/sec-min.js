@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
       rooms.forEach((room) => {
         const roomLink = document.createElement('a');
         roomLink.classList.add('dropdown-item');
-        roomLink.href = `rooms${room.id}`;  // Example: rooms301
+        roomLink.href = `rooms?id${room.room_id}`;  // Example: rooms301
         roomLink.textContent = room.name;  // Assuming 'name' is a column
 
         roomDropdown.appendChild(roomLink);
