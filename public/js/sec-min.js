@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const dropdown = document.getElementById('roomDropdown');
 
   try {
-    const response = await fetch('/api/available_room.js');
+    const response = await fetch('/api/available_rooms.js');
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
