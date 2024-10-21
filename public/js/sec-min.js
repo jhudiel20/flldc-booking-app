@@ -47,36 +47,35 @@ function includeHTML(file, elementID) {
   includeHTML('header', 'header');
   includeHTML('footer', 'footer');
 
-  // document.addEventListener('DOMContentLoaded', async () => {
-  //   const dropdown = document.getElementById('roomDropdown');
-
-  //   if (!dropdown) {
-  //     console.error('Dropdown element not found!');
-  //     return; // Prevent further execution if the element isn't found
-  //   }
-
-  //   try {
-  //     const response = await fetch('/api/available_rooms.js');
-  //     if (!response.ok) {
-  //       throw new Error(`HTTP error! status: ${response.status}`);
-  //     }
-  //     const rooms = await response.json();
-
-  //     rooms.forEach(room => {
-  //       const roomLink = document.createElement('a');
-  //       roomLink.className = 'dropdown-item';
-  //       roomLink.href = `rooms?ID=${room.room_id}`; // Adjust as needed
-  //       roomLink.textContent = room.room_name;
-  //       dropdown.appendChild(roomLink);
-  //     });
-  //   } catch (error) {
-  //     console.error('Error fetching room data:', error);
-  //     const errorItem = document.createElement('a');
-  //     errorItem.className = 'dropdown-item';
-  //     errorItem.textContent = 'No rooms available';
-  //     dropdown.appendChild(errorItem);
-  //   }
-  // });
+  document.addEventListener('DOMContentLoaded', async () => {
+    await loadRooms();
+  });
+  
+  async function loadRooms() {
+    const dropdown = document.getElementById('roomDropdown');
+  
+    try {
+      const response = await fetch('/api/available_rooms.js');
+      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+  
+      const rooms = await response.json();
+      // dropdown.innerHTML = ''; // Clear existing items
+  
+      rooms.forEach(room => {
+        const roomLink = document.createElement('a');
+        roomLink.className = 'dropdown-item';
+        roomLink.href = `rooms?ID=${room.room_id}`;
+        roomLink.textContent = room.room_name;
+        dropdown.appendChild(roomLink);
+      });
+  
+      dropdown.dataset.loaded = 'true';
+    } catch (error) {
+      console.error('Error fetching rooms:', error);
+      dropdown.innerHTML = '<a class="dropdown-item">No rooms available</a>';
+    }
+  }
+  
 
   // window.onload = async () => {
   //   const dropdown = document.getElementById('roomDropdown');
@@ -109,53 +108,49 @@ function includeHTML(file, elementID) {
   //   }
   // };
 
-  async function loadRooms() {
-    console.log('Dropdown clicked!');
+  // async function loadRooms() {
+  //   console.log('Dropdown clicked!');
   
-    const dropdown = document.getElementById('roomDropdown');
-    console.log('Dropdown element:', dropdown);
+  //   const dropdown = document.getElementById('roomDropdown');
+  //   console.log('Dropdown element:', dropdown);
   
-    // Avoid multiple API calls on repeated clicks
-    if (dropdown.dataset.loaded === 'true') {
-      console.log('Rooms already loaded.');
-      return;
-    }
+  //   // Avoid multiple API calls on repeated clicks
+  //   if (dropdown.dataset.loaded === 'true') {
+  //     console.log('Rooms already loaded.');
+  //     return;
+  //   }
   
-    try {
-      const response = await fetch('/api/available_rooms.js');
-      console.log('Fetch response:', response);
+  //   try {
+  //     const response = await fetch('/api/available_rooms.js');
+  //     console.log('Fetch response:', response);
   
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
+  //     if (!response.ok) {
+  //       throw new Error(`HTTP error! status: ${response.status}`);
+  //     }
   
-      const rooms = await response.json();
-      console.log('Rooms data:', rooms);
+  //     const rooms = await response.json();
+  //     console.log('Rooms data:', rooms);
   
-      // Clear any existing items (optional)
-      // dropdown.innerHTML = '';
+  //     // Clear any existing items (optional)
+  //     // dropdown.innerHTML = '';
   
-      rooms.forEach(room => {
-        const roomLink = document.createElement('a');
-        roomLink.className = 'dropdown-item';
-        roomLink.href = `rooms?ID=${room.room_id}`;
-        roomLink.textContent = room.room_name;
-        dropdown.appendChild(roomLink);
-        setTimeout(() => {
-          roomLink.style.transition = 'opacity 0.5s';
-          roomLink.style.opacity = '1';
-        }, 50);
-      });
+  //     rooms.forEach(room => {
+  //       const roomLink = document.createElement('a');
+  //       roomLink.className = 'dropdown-item';
+  //       roomLink.href = `rooms?ID=${room.room_id}`;
+  //       roomLink.textContent = room.room_name;
+  //       dropdown.appendChild(roomLink);
+  //     });
   
-      // Mark as loaded to prevent repeated fetches
-      dropdown.dataset.loaded = 'true';
-    } catch (error) {
-      console.error('Error fetching room data:', error);
-      const errorItem = document.createElement('a');
-      errorItem.className = 'dropdown-item';
-      errorItem.textContent = 'No rooms available';
-      dropdown.appendChild(errorItem);
-    }
-  }
+  //     // Mark as loaded to prevent repeated fetches
+  //     dropdown.dataset.loaded = 'true';
+  //   } catch (error) {
+  //     console.error('Error fetching room data:', error);
+  //     const errorItem = document.createElement('a');
+  //     errorItem.className = 'dropdown-item';
+  //     errorItem.textContent = 'No rooms available';
+  //     dropdown.appendChild(errorItem);
+  //   }
+  // }
   
   
