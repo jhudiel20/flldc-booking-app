@@ -141,6 +141,10 @@ function includeHTML(file, elementID) {
         roomLink.href = `rooms?ID=${room.room_id}`;
         roomLink.textContent = room.room_name;
         dropdown.appendChild(roomLink);
+        setTimeout(() => {
+          roomLink.style.transition = 'opacity 0.5s';
+          roomLink.style.opacity = '1';
+        }, 50);
       });
   
       // Mark as loaded to prevent repeated fetches
