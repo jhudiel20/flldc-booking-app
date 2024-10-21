@@ -109,14 +109,15 @@ function includeHTML(file, elementID) {
   //   }
   // };
 
-  document.addEventListener('DOMContentLoaded', async () => {
-    console.log('DOM fully loaded...');
-    
-    const dropdown = document.querySelector('#roomDropdown');
+  async function loadRooms() {
+    console.log('Dropdown clicked!');
+  
+    const dropdown = document.getElementById('roomDropdown');
     console.log('Dropdown element:', dropdown);
   
-    if (!dropdown) {
-      console.error('Dropdown element not found!');
+    // Avoid multiple API calls on repeated clicks
+    if (dropdown.dataset.loaded === 'true') {
+      console.log('Rooms already loaded.');
       return;
     }
   
@@ -131,6 +132,9 @@ function includeHTML(file, elementID) {
       const rooms = await response.json();
       console.log('Rooms data:', rooms);
   
+      // Clear any existing items (optional)
+      dropdown.innerHTML = '';
+  
       rooms.forEach(room => {
         const roomLink = document.createElement('a');
         roomLink.className = 'dropdown-item';
@@ -138,6 +142,9 @@ function includeHTML(file, elementID) {
         roomLink.textContent = room.room_name;
         dropdown.appendChild(roomLink);
       });
+  
+      // Mark as loaded to prevent repeated fetches
+      dropdown.dataset.loaded = 'true';
     } catch (error) {
       console.error('Error fetching room data:', error);
       const errorItem = document.createElement('a');
@@ -145,6 +152,6 @@ function includeHTML(file, elementID) {
       errorItem.textContent = 'No rooms available';
       dropdown.appendChild(errorItem);
     }
-  });
+  }
   
   
