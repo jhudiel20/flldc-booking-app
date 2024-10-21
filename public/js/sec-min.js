@@ -133,7 +133,7 @@ function includeHTML(file, elementID) {
       console.log('Rooms data:', rooms);
   
       // Clear any existing items (optional)
-      dropdown.innerHTML = '';
+      // dropdown.innerHTML = '';
   
       rooms.forEach(room => {
         const roomLink = document.createElement('a');
