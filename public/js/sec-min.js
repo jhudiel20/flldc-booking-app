@@ -21,22 +21,22 @@ document.addEventListener('DOMContentLoaded', () => {
       // roomDropdown.appendChild(allRoomsLink);
 
       // Add each room dynamically
-      // rooms.forEach((room) => {
-      //   const roomLink = document.createElement('a');
-      //   roomLink.classList.add('dropdown-item');
-      //   roomLink.href = `rooms?ID=${room.room_id}`;  // Example: rooms301
-      //   roomLink.textContent = room.name;  // Assuming 'name' is a column
-
-      //   roomDropdown.appendChild(roomLink);
-      // });
       rooms.forEach((room) => {
         const roomLink = document.createElement('a');
         roomLink.classList.add('dropdown-item');
-        roomLink.href = `rooms?ID=${room.room_id}`; // Use query parameter for room_id
-        roomLink.textContent = room.name; // Assuming 'name' is the room's name
+        roomLink.href = `rooms?ID=${room.room_id}`;  // Example: rooms301
+        roomLink.textContent = room.name;  // Assuming 'name' is a column
 
         roomDropdown.appendChild(roomLink);
       });
+      // rooms.forEach((room) => {
+      //   const roomLink = document.createElement('a');
+      //   roomLink.classList.add('dropdown-item');
+      //   roomLink.href = `rooms?ID=${room.room_id}`; // Use query parameter for room_id
+      //   roomLink.textContent = room.name; // Assuming 'name' is the room's name
+
+      //   roomDropdown.appendChild(roomLink);
+      // });
     });
 });
 
