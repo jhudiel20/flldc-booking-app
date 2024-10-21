@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .then((rooms) => {
       // Clear the dropdown first (if needed)
-      roomDropdown.innerHTML = ''; 
+      // roomDropdown.innerHTML = ''; 
 
       // Add the "All Rooms" option at the top
       const allRoomsLink = document.createElement('a');
@@ -29,14 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         roomDropdown.appendChild(roomLink);
       });
-      // rooms.forEach((room) => {
-      //   const roomLink = document.createElement('a');
-      //   roomLink.classList.add('dropdown-item');
-      //   roomLink.href = `rooms?ID=${room.room_id}`; // Use query parameter for room_id
-      //   roomLink.textContent = room.name; // Assuming 'name' is the room's name
-
-      //   roomDropdown.appendChild(roomLink);
-      // });
     });
 });
 
