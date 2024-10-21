@@ -71,7 +71,7 @@ function includeHTML(file, elementID) {
   
     // Process the room data
     const rooms = await response.json();
-    dropdown.innerHTML = ''; // Clear existing items
+    // dropdown.innerHTML = ''; // Clear existing items
   
     rooms.forEach(room => {
       const roomLink = document.createElement('a');
