@@ -136,13 +136,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         roomDropdown.appendChild(roomLink);
       });
-    })
-    .catch((error) => {
-      console.error('Error fetching room data:', error);
-      const errorItem = document.createElement('p');
-      errorItem.classList.add('dropdown-item', 'text-danger');
-      errorItem.textContent = 'Unable to load rooms';
-      roomDropdown.appendChild(errorItem);
     });
 });
 
