@@ -35,21 +35,27 @@ function toggleExtras() {
 
 // Function to load HTML files from the 'includes' folder into a specified element
 function includeHTML(file, elementID) {
-    fetch(`includes/${file}.html`)
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById(elementID).innerHTML = data;
-      })
-      .catch(error => console.error('Error loading HTML:', error));
-  }
+  return fetch(`includes/${file}.html`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.text();
+    })
+    .then(data => {
+      document.getElementById(elementID).innerHTML = data;
+    })
+    .catch(error => console.error('Error loading HTML:', error));
+}
 
-  // Load navigation and footer
-  includeHTML('header', 'header');
-  includeHTML('footer', 'footer');
-
-  document.addEventListener('DOMContentLoaded', async () => {
-    await loadRooms();
-  });
+// Load navigation and footer
+Promise.all([
+  includeHTML('header', 'header'),
+  includeHTML('footer', 'footer')
+]).then(() => {
+  // Call loadRooms only after the header has been loaded
+  loadRooms();
+});
   
   async function loadRooms() {
     const dropdown = document.querySelector('#roomDropdown');
