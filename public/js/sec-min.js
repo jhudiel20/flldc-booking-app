@@ -47,25 +47,56 @@ function includeHTML(file, elementID) {
   includeHTML('header', 'header');
   includeHTML('footer', 'footer');
 
-  document.addEventListener('DOMContentLoaded', async () => {
-    const dropdown = document.getElementById('roomDropdown');
+  // document.addEventListener('DOMContentLoaded', async () => {
+  //   const dropdown = document.getElementById('roomDropdown');
 
+  //   if (!dropdown) {
+  //     console.error('Dropdown element not found!');
+  //     return; // Prevent further execution if the element isn't found
+  //   }
+
+  //   try {
+  //     const response = await fetch('/api/available_rooms.js');
+  //     if (!response.ok) {
+  //       throw new Error(`HTTP error! status: ${response.status}`);
+  //     }
+  //     const rooms = await response.json();
+
+  //     rooms.forEach(room => {
+  //       const roomLink = document.createElement('a');
+  //       roomLink.className = 'dropdown-item';
+  //       roomLink.href = `rooms?ID=${room.room_id}`; // Adjust as needed
+  //       roomLink.textContent = room.room_name;
+  //       dropdown.appendChild(roomLink);
+  //     });
+  //   } catch (error) {
+  //     console.error('Error fetching room data:', error);
+  //     const errorItem = document.createElement('a');
+  //     errorItem.className = 'dropdown-item';
+  //     errorItem.textContent = 'No rooms available';
+  //     dropdown.appendChild(errorItem);
+  //   }
+  // });
+
+  window.onload = async () => {
+    const dropdown = document.getElementById('roomDropdown');
+  
     if (!dropdown) {
       console.error('Dropdown element not found!');
-      return; // Prevent further execution if the element isn't found
+      return;
     }
-
+  
     try {
       const response = await fetch('/api/available_rooms.js');
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       const rooms = await response.json();
-
+  
       rooms.forEach(room => {
         const roomLink = document.createElement('a');
         roomLink.className = 'dropdown-item';
-        roomLink.href = `rooms?ID=${room.room_id}`; // Adjust as needed
+        roomLink.href = `rooms?ID=${room.room_id}`;
         roomLink.textContent = room.room_name;
         dropdown.appendChild(roomLink);
       });
@@ -76,4 +107,5 @@ function includeHTML(file, elementID) {
       errorItem.textContent = 'No rooms available';
       dropdown.appendChild(errorItem);
     }
-  });
+  };
+  
