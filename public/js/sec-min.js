@@ -78,8 +78,42 @@ function includeHTML(file, elementID) {
   //   }
   // });
 
-  window.onload = async () => {
-    const dropdown = document.getElementById('roomDropdown');
+  // window.onload = async () => {
+  //   const dropdown = document.getElementById('roomDropdown');
+  
+  //   if (!dropdown) {
+  //     console.error('Dropdown element not found!');
+  //     return;
+  //   }
+  
+  //   try {
+  //     const response = await fetch('/api/available_rooms.js');
+  //     if (!response.ok) {
+  //       throw new Error(`HTTP error! status: ${response.status}`);
+  //     }
+  //     const rooms = await response.json();
+  
+  //     rooms.forEach(room => {
+  //       const roomLink = document.createElement('a');
+  //       roomLink.className = 'dropdown-item';
+  //       roomLink.href = `rooms?ID=${room.room_id}`;
+  //       roomLink.textContent = room.room_name;
+  //       dropdown.appendChild(roomLink);
+  //     });
+  //   } catch (error) {
+  //     console.error('Error fetching room data:', error);
+  //     const errorItem = document.createElement('a');
+  //     errorItem.className = 'dropdown-item';
+  //     errorItem.textContent = 'No rooms available';
+  //     dropdown.appendChild(errorItem);
+  //   }
+  // };
+
+  document.addEventListener('DOMContentLoaded', async () => {
+    console.log('DOM fully loaded...');
+    
+    const dropdown = document.querySelector('#roomDropdown');
+    console.log('Dropdown element:', dropdown);
   
     if (!dropdown) {
       console.error('Dropdown element not found!');
@@ -88,10 +122,14 @@ function includeHTML(file, elementID) {
   
     try {
       const response = await fetch('/api/available_rooms.js');
+      console.log('Fetch response:', response);
+  
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
+  
       const rooms = await response.json();
+      console.log('Rooms data:', rooms);
   
       rooms.forEach(room => {
         const roomLink = document.createElement('a');
@@ -107,5 +145,6 @@ function includeHTML(file, elementID) {
       errorItem.textContent = 'No rooms available';
       dropdown.appendChild(errorItem);
     }
-  };
+  });
+  
   
