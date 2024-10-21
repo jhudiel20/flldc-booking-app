@@ -53,7 +53,7 @@ function includeHTML(file, elementID) {
   
   async function loadRooms() {
     const dropdown = document.getElementById('roomDropdown');
-  
+    dropdown.innerHTML = '<a class="dropdown-item" href="#">Loading...</a>';
     // Fetch rooms from the API
     const response = await fetch('/api/available_rooms.js');
   
@@ -62,20 +62,32 @@ function includeHTML(file, elementID) {
       console.error(`HTTP error! status: ${response.status}`);
       return; // Exit if the response is not OK
     }
-  
-    // Process the room data
+
     const rooms = await response.json();
-    // dropdown.innerHTML = ''; // Clear existing items
+
+    // Check if there are any rooms
+    if (rooms.length === 0) {
+      dropdown.innerHTML = '<a class="dropdown-item" href="#">No rooms available</a>'; // Message if no rooms
+      return;
+    }
+
+    dropdown.innerHTML = ''; 
+
+    const allRoomsLink = document.createElement('a');
+      allRoomsLink.classList.add('dropdown-item');
+      allRoomsLink.href = 'allrooms';
+      allRoomsLink.textContent = 'All Rooms';
+      dropdown.appendChild(allRoomsLink);
   
-    rooms.forEach(room => {
-      const roomLink = document.createElement('a');
-      roomLink.className = 'dropdown-item';
-      roomLink.href = `rooms?ID=${room.room_id}`;
-      roomLink.textContent = room.room_name;
-      dropdown.appendChild(roomLink);
-    });
-  
-    dropdown.dataset.loaded = 'true';
+      rooms.forEach(room => {
+        const roomLink = document.createElement('a');
+        roomLink.className = 'dropdown-item';
+        roomLink.href = `rooms?ID=${room.room_id}`;
+        roomLink.textContent = room.room_name;
+        dropdown.appendChild(roomLink);
+      });
+    
+      dropdown.dataset.loaded = 'true';
   }
   
   
