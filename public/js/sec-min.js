@@ -52,7 +52,7 @@ function includeHTML(file, elementID) {
   });
   
   async function loadRooms() {
-    const dropdown = document.getElementById('roomDropdown');
+    const dropdown = document.querySelector('#roomDropdown');
    
     // Fetch rooms from the API
     const response = await fetch('/api/available_rooms.js');
