@@ -88,6 +88,7 @@ Promise.all([
       rooms.forEach(room => {
         const roomLink = document.createElement('a');
         roomLink.className = 'dropdown-item';
+        const encodedRoomId = encodeURIComponent(room.room_id);
         roomLink.href = `rooms?ID=${room.room_id}`;
         roomLink.textContent = room.room_name;
         dropdown.appendChild(roomLink);

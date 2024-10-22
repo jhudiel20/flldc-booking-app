@@ -102,7 +102,7 @@
                     <option value="EXTERNAL">External Clients</option>
                   </select>
                 </div>
-                <input type="hidden" name="room" id="room" value="Room-301">
+                <input type="hidden" name="roomID" id="roomID" value="roomID">
 
                
               </div>
@@ -271,6 +271,7 @@
 
       // Populate the HTML with room details
     //   document.getElementById('roomImage').src = `/public/images/${data.image}`;
+      document.getElementById('roomID').textContent = data.room_id;
       document.getElementById('roomName').textContent = data.room_name;
       document.getElementById('roomUsage').textContent = data.usage;
       document.getElementById('roomCapacity').textContent = `${data.capacity} people`;

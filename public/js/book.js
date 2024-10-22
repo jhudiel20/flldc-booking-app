@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Event listener for date change
     reserveDateInput.addEventListener('change', function () {
         const selectedDate = reserveDateInput.value;
-        const selectedRoom = document.getElementById('room').value;
+        const selectedRoom = document.getElementById('roomID').value;
 
         fetchReservations(selectedRoom, selectedDate);
     });
