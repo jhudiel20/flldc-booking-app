@@ -98,26 +98,26 @@ Promise.all([
   }
 
   // Assuming you already imported config.js correctly
-  import config from './config.js';
+  // import config from '../../api/config.js';
 
   document.addEventListener('DOMContentLoaded', async () => {
     const params = new URLSearchParams(window.location.search);
     const encodedRoomId = params.get('ID'); // Get the encoded ID
     const roomId = decodeURIComponent(encodedRoomId);
 
-    const baseImageUrl = `https://raw.githubusercontent.com/${config.githubOwner}/${config.githubRepo}/main/room-photo/`;
-    // let baseImageUrl = '';
-    // try {
-    //     const configResponse = await fetch('/api/fetch-image');
-    //     if (configResponse.ok) {
-    //         const configData = await configResponse.json();
-    //         baseImageUrl = `https://raw.githubusercontent.com/${configData.owner}/${configData.repo}/main/room-photo/`;
-    //     } else {
-    //         console.error('Failed to fetch config');
-    //     }
-    // } catch (error) {
-    //     console.error('Error fetching config:', error);
-    // }
+    // const baseImageUrl = `https://raw.githubusercontent.com/${config.githubOwner}/${config.githubRepo}/main/room-photo/`;
+    let baseImageUrl = '';
+    try {
+        const configResponse = await fetch('/api/fetch-image');
+        if (configResponse.ok) {
+            const configData = await configResponse.json();
+            baseImageUrl = `https://raw.githubusercontent.com/${configData.owner}/${configData.repo}/main/room-photo/`;
+        } else {
+            console.error('Failed to fetch config');
+        }
+    } catch (error) {
+        console.error('Error fetching config:', error);
+    }
     
     if (roomId) {
       try {
