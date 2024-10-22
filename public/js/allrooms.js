@@ -17,6 +17,7 @@ async function loadAllRooms() {
     if (!response.ok) {
         console.error(`HTTP error! status: ${response.status}`);
         loader.classList.remove('show'); // Hide loader
+        // loadingMessage.remove();
         return; // Exit if the response is not OK
     }
 
@@ -74,4 +75,5 @@ async function loadAllRooms() {
         roomContainer.appendChild(roomCard);
     });
     loader.classList.remove('show');
+    // loadingMessage.remove();
 }
