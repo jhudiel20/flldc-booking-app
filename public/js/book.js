@@ -227,7 +227,7 @@ function validateMinDate(input) {
 
   const selectElement = document.getElementById('setup');
   const previewLink = document.getElementById('previewLink');
-  const roomInput = document.getElementById('room');  // Hidden input for room
+  const roomInput = document.getElementById('roomID');  // Hidden input for room
   
   // Function to update the preview link and hidden input
   function updatePreviewLink() {
