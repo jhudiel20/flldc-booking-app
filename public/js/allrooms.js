@@ -1,6 +1,6 @@
 async function loadAllRooms() {
-    const roomContainer = document.querySelector('.row'); // Adjust this selector to target the correct container for the rooms
-
+    const roomContainer = document.querySelector('#roomContainer');
+    
     // Fetch rooms from the API
     const response = await fetch('/api/available_rooms.js');
 
