@@ -107,7 +107,7 @@ Promise.all([
         const configResponse = await fetch('/api/fetch-image');
         if (configResponse.ok) {
             const configData = await configResponse.json();
-            baseImageUrl = `https://raw.githubusercontent.com/${configData.owner}/${configData.repo}/main/db/`;
+            baseImageUrl = `https://raw.githubusercontent.com/${configData.owner}/${configData.repo}/main/room-photo/`;
         } else {
             console.error('Failed to fetch config');
         }
