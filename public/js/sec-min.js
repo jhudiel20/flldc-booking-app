@@ -145,7 +145,7 @@ Promise.all([
 
 
   async function getEncryptionKey() {
-    const response = await fetch('/api/encryption-key'); // Secure API endpoint to get the key
+    const response = await fetch('/api/encryption-key');
     if (!response.ok) throw new Error('Failed to fetch encryption key');
     const { key } = await response.json();
     return key;
@@ -176,41 +176,39 @@ async function decrypt(encryptedText, key) {
 function hexToBuffer(hex) {
     return new Uint8Array(hex.match(/.{1,2}/g).map(byte => parseInt(byte, 16))).buffer;
 }
-  
-  document.addEventListener('DOMContentLoaded', async () => {
+
+document.addEventListener('DOMContentLoaded', async () => {
     const params = new URLSearchParams(window.location.search);
-    const encodedRoomId = params.get('ID'); // Get the encoded ID
+    const encodedRoomId = params.get('ID');
     const roomId = decodeURIComponent(encodedRoomId);
 
     const [encryptedResponse, encryptionKey] = await Promise.all([
-      fetch('/api/fetch-image').then(res => res.json()),
-      getEncryptionKey() // Securely fetch the encryption key
+        fetch('/api/fetch-image').then(res => res.json()),
+        getEncryptionKey()
     ]);
 
     const decryptedData = await decrypt(encryptedResponse.encryptedData, encryptionKey);
     const configData = JSON.parse(decryptedData);
 
     const baseImageUrl = `https://raw.githubusercontent.com/${configData.owner}/${configData.repo}/main/room-photo/`;
-    console.log('Base Image URL:', baseImageUrl);
-    
+
     if (roomId) {
-      try {
-        const response = await fetch(`/api/room-details?room_id=${roomId}`);
-        if (!response.ok) throw new Error('Room not found');
+        try {
+            const response = await fetch(`/api/room-details?room_id=${roomId}`);
+            if (!response.ok) throw new Error('Room not found');
 
-        const data = await response.json();
+            const data = await response.json();
 
-        // Populate the HTML with room details
-        document.getElementById('roomImage').src = baseImageUrl + data.room_photo;
-        document.getElementById('roomID').value = data.room_id;
-        document.getElementById('roomName').textContent = data.room_name;
-        document.getElementById('roomUsage').textContent = data.usage;
-        document.getElementById('roomCapacity').textContent = `${data.capacity} people`;
-        document.getElementById('roomFeatures').textContent = data.features;
-      } catch (error) {
-        console.error('Error fetching room details:', error);
-      }
+            document.getElementById('roomImage').src = baseImageUrl + data.room_photo;
+            document.getElementById('roomID').value = data.room_id;
+            document.getElementById('roomName').textContent = data.room_name;
+            document.getElementById('roomUsage').textContent = data.usage;
+            document.getElementById('roomCapacity').textContent = `${data.capacity} people`;
+            document.getElementById('roomFeatures').textContent = data.features;
+        } catch (error) {
+            console.error('Error fetching room details:', error);
+        }
     } else {
-      console.error('No room ID provided');
+        console.error('No room ID provided');
     }
-  });
+});

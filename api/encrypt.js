@@ -11,17 +11,19 @@ export function encrypt(data) {
     return `${iv.toString('hex')}:${encrypted}`;
 }
 
-export default function handler(req, res) {
-    const githubOwner = process.env.GITHUB_OWNER;
-    const githubRepo = process.env.GITHUB_IMAGES;
+export function decrypt(encrypted) {
+    const [ivHex, encryptedDataHex] = encrypted.split(':');
+    const iv = Buffer.from(ivHex, 'hex');
+    const encryptedData = Buffer.from(encryptedDataHex, 'hex');
 
-    if (!githubOwner || !githubRepo) {
-        return res.status(500).json({ error: 'Configuration error: Missing environment variables.' });
-    }
+    const decipher = crypto.createDecipheriv(
+        'aes-256-cbc',
+        Buffer.from(ENCRYPTION_KEY),
+        iv
+    );
 
-    const data = JSON.stringify({ owner: githubOwner, repo: githubRepo });
-    const encryptedData = encrypt(data);
-
-    // Send encrypted data and key to the client securely
-    res.status(200).json({ encryptedData });
+    let decrypted = decipher.update(encryptedData, 'hex', 'utf8');
+    decrypted += decipher.final('utf8');
+    return decrypted;
 }
+
