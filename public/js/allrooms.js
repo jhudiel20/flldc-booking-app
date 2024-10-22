@@ -1,6 +1,6 @@
 async function loadAllRooms() {
     const roomContainer = document.querySelector('#roomContainer');
-    
+
     // Fetch rooms from the API
     const response = await fetch('/api/available_rooms.js');
 
@@ -26,7 +26,7 @@ async function loadAllRooms() {
     }
 
     // Clear existing room elements
-    roomContainer.innerHTML = '';
+    // roomContainer.innerHTML = '';
 
     rooms.forEach(room => {
         // Create a room card
