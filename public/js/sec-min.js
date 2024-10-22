@@ -149,8 +149,6 @@ Promise.all([
         // Append the room card to the room container
         roomContainer.appendChild(roomCard);
     });
-
-    dropdown.dataset.loaded = 'true';
   }
 
 
