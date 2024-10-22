@@ -55,7 +55,9 @@ Promise.all([
 ]).then(() => {
   // Call loadRooms only after the header has been loaded
   loadRooms();
-  loadAllRooms();
+  if (typeof loadAllRooms === 'function') {
+    loadAllRooms();
+  }
 });
   
   async function loadRooms() {
