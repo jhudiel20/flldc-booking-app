@@ -101,7 +101,10 @@ Promise.all([
     const params = new URLSearchParams(window.location.search);
     const encodedRoomId = params.get('ID'); // Get the encoded ID
     const roomId = decodeURIComponent(encodedRoomId);
-    const baseImageUrl = `https://raw.githubusercontent.com/${getenv('GITHUB_OWNER')}/${getenv('GITHUB_IMAGES')}/main/room-photo/`;
+    const owner = process.env.GITHUB_OWNER;
+    const repo = process.env.GITHUB_IMAGES;
+    const baseImageUrl = `https://raw.githubusercontent.com/${owner}/${repo}/main/room-photo/`;
+    
     if (roomId) {
       try {
         const response = await fetch(`/api/room-details?room_id=${roomId}`);
