@@ -160,7 +160,7 @@ function validateMinDate(input) {
       time: document.getElementById('time').value,
       setup: document.getElementById('setup').value,
       businessunit: document.getElementById('businessunit').value,
-      room: document.getElementById('room').value,
+      room: document.getElementById('roomID').value,
       guest: document.getElementById('guest').value,
       contact: document.getElementById('contact').value,
       email: document.getElementById('email').value,
