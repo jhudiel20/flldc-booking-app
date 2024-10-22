@@ -96,6 +96,33 @@ Promise.all([
     
       dropdown.dataset.loaded = 'true';
   }
+
+  document.addEventListener('DOMContentLoaded', async () => {
+    const params = new URLSearchParams(window.location.search);
+    const encodedRoomId = params.get('ID'); // Get the encoded ID
+    const roomId = decodeURIComponent(encodedRoomId);
+
+    if (roomId) {
+      try {
+        const response = await fetch(`/api/room-details?room_id=${roomId}`);
+        if (!response.ok) throw new Error('Room not found');
+
+        const data = await response.json();
+
+        // Populate the HTML with room details
+      //   document.getElementById('roomImage').src = `/public/images/${data.image}`;
+        document.getElementById('roomID').value = data.room_id;
+        document.getElementById('roomName').textContent = data.room_name;
+        document.getElementById('roomUsage').textContent = data.usage;
+        document.getElementById('roomCapacity').textContent = `${data.capacity} people`;
+        document.getElementById('roomFeatures').textContent = data.features;
+      } catch (error) {
+        console.error('Error fetching room details:', error);
+      }
+    } else {
+      console.error('No room ID provided');
+    }
+  });
   
   
   
