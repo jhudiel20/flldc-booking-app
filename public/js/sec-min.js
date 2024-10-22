@@ -97,7 +97,7 @@ Promise.all([
       dropdown.dataset.loaded = 'true';
   }
 
-
+  // Assuming you already imported config.js correctly
   import config from './config.js';
 
   document.addEventListener('DOMContentLoaded', async () => {
