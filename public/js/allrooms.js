@@ -1,16 +1,15 @@
 async function loadAllRooms() {
-    const roomContainer =document.getElementById('roomContainer');
-    // Fetch rooms from the API
+    const roomContainer = $('#roomContainer'); // Ensure this ID matches your HTML
+
     const response = await fetch('/api/available_rooms.js');
 
-    // If the response is not OK, log an error and return
     if (!response.ok) {
         console.error(`HTTP error! status: ${response.status}`);
-        return; // Exit if the response is not OK
+        return;
     }
 
     const rooms = await response.json();
-    console.log(rooms);
+    console.log(rooms); // Debug: Check the room data
 
     let baseImageUrl = '';
     try {
@@ -26,43 +25,39 @@ async function loadAllRooms() {
     }
 
     // Clear existing room elements
-    // roomContainer.innerHTML = '';
-    const fragment = document.createDocumentFragment();
-    rooms.forEach(room => {
-        // Create a room card
-        const roomCard = document.createElement('div');
-        roomCard.className = 'col-md-4 mb-4 element-animate';
+    roomContainer.empty();
 
-        roomCard.innerHTML = `
-            <div class="media d-block room mb-0">
-                <figure class="zoom">
-                    <img id="roomImage" src="${baseImageUrl + room.room_photo}" alt="${room.room_name}" class="img-fluid zoom-on-hover">
-                    <div class="overlap-text">
-                        <span>
-                            Featured Room 
-                            <span class="ion-ios-star"></span>
-                            <span class="ion-ios-star"></span>
-                            <span class="ion-ios-star"></span>
-                        </span>
+    rooms.forEach(room => {
+        const roomHTML = `
+            <div class="col-md-4 mb-4 element-animate">
+                <div class="media d-block room mb-0">
+                    <figure class="zoom">
+                        <img id="roomImage" src="${baseImageUrl + room.room_photo}" alt="${room.room_name}" class="img-fluid zoom-on-hover">
+                        <div class="overlap-text">
+                            <span>
+                                Featured Room 
+                                <span class="ion-ios-star"></span>
+                                <span class="ion-ios-star"></span>
+                                <span class="ion-ios-star"></span>
+                            </span>
+                        </div>
+                    </figure>
+                    <div class="media-body">
+                        <h3 class="mt-0"><a href="rooms?ID=${encodeURIComponent(room.room_id)}">${room.room_name}</a></h3>
+                        <p>Features:</p>
+                        <ul class="room-specs">
+                            <li><span class="ion-ios-people-outline"></span> ${room.capacity} Guests</li>
+                            <li><span class="ion-ios-crop"></span> ${room.size} ft<sup>2</sup></li>
+                        </ul>
+                        <p>Usage:</p>
+                        <p>${room.usage}</p>              
+                        <p><a href="rooms?ID=${encodeURIComponent(room.room_id)}" class="btn btn-primary btn-sm">Book Now</a></p>
                     </div>
-                </figure>
-                <div class="media-body">
-                    <h3 class="mt-0"><a href="rooms?ID=${encodeURIComponent(room.room_id)}">${room.room_name}</a></h3>
-                    <p>Features:</p>
-                    <ul class="room-specs">
-                        <li><span class="ion-ios-people-outline"></span> ${room.capacity} Guests</li>
-                        <li><span class="ion-ios-crop"></span> ft<sup>2</sup></li>
-                    </ul>
-                    <p>Usage:</p>
-                    <p>${room.usage}</p>              
-                    <p><a href="rooms?ID=${encodeURIComponent(room.room_id)}" class="btn btn-primary btn-sm">Book Now</a></p>
                 </div>
             </div>
         `;
 
-        fragment.appendChild(roomCard);
+        // Append room HTML using jQuery
+        roomContainer.append(roomHTML);
     });
-
-    // Append all room cards at once to the room container
-    roomContainer.appendChild(fragment);
 }
