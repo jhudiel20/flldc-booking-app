@@ -11,7 +11,7 @@ async function loadAllRooms() {
 
     const rooms = await response.json();
     console.log(rooms);
-    
+
     let baseImageUrl = '';
     try {
         const configResponse = await fetch('/api/fetch-image');
@@ -27,7 +27,7 @@ async function loadAllRooms() {
 
     // Clear existing room elements
     // roomContainer.innerHTML = '';
-
+    const fragment = document.createDocumentFragment();
     rooms.forEach(room => {
         // Create a room card
         const roomCard = document.createElement('div');
@@ -60,7 +60,9 @@ async function loadAllRooms() {
             </div>
         `;
 
-        // Append the room card to the room container
-        roomContainer.appendChild(roomCard);
+        fragment.appendChild(roomCard);
     });
-  }
+
+    // Append all room cards at once to the room container
+    roomContainer.appendChild(fragment);
+}
