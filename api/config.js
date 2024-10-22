@@ -1,6 +1,7 @@
-const fetch_image = {
+// config.js
+const config = {
     githubOwner: process.env.GITHUB_OWNER,
     githubRepo: process.env.GITHUB_IMAGES,
 };
 
-export default fetch_image;
+export default config;

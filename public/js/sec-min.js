@@ -98,14 +98,14 @@ Promise.all([
   }
 
 
-  import fetch_image from './fetch-image.js';
+  import config from './config.js';
 
   document.addEventListener('DOMContentLoaded', async () => {
     const params = new URLSearchParams(window.location.search);
     const encodedRoomId = params.get('ID'); // Get the encoded ID
     const roomId = decodeURIComponent(encodedRoomId);
 
-    const baseImageUrl = `https://raw.githubusercontent.com/${fetch_image.githubOwner}/${fetch_image.githubRepo}/main/room-photo/`;
+    const baseImageUrl = `https://raw.githubusercontent.com/${config.githubOwner}/${config.githubRepo}/main/room-photo/`;
     // let baseImageUrl = '';
     // try {
     //     const configResponse = await fetch('/api/fetch-image');
