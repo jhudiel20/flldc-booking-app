@@ -260,7 +260,8 @@
     <script>
      document.addEventListener('DOMContentLoaded', async () => {
   const params = new URLSearchParams(window.location.search);
-  const roomId = params.get('ID');  // Get the room_id from the query string
+  const encodedRoomId = params.get('ID'); // Get the encoded ID
+  const roomId = decodeURIComponent(encodedRoomId);
 
   if (roomId) {
     try {
