@@ -1,6 +1,5 @@
 async function loadAllRooms() {
-    const roomContainer = document.querySelector('#roomContainer');
-
+    const roomContainer =document.getElementById('roomContainer');
     // Fetch rooms from the API
     const response = await fetch('/api/available_rooms.js');
 
@@ -11,7 +10,8 @@ async function loadAllRooms() {
     }
 
     const rooms = await response.json();
-
+    console.log(rooms);
+    
     let baseImageUrl = '';
     try {
         const configResponse = await fetch('/api/fetch-image');
