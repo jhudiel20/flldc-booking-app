@@ -145,36 +145,37 @@ Promise.all([
 
 
   async function getEncryptionKey() {
-    const response = await fetch('/api/encryption-key');
+    const response = await fetch('/api/encryption-key'); 
     if (!response.ok) throw new Error('Failed to fetch encryption key');
     const { key } = await response.json();
-    return key;
+    return new TextEncoder().encode(key.padEnd(32, ' ').slice(0, 32)); // Ensure correct length and encoding
 }
 
+
 async function decrypt(encryptedText, key) {
-    const [ivHex, encryptedDataHex] = encryptedText.split(':');
-    const iv = new Uint8Array(ivHex.match(/.{1,2}/g).map(byte => parseInt(byte, 16)));
-    const encryptedData = hexToBuffer(encryptedDataHex);
+  const [ivHex, encryptedDataHex] = encryptedText.split(':');
+  const iv = new Uint8Array(ivHex.match(/.{1,2}/g).map(byte => parseInt(byte, 16)));
+  const encryptedData = hexToBuffer(encryptedDataHex);
 
-    const cryptoKey = await crypto.subtle.importKey(
-        'raw',
-        new TextEncoder().encode(key),
-        { name: 'AES-CBC' },
-        false,
-        ['decrypt']
-    );
+  const cryptoKey = await crypto.subtle.importKey(
+      'raw',
+      key, // Use pre-encoded key here
+      { name: 'AES-CBC' },
+      false,
+      ['decrypt']
+  );
 
-    const decryptedBuffer = await crypto.subtle.decrypt(
-        { name: 'AES-CBC', iv },
-        cryptoKey,
-        encryptedData
-    );
+  const decryptedBuffer = await crypto.subtle.decrypt(
+      { name: 'AES-CBC', iv },
+      cryptoKey,
+      encryptedData
+  );
 
-    return new TextDecoder().decode(decryptedBuffer);
+  return new TextDecoder().decode(decryptedBuffer);
 }
 
 function hexToBuffer(hex) {
-    return new Uint8Array(hex.match(/.{1,2}/g).map(byte => parseInt(byte, 16))).buffer;
+  return new Uint8Array(hex.match(/.{1,2}/g).map(byte => parseInt(byte, 16))).buffer;
 }
 
 document.addEventListener('DOMContentLoaded', async () => {

@@ -1,6 +1,6 @@
 import crypto from 'crypto';
 
-const ENCRYPTION_KEY = process.env.ENCRYPTION_KEY.padEnd(32, ' '); // 32-byte key
+const ENCRYPTION_KEY = process.env.ENCRYPTION_KEY.padEnd(32, ' ').slice(0, 32); // Ensure exactly 32 bytes
 const IV_LENGTH = 16; // AES block size
 
 export function encrypt(data) {
