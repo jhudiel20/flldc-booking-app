@@ -1,8 +1,18 @@
-require('dotenv').config(); // Load environment variables from .env file
-const { Pool } = require('pg');
-const pool = new Pool({
-    connectionString: process.env.POSTGRES_URL,
-});
+// api/config.js
 
-const owner = process.env.GITHUB_OWNER;
-const repo = process.env.GITHUB_IMAGES;
+export default function handler(req, res) {
+    // Get environment variables
+    const githubOwner = process.env.GITHUB_OWNER;
+    const githubImages = process.env.GITHUB_IMAGES;
+
+    // Check if the environment variables are set
+    if (!githubOwner || !githubImages) {
+        return res.status(500).json({ error: 'Configuration error: Missing environment variables.' });
+    }
+
+    // Respond with the configuration data
+    res.status(200).json({
+        owner: githubOwner,
+        repo: githubImages,
+    });
+}

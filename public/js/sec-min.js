@@ -104,7 +104,7 @@ Promise.all([
 
     let baseImageUrl = '';
     try {
-        const configResponse = await fetch('/api/fetch-image.js');
+        const configResponse = await fetch('/api/fetch-image');
         if (configResponse.ok) {
             const configData = await configResponse.json();
             baseImageUrl = `https://raw.githubusercontent.com/${configData.owner}/${configData.repo}/main/db/`;
