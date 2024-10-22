@@ -97,23 +97,27 @@ Promise.all([
       dropdown.dataset.loaded = 'true';
   }
 
+
+  import fetch_image from './fetch-image.js';
+
   document.addEventListener('DOMContentLoaded', async () => {
     const params = new URLSearchParams(window.location.search);
     const encodedRoomId = params.get('ID'); // Get the encoded ID
     const roomId = decodeURIComponent(encodedRoomId);
 
-    let baseImageUrl = '';
-    try {
-        const configResponse = await fetch('/api/fetch-image');
-        if (configResponse.ok) {
-            const configData = await configResponse.json();
-            baseImageUrl = `https://raw.githubusercontent.com/${configData.owner}/${configData.repo}/main/room-photo/`;
-        } else {
-            console.error('Failed to fetch config');
-        }
-    } catch (error) {
-        console.error('Error fetching config:', error);
-    }
+    const baseImageUrl = `https://raw.githubusercontent.com/${fetch_image.githubOwner}/${fetch_image.githubRepo}/main/room-photo/`;
+    // let baseImageUrl = '';
+    // try {
+    //     const configResponse = await fetch('/api/fetch-image');
+    //     if (configResponse.ok) {
+    //         const configData = await configResponse.json();
+    //         baseImageUrl = `https://raw.githubusercontent.com/${configData.owner}/${configData.repo}/main/room-photo/`;
+    //     } else {
+    //         console.error('Failed to fetch config');
+    //     }
+    // } catch (error) {
+    //     console.error('Error fetching config:', error);
+    // }
     
     if (roomId) {
       try {
