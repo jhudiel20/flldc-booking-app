@@ -272,7 +272,7 @@
       const data = await response.json();
 
       // Populate the HTML with room details
-      document.getElementById('roomImage').src = `/public/images/${data.image}`;
+    //   document.getElementById('roomImage').src = `/public/images/${data.image}`;
       document.getElementById('roomName').textContent = data.name;
       document.getElementById('roomUsage').textContent = data.usage;
       document.getElementById('roomCapacity').textContent = `${data.capacity} people`;
