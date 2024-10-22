@@ -113,6 +113,7 @@ Promise.all([
       //   document.getElementById('roomImage').src = `/public/images/${data.image}`;
         document.getElementById('roomID').value = data.room_id;
         document.getElementById('roomName').textContent = data.room_name;
+        document.getElementById('roomFloor').textContent = data.floor_number;
         document.getElementById('roomUsage').textContent = data.usage;
         document.getElementById('roomCapacity').textContent = `${data.capacity} people`;
         document.getElementById('roomFeatures').textContent = data.features;
