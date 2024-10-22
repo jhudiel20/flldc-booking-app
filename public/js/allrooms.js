@@ -1,6 +1,11 @@
 async function loadAllRooms() {
     const roomContainer = document.querySelector('#roomContainer');
 
+    const loadingMessage = document.createElement('div');
+    loadingMessage.className = 'loading-message';
+    loadingMessage.innerHTML = '<p>Loading rooms...</p>'; // You can customize this message
+    roomContainer.appendChild(loadingMessage);
+
     // Fetch rooms from the API
     const response = await fetch('/api/available_rooms.js');
 
