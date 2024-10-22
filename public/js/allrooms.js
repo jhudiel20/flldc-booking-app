@@ -1,10 +1,14 @@
 async function loadAllRooms() {
     const roomContainer = document.querySelector('#roomContainer');
 
-    const loadingMessage = document.createElement('div');
-    loadingMessage.className = 'loading-message';
-    loadingMessage.innerHTML = '<p>Loading rooms...</p>'; // You can customize this message
-    roomContainer.appendChild(loadingMessage);
+    // const loadingMessage = document.createElement('div');
+    // loadingMessage.className = 'loading-message';
+    // loadingMessage.innerHTML = '<p>Loading rooms...</p>'; // You can customize this message
+    // roomContainer.appendChild(loadingMessage);
+
+
+    // Show the loader
+    loader.classList.add('show');
 
     // Fetch rooms from the API
     const response = await fetch('/api/available_rooms.js');
@@ -12,6 +16,7 @@ async function loadAllRooms() {
     // If the response is not OK, log an error and return
     if (!response.ok) {
         console.error(`HTTP error! status: ${response.status}`);
+        loader.classList.remove('show'); // Hide loader
         return; // Exit if the response is not OK
     }
 
@@ -68,4 +73,5 @@ async function loadAllRooms() {
         // Append the room card to the room container
         roomContainer.appendChild(roomCard);
     });
-  }
+    loader.classList.remove('show');
+}
