@@ -101,10 +101,10 @@ Promise.all([
     const params = new URLSearchParams(window.location.search);
     const encodedRoomId = params.get('ID'); // Get the encoded ID
     const roomId = decodeURIComponent(encodedRoomId);
-    
+
     let baseImageUrl = '';
     try {
-        const configResponse = await fetch('/api/config');
+        const configResponse = await fetch('/api/fetch-image.js');
         if (configResponse.ok) {
             const configData = await configResponse.json();
             baseImageUrl = `https://raw.githubusercontent.com/${configData.owner}/${configData.repo}/main/db/`;
