@@ -12,6 +12,19 @@ async function loadAllRooms() {
 
     const rooms = await response.json();
 
+    let baseImageUrl = '';
+    try {
+        const configResponse = await fetch('/api/fetch-image');
+        if (configResponse.ok) {
+            const configData = await configResponse.json();
+            baseImageUrl = `https://raw.githubusercontent.com/${configData.owner}/${configData.repo}/main/room-photo/`;
+        } else {
+            console.error('Failed to fetch config');
+        }
+    } catch (error) {
+        console.error('Error fetching config:', error);
+    }
+
     // Clear existing room elements
     roomContainer.innerHTML = '';
 
@@ -23,7 +36,7 @@ async function loadAllRooms() {
         roomCard.innerHTML = `
             <div class="media d-block room mb-0">
                 <figure class="zoom">
-                    <img id="roomImage" src="${room.room_photo}" alt="${room.room_name}" class="img-fluid zoom-on-hover">
+                    <img id="roomImage" src="${baseImageUrl + room.room_photo}" alt="${room.room_name}" class="img-fluid zoom-on-hover">
                     <div class="overlap-text">
                         <span>
                             Featured Room 
