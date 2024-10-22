@@ -15,10 +15,6 @@ export default function handler(req, res) {
 
     console.log('Encrypted Data:', encryptedData); // For testing purposes
 
-    // Optionally decrypt to verify the encryption
-    const decryptedData = decrypt(encryptedData);
-    console.log('Decrypted Data:', decryptedData); // For testing purposes
-
     // Send the decrypted data to the client
-    res.status(200).json(JSON.parse(decryptedData)); 
+    res.status(200).json(JSON.parse(encryptedData)); 
 }
