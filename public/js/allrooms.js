@@ -1,15 +1,16 @@
 async function loadAllRooms() {
-    const roomContainer = document.getElementById('roomContainer'); // Ensure this ID matches your HTML
+    const roomContainer = document.querySelector('#roomContainer');
 
+    // Fetch rooms from the API
     const response = await fetch('/api/available_rooms.js');
 
+    // If the response is not OK, log an error and return
     if (!response.ok) {
         console.error(`HTTP error! status: ${response.status}`);
-        return;
+        return; // Exit if the response is not OK
     }
 
     const rooms = await response.json();
-    console.log(rooms); // Debug: Check the room data
 
     let baseImageUrl = '';
     try {
@@ -25,101 +26,41 @@ async function loadAllRooms() {
     }
 
     // Clear existing room elements
-    roomContainer.innerHTML = '';
+    // roomContainer.innerHTML = '';
 
     rooms.forEach(room => {
-        // Create card wrapper
-        const cardWrapper = document.createElement('div');
-        cardWrapper.className = 'col-md-4 mb-4';
+        // Create a room card
+        const roomCard = document.createElement('div');
+        roomCard.className = 'col-md-4 mb-4';
 
-        // Create media block
-        const mediaBlock = document.createElement('div');
-        mediaBlock.className = 'media d-block room mb-0';
+        roomCard.innerHTML = `
+            <div class="media d-block room mb-0">
+                <figure class="zoom">
+                    <img id="roomImage" src="${baseImageUrl + room.room_photo}" alt="${room.room_name}" class="img-fluid zoom-on-hover">
+                    <div class="overlap-text">
+                        <span>
+                            Featured Room 
+                            <span class="ion-ios-star"></span>
+                            <span class="ion-ios-star"></span>
+                            <span class="ion-ios-star"></span>
+                        </span>
+                    </div>
+                </figure>
+                <div class="media-body">
+                    <h3 class="mt-0"><a href="rooms?ID=${encodeURIComponent(room.room_id)}">${room.room_name}</a></h3>
+                    <p>Features:</p>
+                    <ul class="room-specs">
+                        <li><span class="ion-ios-people-outline"></span> ${room.capacity} Guests</li>
+                        <li><span class="ion-ios-crop"></span> ft<sup>2</sup></li>
+                    </ul>
+                    <p>Usage:</p>
+                    <p>${room.usage}</p>              
+                    <p><a href="rooms?ID=${encodeURIComponent(room.room_id)}" class="btn btn-primary btn-sm">Book Now</a></p>
+                </div>
+            </div>
+        `;
 
-        // Create figure
-        const figure = document.createElement('figure');
-        figure.className = 'zoom';
-
-        // Create image
-        const image = document.createElement('img');
-        image.id = 'roomImage';
-        image.src = baseImageUrl + room.room_photo;
-        image.alt = room.room_name;
-        image.className = 'img-fluid zoom-on-hover';
-
-        // Create overlap text
-        const overlapText = document.createElement('div');
-        overlapText.className = 'overlap-text';
-        const overlapSpan = document.createElement('span');
-        overlapSpan.innerHTML = `Featured Room 
-            <span class="ion-ios-star"></span>
-            <span class="ion-ios-star"></span>
-            <span class="ion-ios-star"></span>`;
-        overlapText.appendChild(overlapSpan);
-
-        // Create media body
-        const mediaBody = document.createElement('div');
-        mediaBody.className = 'media-body';
-
-        // Create room title
-        const roomTitle = document.createElement('h3');
-        roomTitle.className = 'mt-0';
-        const roomLink = document.createElement('a');
-        roomLink.href = `rooms?ID=${encodeURIComponent(room.room_id)}`;
-        roomLink.textContent = room.room_name;
-        roomTitle.appendChild(roomLink);
-
-        // Create features paragraph
-        const featuresPara = document.createElement('p');
-        featuresPara.textContent = 'Features:';
-
-        // Create specs list
-        const specsList = document.createElement('ul');
-        specsList.className = 'room-specs';
-
-        const capacityItem = document.createElement('li');
-        capacityItem.innerHTML = `<span class="ion-ios-people-outline"></span> ${room.capacity} Guests`;
-        specsList.appendChild(capacityItem);
-
-        const sizeItem = document.createElement('li');
-        sizeItem.innerHTML = `<span class="ion-ios-crop"></span> ${room.size} ft<sup>2</sup>`;
-        specsList.appendChild(sizeItem);
-
-        // Create usage paragraph
-        const usagePara = document.createElement('p');
-        usagePara.textContent = 'Usage:';
-        
-        const usageDescription = document.createElement('p');
-        usageDescription.textContent = room.usage;
-
-        // Create book now button
-        const bookNowPara = document.createElement('p');
-        const bookNowLink = document.createElement('a');
-        bookNowLink.href = `rooms?ID=${encodeURIComponent(room.room_id)}`;
-        bookNowLink.className = 'btn btn-primary btn-sm';
-        bookNowLink.textContent = 'Book Now';
-        bookNowPara.appendChild(bookNowLink);
-
-        // Assemble the media body
-        mediaBody.appendChild(roomTitle);
-        mediaBody.appendChild(featuresPara);
-        mediaBody.appendChild(specsList);
-        mediaBody.appendChild(usagePara);
-        mediaBody.appendChild(usageDescription);
-        mediaBody.appendChild(bookNowPara);
-
-        // Assemble the figure
-        figure.appendChild(image);
-        figure.appendChild(overlapText);
-
-        // Assemble the media block
-        mediaBlock.appendChild(figure);
-        mediaBlock.appendChild(mediaBody);
-
-        // Assemble the card wrapper
-        cardWrapper.appendChild(mediaBlock);
-
-        // Append the card to the container
-        roomContainer.appendChild(cardWrapper);
+        // Append the room card to the room container
+        roomContainer.appendChild(roomCard);
     });
-}
+  }
