@@ -30,7 +30,7 @@ async function loadAllRooms() {
     rooms.forEach(room => {
         // Create card wrapper
         const cardWrapper = document.createElement('div');
-        cardWrapper.className = 'col-md-4 mb-4 element-animate';
+        cardWrapper.className = 'col-md-4 mb-4';
 
         // Create media block
         const mediaBlock = document.createElement('div');
