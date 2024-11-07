@@ -130,11 +130,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function validateGuest() {
   const input = document.getElementById('guest');
-  const max = parseInt(input.max);
+  const roomGuestMax = document.getElementById('roomGuest');
+
+  // Get the maximum value from the 'roomGuest' element
+  const max = parseInt(roomGuestMax.value) || 0;
+
+  // Convert input value to an integer for comparison, defaulting to 0 if not a valid number
+  const value = parseInt(input.value) || 0;
 
   // If the input exceeds the maximum, set it to the max
-  if (input.value > max) {
+  if (value > max) {
       input.value = max;
+  } else if (value < parseInt(input.min)) {
+      input.value = input.min;
   }
 }
 
