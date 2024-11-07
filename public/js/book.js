@@ -133,10 +133,10 @@ function validateGuest() {
   const roomGuestMax = document.getElementById('roomGuest');
 
   // Get the maximum value from the 'roomGuest' element
-  const max = parseInt(roomGuestMax.value) || 0;
+  const max = parseInt(roomGuestMax.value);
 
   // Convert input value to an integer for comparison, defaulting to 0 if not a valid number
-  const value = parseInt(input.value) || 0;
+  const value = parseInt(input.value);
 
   // If the input exceeds the maximum, set it to the max
   if (value > max) {
