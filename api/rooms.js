@@ -27,14 +27,14 @@ function generateBookingId() {
 
 // Function to validate form input
 const validateInput = (data) => {
-  const { reserve_date, time, setup, businessunit, room, guest, contact, email } = data;
+  const { reserve_date, time, setup, businessunit, roomID, guest, contact, email } = data;
   const errors = [];
 
   if (!reserve_date) errors.push('Reservation date is required.');
   if (!time) errors.push('Reservation time is required.');
   if (!businessunit) errors.push('Business unit is required.');
   if (!guest) errors.push('Guest is required.');
-  if (!room) errors.push('Room is required.');
+  if (!roomID) errors.push('Room is required.');
   if (!setup) errors.push('Seating arrangement is required.');
   if (!contact) errors.push('Contact number is required.');
   if (!email) {
@@ -48,7 +48,7 @@ const validateInput = (data) => {
 
 module.exports = async (req, res) => {
   if (req.method === 'POST') {
-    const { fname, lname, reserve_date, time, businessunit, room, setup, guest, contact, email, table, chair, hdmi, extension, message } = req.body;
+    const { fname, lname, reserve_date, time, businessunit, roomID, roomName, setup, guest, contact, email, table, chair, hdmi, extension, message } = req.body;
 
     // Validate input
     const errors = validateInput(req.body);
@@ -127,7 +127,7 @@ module.exports = async (req, res) => {
                                   <p><b>Booking ID:</b> ${booking_id}<br>
                                   <b>Booking Date:</b> ${reserve_date}<br>
                                   <b>Business Unit:</b> ${businessunit}<br>
-                                  <b>Room:</b> ${room}<br>
+                                  <b>Room:</b> ${roomName}<br>
                                   <b>Contact:</b> ${contact}<br>
                                   <b>Email:</b> ${email}<br>
                                   <b>Time:</b> ${time}<br>
@@ -226,7 +226,7 @@ module.exports = async (req, res) => {
                                   <p><b>Booking ID:</b> ${booking_id}<br>
                                   <b>Booking Date:</b> ${reserve_date}<br>
                                   <b>Business Unit:</b> ${businessunit}<br>
-                                  <b>Room:</b> ${room}<br>
+                                  <b>Room:</b> ${roomName}<br>
                                   <b>Contact:</b> ${contact}<br>
                                   <b>Email:</b> ${email}<br>
                                   <b>Time:</b> ${time}<br>
@@ -284,7 +284,7 @@ module.exports = async (req, res) => {
         const result = await client.query(
           `INSERT INTO reservations (fname, lname, reserve_date, time, setup, business_unit, room, guest, contact, email, "table", chair, hdmi, extension, message, booking_id, date_created) 
           VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, NOW() AT TIME ZONE 'Asia/Manila')`,
-          [fname, lname, reserve_date, time, setup, businessunit, room, guest, contact, email, table, chair, hdmi, extension, message, booking_id]
+          [fname, lname, reserve_date, time, setup, businessunit, roomID, guest, contact, email, table, chair, hdmi, extension, message, booking_id]
         );
 
         try {

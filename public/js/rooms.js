@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Populate the HTML with room details
         document.getElementById('roomImage').src = baseImageUrl + data.room_photo;
         document.getElementById('roomID').value = data.room_id;
+        document.getElementById('roomName').value = data.room_name;
         document.getElementById('roomName').textContent = data.room_name;
         document.getElementById('roomUsage').textContent = data.usage;
         document.getElementById('roomCapacity').textContent = `${data.capacity} people`;
