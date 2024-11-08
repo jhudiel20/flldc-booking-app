@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('roomGuest').value = data.capacity;
         document.getElementById('roomID').value = data.room_id;
         document.getElementById('roomName').value = data.room_name;
+        document.getElementById('roomNameView').text = data.room_name;
         document.getElementById('roomName').textContent = data.room_name;
         document.getElementById('roomUsage').textContent = data.usage;
         document.getElementById('roomCapacity').textContent = `${data.capacity} people`;
