@@ -5,7 +5,7 @@ const pool = new Pool({
 
 module.exports = async (req, res) => {
   try {
-    const result = await pool.query('SELECT * FROM room_details where status =  \'Available\' ');
+    const result = await pool.query('SELECT * FROM room_details where status =  \'Available\' ORDER BY room_name ASC ');
     res.status(200).json(result.rows);
   } catch (error) {
     console.error('Error fetching rooms:', error);

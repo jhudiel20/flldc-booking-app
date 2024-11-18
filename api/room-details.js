@@ -15,7 +15,7 @@ module.exports = async (req, res) => {
 
   try {
     // Query to select all columns for the given room_id
-    const query = 'SELECT * FROM room_details WHERE room_id = $1 ORDER BY room_name ASC';
+    const query = 'SELECT * FROM room_details WHERE room_id = $1';
     const values = [room_id];
 
     const result = await pool.query(query, values);
