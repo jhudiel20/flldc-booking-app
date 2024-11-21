@@ -144,12 +144,12 @@ header .navbar .dropdown-menu:before {
 
 header .navbar .dropdown-menu .dropdown-item:hover {
   background: #b99365;
-  color: #fff;
+  color: #000000;
 }
 
 header .navbar .dropdown-menu .dropdown-item.active {
   background: #b99365;
-  color: #fff;
+  color: #000000;
 }
 
 header .navbar .dropdown-menu a {
@@ -158,7 +158,7 @@ header .navbar .dropdown-menu a {
 }
 
 header .navbar.navbar-light .nav-link {
-  color: #fff;
+  color: #000000;
 }
 
 header .navbar.navbar-light .nav-link.active {
