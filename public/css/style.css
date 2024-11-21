@@ -190,7 +190,7 @@ a {
 }
 
 a:hover {
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 h1, h2, h3, h4, h5 {
@@ -241,8 +241,8 @@ header .navbar .nav-link {
 }
 
 header .navbar .nav-link:hover {
-  color: #fff;
-  font-weight: bold;
+  color: #e3d7d79e;
+  /* font-weight: bold; */
   text-shadow: #000000;
 }
 
