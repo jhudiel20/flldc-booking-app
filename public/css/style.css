@@ -502,11 +502,11 @@ header .navbar.navbar-light .nav-link.active {
 }
 
 .site-section {
-  padding: 3em 0;
+  padding: 5em 0;
 }
-.site-section-1 {
+/* .site-section-1 {
   padding: 5em 0 3em 0;
-}
+} */
 
 #search-form .search-input {
   width: calc(100% - 160px);
