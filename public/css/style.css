@@ -13,8 +13,8 @@
 
 body {
   background: #fff;
-  font-family: "Rubik", arial, sans-serif;
-  /* font-family: Tahoma, sans-serif; */
+  /* font-family: "Rubik", arial, sans-serif; */
+  font-family: Tahoma, sans-serif;
   font-weight: 300;
   font-size: 15px;
   line-height: 1.8;
@@ -26,7 +26,6 @@ a {
   -o-transition: .3s all ease;
   transition: .3s all ease;
   text-decoration: none;
-  color: #000000;
 }
 
 a:hover {
@@ -52,7 +51,7 @@ header .navbar-brand {
   text-transform: uppercase;
   letter-spacing: .2em;
   font-weight: 400;
-  color: #000000 !important;
+  color: #fff !important;
 }
 
 header .navbar {
@@ -80,13 +79,13 @@ header .navbar .nav-link {
   }
 }
 
-/* header .navbar .nav-link:hover {
+header .navbar .nav-link:hover {
   color: #fff !important;
 }
 
 header .navbar .nav-link.active {
   color: #fff !important;
-} */
+}
 
 header .navbar .cta {
   float: right;
@@ -144,12 +143,12 @@ header .navbar .dropdown-menu:before {
 
 header .navbar .dropdown-menu .dropdown-item:hover {
   background: #b99365;
-  /* color: #fff; */
+  color: #fff;
 }
 
 header .navbar .dropdown-menu .dropdown-item.active {
   background: #b99365;
-  /* color: #fff; */
+  color: #fff;
 }
 
 header .navbar .dropdown-menu a {
@@ -158,11 +157,11 @@ header .navbar .dropdown-menu a {
 }
 
 header .navbar.navbar-light .nav-link {
-  color: #000000;
+  color: #fff;
 }
 
 header .navbar.navbar-light .nav-link.active {
-  color: #000000;
+  color: #fff;
 }
 
 .site-hero {
