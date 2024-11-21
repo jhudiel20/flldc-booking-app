@@ -1,4 +1,3 @@
-
 .zoom {
   position: relative;
   overflow: hidden;
@@ -35,8 +34,8 @@ a:hover {
 
 h1, h2, h3, h4, h5 {
   color: #000;
-  /* font-family: "Playfair Display", times, serif; */
-  font-family: Tahoma, sans-serif;
+  font-family: "Playfair Display", times, serif;
+  /* font-family: Tahoma, sans-serif; */
   font-weight: Bold;
 }
 
@@ -81,11 +80,11 @@ header .navbar .nav-link {
 }
 
 header .navbar .nav-link:hover {
-  color: #f80000 !important;
+  color: #fff !important;
 }
 
 header .navbar .nav-link.active {
-  color: #8c00ff !important;
+  color: #fff !important;
 }
 
 header .navbar .cta {
@@ -143,13 +142,13 @@ header .navbar .dropdown-menu:before {
 }
 
 header .navbar .dropdown-menu .dropdown-item:hover {
-  background: #000000;
-  color: #000000;
+  background: #b99365;
+  color: #fff;
 }
 
 header .navbar .dropdown-menu .dropdown-item.active {
-  background: #000000;
-  color: #000000;
+  background: #b99365;
+  color: #fff;
 }
 
 header .navbar .dropdown-menu a {
@@ -158,7 +157,7 @@ header .navbar .dropdown-menu a {
 }
 
 header .navbar.navbar-light .nav-link {
-  color: #000000;
+  color: #fff;
 }
 
 header .navbar.navbar-light .nav-link.active {
