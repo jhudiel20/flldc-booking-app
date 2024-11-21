@@ -15,15 +15,67 @@
   margin: 15px 0;
 }
 
-.footer-links a {
-  margin: 0 10px;
+.footer-links ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+.nav-item-new {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.nav-link {
   color: #000;
   text-decoration: none;
   font-weight: 500;
+  padding: 8px 15px;
 }
 
-.footer-links a:hover {
+.nav-link:hover {
   text-decoration: underline;
+}
+
+.cta {
+  background-color: #007bff; /* Blue background for the "Book Now" button */
+  color: white;
+  padding: 8px 15px;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.cta:hover {
+  background-color: #0056b3;
+}
+
+.nav-item.dropdown {
+  position: relative;
+}
+
+.nav-item.dropdown .dropdown-menu {
+  background-color: #fff;
+  box-shadow: 0 8px 16px rgba(0,0,0,.15);
+  border-radius: 4px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  z-index: 1000;
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-item {
+  padding: 8px 15px;
+  color: #000;
+  text-decoration: none;
+}
+
+.dropdown-item:hover {
+  background-color: #007bff;
+  color: white;
 }
 
 .social-icons {
@@ -60,39 +112,64 @@
 .text-center {
   text-align: center;
 }
+
 </style>
-  <footer class="site-footer">
-    <div class="container">
-      <!-- Logo Section -->
-      <div class="footer-logo text-center">
-        <h2>Logo</h2>
-      </div>
-  
-      <!-- Navigation Links -->
-      <div class="footer-links text-center">
-        <a href="#">Link One</a>
-        <a href="#">Link Two</a>
-        <a href="#">Link Three</a>
-        <a href="#">Link Four</a>
-        <a href="#">Link Five</a>
-      </div>
-  
-      <!-- Social Media Icons -->
-      <div class="social-icons text-center">
-        <a href="https://www.facebook.com/profile.php?id=61557855910357&mibextid=ZbWKwL" target="_blank"><span class="fa fa-facebook"></span></a>
-        <a href="https://www.instagram.com/fastlearningdevelopment/" target="_blank"><span class="fa fa-instagram"></span></a>
-        <a href="https://www.youtube.com/@FASTLogisticsGroup" target="_blank"><span class="fa fa-youtube-play"></span></a>
-      </div>
-  
-      <!-- Divider Line -->
-      <hr class="footer-divider">
-  
-      <!-- Copyright Section -->
-      <div class="footer-copyright text-center">
-        <p>&copy; 2024 Relume. All rights reserved. <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">Cookies Settings</a></p>
-      </div>
+<footer class="site-footer">
+  <div class="container">
+    <!-- Logo Section -->
+    <div class="footer-logo text-center">
+      <h2>Logo</h2>
     </div>
-  </footer>
+
+    <!-- Navigation Links with UL Structure -->
+    <div class="footer-links text-center">
+      <ul class="navbar-nav ml-auto pl-lg-5 pl-0">
+        <li class="nav-item-new">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        
+        <!-- Rooms Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="loadRooms()">Rooms</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown04" id="roomDropdown">
+            <a class="dropdown-item" href="#">Loading...</a>
+            <!-- Room options will be dynamically added here -->
+          </div>
+        </li>
+
+        <li class="nav-item-new">
+          <a class="nav-link" href="about">About</a>
+        </li>
+        <li class="nav-item-new">
+          <a class="nav-link" href="contact">Contact</a>
+        </li>
+        <li class="nav-item-new">
+          <a class="nav-link" href="forms">Feedback / Assistance Form</a>
+        </li>
+        <li class="nav-item cta">
+          <a class="nav-link" href="allrooms"><span>Book Now</span></a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Social Media Icons -->
+    <div class="social-icons text-center">
+      <a href="https://www.facebook.com/profile.php?id=61557855910357&mibextid=ZbWKwL" target="_blank"><span class="fa fa-facebook"></span></a>
+      <a href="https://www.instagram.com/fastlearningdevelopment/" target="_blank"><span class="fa fa-instagram"></span></a>
+      <a href="https://www.youtube.com/@FASTLogisticsGroup" target="_blank"><span class="fa fa-youtube-play"></span></a>
+    </div>
+
+    <!-- Divider Line -->
+    <hr class="footer-divider">
+
+    <!-- Copyright Section -->
+    <div class="footer-copyright text-center">
+      <p>&copy; 2024 FAST Learning and Development Center. All rights reserved. 
+      <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">Cookies Settings</a></p>
+    </div>
+  </div>
+</footer>
+
   
 
 
