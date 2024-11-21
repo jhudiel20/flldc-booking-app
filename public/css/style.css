@@ -80,7 +80,7 @@ header .navbar .nav-link {
 }
 
 header .navbar .nav-link:hover {
-  color: #9b1010 !important;
+  color: #fff;
   text-shadow: #000000;
 }
 
