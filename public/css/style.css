@@ -110,7 +110,7 @@ header .navbar .cta > a span {
 }
 
 header .navbar .dropdown.show > a {
-  color: #fff !important;
+  color: #000000 !important;
 }
 
 header .navbar .dropdown-menu {
@@ -1017,7 +1017,7 @@ textarea.form-control {
 .tags li {
   padding: 0;
   margin: 0 4px 4px 0;
-  float: left;
+  /* float: left; */
   display: inline-block;
 }
 
