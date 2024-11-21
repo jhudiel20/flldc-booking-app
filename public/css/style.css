@@ -1,4 +1,125 @@
+  a{
+    color: black;
+  }
 
+  /* General Section Styling */
+  .image-section {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    height: 400px; /* Adjust height as needed */
+    position: relative;
+  }
+
+  .marquee-container {
+    width: 48%; /* Adjust width to control spacing between columns */
+    overflow: hidden;
+    height: 100%;
+    position: relative;
+  }
+
+  .marquee {
+    display: flex;
+    flex-direction: column;
+    animation: scrollInfinite 25s linear infinite;
+  }
+
+  .marquee-container.reverse .marquee {
+    animation: scrollInfiniteReverse 25s linear infinite;
+  }
+
+  /* Infinite Scrolling Animations */
+  @keyframes scrollInfinite {
+    0% {
+      transform: translateY(0%);
+      }
+      100% {
+      transform: translateY(-50%); /* Scroll halfway (because images are duplicated) */
+    }
+  }
+
+  @keyframes scrollInfiniteReverse {
+    0% {
+    transform: translateY(-50%); /* Start halfway */
+    }
+    100% {
+    transform: translateY(0%);
+    }
+  }
+
+  /* Image Styling */
+  .marquee img {
+    width: 100%;
+    margin-bottom: 10px;
+    display: block;
+    object-fit: cover;
+    height: 250px; /* Adjust image height as needed */
+  }
+
+
+  .site-footer {
+    background-color: #f8f9fa; /* Light background color */
+    padding: 20px 0;
+    font-family: Arial, sans-serif;
+  }
+
+  .footer-logo h2 {
+    font-family: 'Cursive', sans-serif;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .footer-links {
+    margin: 15px 0;
+  }
+
+  .footer-links a {
+    margin: 0 10px;
+    color: #000;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .footer-links a:hover {
+    text-decoration: underline;
+  }
+
+  .social-icons {
+    margin: 10px 0;
+  }
+
+  .social-icons a {
+    margin: 0 10px;
+    font-size: 20px;
+    color: #000;
+    text-decoration: none;
+  }
+
+  .footer-divider {
+    margin: 20px auto;
+    width: 90%;
+    border: 0.5px solid #ddd;
+  }
+
+  .footer-copyright {
+    font-size: 14px;
+    color: #555;
+  }
+
+  .footer-copyright a {
+    color: #007bff;
+    text-decoration: none;
+  }
+
+  .footer-copyright a:hover {
+    text-decoration: underline;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  
   /* Section Styling */
   .logo-section {
     background: #fff;
@@ -35,6 +156,8 @@
   .logo-container img:hover {
     transform: scale(1.1);
   }
+
+  /* ############################################################################################################################## */
 
 .zoom {
   position: relative;

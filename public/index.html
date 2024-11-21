@@ -21,66 +21,6 @@
     <link rel="stylesheet" href="sneat/assets/vendor/libs/swiper/swiper.css" />
     <link rel="stylesheet" href="sneat/assets/vendor/css/pages/ui-carousel.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
-    <style>
-      a{
-        color: black;
-      }
-
-  /* General Section Styling */
-  .image-section {
-    display: flex;
-    justify-content: space-between;
-    overflow: hidden;
-    height: 400px; /* Adjust height as needed */
-    position: relative;
-  }
-
-  .marquee-container {
-    width: 48%; /* Adjust width to control spacing between columns */
-    overflow: hidden;
-    height: 100%;
-    position: relative;
-  }
-
-  .marquee {
-    display: flex;
-    flex-direction: column;
-    animation: scrollInfinite 25s linear infinite;
-  }
-
-  .marquee-container.reverse .marquee {
-    animation: scrollInfiniteReverse 25s linear infinite;
-  }
-
-  /* Infinite Scrolling Animations */
-  @keyframes scrollInfinite {
-    0% {
-      transform: translateY(0%);
-    }
-    100% {
-      transform: translateY(-50%); /* Scroll halfway (because images are duplicated) */
-    }
-  }
-
-  @keyframes scrollInfiniteReverse {
-    0% {
-      transform: translateY(-50%); /* Start halfway */
-    }
-    100% {
-      transform: translateY(0%);
-    }
-  }
-
-  /* Image Styling */
-  .marquee img {
-    width: 100%;
-    margin-bottom: 10px;
-    display: block;
-    object-fit: cover;
-    height: 250px; /* Adjust image height as needed */
-  }
-
-</style>
   </head>
   <body>
     <div id="header"></div>
