@@ -499,6 +499,9 @@ header .navbar.navbar-light .nav-link.active {
 }
 
 .site-section {
+  padding: 3em 0;
+}
+.site-section-1 {
   padding: 5em 0;
 }
 
