@@ -13,8 +13,8 @@
 
 body {
   background: #fff;
-  /* font-family: "Rubik", arial, sans-serif; */
-  font-family: Tahoma, sans-serif;
+  font-family: "Rubik", arial, sans-serif;
+  /* font-family: Tahoma, sans-serif; */
   font-weight: 300;
   font-size: 15px;
   line-height: 1.8;
@@ -26,6 +26,7 @@ a {
   -o-transition: .3s all ease;
   transition: .3s all ease;
   text-decoration: none;
+  color: #000000;
 }
 
 a:hover {
@@ -51,7 +52,7 @@ header .navbar-brand {
   text-transform: uppercase;
   letter-spacing: .2em;
   font-weight: 400;
-  color: #fff !important;
+  color: #000000 !important;
 }
 
 header .navbar {
