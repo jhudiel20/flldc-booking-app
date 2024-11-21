@@ -45,29 +45,29 @@
   .marquee {
     display: flex;
     flex-direction: column;
-    animation: scrollDown 20s linear infinite;
+    animation: scrollInfinite 10s linear infinite;
   }
 
   .marquee-container.reverse .marquee {
-    animation: scrollUp 20s linear infinite;
+    animation: scrollInfiniteReverse 10s linear infinite;
   }
 
   /* Infinite Scrolling Animations */
-  @keyframes scrollDown {
+  @keyframes scrollInfinite {
     0% {
-      transform: translateY(-100%);
+      transform: translateY(0%);
     }
     100% {
-      transform: translateY(100%);
+      transform: translateY(-50%); /* Scroll halfway (because images are duplicated) */
     }
   }
 
-  @keyframes scrollUp {
+  @keyframes scrollInfiniteReverse {
     0% {
-      transform: translateY(100%);
+      transform: translateY(-50%); /* Start halfway */
     }
     100% {
-      transform: translateY(-100%);
+      transform: translateY(0%);
     }
   }
 
@@ -77,7 +77,7 @@
     margin-bottom: 10px;
     display: block;
     object-fit: cover;
-    height: 250px; /* Adjust image height as needed */
+    height: 120px; /* Adjust image height as needed */
   }
 </style>
   </head>
@@ -150,11 +150,21 @@
                   <img src="images/CONFERENCE 1.jpg" alt="Conference Room 1">
                   <img src="images/CONFERENCE 2.jpg" alt="Conference Room 2">
                   <img src="images/IT ROOM.jpg" alt="IT Room">
+                  <!-- Duplicate images for infinite scroll -->
+                  <img src="images/LOBBY.jpg" alt="Lobby">
+                  <img src="images/CONFERENCE 1.jpg" alt="Conference Room 1">
+                  <img src="images/CONFERENCE 2.jpg" alt="Conference Room 2">
+                  <img src="images/IT ROOM.jpg" alt="IT Room">
                 </div>
               </div>
               <!-- Column 2 (Scrolling Up) -->
               <div class="marquee-container reverse">
                 <div class="marquee">
+                  <img src="images/ROOM 301.jpg" alt="Room 301">
+                  <img src="images/MHE.jpg" alt="MHE Room">
+                  <img src="images/MODEL.jpg" alt="Model Room">
+                  <img src="images/CANTEEN.jpg" alt="Canteen">
+                  <!-- Duplicate images for infinite scroll -->
                   <img src="images/ROOM 301.jpg" alt="Room 301">
                   <img src="images/MHE.jpg" alt="MHE Room">
                   <img src="images/MODEL.jpg" alt="Model Room">
