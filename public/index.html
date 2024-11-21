@@ -25,13 +25,61 @@
       a{
         color: black;
       }
-    </style>
+
+  .image-section {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 400px; /* Adjust height as needed */
+    position: relative;
+  }
+
+  .marquee {
+    display: flex;
+    flex-direction: column;
+    animation: scrollDown 12s linear infinite;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .marquee.reverse {
+    animation: scrollUp 12s linear infinite;
+  }
+
+  @keyframes scrollDown {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(100%);
+    }
+  }
+
+  @keyframes scrollUp {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(-100%);
+    }
+  }
+
+  .marquee img {
+    width: 100%;
+    margin-bottom: 10px;
+    display: block;
+    object-fit: cover;
+    height: 100px; /* Adjust image height as needed */
+  }
+</style>
   </head>
   <body>
     <div id="header"></div>
     <!-- END header -->
     <!-- site-hero overlay data-stellar-background-ratio="0.5" style="background-image: url(images/bg_picture.jpg);background-size: cover; background-position: center; background-repeat: no-repeat;" -->
-    <section class="site-section">
+    <!-- <section class="site-section">
       <div class="container">
         <div class="row align-items-center site-hero-inner justify-content-center">
           <div class="col-lg-12 text-center d-md-block d-lg-none">
@@ -65,6 +113,43 @@
                 </div>
                 <div class="swiper-slide" style="background-image: url(images/CANTEEN.jpg);">
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+    <section class="site-section">
+      <div class="container">
+        <div class="row align-items-center site-hero-inner justify-content-center">
+          <div class="col-lg-12 text-center d-md-block d-lg-none">
+            <div class="mb-5 e-animated">
+              <h1><strong>FAST Learning and Development Center</strong></h1>
+              <p>Experience the ideal venue for your <b>MEETINGS</b> and <b>PROGRAMS</b> at FAST Learning and Development Center!</p>
+            </div>
+          </div>
+          <div class="col-md-6 d-none d-lg-block">
+            <div class="element-animate">
+              <h1><strong>FAST Learning and Development Center</strong></h1>
+              <p>Experience the ideal venue for your <b>MEETINGS</b> and <b>PROGRAMS</b> at FAST Learning and Development Center!</p>
+            </div>
+          </div>
+          <div class="col-md-6 d-none d-lg-block element-animate">
+            <!-- Marquee Section -->
+            <div class="image-section">
+              <!-- Downward Scrolling Images -->
+              <div class="marquee">
+                <img src="images/LOBBY.jpg" alt="Lobby">
+                <img src="images/CONFERENCE 1.jpg" alt="Conference Room 1">
+                <img src="images/CONFERENCE 2.jpg" alt="Conference Room 2">
+                <img src="images/IT ROOM.jpg" alt="IT Room">
+              </div>
+              <!-- Upward Scrolling Images -->
+              <div class="marquee reverse">
+                <img src="images/ROOM 301.jpg" alt="Room 301">
+                <img src="images/MHE.jpg" alt="MHE Room">
+                <img src="images/MODEL.jpg" alt="Model Room">
+                <img src="images/CANTEEN.jpg" alt="Canteen">
               </div>
             </div>
           </div>
