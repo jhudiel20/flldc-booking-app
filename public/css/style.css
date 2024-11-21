@@ -10,7 +10,7 @@ a{
     display: flex;
     justify-content: space-between;
     overflow: hidden;
-    height: 550px; /* Adjust height as needed */
+    height: 560px; /* Adjust height as needed */
     position: relative;
   }
 
