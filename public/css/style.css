@@ -51,7 +51,7 @@ header .navbar-brand {
   text-transform: uppercase;
   letter-spacing: .2em;
   font-weight: 400;
-  color: #fff !important;
+  color: #000000 !important;
 }
 
 header .navbar {
