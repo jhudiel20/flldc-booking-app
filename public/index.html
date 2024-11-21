@@ -79,6 +79,58 @@
     object-fit: cover;
     height: 250px; /* Adjust image height as needed */
   }
+
+  /* Section Styling */
+  .logo-marquee {
+    background: #fff;
+    padding: 20px 0;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Caption Styling */
+  .caption {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  /* Marquee Container */
+  .marquee-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Marquee Content */
+  .marquee-2 {
+    display: flex;
+    gap: 50px; /* Spacing between logos */
+    animation: scrollMarquee 15s linear infinite;
+  }
+
+  /* Logos Styling */
+  .marquee-2 img {
+    height: 80px; /* Adjust the size of the logos */
+    object-fit: contain;
+    display: block;
+  }
+
+  /* Animation Keyframes */
+  @keyframes scrollMarquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
 </style>
   </head>
   <body>
@@ -177,6 +229,18 @@
       </div>
     </section>
     <!-- END section -->
+
+    <section class="logo-marquee">
+      <div class="marquee-container">
+        <div class="marquee-2">
+          <img src="images/FAST LOGO.png" alt="FAST Logo 1">
+          <img src="images/Experience_by_Fast-removebg-preview.png" alt="FAST Logo 2">
+          <img src="images/FLLDC Logo (1).png" alt="FAST Logo 3">
+          <img src="images/TESDA.png" alt="FAST Logo 4">
+        </div>
+      </div>
+      <p class="caption">Used by the world's leading companies!</p>
+    </section>
 
     <!-- <section class="site-section bg-light">
       <div class="container">
