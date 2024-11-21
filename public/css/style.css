@@ -1,3 +1,41 @@
+
+  /* Section Styling */
+  .logo-section {
+    background: #fff;
+    /* padding: 20px 0; */
+    text-align: center;
+  }
+
+  /* Caption Styling */
+  .caption {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  /* Logo Grid */
+  .logo-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 80px; /* Space between logos */
+    padding: 0 20px;
+  }
+
+  .logo-container img {
+    height: 80px; /* Adjust size */
+    object-fit: contain;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  /* Logo Hover Effect */
+  .logo-container img:hover {
+    transform: scale(1.1);
+  }
+
 .zoom {
   position: relative;
   overflow: hidden;
