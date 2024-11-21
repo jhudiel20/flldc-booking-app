@@ -34,8 +34,8 @@ a:hover {
 
 h1, h2, h3, h4, h5 {
   color: #000;
-  font-family: "Playfair Display", times, serif;
-  /* font-family: Tahoma, sans-serif; */
+  /* font-family: "Playfair Display", times, serif; */
+  font-family: Tahoma, sans-serif;
   font-weight: Bold;
 }
 
@@ -80,10 +80,11 @@ header .navbar .nav-link {
 }
 
 header .navbar .nav-link:hover {
-  color: #fff !important;
+  color: #000000 !important;
 }
 
 header .navbar .nav-link.active {
+  text-shadow: #000;
   color: #fff !important;
 }
 
