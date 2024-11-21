@@ -502,8 +502,7 @@ header .navbar.navbar-light .nav-link.active {
   padding: 3em 0;
 }
 .site-section-1 {
-  padding-top: 5em 0;
-  padding-bottom: 2em;
+  padding: 5em 0;
 }
 
 #search-form .search-input {
