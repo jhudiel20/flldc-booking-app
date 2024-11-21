@@ -81,55 +81,40 @@
   }
 
   /* Section Styling */
-  .logo-marquee {
+  .logo-section {
     background: #fff;
     padding: 20px 0;
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    text-align: center;
   }
 
   /* Caption Styling */
   .caption {
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: #333;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     text-transform: uppercase;
     font-weight: bold;
   }
 
-  /* Marquee Container */
-  .marquee-container {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-  }
-
-  /* Marquee Content */
-  .marquee-2 {
+  /* Logo Grid */
+  .logo-container {
     display: flex;
-    gap: 50px; /* Spacing between logos */
-    animation: scrollMarquee 15s linear infinite;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px; /* Space between logos */
+    padding: 0 20px;
   }
 
-  /* Logos Styling */
-  .marquee-2 img {
-    height: 80px; /* Adjust the size of the logos */
+  .logo-container img {
+    height: 80px; /* Adjust size */
     object-fit: contain;
     display: block;
+    transition: transform 0.3s ease;
   }
 
-  /* Animation Keyframes */
-  @keyframes scrollMarquee {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-100%);
-    }
+  /* Logo Hover Effect */
+  .logo-container img:hover {
+    transform: scale(1.1);
   }
 </style>
   </head>
@@ -230,16 +215,16 @@
     </section>
     <!-- END section -->
 
-    <section class="logo-marquee">
-      <div class="marquee-container">
-        <div class="marquee-2">
-          <img src="images/FAST LOGO.png" alt="FAST Logo 1">
-          <img src="images/Experience_by_Fast-removebg-preview.png" alt="FAST Logo 2">
-          <img src="images/FLLDC Logo (1).png" alt="FAST Logo 3">
-          <img src="images/TESDA.png" alt="FAST Logo 4">
-        </div>
-      </div>
+    <section class="logo-section">
       <p class="caption">Used by the world's leading companies!</p>
+      <div class="logo-container">
+        <img src="images/logo1.png" alt="FAST Logo 1">
+        <img src="images/logo2.png" alt="FAST Logo 2">
+        <img src="images/logo3.png" alt="FAST Logo 3">
+        <img src="images/logo4.png" alt="FAST Logo 4">
+        <img src="images/logo5.png" alt="FAST Logo 5">
+        <img src="images/logo6.png" alt="FAST Logo 6">
+      </div>
     </section>
 
     <!-- <section class="site-section bg-light">
