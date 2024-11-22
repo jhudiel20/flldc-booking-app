@@ -30,6 +30,12 @@
     margin: 0 auto; /* Center image horizontally */
     object-fit: cover; /* Ensure the image covers the area */
   }
+  .img-fluid-about {
+    height: 12.5rem;
+    display: block; /* Make image a block element */
+    margin: 0 auto; /* Center image horizontally */
+    object-fit: cover; /* Ensure the image covers the area */
+  }
   
 
   /* General Section Styling */
