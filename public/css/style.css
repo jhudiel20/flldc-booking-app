@@ -44,7 +44,7 @@
     object-fit: cover; /* Ensure the image covers the area */
   }
   .img-fluid-logo {
-    height: 5.5rem;
+    height: 4.5rem;
     display: block; /* Make image a block element */
     margin: 0 auto; /* Center image horizontally */
     object-fit: cover; /* Ensure the image covers the area */
