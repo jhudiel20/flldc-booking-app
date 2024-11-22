@@ -1,18 +1,20 @@
-  a {
+  /* General link styles */
+  .navbar-nav .nav-link {
     color: black;
     transition: color 0.3s ease; /* Smooth transition for color change */
   }
 
   /* Styles for smaller screens */
-  @media (max-width: 768px) { /* Adjust breakpoint as needed */
-    a {
-      color: white;
+  @media (max-width: 768px) { 
+    .navbar-nav .nav-link {
+      color: white !important; /* Force the color to white for small screens */
     }
 
     .navbar-toggler i {
-      color: white; /* Ensure the menu icon matches the design for small screens */
+      color: white !important; /* Ensure the menu icon matches the design for small screens */
     }
-  }  
+  }
+
   
   .image-container {
     display: flex;
