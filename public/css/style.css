@@ -25,6 +25,11 @@
     display: flex;
     justify-content: center; /* Center image horizontally */
   }
+  .image-container-logo{
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: flex-start; /* Align image at the top */
+  }
 
   .img-fluid {
     height: 30.5rem;
