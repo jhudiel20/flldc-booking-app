@@ -101,18 +101,23 @@ Promise.all([
   }
   
 
-  function updateButtonClass() {
-    const bookNowLink = document.getElementById('book-now-link');
+  function updateBookNowVisibility() {
+    const bookNowItem = document.getElementById('book-now-item');
+    const bookNowButton = document.getElementById('book-now-button');
     if (window.innerWidth <= 768) {
-      bookNowLink.classList.add('btn', 'btn-primary');
+      // Hide the <li> and show the <button>
+      bookNowItem.style.display = 'none';
+      bookNowButton.style.display = 'block';
     } else {
-      bookNowLink.classList.remove('btn', 'btn-primary');
+      // Show the <li> and hide the <button>
+      bookNowItem.style.display = 'block';
+      bookNowButton.style.display = 'none';
     }
   }
 
   // Call the function on page load and when the window is resized
-  window.addEventListener('load', updateButtonClass);
-  window.addEventListener('resize', updateButtonClass);
+  window.addEventListener('load', updateBookNowVisibility);
+  window.addEventListener('resize', updateBookNowVisibility);
   
 
 
