@@ -49,6 +49,13 @@
     margin: 0 auto; /* Center image horizontally */
     object-fit: cover; /* Ensure the image covers the area */
   }
+  .col-md-3 .logos{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align image at the top */
+    align-items: center; /* Center horizontally */
+    padding: 0; /* Remove extra padding */
+  }
   
 
   /* General Section Styling */
