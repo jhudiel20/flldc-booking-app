@@ -6,6 +6,9 @@
 
   /* Styles for smaller screens */
   @media (max-width: 768px) { 
+    .banner {
+      background-color: black; /* Change the background color to black on small screens */
+    }
     .navbar-nav .nav-link {
       color: white !important; /* Force the color to white for small screens */
     }
