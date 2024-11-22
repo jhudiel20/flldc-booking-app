@@ -101,23 +101,4 @@ Promise.all([
   }
   
 
-  function updateBookNowVisibility() {
-    const bookNowItem = document.getElementById('book-now-item');
-    const bookNowButtonItem = document.getElementById('book-now-button-item');
-    if (window.innerWidth <= 768) {
-      // Hide the <li> with the link and show the <li> with the button
-      bookNowItem.style.display = 'none';
-      bookNowButtonItem.style.display = 'block';
-    } else {
-      // Show the <li> with the link and hide the <li> with the button
-      bookNowItem.style.display = 'block';
-      bookNowButtonItem.style.display = 'none';
-    }
-  }
-
-  // Call the function on page load and when the window is resized
-  window.addEventListener('load', updateBookNowVisibility);
-  window.addEventListener('resize', updateBookNowVisibility);
-
-
 

@@ -1,3 +1,10 @@
+  #navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Ensure it stays on top of other content */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Adds shadow effect */
+  }  
+  
   /* General link styles */
   .navbar-nav .nav-link {
     color: black;
