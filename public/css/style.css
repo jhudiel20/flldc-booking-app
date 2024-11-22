@@ -50,7 +50,14 @@
     margin: 0 auto; /* Center horizontally */
     object-fit: cover;
   }
-
+  .col-md-3 .logos{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align image at the top */
+    align-items: center; /* Center horizontally */
+    padding: 0; /* Remove extra padding */
+  }
+  
 
   /* General Section Styling */
   .image-section {
