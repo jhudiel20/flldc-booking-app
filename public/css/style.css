@@ -18,7 +18,8 @@
     display: flex;
     justify-content: space-between;
     overflow: hidden;
-    height: 560px; /* Adjust height as needed */
+    /* height: 580px; Adjust height as needed */
+    height: 100vh;
     position: relative;
   }
 
