@@ -101,7 +101,18 @@ Promise.all([
   }
   
 
+  function updateButtonClass() {
+    const bookNowLink = document.getElementById('book-now-link');
+    if (window.innerWidth <= 768) {
+      bookNowLink.classList.add('btn', 'btn-primary');
+    } else {
+      bookNowLink.classList.remove('btn', 'btn-primary');
+    }
+  }
 
+  // Call the function on page load and when the window is resized
+  window.addEventListener('load', updateButtonClass);
+  window.addEventListener('resize', updateButtonClass);
   
 
 
