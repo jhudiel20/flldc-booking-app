@@ -331,11 +331,11 @@ header .navbar .dropdown-menu a {
 }
 
 header .navbar.navbar-light .nav-link {
-  color: #fff;
+  color: #000000;
 }
 
 header .navbar.navbar-light .nav-link.active {
-  color: #fff;
+  color: #000000;
 }
 
 .site-hero {
