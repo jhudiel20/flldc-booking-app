@@ -74,6 +74,38 @@
     <section class="site-section">
       <div class="container">
         <div class="row">
+                        
+          <div class="col-md-5">
+            <h3 class="mb-5"> <a href="#">Featured Room</a></h3>
+            <div class="media d-block room mb-0">
+              <figure class="zoom">
+                <!-- <img src="images/ROOM 301.jpg" alt="Generic placeholder image" class="img-fluid"> -->
+                <img id="roomImage" src="" alt="Generic placeholder image" class="img-fluid-allrooms">
+                <div class="overlap-text">
+                  <span>
+                    Featured Room 
+                    <span class="ion-ios-star"></span>
+                    <span class="ion-ios-star"></span>
+                    <span class="ion-ios-star"></span>
+                    <span class="ion-ios-star"></span>
+                    <span class="ion-ios-star"></span>
+                  </span>
+                </div>
+              </figure>
+              <div class="media-body">
+                <h3 class="mt-0"><a href="#" id="roomNameView"></a></h3>
+                <h6><strong>Features:</strong></h6>
+                  <ul class="room-specs">
+                    <li><span class="ion-ios-people-outline"></span><a id="roomCapacity"></a></li>
+                    <li><span class="ion-ios-crop"></span> 22 ft <sup>2</sup></li>
+                    <li id="roomFeatures"></li>
+                  </ul>
+                <h6><strong>Usage:</strong></h6>
+                <p id="roomUsage"></p>              
+              </div>
+            </div>
+          </div>
+          <div class="col-md-1"></div>
           <div class="col-md-6">
             <h2 class="mb-5 mt-0"><a href="#">Reservation Form</a></h2>
             <form action="#" method="post" id="bookingForm">
@@ -88,6 +120,7 @@
                   <input type="text" class="form-control" id="lname" name="lname" required>
                 </div>
               </div>
+
               <div class="row">
                 <div class="col-sm-6">
                   <label for="">Date of Reservation</label>
@@ -101,7 +134,6 @@
                     <option value="7:00AM-6:00PM">WHOLE DAY (7:00AM-6:00PM)</option>
                   </select>
                 </div>
-               
               </div>
 
               <div class="row">
@@ -214,39 +246,7 @@
                 </div>
               </div>
             </form>
-            
-              </div>
-              <div class="col-md-1"></div>
-              <div class="col-md-5">
-                <h3 class="mb-5"> <a href="#">Featured Room</a></h3>
-                <div class="media d-block room mb-0">
-              <figure class="zoom">
-                <!-- <img src="images/ROOM 301.jpg" alt="Generic placeholder image" class="img-fluid"> -->
-                <img id="roomImage" src="" alt="Generic placeholder image" class="img-fluid-allrooms">
-                <div class="overlap-text">
-                  <span>
-                    Featured Room 
-                    <span class="ion-ios-star"></span>
-                    <span class="ion-ios-star"></span>
-                    <span class="ion-ios-star"></span>
-                    <span class="ion-ios-star"></span>
-                    <span class="ion-ios-star"></span>
-                  </span>
-                </div>
-              </figure>
-              <div class="media-body">
-                <h3 class="mt-0"><a href="#" id="roomNameView"></a></h3>
-                <h6><strong>Features:</strong></h6>
-                <ul class="room-specs">
-                  <li><span class="ion-ios-people-outline"></span><a id="roomCapacity"></a></li>
-                  <li><span class="ion-ios-crop"></span> 22 ft <sup>2</sup></li>
-                  <li id="roomFeatures"></li>
-                </ul>
-              <h6><strong>Usage:</strong></h6>
-              <p id="roomUsage"></p>              
-            </div>
-            </div>
-              </div>
+          </div>
         </div>
       </div>
     </section>
