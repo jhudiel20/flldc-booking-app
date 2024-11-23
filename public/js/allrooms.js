@@ -48,14 +48,6 @@ async function loadAllRooms() {
             <div class="media d-block room mb-0">
                 <figure class="zoom">
                     <img id="roomImage" src="${baseImageUrl + room.room_photo}" alt="${room.room_name}" class="img-fluid-allrooms zoom-on-hover">
-                    <div class="overlap-text">
-                        <span>
-                            Featured Room 
-                            <span class="ion-ios-star"></span>
-                            <span class="ion-ios-star"></span>
-                            <span class="ion-ios-star"></span>
-                        </span>
-                    </div>
                 </figure>
                 <div class="media-body">
                     <h3 class="mt-0"><a href="rooms?ID=${encodeURIComponent(room.room_id)}">${room.room_name}</a></h3>
