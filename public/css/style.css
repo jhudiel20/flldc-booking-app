@@ -187,28 +187,36 @@
     font-weight: bold;
   }
 
-  /* Logo Container */
-  .logo-container {
+  /* Container to hide overflow */
+  .logo-marquee {
+    overflow: hidden; /* Hide overflowing content */
+    white-space: nowrap; /* Prevent wrapping of logos */
+    width: 100%; /* Take full width of the viewport */
+    position: relative;
+  }
+
+  /* Inner track to move the logos */
+  .logo-track {
     display: flex;
-    flex-wrap: nowrap; /* Prevent wrapping */
-    justify-content: flex-start; /* Align items to the start of the row */
     gap: 80px; /* Space between logos */
-    padding: 20px;
-    overflow: hidden; /* Hide overflowing logos */
-    max-width: 100%; /* Prevent container from exceeding screen width */
+    animation: scroll 20s linear infinite; /* Infinite scrolling animation */
   }
 
-  /* Logo Images */
-  .logo-container img {
-    height: 50px; /* Adjust size */
-    object-fit: contain;
+  /* Logos */
+  .logo-track img {
+    height: 50px; /* Adjust the size of the logos */
+    object-fit: contain; /* Ensure proper aspect ratio */
     display: block;
-    transition: transform 0.3s ease; /* Smooth hover effect */
   }
 
-  /* Logo Hover Effect */
-  .logo-container img:hover {
-    transform: scale(1.1); /* Slightly enlarge on hover */
+  /* Keyframes for marquee effect */
+  @keyframes scroll {
+    0% {
+      transform: translateX(100%); /* Start off-screen to the right */
+    }
+    100% {
+      transform: translateX(-100%); /* Move off-screen to the left */
+    }
   }
 
   /* ############################################################################################################################## */
