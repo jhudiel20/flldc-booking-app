@@ -47,7 +47,7 @@ async function loadAllRooms() {
         roomCard.innerHTML = `
             <div class="media d-block room mb-0">
                 <figure class="zoom">
-                    <img id="roomImage" src="${baseImageUrl + room.room_photo}" alt="${room.room_name}" class="img-fluid zoom-on-hover">
+                    <img id="roomImage" src="${baseImageUrl + room.room_photo}" alt="${room.room_name}" class="img-fluid-allrooms zoom-on-hover">
                     <div class="overlap-text">
                         <span>
                             Featured Room 
