@@ -1,4 +1,7 @@
 
+  html, body {
+    overflow: hidden; /* Hides the scrollbar and disables scrolling */
+  }
   
   /* General link styles */
   .navbar-nav .nav-link {
