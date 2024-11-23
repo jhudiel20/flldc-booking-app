@@ -62,13 +62,13 @@
     object-fit: cover; /* Ensure the image covers the area */
   }
   .img-fluid-allrooms {
-    height: 16.5rem;
+    height: 14rem;
     display: block; /* Make image a block element */
     margin: 0 auto; /* Center image horizontally */
     object-fit: cover; /* Ensure the image covers the area */
   }
   .img-fluid-rooms {
-    height: 18.5rem;
+    height: 14rem;
     display: block; /* Make image a block element */
     margin: 0 auto; /* Center image horizontally */
     object-fit: cover; /* Ensure the image covers the area */
