@@ -32,7 +32,7 @@
   }
 
   .img-fluid {
-    height: 30.5rem;
+    height: 33.5rem;
     display: block; /* Make image a block element */
     margin: 0 auto; /* Center image horizontally */
     object-fit: cover; /* Ensure the image covers the area */
