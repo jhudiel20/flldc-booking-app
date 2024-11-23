@@ -187,25 +187,28 @@
     font-weight: bold;
   }
 
-  /* Logo Grid */
+  /* Logo Container */
   .logo-container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-wrap: nowrap; /* Prevent wrapping */
+    justify-content: flex-start; /* Align items to the start of the row */
     gap: 80px; /* Space between logos */
     padding: 20px;
+    overflow: hidden; /* Hide overflowing logos */
+    max-width: 100%; /* Prevent container from exceeding screen width */
   }
 
+  /* Logo Images */
   .logo-container img {
     height: 50px; /* Adjust size */
     object-fit: contain;
     display: block;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease; /* Smooth hover effect */
   }
 
   /* Logo Hover Effect */
   .logo-container img:hover {
-    transform: scale(1.1);
+    transform: scale(1.1); /* Slightly enlarge on hover */
   }
 
   /* ############################################################################################################################## */
