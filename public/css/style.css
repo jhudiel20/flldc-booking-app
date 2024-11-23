@@ -50,7 +50,8 @@
     object-fit: cover; /* Ensure the image covers the area */
   }
   .img-fluid-about {
-    height: 12.5rem;
+    width: 100%; /* Ensure full width inside the column */
+    height: auto; /* Maintain aspect ratio */
     display: block; /* Make image a block element */
     margin: 0 auto; /* Center image horizontally */
     object-fit: cover; /* Ensure the image covers the area */
@@ -62,7 +63,8 @@
     object-fit: cover; /* Ensure the image covers the area */
   }
   .img-fluid-allrooms {
-    height: 16rem;
+    width: 100%; /* Ensure full width inside the column */
+    height: auto; /* Maintain aspect ratio */
     display: block; /* Make image a block element */
     margin: 0 auto; /* Center image horizontally */
     object-fit: cover; /* Ensure the image covers the area */
