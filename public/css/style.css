@@ -69,6 +69,7 @@
   }
   .img-fluid-rooms {
     height: 16rem;
+    width: 100vh;
     display: block; /* Make image a block element */
     margin: 0 auto; /* Center image horizontally */
     object-fit: cover; /* Ensure the image covers the area */
