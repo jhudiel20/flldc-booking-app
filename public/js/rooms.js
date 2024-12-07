@@ -35,9 +35,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('roomFeatures').textContent = data.features;
       } catch (error) {
         console.error('Error fetching room details:', error);
+        // Redirect to 404 page if room details are not found
+        window.location.href = '/404';
       }
     } else {
       console.error('No room ID provided');
+      // Redirect to 404 page if no room ID is provided
+      window.location.href = '/404';
     }
   });
 
