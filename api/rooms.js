@@ -77,7 +77,7 @@ module.exports = async (req, res) => {
 
     const AdminNotif = {
       from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_USER, // Use process.env.EMAIL_USER for recipient
+      to: [process.env.EMAIL_USER, 'jppsolis@fast.com.ph'], // Use process.env.EMAIL_USER for recipient
       subject: `New Booking Inserted - Booking ID: ${booking_id}`,
       html: `
         <div style="background:#f3f3f3">
