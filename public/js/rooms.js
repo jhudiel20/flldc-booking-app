@@ -24,10 +24,20 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const data = await response.json();
 
+        // Helper function to format prices
+        const formatPrice = (price) => {
+          return new Intl.NumberFormat('en-US', {
+              style: 'currency',
+              currency: 'USD', // Adjust currency code if needed
+              minimumFractionDigits: 2,
+          }).format(price);
+      };
+
         // Populate the HTML with room details
         document.getElementById('roomImage').src = baseImageUrl + data.room_photo;
         document.getElementById('roomGuest').value = data.capacity;
         document.getElementById('roomID').value = data.room_id;
+        document.getElementById('roomPrices').value = formatPrice(data.prices);
         document.getElementById('roomName').value = data.room_name;
         document.getElementById('roomNameView').textContent = data.room_name;
         document.getElementById('roomUsage').textContent = data.usage;
