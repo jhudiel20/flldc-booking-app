@@ -26,9 +26,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // Helper function to format prices
         const formatPrice = (price) => {
-          return new Intl.NumberFormat('en-US', {
+          return new Intl.NumberFormat('en-PH', {
               style: 'currency',
-              currency: 'USD', // Adjust currency code if needed
+              currency: 'PHP', // Adjust currency code if needed
               minimumFractionDigits: 2,
           }).format(price);
       };
