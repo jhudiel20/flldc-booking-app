@@ -24,14 +24,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const data = await response.json();
 
-        // Helper function to format prices
-        const formatPrice = (price) => {
-          return new Intl.NumberFormat('en-PH', {
-              style: 'currency',
-              currency: 'PHP', // Adjust currency code if needed
-          }).format(price);
-      };
-
       // Set the original price
       originalPrice = data.prices;
 
@@ -39,7 +31,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('roomImage').src = baseImageUrl + data.room_photo;
         document.getElementById('roomGuest').value = data.capacity;
         document.getElementById('roomID').value = data.room_id;
-        document.getElementById('roomPrices').textContent = formatPrice(originalPrice); // Default price
+        document.getElementById('roomPrices').textContent = originalPrice; // Default price
         document.getElementById('roomName').value = data.room_name;
         document.getElementById('roomNameView').textContent = data.room_name;
         document.getElementById('roomUsage').textContent = data.usage;
@@ -62,7 +54,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
 
             // Update the displayed price
-            document.getElementById('roomPrices').textContent = formatPrice(adjustedPrice);
+            document.getElementById('roomPrices').textContent = adjustedPrice;
         });
 
       } catch (error) {
