@@ -169,6 +169,7 @@ function validateMinDate(input) {
       setup: document.getElementById('setup').value,
       businessunit: document.getElementById('businessunit').value,
       roomID: document.getElementById('roomID').value,
+      roomPrices: document.getElementById('roomPrices').value,
       roomName: document.getElementById('roomName').value,
       guest: document.getElementById('guest').value,
       contact: document.getElementById('contact').value,
