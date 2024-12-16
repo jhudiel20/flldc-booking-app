@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('roomImage').src = baseImageUrl + data.room_photo;
         document.getElementById('roomGuest').value = data.capacity;
         document.getElementById('roomID').value = data.room_id;
-        document.getElementById('roomPrices').textContent = formatPrice(originalPrice); // Default price
+        document.getElementById('viewPrices').textContent = formatPrice(originalPrice); // Default price
         document.getElementById('roomName').value = data.room_name;
         document.getElementById('roomNameView').textContent = data.room_name;
         document.getElementById('roomUsage').textContent = data.usage;
@@ -63,7 +63,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
 
             // Update the displayed price
-            document.getElementById('roomPrices').textContent = formatPrice(adjustedPrice);
+            document.getElementById('viewPrices').textContent = formatPrice(adjustedPrice);
+            document.getElementById('roomPrices').value = adjustedPrice;
         });
 
       } catch (error) {

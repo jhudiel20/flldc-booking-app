@@ -126,7 +126,7 @@ module.exports = async (req, res) => {
                                   <p>A new booking has been submitted: </p>
                                   <p><b>Booking ID:</b> ${booking_id}<br>
                                   <b>Booking Date:</b> ${reserve_date}<br>
-                                  <p>₱ ${roomPrices}<br>
+                                  <b>₱ </b> ${roomPrices}<br>
                                   <b>Business Unit:</b> ${businessunit}<br>
                                   <b>Room:</b> ${roomName}<br>
                                   <b>Contact:</b> ${contact}<br>
@@ -226,7 +226,7 @@ module.exports = async (req, res) => {
                                   <p>You submitted new booking: </p>
                                   <p><b>Booking ID:</b> ${booking_id}<br>
                                   <b>Booking Date:</b> ${reserve_date}<br>
-                                  <p>₱ ${roomPrices}<br>
+                                  <b>₱ </b> ${roomPrices}<br>
                                   <b>Business Unit:</b> ${businessunit}<br>
                                   <b>Room:</b> ${roomName}<br>
                                   <b>Contact:</b> ${contact}<br>
