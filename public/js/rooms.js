@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           return new Intl.NumberFormat('en-PH', {
               style: 'currency',
               currency: 'PHP', // Adjust currency code if needed
-              minimumFractionDigits: 2,
+              
           }).format(price);
       };
 
