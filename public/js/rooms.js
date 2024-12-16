@@ -33,16 +33,39 @@ document.addEventListener('DOMContentLoaded', async () => {
           }).format(price);
       };
 
+      // Set the original price
+      originalPrice = data.prices;
+
         // Populate the HTML with room details
         document.getElementById('roomImage').src = baseImageUrl + data.room_photo;
         document.getElementById('roomGuest').value = data.capacity;
         document.getElementById('roomID').value = data.room_id;
-        document.getElementById('roomPrices').textContent = formatPrice(data.prices);
+        document.getElementById('roomPrices').textContent = formatPrice(originalPrice); // Default price
         document.getElementById('roomName').value = data.room_name;
         document.getElementById('roomNameView').textContent = data.room_name;
         document.getElementById('roomUsage').textContent = data.usage;
         document.getElementById('roomCapacity').textContent = `${data.capacity} people`;
         document.getElementById('roomFeatures').textContent = data.features;
+
+        // Add event listener to the time dropdown
+        const timeSelector = document.getElementById('time');
+        timeSelector.addEventListener('change', (event) => {
+            const selectedTime = event.target.value; // Get the selected time range
+            let adjustedPrice = originalPrice; // Default to original price
+
+            // Adjust price based on the selected time range
+            if (selectedTime === '7:00AM-12:00PM') {
+                adjustedPrice *= 0.5; // Half-day morning: 50% of the original price
+            } else if (selectedTime === '1:00PM-6:00PM') {
+                adjustedPrice *= 0.5; // Half-day afternoon: 50% of the original price
+            } else if (selectedTime === '7:00AM-6:00PM') {
+                adjustedPrice *= 1.0; // Whole day: 100% of the original price
+            }
+
+            // Update the displayed price
+            document.getElementById('roomPrices').textContent = formatPrice(adjustedPrice);
+        });
+
       } catch (error) {
         console.error('Error fetching room details:', error);
         // Redirect to 404 page if room details are not found
