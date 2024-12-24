@@ -47,7 +47,7 @@
                 <img id="roomImage" src="" alt="Generic placeholder image" class="img-fluid-rooms">
               </figure> -->
               <figure class="position-relative">
-                <button id="fullscreenIcon" class="fullscreen-icon position-absolute top-0 end-0 m-2">
+                <button type="button" data-bs-toggle="modal" data-bs-target="#image_modal">
                   <i class="fa-solid fa-maximize"></i>
                 </button>
                 <img id="roomImage" src="" alt="Generic placeholder image" class="img-fluid-rooms">
@@ -234,13 +234,13 @@
 
     <div class="modal fade" id="image_modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog modal-fullscreen" role="document">
+      <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">x</button>
           </div>
           <div class="modal-body text-center">
-            <img id="fullscreen_image" src="" alt="Fullscreen Image" class="img-fluid">
+            <img id="roomImage1" src="" alt="Fullscreen Image" class="img-fluid">
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">
@@ -257,7 +257,6 @@
     <!-- loader -->
     <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
     <!-- Include Flatpickr -->
-    <script src="sneat/assets/js/ui-modals.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/book.js"></script>
     <script src="js/sec-min.js"></script>
@@ -277,20 +276,5 @@
       inject();
     </script>
     <script src="js/main.js"></script>
-    <script>
-
-      document.addEventListener('DOMContentLoaded', () => {
-        const roomImage = document.getElementById('roomImage');
-        const fullscreenIcon = document.getElementById('fullscreenIcon');
-
-        fullscreenIcon.addEventListener('click', () => {
-          // Open the image in fullscreen mode
-          const modal = new bootstrap.Modal(document.getElementById('image_modal'));
-          document.getElementById('fullscreen_image').src = roomImage.src;
-          modal.show();
-        });
-      });
-
-    </script>
   </body>
 </html>
