@@ -1,3 +1,22 @@
+.fullscreen-icon {
+  z-index: 10; /* Ensures the button appears above the image */
+  background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white background */
+  border: none; /* Remove default border */
+  padding: 0.5rem; /* Adjust padding for the button */
+  border-radius: 50%; /* Circular button */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 1.25rem; /* Icon size */
+  display: flex; /* Centers the icon within the button */
+  align-items: center;
+  justify-content: center;
+}
+
+.fullscreen-icon:hover {
+  background-color: rgba(255, 255, 255, 1); /* Fully opaque on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+}
+
+/* ##########################################   */
   html, body {
     overflow: auto; /* Allow scrolling */
   }
