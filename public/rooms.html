@@ -25,6 +25,14 @@
         <link rel="stylesheet" href="sneat/assets/vendor/libs/swiper/swiper.css" />
         <link rel="stylesheet" href="sneat/assets/vendor/css/pages/ui-carousel.css">
         <link rel="stylesheet" href="sneat/assets/vendor/libs/rateyo/rateyo.css" />
+        <style>
+          .fullscreen-img {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+}
+
+        </style>
 
       </head>
   <body>
@@ -40,18 +48,7 @@
             <h3 class="mb-5"> <a href="#">Featured Room</a></h3>
             <div class="media d-block room mb-0">
               <figure class="zoom">
-                <!-- <img src="images/ROOM 301.jpg" alt="Generic placeholder image" class="img-fluid"> -->
                 <img id="roomImage" src="" alt="Generic placeholder image" class="img-fluid-rooms">
-                <!-- <div class="overlap-text">
-                  <span>
-                    Featured Room
-                    <span class="ion-ios-star"></span>
-                    <span class="ion-ios-star"></span>
-                    <span class="ion-ios-star"></span>
-                    <span class="ion-ios-star"></span>
-                    <span class="ion-ios-star"></span>
-                  </span>
-                </div> -->
               </figure>
               <div class="media-body">
                 <h3 class="mt-0"><a href="#" id="roomNameView"></a></h3>
@@ -231,6 +228,21 @@
       </div>
     </section>
     <!-- END section -->
+
+    <div class="modal fade" id="image_modal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Image Viewer</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-center">
+            <img id="fullscreen_image" src="" alt="Fullscreen Image" class="fullscreen-img">
+          </div>
+        </div>
+      </div>
+    </div>    
+    
    
     <div id="footer"></div>
     <!-- END footer -->
@@ -257,5 +269,21 @@
       inject();
     </script>
     <script src="js/main.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', async () => {
+  const roomImage = document.getElementById('roomImage');
+  const fullscreenImage = document.getElementById('fullscreen_image');
+  const imageModal = new bootstrap.Modal(document.getElementById('image_modal'));
+
+  // Open the modal on image click
+  roomImage.addEventListener('click', () => {
+    fullscreenImage.src = roomImage.src; // Set the image source for fullscreen
+    imageModal.show(); // Show the modal
+  });
+
+  // Your existing JavaScript logic remains unchanged...
+});
+
+    </script>
   </body>
 </html>
