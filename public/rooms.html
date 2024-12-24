@@ -25,24 +25,6 @@
         <link rel="stylesheet" href="sneat/assets/vendor/libs/swiper/swiper.css" />
         <link rel="stylesheet" href="sneat/assets/vendor/css/pages/ui-carousel.css">
         <link rel="stylesheet" href="sneat/assets/vendor/libs/rateyo/rateyo.css" />
-        <style>
-.fullscreen-icon {
-  z-index: 10; /* Ensure it appears above the image */
-  background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
-  border: none; /* Remove default button border */
-  padding: 0.5rem; /* Adjust padding for better appearance */
-  border-radius: 50%; /* Make it circular */
-  cursor: pointer; /* Show pointer cursor on hover */
-  font-size: 1.25rem; /* Adjust icon size */
-}
-
-.fullscreen-icon:hover {
-  background-color: rgba(255, 255, 255, 1); /* Fully opaque on hover */
-}
-
-
-        </style>
-
       </head>
   <body>
     
@@ -241,8 +223,9 @@
     </section>
     <!-- END section -->
 
-    <div class="modal fade" id="image_modal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal fade" id="image_modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title">Image Viewer</h5>
@@ -282,17 +265,17 @@
     <script src="js/main.js"></script>
     <script>
 
-    document.addEventListener('DOMContentLoaded', () => {
-      const roomImage = document.getElementById('roomImage');
-      const fullscreenIcon = document.getElementById('fullscreenIcon');
+      document.addEventListener('DOMContentLoaded', () => {
+        const roomImage = document.getElementById('roomImage');
+        const fullscreenIcon = document.getElementById('fullscreenIcon');
 
-      fullscreenIcon.addEventListener('click', () => {
-        // Open the image in fullscreen mode
-        const modal = new bootstrap.Modal(document.getElementById('image_modal'));
-        document.getElementById('fullscreen_image').src = roomImage.src;
-        modal.show();
+        fullscreenIcon.addEventListener('click', () => {
+          // Open the image in fullscreen mode
+          const modal = new bootstrap.Modal(document.getElementById('image_modal'));
+          document.getElementById('fullscreen_image').src = roomImage.src;
+          modal.show();
+        });
       });
-    });
 
     </script>
   </body>
