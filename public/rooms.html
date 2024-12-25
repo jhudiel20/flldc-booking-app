@@ -39,16 +39,13 @@
             <h3 class="mb-5"> <a href="#">Featured Room</a></h3>
             <div class="media d-block room mb-0">
               
-   
               <figure class="position-relative">
                 <button type="button" class="fullscreen-icon position-absolute" onclick="toggleFullscreen('roomImage')">
                     <i class="fa-solid fa-maximize"></i>
                 </button>
                 <img id="roomImage"  alt="Room Image" class="img-fluid-rooms">
               </figure>
-            
-              
-              
+
               <div class="media-body">
                 <h3 class="mt-0"><a href="#" id="roomNameView"></a></h3>
                 <h4><span id="viewPrices"></span></h4>
@@ -78,7 +75,6 @@
                   <input type="text" class="form-control" id="lname" name="lname" required>
                 </div>
               </div>
-
               <div class="row">
                 <div class="col-sm-6">
                   <label for="">Date of Reservation</label>
@@ -94,7 +90,6 @@
                   </select>
                 </div>
               </div>
-
               <div class="row">
                 <div class="col-sm-6">
                   <label for="setup">Seating Arrangement: <a id="previewLink" href="#" target="_blank" style="margin-left: 10px; text-decoration: none; color: blue;">Preview</a>
@@ -125,7 +120,6 @@
                 <input type="hidden" name="roomPrices" id="roomPrices" value="">
        
               </div>
-            
               <div class="row">
                 <div class="col-md-6 form-group">
                   <label for="guest">No. of Guests</label>
@@ -141,14 +135,12 @@
                   <input type="contact" id="contact" name="contact" class="form-control" required>
                 </div>
               </div>
-
               <div class="row">
                 <div class="col-md-12 form-group">
                   <label for="email">Email</label>
                   <input type="email" id="email" name="email" class="form-control" required>
                 </div>
               </div>
-            
               <label for="addons">Addons <input type="checkbox" id="showExtras" onclick="toggleExtras()"></label>
               <div class="row d-none" id="extras" >
                   <div class="col-md-6">
@@ -198,12 +190,12 @@
                   <textarea name="message" id="message" class="form-control" cols="30" rows="8" required></textarea>
                 </div>
               </div>
-            
               <div class="row">
                 <div class="col-md-6 form-group">
                   <input type="submit" id="submit" value="Reserve Now" class="btn btn-primary">
                 </div>
               </div>
+
             </form>
           </div>
         </div>
