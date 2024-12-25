@@ -1,20 +1,19 @@
-.fullscreen-icon {
-  z-index: 10; /* Ensures the button appears above the image */
-  background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white background */
-  border: none; /* Remove default border */
-  padding: 0.5rem; /* Adjust padding for the button */
-  border-radius: 50%; /* Circular button */
-  cursor: pointer; /* Pointer cursor on hover */
-  font-size: 1.25rem; /* Icon size */
-  display: flex; /* Centers the icon within the button */
-  align-items: center;
-  justify-content: center;
-}
+  .fullscreen-icon {
+    top: 10px; /* Adjust the position as needed */
+    right: 10px; /* Adjust the position as needed */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    color: white; /* Icon color */
+    border: none; /* Remove default button border */
+    border-radius: 50%; /* Make the button circular */
+    padding: 8px; /* Adjust padding for size */
+    cursor: pointer; /* Show pointer on hover */
+    z-index: 10; /* Ensure it stays above the image */
+    position: absolute;
+  }
 
-.fullscreen-icon:hover {
-  background-color: rgba(255, 255, 255, 1); /* Fully opaque on hover */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
-}
+  .fullscreen-icon:hover {
+    background-color: rgba(0, 0, 0, 0.7); /* Darken on hover */
+  }
 
 /* ##########################################   */
   html, body {

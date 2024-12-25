@@ -25,7 +25,6 @@
         <link rel="stylesheet" href="sneat/assets/vendor/libs/swiper/swiper.css" />
         <link rel="stylesheet" href="sneat/assets/vendor/css/pages/ui-carousel.css">
         <link rel="stylesheet" href="sneat/assets/vendor/libs/rateyo/rateyo.css" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
       </head>
   <body>
     
@@ -40,18 +39,15 @@
             <h3 class="mb-5"> <a href="#">Featured Room</a></h3>
             <div class="media d-block room mb-0">
               
-              <!-- <figure>
-                <button id="fullscreenIcon">
-                  <i class="fa-solid fa-maximize"></i>
-                </button>
-                <img id="roomImage" src="" alt="Generic placeholder image" class="img-fluid-rooms">
-              </figure> -->
+   
               <figure class="position-relative">
-                <button type="button" class="fullscreen-icon position-absolute top-0 end-0 m-2" data-bs-toggle="modal" data-bs-target="#image_modal">
-                  <i class="fa-solid fa-maximize"></i>
+                <button type="button" class="fullscreen-icon position-absolute" onclick="toggleFullscreen('roomImage')">
+                    <i class="fa-solid fa-maximize"></i>
                 </button>
-                <img id="roomImage" src="" alt="Generic placeholder image" class="img-fluid-rooms">
+                <img id="roomImage"  alt="Room Image" class="img-fluid-rooms">
               </figure>
+            
+              
               
               <div class="media-body">
                 <h3 class="mt-0"><a href="#" id="roomNameView"></a></h3>
@@ -238,7 +234,20 @@
     <!-- loader -->
     <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
     <!-- Include Flatpickr -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      function toggleFullscreen(imageId) {
+          const image = document.getElementById(imageId);
+          if (image.requestFullscreen) {
+              image.requestFullscreen();
+          } else if (image.webkitRequestFullscreen) {
+              // Safari
+              image.webkitRequestFullscreen();
+          } else if (image.msRequestFullscreen) {
+              // IE/Edge
+              image.msRequestFullscreen();
+          }
+      }
+  </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/book.js"></script>
     <script src="js/sec-min.js"></script>
@@ -264,7 +273,7 @@
       <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">x</button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body text-center">
             <img id="roomImage1" src="" alt="Fullscreen Image" class="img-fluid">
