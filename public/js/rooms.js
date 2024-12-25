@@ -1,16 +1,3 @@
-function toggleFullscreen(imageId) {
-  const image = document.getElementById(imageId);
-  if (image.requestFullscreen) {
-      image.requestFullscreen();
-  } else if (image.webkitRequestFullscreen) {
-      // Safari
-      image.webkitRequestFullscreen();
-  } else if (image.msRequestFullscreen) {
-      // IE/Edge
-      image.msRequestFullscreen();
-  }
-}
-
 document.addEventListener('DOMContentLoaded', async () => {
     const params = new URLSearchParams(window.location.search);
     const encodedRoomId = params.get('ID'); // Get the encoded ID
