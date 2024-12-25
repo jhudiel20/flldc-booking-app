@@ -40,7 +40,7 @@
             <div class="media d-block room mb-0">
               
               <figure class="position-relative">
-                <button type="button" class="fullscreen-icon position-absolute" onclick="toggleFullscreen('roomImage')">
+                <button type="button" class="fullscreen-icon position-absolute" onclick="toggleFullscreen('roomImage1')">
                     <i class="fa-solid fa-maximize"></i>
                 </button>
                 <img id="roomImage"  alt="Room Image" class="img-fluid-rooms">
@@ -75,6 +75,7 @@
                   <input type="text" class="form-control" id="lname" name="lname" required>
                 </div>
               </div>
+
               <div class="row">
                 <div class="col-sm-6">
                   <label for="">Date of Reservation</label>
@@ -90,6 +91,7 @@
                   </select>
                 </div>
               </div>
+
               <div class="row">
                 <div class="col-sm-6">
                   <label for="setup">Seating Arrangement: <a id="previewLink" href="#" target="_blank" style="margin-left: 10px; text-decoration: none; color: blue;">Preview</a>
@@ -120,6 +122,7 @@
                 <input type="hidden" name="roomPrices" id="roomPrices" value="">
        
               </div>
+            
               <div class="row">
                 <div class="col-md-6 form-group">
                   <label for="guest">No. of Guests</label>
@@ -135,12 +138,14 @@
                   <input type="contact" id="contact" name="contact" class="form-control" required>
                 </div>
               </div>
+
               <div class="row">
                 <div class="col-md-12 form-group">
                   <label for="email">Email</label>
                   <input type="email" id="email" name="email" class="form-control" required>
                 </div>
               </div>
+            
               <label for="addons">Addons <input type="checkbox" id="showExtras" onclick="toggleExtras()"></label>
               <div class="row d-none" id="extras" >
                   <div class="col-md-6">
@@ -190,12 +195,12 @@
                   <textarea name="message" id="message" class="form-control" cols="30" rows="8" required></textarea>
                 </div>
               </div>
+            
               <div class="row">
                 <div class="col-md-6 form-group">
                   <input type="submit" id="submit" value="Reserve Now" class="btn btn-primary">
                 </div>
               </div>
-
             </form>
           </div>
         </div>
@@ -226,7 +231,20 @@
     <!-- loader -->
     <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
     <!-- Include Flatpickr -->
- 
+      <script>
+        function toggleFullscreen(imageId) {
+            const image = document.getElementById(imageId);
+            if (image.requestFullscreen) {
+                image.requestFullscreen();
+            } else if (image.webkitRequestFullscreen) {
+                // Safari
+                image.webkitRequestFullscreen();
+            } else if (image.msRequestFullscreen) {
+                // IE/Edge
+                image.msRequestFullscreen();
+            }
+        }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/book.js"></script>
     <script src="js/sec-min.js"></script>
@@ -246,19 +264,24 @@
       inject();
     </script>
     <script src="js/main.js"></script>
-    <script>
-      function toggleFullscreen(imageId) {
-          const image = document.getElementById(imageId);
-          if (image.requestFullscreen) {
-              image.requestFullscreen();
-          } else if (image.webkitRequestFullscreen) {
-              // Safari
-              image.webkitRequestFullscreen();
-          } else if (image.msRequestFullscreen) {
-              // IE/Edge
-              image.msRequestFullscreen();
-          }
-      }
-  </script>
   </body>
+
+    <div class="modal fade" id="image_modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-center">
+            <img id="roomImage1" src="" alt="Fullscreen Image" class="img-fluid">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
 </html>
