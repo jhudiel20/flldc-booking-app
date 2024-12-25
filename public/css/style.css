@@ -4,7 +4,7 @@
     background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
     color: white; /* Icon color */
     border: none; /* Remove default button border */
-    border-radius: 20%; /* Make the button circular */
+    border-radius: 50%; /* Make the button circular */
     padding: 8px; /* Adjust padding for size */
     cursor: pointer; /* Show pointer on hover */
     z-index: 10; /* Ensure it stays above the image */
