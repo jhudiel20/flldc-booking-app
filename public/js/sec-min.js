@@ -44,8 +44,8 @@ function includeHTML(file, elementID) {
     })
     .then(data => {
       document.getElementById(elementID).innerHTML = data;
-    });
-    // .catch(error => console.error('Error loading HTML:', error));
+    })
+    .catch(error => console.error('Error loading HTML:', error));
 }
 
 // Load navigation and footer
