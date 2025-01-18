@@ -353,7 +353,7 @@ header .navbar .nav-link:hover {
 }
 
 header .navbar .nav-link.active {
-  color: #fff !important;
+  color: black  !important;
 }
 
 header .navbar .cta {
