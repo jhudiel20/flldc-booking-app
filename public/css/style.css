@@ -1,3 +1,10 @@
+  /* Modify the media query to not force white color on small screens */
+  @media (max-width: 768px) { 
+    .navbar-nav .nav-link {
+      color: black !important; /* Ensure color is black on small screens too */
+    }
+  }
+    
   .fullscreen-icon {
     top: 10px; /* Adjust the position as needed */
     right: 10px; /* Adjust the position as needed */
