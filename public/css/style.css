@@ -1,18 +1,4 @@
-  /* Modify the media query to not force white color on small screens */
-  @media (max-width: 768px) { 
-    .navbar-nav .nav-link {
-      color: black !important; /* Ensure color is black on small screens too */
-    }
-  }
-  /* More specific selector to ensure black color */
-  .navbar-nav .nav-link, 
-  .navbar-nav .nav-link:focus, 
-  .navbar-nav .nav-link:active, 
-  .navbar-nav .nav-link:hover {
-    color: black !important; /* Force black color */
-  }
-    
-  .fullscreen-icon {
+.fullscreen-icon {
     top: 10px; /* Adjust the position as needed */
     right: 10px; /* Adjust the position as needed */
     background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
