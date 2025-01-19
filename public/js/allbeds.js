@@ -27,16 +27,15 @@ async function loadAllBeds(bedroomtype) {
   
       beds.forEach(bed => {
         const bedCard = document.createElement('div');
-        bedCard.className = 'col-md-4 mb-4';
-  
-        // Use a placeholder image URL (you can use Unsplash or Lorem Picsum for random images)
-        const imageUrl = `https://picsum.photos/300/200?random=${Math.floor(Math.random() * 1000)}`;
+        bedCard.className = 'col-md-3 mb-4';
   
         bedCard.innerHTML = `
-          <div class="card" style="width: 18rem;">
-            <img src="${imageUrl}" class="card-img-top" alt="${bed.bed_name}">
-            <div class="card-body">
-              <h5 class="card-title">${bed.bed_name}</h5>
+          <div class="media d-block room mb-0">
+            <div class="media-body">
+              <h3 class="mt-0"><a href="beds?ID=${encodeURIComponent(bed.bed_id)}">${bed.bed_name}</a></h3>
+              <p>Features:</p>
+              <p>${bed.bed_desc}</p>
+              <p><a href="beds?ID=${encodeURIComponent(bed.bed_id)}" class="btn btn-primary btn-sm">Book Now</a></p>
             </div>
           </div>
         `;
