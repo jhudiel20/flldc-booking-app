@@ -5,9 +5,9 @@ async function loadAllBeds(bedroomtype) {
   
     // Show the loader
     loader.style.display = 'block';
-  
+
     try {
-      const response = await fetch(`/api/available_bed?type=${encodeURIComponent(bedroomtype)}`);
+      const response = await fetch(`/api/available_bed?bedroomtype=${bedroomtype}`);
   
       if (!response.ok) {
         console.error(`HTTP error! status: ${response.status}`);
@@ -21,7 +21,7 @@ async function loadAllBeds(bedroomtype) {
       bedContainer.innerHTML = '';  // Clear the existing content
   
       if (beds.length === 0) {
-        bedContainer.innerHTML = '<p>No rooms available.</p>';
+        bedContainer.innerHTML = '<p>No beds available.</p>';
         return;
       }
   
