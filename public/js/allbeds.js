@@ -1,9 +1,10 @@
 async function loadAllBeds(bedroomtype) {
     console.log("Loading beds for type:", bedroomtype);  // Debugging line
     const bedContainer = document.querySelector('#bedContainer');
+    const loader = document.getElementById('loader');
   
     // Show the loader
-    loader.classList.add('show');
+    loader.style.display = 'block';
 
     try {
       const response = await fetch(`/api/available_bed?bedroomtype=${bedroomtype}`);
@@ -28,13 +29,14 @@ async function loadAllBeds(bedroomtype) {
         const bedCard = document.createElement('div');
         bedCard.className = 'col-md-4 mb-4';
   
+        // Use a placeholder image URL (you can use Unsplash or Lorem Picsum for random images)
+        const imageUrl = `https://picsum.photos/300/200?random=${Math.floor(Math.random() * 1000)}`;
+  
         bedCard.innerHTML = `
-          <div class="media d-block room mb-0">
-            <div class="media-body">
-              <h3 class="mt-0"><a href="beds?ID=${encodeURIComponent(bed.bed_id)}">${bed.bed_name}</a></h3>
-              <p>Features:</p>
-              <p>${bed.bed_desc}</p>
-              <p><a href="beds?ID=${encodeURIComponent(bed.bed_id)}" class="btn btn-primary btn-sm">Book Now</a></p>
+          <div class="card" style="width: 18rem;">
+            <img src="${imageUrl}" class="card-img-top" alt="${bed.bed_name}">
+            <div class="card-body">
+              <h5 class="card-title">${bed.bed_name}</h5>
             </div>
           </div>
         `;
@@ -45,7 +47,7 @@ async function loadAllBeds(bedroomtype) {
       console.error('An error occurred:', error);
       bedContainer.innerHTML = '<p class="error-message">An unexpected error occurred. Please try again later.</p>';
     } finally {
-        loader.classList.remove('show');
+      loader.style.display = 'none';
     }
   }
   
