@@ -7,7 +7,7 @@ async function loadAllBeds(bedroomtype) {
     loader.style.display = 'block';
   
     try {
-      const response = await fetch(`/api/available_bed.js?type=${encodeURIComponent(bedroomtype)}`);
+      const response = await fetch(`/api/available_bed?type=${encodeURIComponent(bedroomtype)}`);
   
       if (!response.ok) {
         console.error(`HTTP error! status: ${response.status}`);
