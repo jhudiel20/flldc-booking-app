@@ -8,13 +8,13 @@ a.nav-link.dropdown-toggle:active {
   text-decoration: none; /* Prevent any other style changes */
 }
 
-/* a[disabled] {
+a[disabled] {
   pointer-events: none;
   color: #6c757d; 
   text-decoration: none; 
   cursor: not-allowed; 
   opacity: 0.65; 
-} */
+}
 
 
 .fullscreen-icon {
