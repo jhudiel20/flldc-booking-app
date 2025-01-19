@@ -4,7 +4,8 @@
   }
 }
 a.nav-link.dropdown-toggle:active {
-  color: #e3d7d79e !important; /* Change color only on larger screens when active */
+  color: inherit !important; /* Retain the inherited color */
+  text-decoration: none; /* Prevent any other style changes */
 }
 
 a[disabled] {
