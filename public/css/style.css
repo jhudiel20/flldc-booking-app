@@ -3,6 +3,9 @@
     color: #e3d7d79e !important; /* Change color only on larger screens when active */
   }
 }
+a.nav-link.dropdown-toggle:active {
+  color: #e3d7d79e !important; /* Change color only on larger screens when active */
+}
 
 a[disabled] {
   pointer-events: none; /* Disable interaction */
