@@ -367,7 +367,7 @@ header .navbar .nav-link {
 
 header .navbar .nav-link:hover {
   color: #e3d7d79e;
-  /* font-weight: bold; */
+  font-weight: bold;
   text-shadow: #000000;
 }
 
@@ -397,7 +397,8 @@ header .navbar .cta > a span {
 }
 
 header .navbar .dropdown.show > a {
-  color: #fff !important;
+  /* color: #fff !important; */
+  color: #e3d7d79e !important;
 }
 
 header .navbar .dropdown-menu {
