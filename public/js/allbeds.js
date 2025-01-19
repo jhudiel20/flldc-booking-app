@@ -1,10 +1,9 @@
 async function loadAllBeds(bedroomtype) {
     console.log("Loading beds for type:", bedroomtype);  // Debugging line
     const bedContainer = document.querySelector('#bedContainer');
-    const loader = document.getElementById('loader');
   
     // Show the loader
-    loader.style.display = 'block';
+    loader.classList.add('show');
 
     try {
       const response = await fetch(`/api/available_bed?bedroomtype=${bedroomtype}`);
@@ -46,7 +45,7 @@ async function loadAllBeds(bedroomtype) {
       console.error('An error occurred:', error);
       bedContainer.innerHTML = '<p class="error-message">An unexpected error occurred. Please try again later.</p>';
     } finally {
-      loader.style.display = 'none';
+        loader.classList.remove('show');
     }
   }
   
