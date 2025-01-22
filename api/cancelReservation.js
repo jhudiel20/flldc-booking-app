@@ -18,8 +18,7 @@ module.exports = async (req, res) => {
     const query = `
       UPDATE reservations
       SET reserve_status = 'CANCELLED'
-      WHERE id = $1
-      RETURNING *;
+       WHERE reservation_id = $1 OR booking_id = $1;
     `;
     const values = [reservation_id];
 
