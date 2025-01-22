@@ -7,15 +7,19 @@ async function fetchBookingDetails() {
     }
 
     try {
-        // Query both reservation_id and booking_id
-        const response = await fetch(`/api/fetch-booking-details?reservation_or_booking_id=${reserveID}`);
-        const data = await response.json();
+        // Query the server
+        const response = await fetch(`/api/fetch-booking-details?reservation_id=${reserveID}`);
+
+        // Read the response body once
+        const responseBody = await response.json();
 
         if (!response.ok) {
-            const errorData = await response.json();
-            alert(errorData.error); // Show the error message in an alert
+            // Handle errors
+            alert(responseBody.error || 'An error occurred while fetching booking details.');
             return;
         }
+
+        const data = responseBody;
 
         if (data && data.length > 0) {
             const booking = data[0]; // Access the first booking in the array
@@ -37,30 +41,6 @@ async function fetchBookingDetails() {
             document.getElementById('usage').textContent = booking.usage;
             document.getElementById('features').textContent = booking.features;
             document.getElementById('capacity').textContent = booking.capacity;
-
-            // Fetch the base image URL from GitHub
-            const configResponse = await fetch('/api/fetch-image');
-            if (configResponse.ok) {
-                const configData = await configResponse.json();
-                const baseImageUrl = `https://raw.githubusercontent.com/${configData.owner}/${configData.repo}/main/rooms/`;
-                document.getElementById('roomImage').src = `${baseImageUrl}${booking.room_image}`;
-            }
-
-            // Calculate the difference between reserve_date and the current date
-            const reserveDate = new Date(booking.reserve_date);
-            const currentDate = new Date();
-            const timeDifference = reserveDate.getTime() - currentDate.getTime();
-            const dayDifference = Math.ceil(timeDifference / (1000 * 3600 * 24));
-
-            if (dayDifference > 1) {
-                // Show the cancel button
-                document.getElementById('cancelButton').style.display = 'inline-block';
-                document.getElementById('cancelMessage').textContent = ''; // Clear any previous message
-            } else {
-                // Hide the cancel button and show the message
-                document.getElementById('cancelButton').style.display = 'none';
-                document.getElementById('cancelMessage').textContent = 'Reservation cannot be canceled as it is less than 1 day away.';
-            }
 
             // Show the booking form
             document.getElementById('bookingForm').style.display = 'block';
