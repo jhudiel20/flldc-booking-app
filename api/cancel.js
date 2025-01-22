@@ -5,19 +5,26 @@ const pool = new Pool({
 
 module.exports = async (req, res) => {
   try {
-    // Extract booking_id from query parameters
     const { booking_id } = req.query;
 
     if (!booking_id) {
+      console.error("Booking ID is missing in the request.");
       return res.status(400).json({ error: "Booking ID is required." });
     }
 
-    // Query the database
-    const query = "SELECT * FROM bed_details WHERE booking_id = $1";
+    console.log(`Fetching booking details for ID: ${booking_id}`);
+
+    const query = "SELECT * FROM reservations WHERE booking_id = $1";
     const values = [booking_id];
 
     const result = await pool.query(query, values);
 
+    if (result.rows.length === 0) {
+      console.log(`No booking found for ID: ${booking_id}`);
+      return res.status(404).json({ error: "No booking found." });
+    }
+
+    console.log(`Booking details fetched: ${JSON.stringify(result.rows)}`);
     res.status(200).json(result.rows);
   } catch (error) {
     console.error("Error fetching booking details:", error);
