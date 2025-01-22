@@ -1,3 +1,13 @@
+function showCancelModal() {
+    const modal = new bootstrap.Modal(document.getElementById('confirmModal'));
+    modal.show();
+}
+document.getElementById('confirmCancelBtn').addEventListener('click', async function() {
+    await cancelReservation(); // Proceed with cancellation
+    const modal = bootstrap.Modal.getInstance(document.getElementById('confirmModal'));
+    modal.hide(); // Hide the modal after confirming
+});
+
 async function cancelReservation() {
     const reservationId = document.getElementById("ID").value;
   
