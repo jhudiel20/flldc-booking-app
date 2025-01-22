@@ -1,3 +1,31 @@
+async function cancelReservation() {
+    const reservationId = document.getElementById("reserveID").value;
+
+    if (!reservationId) {
+        alert("Please enter a Reservation ID.");
+        return;
+    }
+
+    try {
+        const response = await fetch(`/api/cancelReservation?reservation_id=${reservationId}`, {
+            method: "GET",  // Use GET to match the backend's expectation
+            headers: { "Content-Type": "application/json" },
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            alert(result.message || "Reservation cancelled successfully.");
+            console.log("Cancelled Reservation:", result.data);
+        } else {
+            alert(result.error || "Failed to cancel the reservation.");
+        }
+    } catch (error) {
+        console.error("Error cancelling reservation:", error);
+        alert("An error occurred while cancelling the reservation. Please try again.");
+    }
+}
+
 function showCancelModal() {
     const modal = new bootstrap.Modal(document.getElementById('confirmModal'));
     modal.show();
@@ -7,35 +35,6 @@ document.getElementById('confirmCancelBtn').addEventListener('click', async func
     const modal = bootstrap.Modal.getInstance(document.getElementById('confirmModal'));
     modal.hide(); // Hide the modal after confirming
 });
-
-async function cancelReservation() {
-    const reservationId = document.getElementById("reserveID").value;
-  
-    if (!reservationId) {
-      alert("Please enter a Reservation ID.");
-      return;
-    }
-  
-    try {
-      const response = await fetch(`/api/cancelReservation`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ reservation_id: reservationId }),
-      });
-  
-      const result = await response.json();
-  
-      if (response.ok) {
-        alert(result.message || "Reservation cancelled successfully.");
-        console.log("Cancelled Reservation:", result.data);
-      } else {
-        alert(result.error || "Failed to cancel the reservation.");
-      }
-    } catch (error) {
-      console.error("Error cancelling reservation:", error);
-      alert("An error occurred while cancelling the reservation. Please try again.");
-    }
-}
   
   
 function checkCancellationEligibility(reserveDate) {
