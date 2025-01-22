@@ -22,9 +22,9 @@ async function fetchBookingDetails() {
             document.getElementById('roomID').value = booking.roomid;
             document.getElementById('roomName').value = booking.room;
             document.getElementById('roomPrices').value = booking.prices;
-            document.getElementById('usage').value = booking.usage;
-            document.getElementById('features').value = booking.features;
-            document.getElementById('capacity').value = booking.capacity;
+            document.getElementById('usage').text = booking.usage;
+            document.getElementById('features').text = booking.features;
+            document.getElementById('capacity').text = booking.capacity;
 
             // Show the booking form and hide the booking details
             document.getElementById('bookingForm').style.display = 'block';
