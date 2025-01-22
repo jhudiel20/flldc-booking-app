@@ -7,8 +7,10 @@ async function cancelReservation() {
     }
   
     try {
-      const response = await fetch(`/api/cancelReservation?reservation_id=${encodeURIComponent(reservationId)}`, {
+      const response = await fetch(`/api/cancelReservation`, {
         method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ reservation_id: reservationId }),
       });
   
       const result = await response.json();
@@ -23,7 +25,7 @@ async function cancelReservation() {
       console.error("Error cancelling reservation:", error);
       alert("An error occurred while cancelling the reservation. Please try again.");
     }
-  }
+}
   
   
 function checkCancellationEligibility(reserveDate) {
