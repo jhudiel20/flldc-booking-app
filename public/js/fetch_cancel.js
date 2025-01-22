@@ -1,80 +1,36 @@
 async function fetchBookingDetails() {
     const bookingID = document.getElementById("bookingID").value;
 
-    if (!bookingID) {
-        alert("Please enter a booking ID.");
-        return;
-    }
-
-    let baseImageUrl = '';  // Declare baseImageUrl outside the try block
-
-    // Fetch the configuration for the image URL
-    // try {
-    //     const configResponse = await fetch('/api/fetch-image');
-    //     if (configResponse.ok) {
-    //         const configData = await configResponse.json();
-    //         baseImageUrl = `https://raw.githubusercontent.com/${configData.owner}/${configData.repo}/main/room-photo/`;
-    //     } else {
-    //         console.error('Failed to fetch config');
-    //         alert("Failed to fetch image configuration.");
-    //         return; // Exit the function if config fetch fails
-    //     }
-    // } catch (error) {
-    //     console.error('Error fetching config:', error);
-    //     alert("An error occurred while fetching image configuration.");
-    //     return; // Exit the function if an error occurs
-    // }
-
+    // Make the AJAX request to fetch booking details based on the booking ID
     try {
-        const response = await fetch(`/api/cancel?booking_id=${bookingID}`);
+        const response = await fetch(`/api/fetch-booking-details?booking_id=${bookingID}`);
+        const data = await response.json();
 
-        if (!response.ok) {
-            const errorDetails = await response.json();
-            console.error(`Error response from server: ${response.status}`, errorDetails);
-            throw new Error(`Server returned status ${response.status}: ${errorDetails.error || 'Unknown error'}`);
+        if (response.ok && data.success) {
+            // Populate the form with the fetched data
+            document.getElementById("fname").value = data.booking.first_name;
+            document.getElementById("lname").value = data.booking.last_name;
+            document.getElementById("reserve_date").value = data.booking.reserve_date;
+            document.getElementById("time").value = data.booking.time;
+            document.getElementById("setup").value = data.booking.setup;
+            document.getElementById("businessunit").value = data.booking.businessunit;
+            document.getElementById("guest").value = data.booking.guest;
+            document.getElementById("contact").value = data.booking.contact;
+            document.getElementById("email").value = data.booking.email;
+            document.getElementById("message").value = data.booking.message;
+
+            // Populate hidden fields
+            document.getElementById("roomID").value = data.booking.roomID;
+            document.getElementById("roomName").value = data.booking.roomName;
+            document.getElementById("roomPrices").value = data.booking.roomPrices;
+
+            // Display the booking form and cancel button
+            document.getElementById("bookingForm").style.display = 'block';
+            document.getElementById("cancelButton").style.display = 'block';
+        } else {
+            alert('Booking not found or an error occurred.');
         }
-
-        const bookings = await response.json();
-
-        if (bookings.length === 0) {
-            document.getElementById("bookingDetails").innerHTML = `<p>No booking found with ID: ${bookingID}</p>`;
-            document.getElementById("cancelButton").style.display = "none";
-            return;
-        }
-
-        const booking = bookings[0];
-
-        // Use the fetched baseImageUrl to set the room image
-        // const roomImageUrl = `${baseImageUrl}${booking.room_id}.jpg`;
-
-        // Populate input fields with booking details
-        document.getElementById("fname").value = booking.fname || '';
-        document.getElementById("lname").value = booking.lname || '';
-        document.getElementById("reserve_date").value = booking.reserve_date || '';
-        document.getElementById("time").value = booking.time || '';
-        document.getElementById("setup").value = booking.setup || '';
-        document.getElementById("businessunit").value = booking.business_unit || '';
-        document.getElementById("guest").value = booking.guest || '';
-        document.getElementById("contact").value = booking.contact || '';
-        document.getElementById("email").value = booking.email || '';
-        document.getElementById("message").value = booking.message || '';
-
-        // Additional hidden fields
-        document.getElementById("roomID").value = booking.room_id || '';
-        document.getElementById("roomName").value = booking.room_name || '';
-        document.getElementById("roomPrices").value = booking.room_prices || '';
-
-        // Display the image
-        // const imageElement = document.createElement("img");
-        // imageElement.src = roomImageUrl;
-        // imageElement.alt = "Room Image";
-        // imageElement.classList.add("img-fluid");  // Optional, for responsive images
-        // document.getElementById("bookingDetails").appendChild(imageElement);
-
-        // Show cancel button
-        document.getElementById("cancelButton").style.display = "block";
     } catch (error) {
-        console.error("Error fetching booking details:", error);
-        alert(`An error occurred while fetching booking details: ${error.message}`);
+        console.error('Error fetching booking details:', error);
     }
 }
