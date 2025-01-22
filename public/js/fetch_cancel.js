@@ -36,7 +36,7 @@ async function fetchBookingDetails() {
              }
  
              // Set the image source dynamically
-             const roomImageUrl = `${baseImageUrl}${booking.room_photo}.jpg`; // Assuming the image name is based on roomid
+             const roomImageUrl = `${baseImageUrl}${booking.room_photo}`; // Assuming the image name is based on roomid
              document.getElementById('roomImage').src = roomImageUrl;
 
             // Show the booking form and hide the booking details
