@@ -28,15 +28,6 @@ async function fetchBookingDetails() {
 
             // Show the booking form and hide the booking details
             document.getElementById('bookingForm').style.display = 'block';
-            document.getElementById('bookingDetails').innerHTML = `
-                <p><strong>Booking ID:</strong> ${booking.booking_id}</p>
-                <p><strong>Room:</strong> ${booking.room}</p>
-                <p><strong>Reservation Date:</strong> ${booking.reserve_date}</p>
-                <p><strong>Time:</strong> ${booking.time}</p>
-                <p><strong>Number of Guests:</strong> ${booking.guest}</p>
-                <p><strong>Contact:</strong> ${booking.contact}</p>
-                <p><strong>Email:</strong> ${booking.email}</p>
-            `;
         } else {
             // No booking found
             document.getElementById('bookingDetails').innerHTML = 'Booking not found.';
