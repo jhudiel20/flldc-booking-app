@@ -6,7 +6,7 @@ const pool = new Pool({
 
 module.exports = async (req, res) => {
   try {
-    const { reservation_id } = req.query;
+    const { reservation_id } = req.body;  // Get reservation_id from the body
 
     if (!reservation_id) {
       console.error("Reservation ID is missing in the request.");
@@ -18,7 +18,7 @@ module.exports = async (req, res) => {
     const query = `
       UPDATE reservations
       SET reserve_status = 'CANCELLED'
-       WHERE reservation_id = $1 OR booking_id = $1;
+      WHERE reservation_id = $1 OR booking_id = $1;
     `;
     const values = [reservation_id];
 

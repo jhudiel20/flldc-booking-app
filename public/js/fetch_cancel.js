@@ -7,9 +7,10 @@ async function cancelReservation() {
     }
 
     try {
-        const response = await fetch(`/api/cancelReservation?reservation_id=${reservationId}`, {
-            method: "GET",  // Use GET to match the backend's expectation
+        const response = await fetch(`/api/cancelReservation`, {
+            method: "POST",
             headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ reservation_id: reservationId }),
         });
 
         const result = await response.json();
@@ -25,6 +26,7 @@ async function cancelReservation() {
         alert("An error occurred while cancelling the reservation. Please try again.");
     }
 }
+
 
 function showCancelModal() {
     const modal = new bootstrap.Modal(document.getElementById('confirmModal'));
