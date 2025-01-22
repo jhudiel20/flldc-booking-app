@@ -45,7 +45,7 @@ async function fetchBookingDetails() {
         const booking = bookings[0];
 
         // Use the fetched baseImageUrl to set the room image
-        booking.room_image = `${baseImageUrl}${booking.room_id}.jpg`;
+        const roomImageUrl = `${baseImageUrl}${booking.room_id}.jpg`;
 
         // Populate input fields with booking details
         document.getElementById("fname").value = booking.fname || '';
@@ -63,6 +63,13 @@ async function fetchBookingDetails() {
         document.getElementById("roomID").value = booking.room_id || '';
         document.getElementById("roomName").value = booking.room_name || '';
         document.getElementById("roomPrices").value = booking.room_prices || '';
+
+        // Display the image
+        const imageElement = document.createElement("img");
+        imageElement.src = roomImageUrl;
+        imageElement.alt = "Room Image";
+        imageElement.classList.add("img-fluid");  // Optional, for responsive images
+        document.getElementById("bookingDetails").appendChild(imageElement);
 
         // Show cancel button
         document.getElementById("cancelButton").style.display = "block";
