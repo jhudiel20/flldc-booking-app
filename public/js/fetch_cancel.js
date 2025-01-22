@@ -91,7 +91,7 @@ async function fetchBookingDetails() {
 
             // Populate the form fields with the booking details
             document.getElementById('reserve_status').textContent = booking.reserve_status;
-            document.getElementById('id').value = booking.id;
+            // document.getElementById('id').value = booking.id;
             document.getElementById('fname').value = booking.fname;
             document.getElementById('lname').value = booking.lname;
             document.getElementById('reserve_date').value = booking.reserve_date.split('T')[0]; // Extract the date
