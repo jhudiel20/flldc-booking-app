@@ -74,7 +74,7 @@ async function fetchBookingDetails() {
 
         const data = responseBody;
 
-        if (data && data.length > 0) {
+        if (Array.isArray(data) && data.length > 0) {
             const booking = data[0]; // Access the first booking in the array
 
             // Populate the form fields with the booking details
