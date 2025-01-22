@@ -6,6 +6,25 @@ async function fetchBookingDetails() {
         return;
     }
 
+    let baseImageUrl = '';  // Declare baseImageUrl outside the try block
+
+    // Fetch the configuration for the image URL
+    try {
+        const configResponse = await fetch('/api/fetch-image');
+        if (configResponse.ok) {
+            const configData = await configResponse.json();
+            baseImageUrl = `https://raw.githubusercontent.com/${configData.owner}/${configData.repo}/main/room-photo/`;
+        } else {
+            console.error('Failed to fetch config');
+            alert("Failed to fetch image configuration.");
+            return; // Exit the function if config fetch fails
+        }
+    } catch (error) {
+        console.error('Error fetching config:', error);
+        alert("An error occurred while fetching image configuration.");
+        return; // Exit the function if an error occurs
+    }
+
     try {
         const response = await fetch(`/api/cancel?booking_id=${bookingID}`);
 
@@ -25,8 +44,8 @@ async function fetchBookingDetails() {
 
         const booking = bookings[0];
 
-        const baseImageUrl = `https://raw.githubusercontent.com/${configData.owner}/${configData.repo}/main/room-photo/`;
-        booking.room_photo = `${baseImageUrl}${booking.room_id}.jpg`;
+        // Use the fetched baseImageUrl to set the room image
+        booking.room_image = `${baseImageUrl}${booking.room_id}.jpg`;
 
         // Populate input fields with booking details
         document.getElementById("fname").value = booking.fname || '';
