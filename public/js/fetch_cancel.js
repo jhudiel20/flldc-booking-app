@@ -69,6 +69,7 @@ async function fetchBookingDetails() {
         alert('Please enter a Reservation ID or Booking ID.');
         return;
     }
+    const loader = document.getElementById('loader');
     loader.classList.add('show');
     try {
         // Query the server
@@ -124,6 +125,7 @@ async function fetchBookingDetails() {
             // Show the booking form
             document.getElementById('bookingForm').style.display = 'block';
             checkCancellationEligibility(booking.reserve_date);
+            loader.classList.remove('show');
         } else {
             alert('No reservation found with the provided ID.');
             document.getElementById('bookingForm').style.display = 'none';
@@ -131,6 +133,7 @@ async function fetchBookingDetails() {
     } catch (error) {
         console.error('Error fetching booking details:', error);
         alert('An error occurred while fetching booking details. Please try again later.');
+        loader.classList.remove('show');
     } finally {
         // Hide the loader after the process is done
         loader.classList.remove('show');  // Hide the loader
