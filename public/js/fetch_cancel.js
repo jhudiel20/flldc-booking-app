@@ -42,6 +42,19 @@ async function fetchBookingDetails() {
             document.getElementById('features').textContent = booking.features;
             document.getElementById('capacity').textContent = booking.capacity;
 
+            // Fetch the base image URL from GitHub
+            const configResponse = await fetch('/api/fetch-image');
+            if (configResponse.ok) {
+                const configData = await configResponse.json();
+                baseImageUrl = `https://raw.githubusercontent.com/${configData.owner}/${configData.repo}/main/room-photo/`;
+            } else {
+                console.error('Failed to fetch config');
+            }
+
+            // Set the image source dynamically
+            const roomImageUrl = `${baseImageUrl}${booking.roomid}.jpg`; // Assuming the image name is based on roomid
+            document.getElementById('roomImage').src = roomImageUrl;
+
             // Show the booking form
             document.getElementById('bookingForm').style.display = 'block';
         } else {
