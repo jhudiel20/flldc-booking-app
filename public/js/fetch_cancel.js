@@ -1,7 +1,7 @@
 async function fetchBookingDetails() {
-    const bookingID = document.getElementById('bookingID').value;
+    const reserveID = document.getElementById('reserveID').value;
     try {
-        const response = await fetch(`/api/fetch-booking-details?booking_id=${bookingID}`);
+        const response = await fetch(`/api/fetch-booking-details?reservation_id=${reserveID}`);
         const data = await response.json();
 
         // Check if the data contains a booking
@@ -41,6 +41,8 @@ async function fetchBookingDetails() {
 
             // Show the booking form and hide the booking details
             document.getElementById('bookingForm').style.display = 'block';
+
+
         } else {
             // No booking found
             document.getElementById('bookingDetails').innerHTML = 'Booking not found.';

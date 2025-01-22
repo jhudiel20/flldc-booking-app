@@ -29,25 +29,21 @@
 
     <section class="site-section">
       <div class="container">
-        <h2>Cancel Your Booking</h2>
+        <h2>Cancel Your Reservation</h2>
         <div class="form-group">
-            <label for="bookingID">Enter Booking ID:</label>
+            <label for="bookingID">Enter Reservation ID or Booking ID:</label>
             <input
             type="text"
-            id="bookingID"
+            id="reserveID"
             class="form-control"
             placeholder="Enter your booking ID"
             />
         </div>
-        <button class="btn btn-primary mb-5" onclick="fetchBookingDetails()">Check Booking</button>
+        <button class="btn btn-primary mb-5" onclick="fetchBookingDetails()">Check Reservation</button>
         <hr class="mb-5"/>
 
         <form id="cancelForm" onsubmit="event.preventDefault(); fetchBookingDetails();">        
             <div id="bookingForm" style="display: none;">
-      
-        
-                <button type="submit" id="cancelButton" style="display:none;">Cancel Booking</button>
-
                 <div class="row">
                         
                     <div class="col-md-5">
@@ -77,7 +73,7 @@
                     </div>
                     <div class="col-md-1"></div>
                     <div class="col-md-6">
-                      <h2 class="mb-5 mt-0"><a href="#">Booking Details</a></h2>
+                      <h2 class="mb-5 mt-0"><a href="#">Reservation Details</a></h2>
                       <form action="#" method="post" id="bookingForm">
           
                         <div class="row">
@@ -147,7 +143,12 @@
                             <textarea name="message" id="message" class="form-control" cols="30" rows="8" disabled></textarea>
                           </div>
                         </div>
-                      
+
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                              <input type="submit" id="cancelButton" value="Cancel Booking" class="btn btn-danger" style="display:none;">
+                            </div>
+                        </div>
                       </form>
                     </div>
                   </div>

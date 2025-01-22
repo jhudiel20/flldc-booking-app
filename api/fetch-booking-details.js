@@ -19,7 +19,7 @@ module.exports = async (req, res) => {
       SELECT r.*, rd.room_photo,rd.usage,rd.capacity,rd.features
       FROM reservations r
       JOIN room_details rd ON rd.room_id = r.roomid
-      WHERE r.booking_id = $1
+      WHERE r.reservation_id = $1 OR r.booking_id = $1
     `;
     const values = [booking_id];
 
