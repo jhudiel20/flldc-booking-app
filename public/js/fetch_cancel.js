@@ -1,3 +1,26 @@
+function checkCancellationEligibility(reserveDate) {
+    const cancelButton = document.getElementById('cancelButton');
+    const cancelMessage = document.getElementById('cancelMessage');
+
+    // Parse the reserve_date into a Date object
+    const reservationDate = new Date(reserveDate);
+    const currentDate = new Date();
+
+    // Calculate the difference in days
+    const diffInTime = reservationDate - currentDate;
+    const diffInDays = Math.ceil(diffInTime / (1000 * 60 * 60 * 24));
+
+    if (diffInDays > 1) {
+        // Show the Cancel Booking button if more than 1 day away
+        cancelButton.style.display = 'block';
+        cancelMessage.style.display = 'none';
+    } else {
+        // Show the message if 1 day or less
+        cancelButton.style.display = 'none';
+        cancelMessage.style.display = 'block';
+    }
+}
+
 async function fetchBookingDetails() {
     const reserveID = document.getElementById('reserveID').value.trim();
 
@@ -58,6 +81,7 @@ async function fetchBookingDetails() {
 
             // Show the booking form
             document.getElementById('bookingForm').style.display = 'block';
+            checkCancellationEligibility(booking.reserve_date);
         } else {
             alert('No reservation found with the provided ID.');
             document.getElementById('bookingForm').style.display = 'none';
