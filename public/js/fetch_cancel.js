@@ -20,7 +20,7 @@ async function fetchBookingDetails() {
             document.getElementById('email').value = booking.email;
             document.getElementById('message').value = booking.message;
             document.getElementById('roomID').value = booking.roomid;
-            document.getElementById('roomName').value = booking.room;
+            document.getElementById('roomNameView').text = booking.room;
             document.getElementById('roomPrices').value = booking.prices;
             document.getElementById('usage').text = booking.usage;
             document.getElementById('features').text = booking.features;
