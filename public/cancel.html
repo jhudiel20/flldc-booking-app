@@ -25,25 +25,68 @@
 
     <div id="header"></div>
     <!-- END header -->
-     
-    <div class="container mt-5">
-      <h2>Cancel Your Booking</h2>
-      <div class="form-group">
-        <label for="bookingID">Enter Booking ID:</label>
-        <input
-          type="text"
-          id="bookingID"
-          class="form-control"
-          placeholder="Enter your booking ID"
-        />
-      </div>
-      <button class="btn btn-primary" onclick="fetchBookingDetails()">Check Booking</button>
 
-      <div id="bookingDetails" class="mt-4"></div>
-      <button id="cancelButton" class="btn btn-danger mt-3" style="display: none;">
-        Cancel Booking
-      </button>
-    </div>
+    <section class="site-section">
+      <div class="container">
+        <h2>Cancel Your Booking</h2>
+        <div class="form-group">
+            <label for="bookingID">Enter Booking ID:</label>
+            <input
+            type="text"
+            id="bookingID"
+            class="form-control"
+            placeholder="Enter your booking ID"
+            />
+        </div>
+        <button class="btn btn-primary mt-5" onclick="fetchBookingDetails()">Check Booking</button>
+
+        <form id="cancelForm" onsubmit="event.preventDefault(); fetchBookingDetails();">
+            <div id="bookingDetails"></div>
+        
+            <div id="bookingForm" style="display: none;">
+                <label for="fname">First Name:</label>
+                <input type="text" id="fname" name="fname"><br>
+        
+                <label for="lname">Last Name:</label>
+                <input type="text" id="lname" name="lname"><br>
+        
+                <label for="reserve_date">Reservation Date:</label>
+                <input type="date" id="reserve_date" name="reserve_date"><br>
+        
+                <label for="time">Time:</label>
+                <input type="time" id="time" name="time"><br>
+        
+                <label for="setup">Setup:</label>
+                <input type="text" id="setup" name="setup"><br>
+        
+                <label for="businessunit">Business Unit:</label>
+                <input type="text" id="businessunit" name="businessunit"><br>
+        
+                <label for="guest">Number of Guests:</label>
+                <input type="number" id="guest" name="guest"><br>
+        
+                <label for="contact">Contact Number:</label>
+                <input type="tel" id="contact" name="contact"><br>
+        
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email"><br>
+        
+                <label for="message">Message:</label>
+                <textarea id="message" name="message"></textarea><br>
+        
+                <label for="image">Upload Image:</label>
+                <input type="file" id="image" name="image"><br>
+        
+                <!-- Hidden fields -->
+                <input type="hidden" id="roomID" name="roomID">
+                <input type="hidden" id="roomName" name="roomName">
+                <input type="hidden" id="roomPrices" name="roomPrices">
+        
+                <button type="submit" id="cancelButton" style="display:none;">Cancel Booking</button>
+            </div>
+        </form>
+        
+    </section>
 
     <div id="footer"></div>
     <!-- END footer -->

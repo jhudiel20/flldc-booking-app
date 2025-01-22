@@ -14,7 +14,13 @@ module.exports = async (req, res) => {
 
     console.log(`Fetching booking details for ID: ${booking_id}`);
 
-    const query = "SELECT * FROM reservations WHERE booking_id = $1";
+    // Query to join reservations and room_details, ensuring room_image is selected
+    const query = `
+      SELECT r.*, rd.room_image
+      FROM reservations r
+      JOIN room_details rd ON rd.room_id = r.roomid
+      WHERE r.booking_id = $1
+    `;
     const values = [booking_id];
 
     const result = await pool.query(query, values);
