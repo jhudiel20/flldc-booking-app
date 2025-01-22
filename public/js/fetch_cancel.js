@@ -64,7 +64,7 @@ async function fetchBookingDetails() {
         const response = await fetch(`/api/fetch-booking-details?reservation_id=${reserveID}`);
 
         // Read the response body once
-        const responseBody = await response.json();
+        const responseBody = await response.json(); // This will throw an error if the response is not in JSON format
 
         if (!response.ok) {
             // Handle errors
@@ -79,7 +79,7 @@ async function fetchBookingDetails() {
 
             // Populate the form fields with the booking details
             document.getElementById('reserve_status').textContent = booking.reserve_status;
-            document.getElementById('ID').value = booking.id;
+            // document.getElementById('ID').value = booking.id;
             document.getElementById('fname').value = booking.fname;
             document.getElementById('lname').value = booking.lname;
             document.getElementById('reserve_date').value = booking.reserve_date.split('T')[0]; // Extract the date
