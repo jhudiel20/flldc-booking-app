@@ -52,13 +52,14 @@ function checkCancellationEligibility(reserveDate) {
 }
 
 async function fetchBookingDetails() {
+    
     const reserveID = document.getElementById('reserveID').value.trim();
 
     if (!reserveID) {
         alert('Please enter a Reservation ID or Booking ID.');
         return;
     }
-
+    loader.classList.add('show');
     try {
         // Query the server
         const response = await fetch(`/api/fetch-booking-details?reservation_id=${reserveID}`);
@@ -120,6 +121,9 @@ async function fetchBookingDetails() {
     } catch (error) {
         console.error('Error fetching booking details:', error);
         alert('An error occurred while fetching booking details. Please try again later.');
+    } finally {
+        // Hide the loader after the process is done
+        loader.classList.remove('show');  // Hide the loader
     }
 }
 
