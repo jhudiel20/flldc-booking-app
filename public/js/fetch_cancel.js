@@ -25,6 +25,7 @@ async function fetchBookingDetails() {
             const booking = data[0]; // Access the first booking in the array
 
             // Populate the form fields with the booking details
+            document.getElementById('reserve_status').textContent = booking.reserve_status;
             document.getElementById('fname').value = booking.fname;
             document.getElementById('lname').value = booking.lname;
             document.getElementById('reserve_date').value = booking.reserve_date.split('T')[0]; // Extract the date
