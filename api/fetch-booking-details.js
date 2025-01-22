@@ -5,14 +5,14 @@ const pool = new Pool({
 
 module.exports = async (req, res) => {
   try {
-    const { booking_id } = req.query;
+    const { reserveID } = req.query;
 
-    if (!booking_id) {
+    if (!reserveID) {
       console.error("Booking ID is missing in the request.");
       return res.status(400).json({ error: "Booking ID is required." });
     }
 
-    console.log(`Fetching booking details for ID: ${booking_id}`);
+    console.log(`Fetching booking details for ID: ${reserveID}`);
 
     // Query to join reservations and room_details, ensuring room_image is selected
     const query = `
@@ -21,12 +21,12 @@ module.exports = async (req, res) => {
       JOIN room_details rd ON rd.room_id = r.roomid
       WHERE r.reservation_id = $1 OR r.booking_id = $1
     `;
-    const values = [booking_id];
+    const values = [reserveID];
 
     const result = await pool.query(query, values);
 
     if (result.rows.length === 0) {
-      console.log(`No booking found for ID: ${booking_id}`);
+      console.log(`No booking found for ID: ${reserveID}`);
       return res.status(404).json({ error: "No booking found." });
     }
 
