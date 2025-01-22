@@ -1,3 +1,31 @@
+async function cancelReservation() {
+    const reservationId = document.getElementById("reserveID").value.trim();
+  
+    if (!reservationId) {
+      alert("Please enter a Reservation ID.");
+      return;
+    }
+  
+    try {
+      const response = await fetch(`/api/cancelReservation?reservation_id=${encodeURIComponent(reservationId)}`, {
+        method: "POST",
+      });
+  
+      const result = await response.json();
+  
+      if (response.ok) {
+        alert(result.message || "Reservation cancelled successfully.");
+        console.log("Cancelled Reservation:", result.data);
+      } else {
+        alert(result.error || "Failed to cancel the reservation.");
+      }
+    } catch (error) {
+      console.error("Error cancelling reservation:", error);
+      alert("An error occurred while cancelling the reservation. Please try again.");
+    }
+  }
+  
+  
 function checkCancellationEligibility(reserveDate) {
     const cancelButton = document.getElementById('cancelButton');
     const cancelMessage = document.getElementById('cancelMessage');
@@ -49,6 +77,7 @@ async function fetchBookingDetails() {
 
             // Populate the form fields with the booking details
             document.getElementById('reserve_status').textContent = booking.reserve_status;
+            document.getElementById('ID').value = booking.id;
             document.getElementById('fname').value = booking.fname;
             document.getElementById('lname').value = booking.lname;
             document.getElementById('reserve_date').value = booking.reserve_date.split('T')[0]; // Extract the date
