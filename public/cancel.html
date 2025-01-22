@@ -38,13 +38,14 @@
             placeholder="Enter your booking ID"
             />
         </div>
-        <button class="btn btn-primary mt-5" onclick="fetchBookingDetails()">Check Booking</button>
+        <button class="btn btn-primary mb-5" onclick="fetchBookingDetails()">Check Booking</button>
+        <hr class="mb-5"/>
 
         <form id="cancelForm" onsubmit="event.preventDefault(); fetchBookingDetails();">
             <div id="bookingDetails"></div>
         
             <div id="bookingForm" style="display: none;">
-                <label for="fname">First Name:</label>
+                <!-- <label for="fname">First Name:</label>
                 <input type="text" id="fname" name="fname"><br>
         
                 <label for="lname">Last Name:</label>
@@ -54,7 +55,7 @@
                 <input type="date" id="reserve_date" name="reserve_date"><br>
         
                 <label for="time">Time:</label>
-                <input type="time" id="time" name="time"><br>
+                <input type="text" id="time" name="time"><br>
         
                 <label for="setup">Setup:</label>
                 <input type="text" id="setup" name="setup"><br>
@@ -74,15 +75,116 @@
                 <label for="message">Message:</label>
                 <textarea id="message" name="message"></textarea><br>
         
-                <label for="image">Upload Image:</label>
-                <input type="file" id="image" name="image"><br>
-        
                 <!-- Hidden fields -->
                 <input type="hidden" id="roomID" name="roomID">
                 <input type="hidden" id="roomName" name="roomName">
-                <input type="hidden" id="roomPrices" name="roomPrices">
+                <input type="hidden" id="roomPrices" name="roomPrices"> -->
         
                 <button type="submit" id="cancelButton" style="display:none;">Cancel Booking</button>
+
+                <div class="row">
+                        
+                    <div class="col-md-5">
+                      <h3 class="mb-5"> <a href="#">Featured Room</a></h3>
+                      <div class="media d-block room mb-0">
+                        
+                        <figure class="position-relative">
+                          <button type="button" class="fullscreen-icon position-absolute" onclick="toggleFullscreen('roomImage')">
+                              <i class="fa-solid fa-maximize"></i>
+                          </button>
+                          <img id="roomImage"  alt="Room Image" class="img-fluid-rooms">
+                        </figure>
+          
+                        <div class="media-body">
+                          <h3 class="mt-0"><a href="#" id="roomNameView"></a></h3>
+                          <h4><span id="viewPrices"></span></h4>
+                          <h6><strong>Features:</strong></h6>
+                            <ul class="room-specs">
+                              <li><span class="ion-ios-people-outline"></span><a id="capacity"></a></li>
+                              <li><span class="ion-ios-crop"></span> 22 ft <sup>2</sup></li>
+                              <li id="features"></li>
+                            </ul>
+                          <h6><strong>Usage:</strong></h6>
+                          <p id="usage"></p>              
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-6">
+                      <h2 class="mb-5 mt-0"><a href="#">Booking Details</a></h2>
+                      <form action="#" method="post" id="bookingForm">
+          
+                        <div class="row">
+                          <div class="col-md-6">
+                            <label for="guest">First Name</label>
+                            <input type="text" class="form-control" id="fname" name="fname" disabled>
+                          </div>
+                          <div class="col-md-6">
+                            <label for="contact">Last Name</label>
+                            <input type="text" class="form-control" id="lname" name="lname" disabled>
+                          </div>
+                        </div>
+          
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <label for="">Date of Reservation</label>
+                            <input type="date" class="form-control" id="reserve_date" name="reserve_date" onfocus="this.min=new Date().toISOString().split('T')[0]"  onchange="validateMinDate(this)" disabled/>
+                          </div>
+                          <div class="col-sm-6 form-group">
+                            <label for="businessunit">Time</label>
+                            <input type="text" class="form-control" id="time" name="time" disabled>
+                          </div>
+                        </div>
+          
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <label for="setup">Seating Arrangement: <a id="previewLink" href="#" target="_blank" style="margin-left: 10px; text-decoration: none; color: blue;">Preview</a>
+                            </label>
+                            <input type="text" class="form-control" id="setup" name="setup" disabled>
+                          </div>
+                          <div class="col-sm-6 form-group">     
+                            <label for="businessunit">Business Unit</label>
+                            <input type="text" class="form-control" id="businessunit" name="businessunit" disabled>
+                          </div>
+                          <input type="hidden" name="roomID" id="roomID" value="">
+                          <input type="hidden" name="roomName" id="roomName" value="">
+                          <input type="hidden" name="roomPrices" id="roomPrices" value="">
+                 
+                        </div>
+                      
+                        <div class="row">
+                          <div class="col-md-6 form-group">
+                            <label for="guest">No. of Guests</label>
+                            
+                            <input type="number" id="guest" name="guest" min="1" class="form-control" oninput="validateGuest()" disabled>
+                            <input type="hidden" id="roomGuest" name="roomGuest">
+                            <!-- <select name="guest" id="guest" class="form-control" disabled>
+                              <option value="20">20 Guest</option>
+                            </select> -->
+                          </div>
+                          <div class="col-md-6 form-group">
+                            <label for="contact">Contact No.</label>
+                            <input type="contact" id="contact" name="contact" class="form-control" disabled>
+                          </div>
+                        </div>
+          
+                        <div class="row">
+                          <div class="col-md-12 form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" class="form-control" disabled>
+                          </div>
+                        </div>
+                      
+                        <div class="row">
+                          <div class="col-md-12 form-group">
+                            <label for="message">Purpose / Message</label>
+                            <textarea name="message" id="message" class="form-control" cols="30" rows="8" disabled></textarea>
+                          </div>
+                        </div>
+                      
+                      </form>
+                    </div>
+                  </div>
             </div>
         </form>
         
