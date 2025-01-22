@@ -20,11 +20,24 @@ async function fetchBookingDetails() {
             document.getElementById('email').value = booking.email;
             document.getElementById('message').value = booking.message;
             document.getElementById('roomID').value = booking.roomid;
-            document.getElementById('roomNameView').text = booking.room;
+            document.getElementById('roomNameView').textContent  = booking.room;
             document.getElementById('roomPrices').value = booking.prices;
-            document.getElementById('usage').text = booking.usage;
-            document.getElementById('features').text = booking.features;
-            document.getElementById('capacity').text = booking.capacity;
+            document.getElementById('usage').textContent  = booking.usage;
+            document.getElementById('features').textContent  = booking.features;
+            document.getElementById('capacity').textContent  = booking.capacity;
+
+             // Fetch the base image URL from GitHub
+             const configResponse = await fetch('/api/fetch-image');
+             if (configResponse.ok) {
+                 const configData = await configResponse.json();
+                 baseImageUrl = `https://raw.githubusercontent.com/${configData.owner}/${configData.repo}/main/room-photo/`;
+             } else {
+                 console.error('Failed to fetch config');
+             }
+ 
+             // Set the image source dynamically
+             const roomImageUrl = `${baseImageUrl}${booking.roomid}.jpg`; // Assuming the image name is based on roomid
+             document.getElementById('roomImage').src = roomImageUrl;
 
             // Show the booking form and hide the booking details
             document.getElementById('bookingForm').style.display = 'block';
