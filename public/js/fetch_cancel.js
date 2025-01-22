@@ -1,5 +1,5 @@
 async function cancelReservation() {
-    const reservationId = document.getElementById("reserveID").value.trim();
+    const reservationId = document.getElementById("ID").value;
   
     if (!reservationId) {
       alert("Please enter a Reservation ID.");
