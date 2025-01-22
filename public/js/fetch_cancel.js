@@ -9,21 +9,21 @@ async function fetchBookingDetails() {
     let baseImageUrl = '';  // Declare baseImageUrl outside the try block
 
     // Fetch the configuration for the image URL
-    try {
-        const configResponse = await fetch('/api/fetch-image');
-        if (configResponse.ok) {
-            const configData = await configResponse.json();
-            baseImageUrl = `https://raw.githubusercontent.com/${configData.owner}/${configData.repo}/main/room-photo/`;
-        } else {
-            console.error('Failed to fetch config');
-            alert("Failed to fetch image configuration.");
-            return; // Exit the function if config fetch fails
-        }
-    } catch (error) {
-        console.error('Error fetching config:', error);
-        alert("An error occurred while fetching image configuration.");
-        return; // Exit the function if an error occurs
-    }
+    // try {
+    //     const configResponse = await fetch('/api/fetch-image');
+    //     if (configResponse.ok) {
+    //         const configData = await configResponse.json();
+    //         baseImageUrl = `https://raw.githubusercontent.com/${configData.owner}/${configData.repo}/main/room-photo/`;
+    //     } else {
+    //         console.error('Failed to fetch config');
+    //         alert("Failed to fetch image configuration.");
+    //         return; // Exit the function if config fetch fails
+    //     }
+    // } catch (error) {
+    //     console.error('Error fetching config:', error);
+    //     alert("An error occurred while fetching image configuration.");
+    //     return; // Exit the function if an error occurs
+    // }
 
     try {
         const response = await fetch(`/api/cancel?booking_id=${bookingID}`);
@@ -45,7 +45,7 @@ async function fetchBookingDetails() {
         const booking = bookings[0];
 
         // Use the fetched baseImageUrl to set the room image
-        const roomImageUrl = `${baseImageUrl}${booking.room_id}.jpg`;
+        // const roomImageUrl = `${baseImageUrl}${booking.room_id}.jpg`;
 
         // Populate input fields with booking details
         document.getElementById("fname").value = booking.fname || '';
@@ -65,11 +65,11 @@ async function fetchBookingDetails() {
         document.getElementById("roomPrices").value = booking.room_prices || '';
 
         // Display the image
-        const imageElement = document.createElement("img");
-        imageElement.src = roomImageUrl;
-        imageElement.alt = "Room Image";
-        imageElement.classList.add("img-fluid");  // Optional, for responsive images
-        document.getElementById("bookingDetails").appendChild(imageElement);
+        // const imageElement = document.createElement("img");
+        // imageElement.src = roomImageUrl;
+        // imageElement.alt = "Room Image";
+        // imageElement.classList.add("img-fluid");  // Optional, for responsive images
+        // document.getElementById("bookingDetails").appendChild(imageElement);
 
         // Show cancel button
         document.getElementById("cancelButton").style.display = "block";
