@@ -125,12 +125,14 @@ async function fetchBookingDetails() {
             reserveStatusElement.textContent = booking.reserve_status;
 
             // Change the color based on the status
-            if (booking.reserve_status === 'DECLINED' || booking.reserve_status === 'CANCELLED') {
+            if (booking.reserve_status === 'DECLINED') {
                 reserveStatusElement.style.color = 'red'; // Set color to red for DECLINED
-            } else {
+            } else if (booking.reserve_status === 'APPROVED') {
                 reserveStatusElement.style.color = 'green'; // Set color to green for APPROVED
+            } else if (booking.reserve_status === 'CANCELLED') {
+                reserveStatusElement.style.color = 'red'; // Set color to red for CANCELLED
             }
-
+            
             // document.getElementById('id').value = booking.id;
             document.getElementById('fname').value = booking.fname;
             document.getElementById('lname').value = booking.lname;
