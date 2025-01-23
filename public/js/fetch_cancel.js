@@ -63,7 +63,7 @@ async function cancelReservation() {
 
   
   
-function checkCancellationEligibility(reserveDate) {
+function checkCancellationEligibility(reserveDate,reserve_status) {
     const cancelButton = document.getElementById('cancelButton');
     const cancelMessage = document.getElementById('cancelMessage');
 
@@ -71,18 +71,22 @@ function checkCancellationEligibility(reserveDate) {
     const reservationDate = new Date(reserveDate);
     const currentDate = new Date();
 
-    // Calculate the difference in days
-    const diffInTime = reservationDate - currentDate;
-    const diffInDays = Math.ceil(diffInTime / (1000 * 60 * 60 * 24));
-
-    if (diffInDays > 1) {
-        // Show the Cancel Booking button if more than 1 day away
-        cancelButton.style.display = 'block';
-        cancelMessage.style.display = 'none';
-    } else {
-        // Show the message if 1 day or less
+    if(reserve_status === 'CANCELLED') {
         cancelButton.style.display = 'none';
-        cancelMessage.style.display = 'block';
+    }else{ 
+        // Calculate the difference in days
+        const diffInTime = reservationDate - currentDate;
+        const diffInDays = Math.ceil(diffInTime / (1000 * 60 * 60 * 24));
+
+        if (diffInDays > 1) {
+            // Show the Cancel Booking button if more than 1 day away
+            cancelButton.style.display = 'block';
+            cancelMessage.style.display = 'none';
+        } else {
+            // Show the message if 1 day or less
+            cancelButton.style.display = 'none';
+            cancelMessage.style.display = 'block';
+        }
     }
 }
 
@@ -149,7 +153,7 @@ async function fetchBookingDetails() {
 
             // Show the booking form
             document.getElementById('bookingForm').style.display = 'block';
-            checkCancellationEligibility(booking.reserve_date);
+            checkCancellationEligibility(booking.reserve_date,booking.reserve_status);
             loader.classList.remove('show');
         } else {
             alert('No reservation found with the provided ID.');
