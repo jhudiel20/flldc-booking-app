@@ -48,7 +48,7 @@ const validateInput = (data) => {
 
 module.exports = async (req, res) => {
   if (req.method === 'POST') {
-    const { fname, lname, roomPrices, reserve_date, time, businessunit, roomID, roomName, setup, guest, contact, email, table, chair, hdmi, extension, message } = req.body;
+    const { fname, lname, roomPrices, reserve_date, time, businessunit, branch, roomID, roomName, setup, guest, contact, email, table, chair, hdmi, extension, message } = req.body;
 
     // Validate input
     const errors = validateInput(req.body);
@@ -129,6 +129,7 @@ module.exports = async (req, res) => {
                                   <b>Booking Date:</b> ${reserve_date}<br>
                                   <b>Cost: ₱ </b> ${roomPrices}<br>
                                   <b>Business Unit:</b> ${businessunit}<br>
+                                  <b>Branch:</b> ${branch}<br>
                                   <b>Room:</b> ${roomName}<br>
                                   <b>Contact:</b> ${contact}<br>
                                   <b>Email:</b> ${email}<br>
@@ -229,6 +230,7 @@ module.exports = async (req, res) => {
                                   <b>Booking Date:</b> ${reserve_date}<br>
                                   <b>Cost: ₱ </b> ${roomPrices}<br>
                                   <b>Business Unit:</b> ${businessunit}<br>
+                                  <b>Branch:</b> ${branch}<br>
                                   <b>Room:</b> ${roomName}<br>
                                   <b>Contact:</b> ${contact}<br>
                                   <b>Email:</b> ${email}<br>
@@ -290,9 +292,9 @@ module.exports = async (req, res) => {
       try {
         // SQL query to insert data into the reservations table
         const result = await client.query(
-          `INSERT INTO reservations (fname, lname, prices, reserve_date, time, setup, business_unit, room, roomid, guest, contact, email, "table", chair, hdmi, extension, message, booking_id, date_created) 
-          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, NOW() AT TIME ZONE 'Asia/Manila')`,
-          [fname, lname, roomPrices, reserve_date, time, setup, businessunit, roomName, roomID, guest, contact, email, table, chair, hdmi, extension, message, booking_id]
+          `INSERT INTO reservations (fname, lname, prices, reserve_date, time, setup, business_unit, branch,  room, roomid, guest, contact, email, "table", chair, hdmi, extension, message, booking_id, date_created) 
+          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, NOW() AT TIME ZONE 'Asia/Manila')`,
+          [fname, lname, roomPrices, reserve_date, time, setup, businessunit, branch, roomName, roomID, guest, contact, email, table, chair, hdmi, extension, message, booking_id]
         );
 
         try {
