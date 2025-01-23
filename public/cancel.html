@@ -21,6 +21,9 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
     <!-- Theme Style -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+
   </head>
   <body>
       <!-- Modal -->
@@ -158,7 +161,7 @@
 
                         <div class="row">
                             <div class="col-md-6 form-group">
-                                <button class="btn btn-danger" id="cancelButton" onclick="showCancelModal()">Cancel Reservation/Booking</button>
+                                <button class="btn btn-danger" id="cancelButton" >Cancel Reservation/Booking</button>
                                 <!-- <button id="cancelButton" value="Cancel Reservation or Booking" class="btn btn-danger" onclick="cancelReservation()" style="display:none;"> -->
                                 <p id="cancelMessage" style="display:none; color: red;">Reservation cannot be cancelled as it is less than 1 day away.</p>
                             </div>
@@ -176,6 +179,23 @@
     
     <!-- loader -->
     <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
+    <script>
+        document.getElementById('cancelButton').addEventListener('click', function () {
+  Swal.fire({
+    title: 'Confirm Cancellation',
+    text: 'Are you sure you want to cancel this reservation?',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Yes, Cancel',
+    cancelButtonText: 'Close',
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire('Cancelled!', 'Your reservation has been cancelled.', 'success');
+    }
+  });
+});
+
+    </script>
     <script src="js/fetch_cancel.js"></script>
     <script src="sneat/assets/js/ui-modals.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
