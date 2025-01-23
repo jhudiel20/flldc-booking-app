@@ -50,6 +50,7 @@ async function fetchBookingDetails() {
             document.getElementById('time').value = booking.time;
             document.getElementById('setup').value = booking.setup;
             document.getElementById('businessunit').value = booking.business_unit;
+            document.getElementById('branch').value = booking.branch;
             document.getElementById('guest').value = booking.guest;
             document.getElementById('contact').value = booking.contact;
             document.getElementById('email').value = booking.email;

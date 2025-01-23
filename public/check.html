@@ -102,35 +102,38 @@
                         </div>
           
                         <div class="row">
+                          <div class="col-sm-6 form-group">     
+                            <label for="businessunit">Business Unit</label>
+                            <input type="text" class="form-control" id="businessunit" name="businessunit" disabled>
+                          </div>
+                          <div class="col-sm-6 form-group">     
+                            <label for="branch">Branch</label>
+                            <input type="text" class="form-control" id="branch" name="branch" disabled>
+                          </div>
+                        </div>
+                      
+                        <div class="row">
                           <div class="col-sm-6">
                             <label for="setup">Seating Arrangement: <a id="previewLink" href="#" target="_blank" style="margin-left: 10px; text-decoration: none; color: blue;">Preview</a>
                             </label>
                             <input type="text" class="form-control" id="setup" name="setup" disabled>
                           </div>
-                          <div class="col-sm-6 form-group">     
-                            <label for="businessunit">Business Unit</label>
-                            <input type="text" class="form-control" id="businessunit" name="businessunit" disabled>
-                          </div>
-                 
-                        </div>
-                      
-                        <div class="row">
                           <div class="col-md-6 form-group">
                             <label for="guest">No. of Guests</label>
                             
                             <input type="number" id="guest" name="guest" min="1" class="form-control" oninput="validateGuest()" disabled>
                             <input type="hidden" id="roomGuest" name="roomGuest">
                           </div>
-                          <div class="col-md-6 form-group">
-                            <label for="contact">Contact No.</label>
-                            <input type="contact" id="contact" name="contact" class="form-control" disabled>
-                          </div>
                         </div>
           
                         <div class="row">
-                          <div class="col-md-12 form-group">
+                          <div class="col-md-6 form-group">
                             <label for="email">Email</label>
                             <input type="email" id="email" name="email" class="form-control" disabled>
+                          </div>
+                          <div class="col-md-6 form-group">
+                            <label for="contact">Contact No.</label>
+                            <input type="contact" id="contact" name="contact" class="form-control" disabled>
                           </div>
                         </div>
                       
@@ -162,25 +165,25 @@
     <!-- loader -->
     <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
     <script>
-    document.getElementById('cancelButton').addEventListener('click', function () {
-        Swal.fire({
-            title: 'Confirm Cancellation',
-            text: 'Are you sure you want to cancel this reservation?',
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonText: 'Yes, Cancel',
-            cancelButtonText: 'Close',
-            customClass: {
-                confirmButton: 'btn btn-danger me-3', // Custom class for the confirm button
-                cancelButton: 'btn btn-secondary' // Custom class for the cancel button (optional)
-            },
-            buttonsStyling: false // Disable default SweetAlert2 button styles
-        }).then((result) => {
-            if (result.isConfirmed) {
-            Swal.fire('Cancelled!', 'Your reservation has been cancelled.', 'success');
-            }
-        });
-    });
+    // document.getElementById('cancelButton').addEventListener('click', function () {
+    //     Swal.fire({
+    //         title: 'Confirm Cancellation',
+    //         text: 'Are you sure you want to cancel this reservation?',
+    //         icon: 'warning',
+    //         showCancelButton: true,
+    //         confirmButtonText: 'Yes, Cancel',
+    //         cancelButtonText: 'Close',
+    //         customClass: {
+    //             confirmButton: 'btn btn-danger me-3', // Custom class for the confirm button
+    //             cancelButton: 'btn btn-secondary' // Custom class for the cancel button (optional)
+    //         },
+    //         buttonsStyling: false // Disable default SweetAlert2 button styles
+    //     }).then((result) => {
+    //         if (result.isConfirmed) {
+    //         Swal.fire('Cancelled!', 'Your reservation has been cancelled.', 'success');
+    //         }
+    //     });
+    // });
 
     </script>
     <script src="js/fetch_cancel.js"></script>
