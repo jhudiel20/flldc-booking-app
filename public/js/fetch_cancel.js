@@ -166,12 +166,12 @@ async function cancelReservation() {
     }
 }
 
-function checkCancellationEligibility(reserveDate,reserve_status) {
+function checkCancellationEligibility(reserve_date,reserve_status) {
     const cancelButton = document.getElementById('cancelButton');
     const cancelMessage = document.getElementById('cancelMessage');
 
     // Parse the reserve_date into a Date object
-    const reservationDate = new Date(reserveDate);
+    const reservationDate = new Date(reserve_date);
     const currentDate = new Date();
 
     if(reserve_status === 'CANCELLED' || reserve_status === 'APPROVED') {

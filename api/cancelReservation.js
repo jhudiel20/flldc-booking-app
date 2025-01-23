@@ -98,6 +98,7 @@ module.exports = async (req, res) => {
                                                 <b>Booking Date:</b> ${bookingDetails.reserve_date}<br>
                                                 <b>Cost: ₱ </b> ${bookingDetails.prices}<br>
                                                 <b>Business Unit:</b> ${bookingDetails.business_unit}<br>
+                                                <b>Branch:</b> ${bookingDetails.branch}<br>
                                                 <b>Room:</b> ${bookingDetails.room_name}<br>
                                                 <b>Contact:</b> ${bookingDetails.contact}<br>
                                                 <b>Email:</b> ${bookingDetails.email}<br>
