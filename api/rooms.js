@@ -242,6 +242,11 @@ module.exports = async (req, res) => {
 
                                   <p style="text-align:justify">Please wait for the confirmation of your booking. We look forward to assisting you at the FAST Learning and Development Center. If you have any questions or need further assistance, feel free to contact us at jppsolis@fast.com.ph | Viber Number: +63 969 450 9412.</p>
                                   <p style="text-align:justify">Thank you for choosing FAST Learning and Development Center.</p>
+
+                                  <!-- Button to cancel booking -->
+                                  <p style="text-align:center; margin-top: 20px;">
+                                    <a href="check" style="background-color:#4CAF50;color:white;padding:12px 24px;text-align:center;text-decoration:none;border-radius:4px;font-size:16px;display:inline-block">Cancel Booking</a>
+                                  </p>
                                 </div>
                               </td>
                             </tr>
