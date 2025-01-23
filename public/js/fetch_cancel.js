@@ -71,7 +71,7 @@ function checkCancellationEligibility(reserveDate,reserve_status) {
     const reservationDate = new Date(reserveDate);
     const currentDate = new Date();
 
-    if(reserve_status === 'CANCELLED') {
+    if(reserve_status === 'CANCELLED' || reserve_status === 'APPROVED') {
         cancelMessage.style.display = 'none';
         cancelButton.style.display = 'none';
     }else{ 
