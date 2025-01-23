@@ -39,6 +39,8 @@ async function fetchBookingDetails() {
                 reserveStatusElement.style.color = 'green'; // Set color to green for APPROVED
             } else if (booking.reserve_status === 'CANCELLED') {
                 reserveStatusElement.style.color = 'red'; // Set color to red for CANCELLED
+            } else {
+                reserveStatusElement.style.color = 'gray'; // Set color to blue for PENDING
             }
             
             // document.getElementById('id').value = booking.id;
