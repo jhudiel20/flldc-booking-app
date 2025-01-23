@@ -1,9 +1,39 @@
+document.getElementById('cancelButton').addEventListener('click', function () {
+    Swal.fire({
+        title: 'Confirm Cancellation',
+        text: 'Are you sure you want to cancel this reservation?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, Cancel',
+        cancelButtonText: 'Close',
+        customClass: {
+            confirmButton: 'btn btn-danger me-3', // Add spacing between buttons
+            cancelButton: 'btn btn-secondary'
+        },
+        buttonsStyling: false // Disable default SweetAlert2 button styles
+    }).then(async (result) => {
+        if (result.isConfirmed) {
+            try {
+                const success = await cancelReservation(); // Call the async function
+                if (success) {
+                    Swal.fire('Cancelled!', 'Your reservation has been cancelled.', 'success');
+                } else {
+                    Swal.fire('Failed!', 'Failed to cancel the reservation. Please try again.', 'error');
+                }
+            } catch (error) {
+                Swal.fire('Error!', 'An error occurred. Please try again later.', 'error');
+            }
+        }
+    });
+});
+
+// Async function for canceling the reservation
 async function cancelReservation() {
     const reservationId = document.getElementById("reserveID").value;
 
     if (!reservationId) {
-        alert("Please enter a Reservation ID.");
-        return;
+        Swal.fire('Error!', 'Please enter a Reservation ID.', 'error');
+        return false; // Indicate failure
     }
 
     try {
@@ -16,27 +46,20 @@ async function cancelReservation() {
         const result = await response.json();
 
         if (response.ok) {
-            alert(result.message || "Reservation cancelled successfully.");
             console.log("Cancelled Reservation:", result.data);
+            return true; // Indicate success
         } else {
-            alert(result.error || "Failed to cancel the reservation.");
+            console.error("Failed to cancel reservation:", result.error);
+            Swal.fire('Error!', result.error || 'Failed to cancel the reservation.', 'error');
+            return false; // Indicate failure
         }
     } catch (error) {
         console.error("Error cancelling reservation:", error);
-        alert("An error occurred while cancelling the reservation. Please try again.");
+        Swal.fire('Error!', 'An error occurred while cancelling the reservation. Please try again.', 'error');
+        return false; // Indicate failure
     }
 }
 
-
-function showCancelModal() {
-    const modal = new bootstrap.Modal(document.getElementById('confirmModal'));
-    modal.show();
-}
-document.getElementById('confirmCancelBtn').addEventListener('click', async function() {
-    await cancelReservation(); // Proceed with cancellation
-    const modal = bootstrap.Modal.getInstance(document.getElementById('confirmModal'));
-    modal.hide(); // Hide the modal after confirming
-});
   
   
 function checkCancellationEligibility(reserveDate) {
