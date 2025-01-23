@@ -17,6 +17,7 @@ document.getElementById('cancelButton').addEventListener('click', function () {
                 const success = await cancelReservation(); // Call the async function
                 if (success) {
                     Swal.fire('Cancelled!', 'Your reservation has been cancelled.', 'success');
+                    await fetchBookingDetails();
                 } else {
                     Swal.fire('Failed!', 'Failed to cancel the reservation. Please try again.', 'error');
                 }
