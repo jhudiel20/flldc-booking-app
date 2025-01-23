@@ -96,7 +96,7 @@ async function fetchBookingDetails() {
     const reserveID = document.getElementById('reserveID').value.trim();
 
     if (!reserveID) {
-        alert('Please enter a Reservation ID or Booking ID.');
+        Swal.fire('Error!', 'Please enter a Reservation ID or Booking ID.', 'error');
         return;
     }
     const loader = document.getElementById('loader');
@@ -110,7 +110,7 @@ async function fetchBookingDetails() {
 
         if (!response.ok) {
             // Handle errors
-            alert(responseBody.error || 'An error occurred while fetching booking details.');
+            Swal.fire('Error!', responseBody.error || 'An error occurred while fetching booking details.', 'error');
             return;
         }
 
