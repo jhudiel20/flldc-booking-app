@@ -69,3 +69,4 @@ async function loadAllRooms() {
     loader.classList.remove('show');
     // loadingMessage.remove();
 }
+

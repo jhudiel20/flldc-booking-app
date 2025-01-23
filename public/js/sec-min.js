@@ -82,6 +82,16 @@ Promise.all([
 
     dropdown.innerHTML = ''; 
 
+    // Add the "Check Reservation" link and a horizontal rule
+    const checkReservationLink = document.createElement('a');
+    checkReservationLink.classList.add('dropdown-item');
+    checkReservationLink.href = 'check';
+    checkReservationLink.textContent = 'Check Reservation';
+    dropdown.appendChild(checkReservationLink);
+
+    // Add the horizontal rule
+    dropdown.appendChild(document.createElement('hr'));
+
     const allRoomsLink = document.createElement('a');
       allRoomsLink.classList.add('dropdown-item');
       allRoomsLink.href = 'allrooms';
