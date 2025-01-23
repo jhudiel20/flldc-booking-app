@@ -72,6 +72,7 @@ function checkCancellationEligibility(reserveDate,reserve_status) {
     const currentDate = new Date();
 
     if(reserve_status === 'CANCELLED') {
+        cancelMessage.style.display = 'none';
         cancelButton.style.display = 'none';
     }else{ 
         // Calculate the difference in days
