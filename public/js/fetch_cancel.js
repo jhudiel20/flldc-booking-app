@@ -119,7 +119,18 @@ async function fetchBookingDetails() {
             const booking = data[0]; // Access the first booking in the array
 
             // Populate the form fields with the booking details
-            document.getElementById('reserve_status').textContent = booking.reserve_status;
+            // document.getElementById('reserve_status').textContent = booking.reserve_status;
+            // Populate the form fields with the booking details
+            const reserveStatusElement = document.getElementById('reserve_status');
+            reserveStatusElement.textContent = booking.reserve_status;
+
+            // Change the color based on the status
+            if (booking.reserve_status === 'DECLINED' || booking.reserve_status === 'CANCELLED') {
+                reserveStatusElement.style.color = 'red'; // Set color to red for DECLINED
+            } else {
+                reserveStatusElement.style.color = 'green'; // Set color to green for APPROVED
+            }
+
             // document.getElementById('id').value = booking.id;
             document.getElementById('fname').value = booking.fname;
             document.getElementById('lname').value = booking.lname;
