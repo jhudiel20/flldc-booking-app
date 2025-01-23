@@ -166,11 +166,11 @@ function validateMinDate(input) {
     const formData = {
       fname: document.getElementById('fname').value,
       lname: document.getElementById('lname').value,
-      branch: document.getElementById('branch').value,
+      reserve_date: document.getElementById('reserve_date').value,
       time: document.getElementById('time').value,
       setup: document.getElementById('setup').value,
       businessunit: document.getElementById('businessunit').value,
-      businessunit: document.getElementById('businessunit').value,
+      branch: document.getElementById('branch').value,
       roomID: document.getElementById('roomID').value,
       roomPrices: document.getElementById('roomPrices').value,
       roomName: document.getElementById('roomName').value,
