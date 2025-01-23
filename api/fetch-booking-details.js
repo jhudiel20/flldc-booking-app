@@ -16,7 +16,7 @@ module.exports = async (req, res) => {
 
     // Query to join reservations and room_details, ensuring room_image is selected
     const query = `
-      SELECT r.*, rd.room_photo,rd.usage,rd.capacity,rd.features,r.id
+      SELECT r.*, rd.room_photo,rd.usage,rd.capacity,rd.features,r.id,r.branch
       FROM reservations r
       JOIN room_details rd ON rd.room_id = r.roomid
       WHERE r.reservation_id = $1 OR r.booking_id = $1
