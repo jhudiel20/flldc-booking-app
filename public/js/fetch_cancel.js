@@ -170,12 +170,22 @@ async function fetchBookingDetails() {
             checkCancellationEligibility(booking.reserve_date,booking.reserve_status);
             loader.classList.remove('show');
         } else {
-            alert('No reservation found with the provided ID.');
+            Swal.fire({
+                title: 'No Reservation Found',
+                text: 'No reservation found with the provided ID.',
+                icon: 'error',
+                confirmButtonText: 'Okay'
+            });
             document.getElementById('bookingForm').style.display = 'none';
         }
     } catch (error) {
         console.error('Error fetching booking details:', error);
-        alert('An error occurred while fetching booking details. Please try again later.');
+        Swal.fire({
+            title: 'Error',
+            text: 'An error occurred while fetching booking details. Please try again later..',
+            icon: 'error',
+            confirmButtonText: 'Okay'
+        });
         loader.classList.remove('show');
     } finally {
         // Hide the loader after the process is done
