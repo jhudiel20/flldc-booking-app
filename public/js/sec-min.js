@@ -343,16 +343,22 @@ Promise.all([
                               }),
                           });
                       
-                          const result = await response.json();  // Parse the response
+                          let result;
+                          try {
+                              result = await response.json(); // Attempt to parse JSON response
+                          } catch (jsonError) {
+                              throw new Error('Invalid JSON response from server: ' + jsonError.message);
+                          }
                       
                           if (response.ok && result.success) {
                               Swal.fire('Success!', 'Your account has been created.', 'success');
                           } else {
                               Swal.fire('Error!', result.message || 'Registration failed. Try again.', 'error');
                           }
-                        } catch (error) {
-                            Swal.fire('Error!', error.message || 'An unexpected error occurred.', 'error');
-                        }
+                      } catch (error) {
+                          Swal.fire('Error!', error.message || 'An unexpected error occurred.', 'error');
+                      }
+                      
                       
                     }
                 });

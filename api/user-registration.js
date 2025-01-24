@@ -45,15 +45,21 @@ module.exports = async (req, res) => {
         // Insert the new user into the database
         const query = `
             INSERT INTO user_reservation (email, password, user_type, sbu, branch)
-            VALUES ($1, $2, $3, $4, $5);
+            VALUES ($1, $2, $3, $4, $5)
+            RETURNING *;  // Ensure that the new user data is returned
         `;
         const values = [email, hashedPassword, userType, sbu, branch];
         const result = await pool.query(query, values);
 
+        // Check if user was successfully created
+        if (result.rows.length === 0) {
+            return res.status(500).json({ error: 'Failed to create user.' });
+        }
+
         // Respond with success
         return res.status(201).json({
             success: true,
-            user: result.rows[0],
+            user: result.rows[0], // Return the newly created user data
         });
     } catch (error) {
         // Catch any errors and return a 500 status with the error message
