@@ -356,15 +356,16 @@ Promise.all([
 
 async function registerUser(email, password, userType, sbu, branch) {
   try {
-      const response = await fetch('api/register', {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ email, password, userType, sbu, branch }),
+      const queryParams = new URLSearchParams({
+          email,
+          password, // Ideally, password should not be sent via GET for security reasons.
+          userType,
+          sbu: userType === 'FAST Employee' ? sbu : '',
+          branch: userType === 'FAST Employee' ? branch : '',
       });
 
-      // Check if the response is OK (status 200-299)
+      const response = await fetch(`/api/register?${queryParams.toString()}`);
+
       if (!response.ok) {
           const errorText = await response.text();
           throw new Error(`Server error: ${errorText}`);
@@ -373,7 +374,6 @@ async function registerUser(email, password, userType, sbu, branch) {
       const data = await response.json();
 
       if (data.success) {
-          // Show success notification
           Swal.fire({
               icon: 'success',
               title: 'Registration Successful',
@@ -382,7 +382,6 @@ async function registerUser(email, password, userType, sbu, branch) {
           });
           return true;
       } else {
-          // Show error notification
           Swal.fire({
               icon: 'error',
               title: 'Registration Failed',
@@ -392,7 +391,6 @@ async function registerUser(email, password, userType, sbu, branch) {
           return false;
       }
   } catch (error) {
-      // Show error notification for unexpected errors
       Swal.fire({
           icon: 'error',
           title: 'Registration Failed',
@@ -402,6 +400,7 @@ async function registerUser(email, password, userType, sbu, branch) {
       return false;
   }
 }
+
 
 
 
