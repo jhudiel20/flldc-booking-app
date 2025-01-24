@@ -312,6 +312,17 @@ Promise.all([
                             return;
                         }
 
+                        if (newPassword.length < 6) {
+                            Swal.fire('Error!', 'Password must be at least 6 characters long.', 'error');
+                            return;
+                        }
+
+                        const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+                        if (!passwordRegex.test(newPassword)) {
+                            Swal.fire('Error!', 'Password must be at least 6 characters long and contain at least one letter, one number, and one special character.', 'error');
+                            return;
+                        }
+
                         if (userType === 'FAST Employee' && (!sbu || !branch)) {
                             Swal.fire('Error!', 'SBU and Branch are required for FAST Employees.', 'error');
                             return;
@@ -320,13 +331,11 @@ Promise.all([
                         try {
                             const success = await registerUser(email, newPassword, userType, sbu, branch);
                             if (success) {
-                              Swal.fire('Success!', 'Your account has been created.', 'success');
+                                Swal.fire('Success!', 'Your account has been created.', 'success');
                             } else {
-                                // Display the actual error message if registration fails
-                                Swal.fire('Error!', success.message || 'Registration failed. Try again.', 'error');
+                                Swal.fire('Error!', 'Registration failed. Try again.', 'error');
                             }
                         } catch (error) {
-                            // If there is an unexpected error, show the error message
                             Swal.fire('Error!', error.message || 'An unexpected error occurred.', 'error');
                         }
                     }
@@ -355,53 +364,58 @@ Promise.all([
     }
 });
 
-
 async function registerUser(email, password, userType, sbu, branch) {
-  try {
-      const queryParams = new URLSearchParams({
-          email,
-          password, // Ideally, password should not be sent via GET for security reasons.
-          userType,
-          sbu: userType === 'FAST Employee' ? sbu : '',
-          branch: userType === 'FAST Employee' ? branch : '',
-      });
+    try {
+        const response = await fetch('/api/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                email,
+                password,
+                userType,
+                sbu: userType === 'FAST Employee' ? sbu : '',
+                branch: userType === 'FAST Employee' ? branch : '',
+            }),
+        });
 
-      const response = await fetch(`/api/register?${queryParams.toString()}`);
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(`Server error: ${errorText}`);
+        }
 
-      if (!response.ok) {
-          const errorText = await response.text();
-          throw new Error(`Server error: ${errorText}`);
-      }
+        const data = await response.json();
 
-      const data = await response.json();
-
-      if (data.success) {
-          Swal.fire({
-              icon: 'success',
-              title: 'Registration Successful',
-              text: `Welcome! Your email ${data.user.email} has been registered.`,
-              confirmButtonText: 'OK',
-          });
-          return true;
-      } else {
-          Swal.fire({
-              icon: 'error',
-              title: 'Registration Failed',
-              text: data.error || 'An unexpected error occurred.',
-              confirmButtonText: 'Try Again',
-          });
-          return false;
-      }
-  } catch (error) {
-      Swal.fire({
-          icon: 'error',
-          title: 'Registration Failed',
-          text: error.message || 'An unexpected error occurred.',
-          confirmButtonText: 'Try Again',
-      });
-      return false;
-  }
+        if (data.success) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Registration Successful',
+                text: `Welcome! Your email ${data.user.email} has been registered.`,
+                confirmButtonText: 'OK',
+            });
+            return true;
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Registration Failed',
+                text: data.error || 'An unexpected error occurred.',
+                confirmButtonText: 'Try Again',
+            });
+            return false;
+        }
+    } catch (error) {
+        console.error('Error during registration:', error); // Log error for debugging
+        Swal.fire({
+            icon: 'error',
+            title: 'Registration Failed',
+            text: error.message || 'An unexpected error occurred.',
+            confirmButtonText: 'Try Again',
+        });
+        return false;
+    }
 }
+
 
 
 document.querySelectorAll('.toggle-password').forEach(button => {

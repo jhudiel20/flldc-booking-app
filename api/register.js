@@ -7,21 +7,21 @@ const pool = new Pool({
 });
 
 module.exports = async (req, res) => {
-    // Only accept GET requests
-    if (req.method !== 'GET') {
-        return res.status(405).json({ error: 'Method not allowed' });
+    // Only accept POST requests (Registration typically uses POST)
+    if (req.method !== 'POST') {
+        return res.status(405).json({ error: 'Method not allowed. Use POST.' });
     }
 
-    const { email, password, userType, sbu, branch } = req.query;
+    const { email, password, userType, sbu, branch } = req.body; // Use req.body for POST
 
     // Validate input data
     if (!email || !password || !userType) {
-        return res.status(400).json({ error: 'Missing required fields' });
+        return res.status(400).json({ error: 'Missing required fields: email, password, and userType are required.' });
     }
 
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!emailRegex.test(email)) {
-        return res.status(400).json({ error: 'Invalid email format' });
+        return res.status(400).json({ error: 'Invalid email format.' });
     }
 
     try {
@@ -30,13 +30,13 @@ module.exports = async (req, res) => {
         const emailCheckResult = await pool.query(emailCheckQuery, [email]);
 
         if (emailCheckResult.rows.length > 0) {
-            return res.status(400).json({ error: 'Email already exists' });
+            return res.status(400).json({ error: 'Email already exists. Please use a different email.' });
         }
 
         // Validate fields for FAST Employee
         if (userType === 'FAST Employee') {
             if (!sbu || !branch) {
-                return res.status(400).json({ error: 'SBU and Branch are required for FAST Employees' });
+                return res.status(400).json({ error: 'SBU and Branch are required for FAST Employees.' });
             }
         }
 
@@ -53,11 +53,13 @@ module.exports = async (req, res) => {
         const result = await pool.query(query, values);
 
         // Respond with success
-        return res.status(200).json({
+        return res.status(201).json({
             success: true,
             user: result.rows[0],
         });
     } catch (error) {
-        return res.status(500).json({ error: 'An unexpected error occurred.' });
+        // Catch any errors and return a 500 status with the error message
+        console.error('Error during registration:', error); // Log the error for debugging
+        return res.status(500).json({ error: 'An unexpected error occurred. Please try again later.' });
     }
 };
