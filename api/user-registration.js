@@ -47,7 +47,7 @@ module.exports = async (req, res) => {
             INSERT INTO user_reservation (email, password, user_type, sbu, branch)
             VALUES ($1, $2, $3, $4, $5);
         `;
-        const values = [email, hashedPassword, userType, sbu || null, branch || null];
+        const values = [email, hashedPassword, userType, sbu, branch];
         const result = await pool.query(query, values);
 
         // Respond with success
