@@ -135,7 +135,8 @@ Promise.all([
                 cancelButtonText: 'Cancel',
                 customClass: {
                     confirmButton: 'btn btn-primary me-3',
-                    cancelButton: 'btn btn-secondary'
+                    cancelButton: 'btn btn-secondary',
+                    buttons: 'custom-buttons'
                 },
                 buttonsStyling: false
             }).then(async (result) => {
@@ -185,7 +186,8 @@ Promise.all([
                     cancelButtonText: 'Cancel',
                     customClass: {
                         confirmButton: 'btn btn-primary me-3',
-                        cancelButton: 'btn btn-secondary'
+                        cancelButton: 'btn btn-secondary',
+                        buttons: 'custom-buttons'
                     },
                     buttonsStyling: false
                 }).then(async (result) => {
