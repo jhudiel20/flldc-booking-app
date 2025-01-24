@@ -364,9 +364,6 @@ Promise.all([
                           } else {
                               alert('Error! ' + (result.message || 'Registration failed. Try again.'));
                           }
-                      } catch (error) {
-                          console.error('Error during registration:', error); // Log the error for debugging
-                          alert('Error! ' + (error.message || 'An unexpected error occurred.'));
                       }
                       
                        
