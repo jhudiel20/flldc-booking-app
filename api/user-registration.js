@@ -10,10 +10,10 @@ module.exports = async (req, res) => {
         return res.status(405).json({ error: 'Method not allowed. Use POST.' });
     }
 
-    const { email, password, userType, sbu, branch } = req.body;
+    const { email, password, userType, sbu, branch, fname, mname, lname } = req.body;
 
-    if (!email || !password || !userType) {
-        return res.status(400).json({ error: 'Missing required fields: email, password, and userType are required.' });
+    if (!email || !password || !userType || !fname || !lname) {
+        return res.status(400).json({ error: 'Missing required fields: email, password, userType, fname, and lname are required.' });
     }
 
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -42,14 +42,17 @@ module.exports = async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, 10);
 
         const query = `
-            INSERT INTO user_reservation (email, password, user_type, business_unit, branch)
-            VALUES ($1, $2, $3, $4, $5)
+            INSERT INTO user_reservation (email, password, user_type, fname, mname, lname, sbu, branch)
+            VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
             RETURNING *;
         `;
         const values = [
             email, 
             hashedPassword, 
             userType, 
+            fname, 
+            mname || null, // Middle name is optional
+            lname, 
             userType === 'FAST Employee' ? sbu : null, 
             userType === 'FAST Employee' ? branch : null
         ];
