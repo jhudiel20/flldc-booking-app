@@ -330,7 +330,7 @@ Promise.all([
                             return;
                         }
 
-                        try {
+                        
                           const response = await fetch('/api/user-registration', {
                               method: 'POST',
                               headers: {
@@ -364,7 +364,7 @@ Promise.all([
                           } else {
                               alert('Error! ' + (result.message || 'Registration failed. Try again.'));
                           }
-                      }
+                      
                       
                        
                       
