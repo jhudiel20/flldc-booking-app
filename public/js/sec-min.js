@@ -100,6 +100,7 @@ Promise.all([
   
       rooms.forEach(room => {
         const roomLink = document.createElement('a');
+        roomLink.classList.add('disabled'); 
         roomLink.className = 'dropdown-item';
         const encodedRoomId = encodeURIComponent(room.room_id);
         roomLink.href = `rooms?ID=${encodedRoomId}`;
