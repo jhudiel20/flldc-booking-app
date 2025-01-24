@@ -174,7 +174,7 @@ function checkCancellationEligibility(reserve_date,reserve_status) {
     const reservationDate = new Date(reserve_date);
     const currentDate = new Date();
 
-    if(reserve_status === 'CANCELLED' || reserve_status === 'APPROVED') {
+    if(reserve_status === 'CANCELLED') {
         cancelMessage.style.display = 'none';
         cancelButton.style.display = 'none';
     }else{ 
@@ -182,7 +182,7 @@ function checkCancellationEligibility(reserve_date,reserve_status) {
         const diffInTime = reservationDate - currentDate;
         const diffInDays = Math.ceil(diffInTime / (1000 * 60 * 60 * 24));
 
-        if (diffInDays > 1) {
+        if (diffInDays > 5) {
             // Show the Cancel Booking button if more than 1 day away
             cancelButton.style.display = 'block';
             cancelMessage.style.display = 'none';
