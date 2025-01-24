@@ -42,7 +42,7 @@ module.exports = async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, 10);
 
         const query = `
-            INSERT INTO user_reservation (email, password, user_type, sbu, branch)
+            INSERT INTO user_reservation (email, password, user_type, business_unit, branch)
             VALUES ($1, $2, $3, $4, $5)
             RETURNING *;
         `;
