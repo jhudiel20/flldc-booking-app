@@ -1,6 +1,5 @@
 // External Libraries
 import Swal from "https://cdn.jsdelivr.net/npm/sweetalert2@11";
-import AOS from "https://unpkg.com/aos@next/dist/aos.js";
 
 // Local Scripts
 import "../js/sec-min.js";
