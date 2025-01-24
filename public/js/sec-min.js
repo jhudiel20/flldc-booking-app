@@ -248,13 +248,23 @@ Promise.all([
                             <label for="email" class="form-label">Email</label>
                             <input type="email" id="email" class="form-control mb-3" required>
                         </div>
-                        <div>
-                            <label for="newPassword" class="form-label">Password</label>
-                            <input type="password" id="newPassword" class="form-control mb-3" required>
+                       <div class="mb-3">
+                          <label for="password" class="form-label">Password</label>
+                          <div class="input-group">
+                            <input type="password" class="form-control" id="newPassword" placeholder="Enter your password" required>
+                            <button class="btn btn-outline-secondary toggle-password" type="button" data-target="password">
+                              <i class="fas fa-eye"></i>
+                            </button>
+                          </div>
                         </div>
-                        <div>
-                            <label for="confirmPassword" class="form-label">Confirm Password</label>
-                            <input type="password" id="confirmPassword" class="form-control mb-3" required>
+                        <div class="mb-3">
+                          <label for="confirm-password" class="form-label">Confirm Password</label>
+                          <div class="input-group">
+                            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password" required>
+                            <button class="btn btn-outline-secondary toggle-password" type="button" data-target="confirm-password">
+                              <i class="fas fa-eye"></i>
+                            </button>
+                          </div>
                         </div>
                         <div>
                             <label for="usertype" class="form-label">User Type</label>
@@ -364,7 +374,7 @@ async function registerUser(email, password, userType, sbu, branch) {
           branch: userType === 'FAST Employee' ? branch : '',
       });
 
-      const response = await fetch(`/api/register?${queryParams.toString()}`);
+      const response = await fetch(`/api/register.js?${queryParams.toString()}`);
 
       if (!response.ok) {
           const errorText = await response.text();
@@ -400,6 +410,24 @@ async function registerUser(email, password, userType, sbu, branch) {
       return false;
   }
 }
+
+
+document.querySelectorAll('.toggle-password').forEach(button => {
+  button.addEventListener('click', function () {
+    const targetInput = document.getElementById(this.dataset.target);
+    const icon = this.querySelector('i');
+
+    if (targetInput.type === 'password') {
+      targetInput.type = 'text';
+      icon.classList.remove('fa-eye');
+      icon.classList.add('fa-eye-slash');
+    } else {
+      targetInput.type = 'password';
+      icon.classList.remove('fa-eye-slash');
+      icon.classList.add('fa-eye');
+    }
+  });
+});
 
 
 
