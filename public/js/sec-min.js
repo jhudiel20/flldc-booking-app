@@ -348,26 +348,26 @@ Promise.all([
                           });
                       
                           const rawResponse = await response.text(); // Get the raw response as text
-                            console.log('Raw response:', rawResponse); // Log it to check
-
-                            let result;
-                            try {
-                                // Attempt to parse JSON only if it's valid JSON
-                                result = JSON.parse(rawResponse);
-                            } catch (jsonError) {
-                                // If parsing fails, handle the non-JSON response
-                                throw new Error('Invalid JSON response from server: ' + rawResponse);
-                            }
-
-                            if (response.ok && result.success) {
-                                Swal.fire('Success!', 'Your account has been created.', 'success');
-                            } else {
-                                Swal.fire('Error!', result.message || 'Registration failed. Try again.', 'error');
-                            }
-                        } catch (error) {
-                            console.error('Error during registration:', error); // Log the error for debugging
-                            Swal.fire('Error!', error.message || 'An unexpected error occurred.', 'error');
-                        }
+                          console.log('Raw response:', rawResponse); // Log it to check
+                      
+                          let result;
+                          try {
+                              // Attempt to parse JSON only if it's valid JSON
+                              result = JSON.parse(rawResponse);
+                          } catch (jsonError) {
+                              // If parsing fails, handle the non-JSON response
+                              throw new Error('Invalid JSON response from server: ' + rawResponse);
+                          }
+                      
+                          if (response.ok && result.success) {
+                              alert('Success! Your account has been created.');
+                          } else {
+                              alert('Error! ' + (result.message || 'Registration failed. Try again.'));
+                          }
+                      } catch (error) {
+                          console.error('Error during registration:', error); // Log the error for debugging
+                          alert('Error! ' + (error.message || 'An unexpected error occurred.'));
+                      }
                       
                        
                       

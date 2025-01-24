@@ -42,7 +42,7 @@ module.exports = async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, 10);
 
         const query = `
-            INSERT INTO user_reservation (email, password, user_type, fname, lname, sbu, branch)
+            INSERT INTO user_reservation (email, password, user_type, fname, lname, business_unit, branch)
             VALUES ($1, $2, $3, $4, $5, $6, $7)
             RETURNING *;
         `;
@@ -63,12 +63,14 @@ module.exports = async (req, res) => {
             return res.status(500).json({ error: 'Failed to create user.' });
         }
 
-        return res.status(201).json({
+        // Instead of sending JSON, we send the success message and the user data in a simpler response
+        res.status(201).json({
             success: true,
             user: result.rows[0],
         });
     } catch (error) {
         console.error('Error during registration:', error);
+        // Respond with an error message
         res.status(500).json({ error: `Server error: ${error.message}` });
     }
 };
