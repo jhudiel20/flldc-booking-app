@@ -1,10 +1,9 @@
 const { Pool } = require("pg");
-const bcrypt = require("bcryptjs"); // To hash the password before storing
-
-// Create a new pool instance for PostgreSQL database connection
 const pool = new Pool({
-    connectionString: process.env.POSTGRES_URL,
+  connectionString: process.env.POSTGRES_URL,
 });
+
+const bcrypt = require("bcryptjs"); // To hash the password before storing
 
 module.exports = async (req, res) => {
     // Only accept POST requests (Registration typically uses POST)
@@ -46,8 +45,7 @@ module.exports = async (req, res) => {
         // Insert the new user into the database
         const query = `
             INSERT INTO user_reservation (email, password, user_type, sbu, branch)
-            VALUES ($1, $2, $3, $4, $5)
-            RETURNING email, user_type;
+            VALUES ($1, $2, $3, $4, $5);
         `;
         const values = [email, hashedPassword, userType, sbu || null, branch || null];
         const result = await pool.query(query, values);
