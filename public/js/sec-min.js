@@ -295,6 +295,8 @@ Promise.all([
                     buttonsStyling: false
                 }).then(async (result) => {
                     if (result.isConfirmed) {
+                        const fname = document.getElementById('fname').value.trim();
+                        const lname = document.getElementById('lname').value.trim();
                         const email = document.getElementById('email').value.trim();
                         const newPassword = document.getElementById('newPassword').value.trim();
                         const confirmPassword = document.getElementById('confirmPassword').value.trim();
@@ -336,7 +338,6 @@ Promise.all([
                               },
                               body: JSON.stringify({
                                   fname,  
-                                  mname,  
                                   lname,
                                   email,
                                   password: newPassword,  // Make sure this matches the backend (password not newPassword)

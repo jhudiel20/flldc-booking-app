@@ -10,7 +10,7 @@ module.exports = async (req, res) => {
         return res.status(405).json({ error: 'Method not allowed. Use POST.' });
     }
 
-    const { email, password, userType, sbu, branch, fname, mname, lname } = req.body;
+    const { email, password, userType, sbu, branch, fname, lname } = req.body;
 
     if (!email || !password || !userType || !fname || !lname) {
         return res.status(400).json({ error: 'Missing required fields: email, password, userType, fname, and lname are required.' });
@@ -42,8 +42,8 @@ module.exports = async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, 10);
 
         const query = `
-            INSERT INTO user_reservation (email, password, user_type, fname, mname, lname, sbu, branch)
-            VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+            INSERT INTO user_reservation (email, password, user_type, fname, lname, sbu, branch)
+            VALUES ($1, $2, $3, $4, $5, $6, $7)
             RETURNING *;
         `;
         const values = [
@@ -51,7 +51,6 @@ module.exports = async (req, res) => {
             hashedPassword, 
             userType, 
             fname, 
-            mname || null, // Middle name is optional
             lname, 
             userType === 'FAST Employee' ? sbu : null, 
             userType === 'FAST Employee' ? branch : null
