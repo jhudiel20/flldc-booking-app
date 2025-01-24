@@ -236,38 +236,54 @@ Promise.all([
                   title: 'Register',
                   html: `
                       <div>
-                          <label for="newUsername" class="form-label">Username</label>
-                          <input type="text" id="newUsername" class="form-control mb-3" placeholder="Enter a username" required>
+                          <label for="fname" class="form-label">First Name</label>
+                          <input type="text" id="fname" class="form-control mb-3" required>
                       </div>
-                      <div>
-                          <label for="newPassword" class="form-label">Password</label>
-                          <input type="password" id="newPassword" class="form-control" placeholder="Enter a password" required>
+                      <div class="mt-3">
+                          <label for="mname" class="form-label">Middle Name</label>
+                          <input type="text" id="mname" class="form-control mb-3" required>
                       </div>
-                      <div>
-                          <label for="confirmPassword" class="form-label mt-3">Confirm Password</label>
-                          <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm your password" required>
-                      </div>
-                      <div>
-                          <label for="usertype" class="form-label">User Type</label>
-                          <select id="usertype" class="form-control" required>
-                            <option value="FAST Employee">FAST Employee</option>
-                            <option value="Non-FAST Employee">Non-FAST Employee</option>
-                          </select>
-                      </div>
-                      <div id="SBUContainer" style="display: none;">
-                          <label for="SBU" class="form-label mt-3">SBU</label>
-                          <select id="SBU" class="form-control">
-                              <option value="FSC">FSC</option>
-                              <option value="FLC">FLC</option>
-                          </select>
-                          <label for="branch" class="form-label mt-3">Branch</label>
-                          <select id="branchSelect" class="form-control">
-                              <option value="">Select Branch</option>
-                          </select>
+                       <div class="mt-3">
+                          <label for="lname" class="form-label">Last Name</label>
+                          <input type="text" id="lname" class="form-control mb-3" required>
                       </div>
                       <div class="mt-3">
                           <label for="email" class="form-label">Email</label>
                           <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                      </div>
+                      <div class="mt-3">
+                          <label for="newPassword" class="form-label">Password</label>
+                          <input type="password" id="newPassword" class="form-control" placeholder="Enter a password" required>
+                      </div>
+                      <div class="mt-3">
+                          <label for="confirmPassword" class="form-label">Confirm Password</label>
+                          <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm your password" required>
+                      </div>
+                      <div class="mt-3">
+                          <label for="usertype" class="form-label">User Type</label>
+                          <select id="usertype" class="form-control" required>
+                            <option value="Non-FAST Employee">Non-FAST Employee</option>
+                            <option value="FAST Employee">FAST Employee</option>
+                          </select>
+                      </div>
+                      <div id="SBUContainer" style="display: none;">
+                        <div class="mt-3">
+                          <label for="SBU" class="form-label mt-3">SBU</label>
+                          <select id="SBU" class="form-control">
+                              <option value="FSC">FSC</option>
+                              <option value="FLC">FLC</option>
+                              <option value="FTMC">FTMC</option>
+                              <option value="FCSI">FCSI</option>
+                              <option value="FDC">FDC</option>
+                              <option value="FUI">FUI</option>
+                          </select>
+                        </div>
+                        <div class="mt-3">
+                            <label for="branch" class="form-label mt-3">Branch</label>
+                            <select id="branchSelect" class="form-control">
+                                <option value="">Select Branch</option>
+                            </select>
+                        </div>
                       </div>
                   `,
                   icon: 'info',
