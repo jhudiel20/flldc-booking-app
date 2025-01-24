@@ -255,11 +255,12 @@ Promise.all([
                           </select>
                         </div>
                         <div id="SBUContainer" style="display: none;">
-                          <label for="SBU" class="form-label">Branch</label>
+                          <label for="SBU" class="form-label">SBU</label>
                           <select id="SBU" class="form-control">
                             <option value="FSC">FSC</option>
                             <option value="FLC">FLC</option>
                           </select>
+                          <label for="branch" class="form-label">Branch</label>
                           <select id="branchSelect" class="form-control">
                             <option value="">Select Branch</option>
                           </select>
