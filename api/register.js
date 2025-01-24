@@ -12,10 +12,10 @@ module.exports = async (req, res) => {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { password, email, userType, sbu, branch } = req.body;
+  const { email, password, userType, sbu, branch } = req.body;
 
   // Validate input data
-  if ( !password || !email || !userType) {
+  if (!email || !password || !userType) {
     return res.status(400).json({ error: 'Missing required fields' });
   }
 
@@ -25,29 +25,38 @@ module.exports = async (req, res) => {
     return res.status(400).json({ error: 'Invalid email format' });
   }
 
-  // Validate required fields based on userType
-  if (userType === 'FAST Employee') {
-    if (!sbu || !branch) {
-      return res.status(400).json({ error: 'SBU and Branch are required for FAST Employees' });
-    }
-  } else if (userType === 'Non-FAST Employee') {
-    // SBU and Branch are not required for Non-FAST Employee
-    // You can optionally handle any other validation for Non-FAST Employee here
-  } else {
-    return res.status(400).json({ error: 'Invalid user type' });
-  }
-
+  // Check if email already exists in the database
   try {
+    const emailCheckQuery = 'SELECT * FROM user_reservation WHERE email = $1';
+    const emailCheckResult = await pool.query(emailCheckQuery, [email]);
+
+    if (emailCheckResult.rows.length > 0) {
+      return res.status(400).json({ error: 'Email already exists' });
+    }
+
+    // Validate required fields based on userType
+    if (userType === 'FAST Employee') {
+      if (!sbu || !branch) {
+        return res.status(400).json({ error: 'SBU and Branch are required for FAST Employees' });
+      }
+    } else if (userType === 'Non-FAST Employee') {
+      // SBU and Branch are not required for Non-FAST Employee
+      // You can optionally handle any other validation for Non-FAST Employee here
+    } else {
+      return res.status(400).json({ error: 'Invalid user type' });
+    }
+
     // Hash the password before saving it to the database
     const hashedPassword = await bcrypt.hash(password, 10);
 
     // Query to insert the new user into the database
     const query = `
-      INSERT INTO user_reservation (password, email, user_type, sbu, branch)
-      VALUES ($1, $2, $3, $4, $5, $6) ;
+      INSERT INTO user_reservation (email, password, user_type, sbu, branch)
+      VALUES ($1, $2, $3, $4, $5)
+      RETURNING id, email;
     `;
     
-    const values = [ hashedPassword, email, userType, sbu || null, branch || null];
+    const values = [email, hashedPassword, userType, sbu || null, branch || null];
     
     const result = await pool.query(query, values);
 
