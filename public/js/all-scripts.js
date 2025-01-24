@@ -1,5 +1,5 @@
 // External Libraries
-import Swal from "https://cdn.jsdelivr.net/npm/sweetalert2@11";
+import { Swal } from "https://cdn.jsdelivr.net/npm/sweetalert2@11";
 
 // Local Scripts
 import "../js/sec-min.js";
