@@ -331,7 +331,7 @@ Promise.all([
               const userTypeSelect = document.getElementById('usertype');
               const sbuContainer = document.getElementById('SBUContainer');
               userTypeSelect.addEventListener('change', function () {
-                  if (userTypeSelect.value === 'FAST Employee') {
+                  if (userTypeSelect.value === 'Non-FAST Employee') {
                       sbuContainer.style.display = 'block';
                   } else {
                       sbuContainer.style.display = 'none';
