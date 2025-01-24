@@ -179,9 +179,174 @@ Promise.all([
   }
 
 
+  includeHTML('header', 'header').then(() => {
+    const loginModal = document.getElementById('LoginModal');
+    if (loginModal) {
+        loginModal.addEventListener('click', function () {
+            Swal.fire({
+                title: 'Sign In',
+                html: `
+                    <div>
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" id="username" class="form-control mb-3" placeholder="Enter your username">
+                    </div>
+                    <div>
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" id="password" class="form-control" placeholder="Enter your password">
+                    </div>
+                    <div class="mt-3">
+                        <button id="registerLink" class="btn btn-link p-0">Don't have an account? Register here</button>
+                    </div>
+                `,
+                icon: 'info',
+                showCancelButton: true,
+                confirmButtonText: 'Login',
+                cancelButtonText: 'Cancel',
+                customClass: {
+                    confirmButton: 'btn btn-primary me-3',
+                    cancelButton: 'btn btn-secondary',
+                    buttons: 'custom-buttons'
+                },
+                buttonsStyling: false
+            }).then(async (result) => {
+                if (result.isConfirmed) {
+                    const username = document.getElementById('username').value;
+                    const password = document.getElementById('password').value;
+
+                    if (username && password) {
+                        try {
+                            const success = await loginUser(username, password);
+                            if (success) {
+                                Swal.fire('Success!', 'You are now logged in.', 'success');
+                            } else {
+                                Swal.fire('Failed!', 'Invalid username or password.', 'error');
+                            }
+                        } catch (error) {
+                            Swal.fire('Error!', 'An error occurred during login. Please try again later.', 'error');
+                        }
+                    } else {
+                        Swal.fire('Error!', 'Please fill in all fields.', 'error');
+                    }
+                }
+            });
+
+            // Handle Registration Link Click
+            document.getElementById('registerLink').addEventListener('click', function () {
+              Swal.fire({
+                  title: 'Register',
+                  html: `
+                      <div>
+                          <label for="newUsername" class="form-label">Username</label>
+                          <input type="text" id="newUsername" class="form-control mb-3" placeholder="Enter a username" required>
+                      </div>
+                      <div>
+                          <label for="newPassword" class="form-label">Password</label>
+                          <input type="password" id="newPassword" class="form-control" placeholder="Enter a password" required>
+                      </div>
+                      <div>
+                          <label for="confirmPassword" class="form-label mt-3">Confirm Password</label>
+                          <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm your password" required>
+                      </div>
+                      <div>
+                          <label for="usertype" class="form-label">User Type</label>
+                          <select id="usertype" class="form-control" required>
+                              <option value="Non-FAST Employee">Non-FAST Employee</option>
+                              <option value="FAST Employee">FAST Employee</option>
+                          </select>
+                      </div>
+                      <div id="SBUContainer" style="display: none;">
+                          <label for="SBU" class="form-label mt-3">SBU</label>
+                          <select id="SBU" class="form-control">
+                              <option value="FSC">FSC</option>
+                              <option value="FLC">FLC</option>
+                          </select>
+                          <label for="branch" class="form-label mt-3">Branch</label>
+                          <select id="branchSelect" class="form-control">
+                              <option value="">Select Branch</option>
+                          </select>
+                      </div>
+                      <div class="mt-3">
+                          <label for="email" class="form-label">Email</label>
+                          <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                      </div>
+                  `,
+                  icon: 'info',
+                  showCancelButton: true,
+                  confirmButtonText: 'Register',
+                  cancelButtonText: 'Cancel',
+                  customClass: {
+                      confirmButton: 'btn btn-primary me-3',
+                      cancelButton: 'btn btn-secondary',
+                      buttons: 'custom-buttons',
+                  },
+                  buttonsStyling: false,
+              }).then(async (result) => {
+                  if (result.isConfirmed) {
+                      const newUsername = document.getElementById('newUsername').value.trim();
+                      const newPassword = document.getElementById('newPassword').value.trim();
+                      const confirmPassword = document.getElementById('confirmPassword').value.trim();
+                      const email = document.getElementById('email').value.trim();
+                      const userType = document.getElementById('usertype').value;
+                      const sbu = userType === 'FAST Employee' ? document.getElementById('SBU').value : '';
+                      const branch = userType === 'FAST Employee' ? document.getElementById('branchSelect').value : '';
+          
+                      if (!newUsername || !newPassword || !confirmPassword || !email) {
+                          Swal.fire('Error!', 'Please fill in all required fields.', 'error');
+                          return;
+                      }
+          
+                      if (newPassword !== confirmPassword) {
+                          Swal.fire('Error!', 'Passwords do not match.', 'error');
+                          return;
+                      }
+          
+                      if (userType === 'FAST Employee' && (!sbu || !branch)) {
+                          Swal.fire('Error!', 'SBU and Branch are required for FAST Employees.', 'error');
+                          return;
+                      }
+          
+                      try {
+                          const success = await registerUser(newUsername, newPassword, email, userType, sbu, branch);
+                          if (success) {
+                              Swal.fire('Success!', 'Your account has been created. You can now log in.', 'success');
+                          } else {
+                              Swal.fire('Failed!', 'An error occurred during registration. Please try again later.', 'error');
+                          }
+                      } catch (error) {
+                          Swal.fire('Error!', 'An error occurred during registration. Please try again later.', 'error');
+                      }
+                  }
+              });
+          
+              // Populate branches dynamically
+              const select = document.getElementById('branchSelect');
+              branches.forEach((branch) => {
+                  const option = document.createElement('option');
+                  option.value = branch;
+                  option.textContent = branch;
+                  select.appendChild(option);
+              });
+          
+              // Toggle SBU visibility based on user type selection
+              const userTypeSelect = document.getElementById('usertype');
+              const sbuContainer = document.getElementById('SBUContainer');
+              userTypeSelect.addEventListener('change', function () {
+                  if (userTypeSelect.value === 'FAST Employee') {
+                      sbuContainer.style.display = 'block';
+                  } else {
+                      sbuContainer.style.display = 'none';
+                  }
+              });
+          });
+        });
+    } else {
+        console.error("Element with ID 'LoginModal' not found.");
+    }
+});
+
   async function registerUser(username, password, email, userType, sbu, branch) {
     try {
-        const response = await fetch('/register', {
+        const response = await fetch('api/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -197,113 +362,7 @@ Promise.all([
     }
 }
 
-document.getElementById('registerLink').addEventListener('click', function () {
-    Swal.fire({
-        title: 'Register',
-        html: `
-            <div>
-                <label for="newUsername" class="form-label">Username</label>
-                <input type="text" id="newUsername" class="form-control mb-3" placeholder="Enter a username" required>
-            </div>
-            <div>
-                <label for="newPassword" class="form-label">Password</label>
-                <input type="password" id="newPassword" class="form-control" placeholder="Enter a password" required>
-            </div>
-            <div>
-                <label for="confirmPassword" class="form-label mt-3">Confirm Password</label>
-                <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm your password" required>
-            </div>
-            <div>
-                <label for="usertype" class="form-label">User Type</label>
-                <select id="usertype" class="form-control" required>
-                    <option value="Non-FAST Employee">Non-FAST Employee</option>
-                    <option value="FAST Employee">FAST Employee</option>
-                </select>
-            </div>
-            <div id="SBUContainer" style="display: none;">
-                <label for="SBU" class="form-label mt-3">SBU</label>
-                <select id="SBU" class="form-control">
-                    <option value="FSC">FSC</option>
-                    <option value="FLC">FLC</option>
-                </select>
-                <label for="branch" class="form-label mt-3">Branch</label>
-                <select id="branchSelect" class="form-control">
-                    <option value="">Select Branch</option>
-                </select>
-            </div>
-            <div class="mt-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
-            </div>
-        `,
-        icon: 'info',
-        showCancelButton: true,
-        confirmButtonText: 'Register',
-        cancelButtonText: 'Cancel',
-        customClass: {
-            confirmButton: 'btn btn-primary me-3',
-            cancelButton: 'btn btn-secondary',
-            buttons: 'custom-buttons',
-        },
-        buttonsStyling: false,
-    }).then(async (result) => {
-        if (result.isConfirmed) {
-            const newUsername = document.getElementById('newUsername').value.trim();
-            const newPassword = document.getElementById('newPassword').value.trim();
-            const confirmPassword = document.getElementById('confirmPassword').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const userType = document.getElementById('usertype').value;
-            const sbu = userType === 'FAST Employee' ? document.getElementById('SBU').value : '';
-            const branch = userType === 'FAST Employee' ? document.getElementById('branchSelect').value : '';
 
-            if (!newUsername || !newPassword || !confirmPassword || !email) {
-                Swal.fire('Error!', 'Please fill in all required fields.', 'error');
-                return;
-            }
-
-            if (newPassword !== confirmPassword) {
-                Swal.fire('Error!', 'Passwords do not match.', 'error');
-                return;
-            }
-
-            if (userType === 'FAST Employee' && (!sbu || !branch)) {
-                Swal.fire('Error!', 'SBU and Branch are required for FAST Employees.', 'error');
-                return;
-            }
-
-            try {
-                const success = await registerUser(newUsername, newPassword, email, userType, sbu, branch);
-                if (success) {
-                    Swal.fire('Success!', 'Your account has been created. You can now log in.', 'success');
-                } else {
-                    Swal.fire('Failed!', 'An error occurred during registration. Please try again later.', 'error');
-                }
-            } catch (error) {
-                Swal.fire('Error!', 'An error occurred during registration. Please try again later.', 'error');
-            }
-        }
-    });
-
-    // Populate branches dynamically
-    const select = document.getElementById('branchSelect');
-    branches.forEach((branch) => {
-        const option = document.createElement('option');
-        option.value = branch;
-        option.textContent = branch;
-        select.appendChild(option);
-    });
-
-    // Toggle SBU visibility based on user type selection
-    const userTypeSelect = document.getElementById('usertype');
-    const sbuContainer = document.getElementById('SBUContainer');
-    userTypeSelect.addEventListener('change', function () {
-        if (userTypeSelect.value === 'FAST Employee') {
-            sbuContainer.style.display = 'block';
-        } else {
-            sbuContainer.style.display = 'none';
-        }
-    });
-});
 
 
 
