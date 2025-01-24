@@ -115,7 +115,7 @@ Promise.all([
     if (loginModal) {
         loginModal.addEventListener('click', function () {
             Swal.fire({
-                title: 'Login',
+                title: 'Sign In',
                 html: `
                     <div>
                         <label for="username" class="form-label">Username</label>
@@ -177,6 +177,7 @@ Promise.all([
                             <label for="confirmPassword" class="form-label">Confirm Password</label>
                             <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm your password">
                         </div>
+                        <div class="mt-3">
                     `,
                     icon: 'info',
                     showCancelButton: true,
@@ -219,6 +220,30 @@ Promise.all([
         console.error("Element with ID 'LoginModal' not found.");
     }
 });
+
+
+// async function registerUser(username, password) {
+//   try {
+//       const response = await fetch('/register', { // Adjust the endpoint to your actual registration route
+//           method: 'POST',
+//           headers: {
+//               'Content-Type': 'application/json',
+//           },
+//           body: JSON.stringify({ username, password }),
+//       });
+
+//       const data = await response.json();
+//       if (data.success) {
+//           return true;
+//       } else {
+//           return false;
+//       }
+//   } catch (error) {
+//       console.error('Registration failed', error);
+//       return false;
+//   }
+// }
+
 
 
   

@@ -1,3 +1,18 @@
+/* Custom class to add spacing between SweetAlert2 buttons */
+.custom-buttons .swal2-confirm,
+.custom-buttons .swal2-cancel {
+    margin-right: 10px; /* Adjust the spacing as needed */
+}
+
+.custom-buttons .swal2-confirm {
+    margin-left: 0; /* Optional: remove any extra margin */
+}
+
+.custom-buttons .swal2-cancel {
+    margin-left: 0; /* Optional: remove any extra margin */
+}
+
+
 @media (min-width: 769px) {
   a.nav-link.dropdown-toggle:active {
     color: #e3d7d79e !important; /* Change color only on larger screens when active */
