@@ -76,8 +76,16 @@
                     </div>
                     <div class="col-md-1"></div>
                     <div class="col-md-6">
-                      <h2 class="mb-5 mt-0"><a href="#">Reservation Details:</a> <span id="reserve_status"></span></h2>
+
                       <form action="#" method="post" id="bookingForm">
+                      <div class="row">
+                          <div class="col-md-6 form-group">
+                              <button class="btn btn-danger" id="cancelButton" >Cancel Reservation/Booking</button>
+                              <!-- <button id="cancelButton" value="Cancel Reservation or Booking" class="btn btn-danger" onclick="cancelReservation()" style="display:none;"> -->
+                              <p id="cancelMessage" style="display:none; color: red;">Reservations can be cancelled at least 5 days prior to the reserved date.</p>
+                          </div>
+                      </div>
+                      <h2 class="mb-5 mt-0"><a href="#">Reservation Details:</a> <span id="reserve_status"></span></h2>
           
                         <div class="row">
                           <div class="col-md-6">
@@ -144,13 +152,7 @@
                           </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-md-6 form-group">
-                                <button class="btn btn-danger" id="cancelButton" >Cancel Reservation/Booking</button>
-                                <!-- <button id="cancelButton" value="Cancel Reservation or Booking" class="btn btn-danger" onclick="cancelReservation()" style="display:none;"> -->
-                                <p id="cancelMessage" style="display:none; color: red;">Reservation cannot be cancelled as it is less than 1 day away.</p>
-                            </div>
-                        </div>
+                        
                       </form>
                     </div>
                   </div>
