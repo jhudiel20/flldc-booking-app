@@ -178,7 +178,28 @@ Promise.all([
                             <label for="confirmPassword" class="form-label">Confirm Password</label>
                             <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm your password">
                         </div>
+                        <div>
+                          <label for="usertype" class="form-label">User Type</label>
+                          <select id="usertype" class="form-control">
+                            <option value="admin">User</option>
+                            <option value="user">FAST Employee</option>
+                          </select>
+                        </div>
+                        <div id="SBUContainer" style="display: none;">
+                          <label for="SBU" class="form-label">Branch</label>
+                          <select id="SBU" class="form-control">
+                            <option value="FSC">FSC</option>
+                            <option value="FLC">FLC</option>
+                          </select>
+                        </div>
                         <div class="mt-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" class="form-control" placeholder="Enter your email">
+                        </div>
+                       
+                        <div class="mt-3">
+                            <button id="loginLink" class="btn btn-link p-0">Already have an account? Login here</button>
+                        </div>
                     `,
                     icon: 'info',
                     showCancelButton: true,
@@ -216,12 +237,24 @@ Promise.all([
                         }
                     }
                 });
+
+                // Toggle SBU visibility based on user type selection
+                const userTypeSelect = document.getElementById('usertype');
+                userTypeSelect.addEventListener('change', function () {
+                    const sbuContainer = document.getElementById('SBUContainer');
+                    if (userTypeSelect.value === 'user') {
+                        sbuContainer.style.display = 'block'; // Show SBU
+                    } else {
+                        sbuContainer.style.display = 'none'; // Hide SBU
+                    }
+                });
             });
         });
     } else {
         console.error("Element with ID 'LoginModal' not found.");
     }
 });
+
 
 
 // async function registerUser(username, password) {
