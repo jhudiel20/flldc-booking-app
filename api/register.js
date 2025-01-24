@@ -1,5 +1,5 @@
-const { Pool } = require('pg');
-const bcrypt = require('bcryptjs'); // To hash the password before storing
+const { Pool } = require("pg");
+const bcrypt = require("bcryptjs"); // To hash the password before storing
 
 // Create a new pool instance for PostgreSQL database connection
 const pool = new Pool({
