@@ -125,6 +125,9 @@ Promise.all([
                         <label for="password" class="form-label">Password</label>
                         <input type="password" id="password" class="form-control" placeholder="Enter your password">
                     </div>
+                    <div class="mt-3">
+                        <button id="registerLink" class="btn btn-link p-0">Don't have an account? Register here</button>
+                    </div>
                 `,
                 icon: 'info',
                 showCancelButton: true,
@@ -156,11 +159,67 @@ Promise.all([
                     }
                 }
             });
+
+            // Handle Registration Link Click
+            document.getElementById('registerLink').addEventListener('click', function () {
+                Swal.fire({
+                    title: 'Register',
+                    html: `
+                        <div>
+                            <label for="newUsername" class="form-label">Username</label>
+                            <input type="text" id="newUsername" class="form-control mb-3" placeholder="Enter a username">
+                        </div>
+                        <div>
+                            <label for="newPassword" class="form-label">Password</label>
+                            <input type="password" id="newPassword" class="form-control" placeholder="Enter a password">
+                        </div>
+                        <div>
+                            <label for="confirmPassword" class="form-label">Confirm Password</label>
+                            <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm your password">
+                        </div>
+                    `,
+                    icon: 'info',
+                    showCancelButton: true,
+                    confirmButtonText: 'Register',
+                    cancelButtonText: 'Cancel',
+                    customClass: {
+                        confirmButton: 'btn btn-primary me-3',
+                        cancelButton: 'btn btn-secondary'
+                    },
+                    buttonsStyling: false
+                }).then(async (result) => {
+                    if (result.isConfirmed) {
+                        const newUsername = document.getElementById('newUsername').value;
+                        const newPassword = document.getElementById('newPassword').value;
+                        const confirmPassword = document.getElementById('confirmPassword').value;
+
+                        if (newUsername && newPassword && confirmPassword) {
+                            if (newPassword === confirmPassword) {
+                                try {
+                                    const success = await registerUser(newUsername, newPassword);
+                                    if (success) {
+                                        Swal.fire('Success!', 'Your account has been created. You can now log in.', 'success');
+                                    } else {
+                                        Swal.fire('Failed!', 'An error occurred during registration. Please try again later.', 'error');
+                                    }
+                                } catch (error) {
+                                    Swal.fire('Error!', 'An error occurred during registration. Please try again later.', 'error');
+                                }
+                            } else {
+                                Swal.fire('Error!', 'Passwords do not match.', 'error');
+                            }
+                        } else {
+                            Swal.fire('Error!', 'Please fill in all fields.', 'error');
+                        }
+                    }
+                });
+            });
         });
     } else {
         console.error("Element with ID 'LoginModal' not found.");
     }
 });
+
 
   
 
