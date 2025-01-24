@@ -352,9 +352,11 @@ Promise.all([
 
                             let result;
                             try {
-                                result = JSON.parse(rawResponse); // Attempt to parse the response
+                                // Attempt to parse JSON only if it's valid JSON
+                                result = JSON.parse(rawResponse);
                             } catch (jsonError) {
-                                throw new Error('Invalid JSON response from server: ' + jsonError.message);
+                                // If parsing fails, handle the non-JSON response
+                                throw new Error('Invalid JSON response from server: ' + rawResponse);
                             }
 
                             if (response.ok && result.success) {
@@ -364,6 +366,7 @@ Promise.all([
                             }
                         } catch (error) {
                             console.error('Error during registration:', error); // Log the error for debugging
+                            Swal.fire('Error!', error.message || 'An unexpected error occurred.', 'error');
                         }
                       
                        
