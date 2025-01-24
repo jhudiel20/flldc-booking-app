@@ -359,14 +359,14 @@ Promise.all([
     }
 });
 
-  async function registerUser(username, password, email, userType, sbu, branch) {
+  async function registerUser(password, email, userType, sbu, branch) {
     try {
         const response = await fetch('api/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ username, password, email, userType, sbu, branch }),
+            body: JSON.stringify({ password, email, userType, sbu, branch }),
         });
 
         const data = await response.json();

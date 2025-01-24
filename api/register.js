@@ -12,10 +12,10 @@ module.exports = async (req, res) => {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { username, password, email, userType, sbu, branch } = req.body;
+  const { password, email, userType, sbu, branch } = req.body;
 
   // Validate input data
-  if (!username || !password || !email || !userType) {
+  if ( !password || !email || !userType) {
     return res.status(400).json({ error: 'Missing required fields' });
   }
 
@@ -43,12 +43,11 @@ module.exports = async (req, res) => {
 
     // Query to insert the new user into the database
     const query = `
-      INSERT INTO user_reservation (username, password, email, user_type, sbu, branch)
-      VALUES ($1, $2, $3, $4, $5, $6)
-      RETURNING id, username;
+      INSERT INTO user_reservation (password, email, user_type, sbu, branch)
+      VALUES ($1, $2, $3, $4, $5, $6) ;
     `;
     
-    const values = [username, hashedPassword, email, userType, sbu || null, branch || null];
+    const values = [ hashedPassword, email, userType, sbu || null, branch || null];
     
     const result = await pool.query(query, values);
 
