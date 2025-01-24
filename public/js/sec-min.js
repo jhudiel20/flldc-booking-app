@@ -298,7 +298,6 @@ Promise.all([
                   buttonsStyling: false,
               }).then(async (result) => {
                   if (result.isConfirmed) {
-                      const newUsername = document.getElementById('newUsername').value.trim();
                       const newPassword = document.getElementById('newPassword').value.trim();
                       const confirmPassword = document.getElementById('confirmPassword').value.trim();
                       const email = document.getElementById('email').value.trim();
@@ -306,7 +305,7 @@ Promise.all([
                       const sbu = userType === 'FAST Employee' ? document.getElementById('SBU').value : '';
                       const branch = userType === 'FAST Employee' ? document.getElementById('branchSelect').value : '';
           
-                      if (!newUsername || !newPassword || !confirmPassword || !email) {
+                      if (!newPassword || !confirmPassword || !email) {
                           Swal.fire('Error!', 'Please fill in all required fields.', 'error');
                           return;
                       }
@@ -322,7 +321,7 @@ Promise.all([
                       }
           
                       try {
-                          const success = await registerUser(newUsername, newPassword, email, userType, sbu, branch);
+                          const success = await registerUser(newPassword, email, userType, sbu, branch);
                           if (success) {
                               Swal.fire('Success!', 'Your account has been created. You can now log in.', 'success');
                           } else {
