@@ -404,7 +404,8 @@ async function registerUser(email, newPassword, userType, sbu, branch) {
             });
             return false;
         }
-    } catch (error) {
+    } 
+    catch (error) {
         console.error('Error during registration:', error); // Log error for debugging
         Swal.fire({
             icon: 'error',

@@ -58,6 +58,6 @@ module.exports = async (req, res) => {
     } catch (error) {
         // Catch any errors and return a 500 status with the error message
         console.error('Error during registration:', error); // Log the error for debugging
-        return res.status(500).json({ error: 'An unexpected error occurred. Please try again later.' });
+        res.status(500).json({ error: `Server error: ${error.message}` });
     }
 };
