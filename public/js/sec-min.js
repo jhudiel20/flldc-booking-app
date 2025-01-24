@@ -248,23 +248,13 @@ Promise.all([
                             <label for="email" class="form-label">Email</label>
                             <input type="email" id="email" class="form-control mb-3" required>
                         </div>
-                       <div class="mb-3">
-                          <label for="password" class="form-label">Password</label>
-                          <div class="input-group">
-                            <input type="password" class="form-control" id="newPassword" placeholder="Enter your password" required>
-                            <button class="btn btn-outline-secondary toggle-password" type="button" data-target="password">
-                              <i class="fas fa-eye"></i>
-                            </button>
-                          </div>
+                        <div>
+                            <label for="newPassword" class="form-label">Password</label>
+                            <input type="password" id="newPassword" class="form-control mb-3" required>
                         </div>
-                        <div class="mb-3">
-                          <label for="confirm-password" class="form-label">Confirm Password</label>
-                          <div class="input-group">
-                            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password" required>
-                            <button class="btn btn-outline-secondary toggle-password" type="button" data-target="confirm-password">
-                              <i class="fas fa-eye"></i>
-                            </button>
-                          </div>
+                        <div>
+                            <label for="confirmPassword" class="form-label">Confirm Password</label>
+                            <input type="password" id="confirmPassword" class="form-control mb-3" required>
                         </div>
                         <div>
                             <label for="usertype" class="form-label">User Type</label>
@@ -330,12 +320,14 @@ Promise.all([
                         try {
                             const success = await registerUser(email, newPassword, userType, sbu, branch);
                             if (success) {
-                                Swal.fire('Success!', 'Your account has been created.', 'success');
+                              Swal.fire('Success!', 'Your account has been created.', 'success');
                             } else {
-                                Swal.fire('Error!', 'Registration failed. Try again.', 'error');
+                                // Display the actual error message if registration fails
+                                Swal.fire('Error!', success.message || 'Registration failed. Try again.', 'error');
                             }
                         } catch (error) {
-                            Swal.fire('Error!', 'An unexpected error occurred.', 'error');
+                            // If there is an unexpected error, show the error message
+                            Swal.fire('Error!', error.message || 'An unexpected error occurred.', 'error');
                         }
                     }
                 });
@@ -374,7 +366,7 @@ async function registerUser(email, password, userType, sbu, branch) {
           branch: userType === 'FAST Employee' ? branch : '',
       });
 
-      const response = await fetch(`/api/register.js?${queryParams.toString()}`);
+      const response = await fetch(`/api/register?${queryParams.toString()}`);
 
       if (!response.ok) {
           const errorText = await response.text();
