@@ -260,7 +260,7 @@ Promise.all([
                             <option value="FSC">FSC</option>
                             <option value="FLC">FLC</option>
                           </select>
-                          <select id="branchSelect">
+                          <select id="branchSelect" class="form-control">
                             <option value="">Select Branch</option>
                           </select>
                         </div>
