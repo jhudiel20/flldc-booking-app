@@ -1,57 +1,56 @@
 
-document.getElementById('login-modal').addEventListener('click', function () {
-  Swal.fire({
-      title: 'Login',
-      html: `
-          <div>
-              <label for="username" class="form-label">Username</label>
-              <input type="text" id="username" class="form-control mb-3" placeholder="Enter your username">
-          </div>
-          <div>
-              <label for="password" class="form-label">Password</label>
-              <input type="password" id="password" class="form-control" placeholder="Enter your password">
-          </div>
-      `,
-      icon: 'info',
-      showCancelButton: true,
-      confirmButtonText: 'Login',
-      cancelButtonText: 'Cancel',
-      customClass: {
-          confirmButton: 'btn btn-primary me-3', // Add spacing between buttons
-          cancelButton: 'btn btn-secondary'
-      },
-      buttonsStyling: false // Disable default SweetAlert2 button styles
-  }).then(async (result) => {
-      if (result.isConfirmed) {
-          const username = document.getElementById('username').value;
-          const password = document.getElementById('password').value;
+document.addEventListener('DOMContentLoaded', function () {
+  const loginModal = document.getElementById('login-modal');
+  if (loginModal) {
+      loginModal.addEventListener('click', function () {
+          Swal.fire({
+              title: 'Login',
+              html: `
+                  <div>
+                      <label for="username" class="form-label">Username</label>
+                      <input type="text" id="username" class="form-control mb-3" placeholder="Enter your username">
+                  </div>
+                  <div>
+                      <label for="password" class="form-label">Password</label>
+                      <input type="password" id="password" class="form-control" placeholder="Enter your password">
+                  </div>
+              `,
+              icon: 'info',
+              showCancelButton: true,
+              confirmButtonText: 'Login',
+              cancelButtonText: 'Cancel',
+              customClass: {
+                  confirmButton: 'btn btn-primary me-3',
+                  cancelButton: 'btn btn-secondary'
+              },
+              buttonsStyling: false
+          }).then(async (result) => {
+              if (result.isConfirmed) {
+                  const username = document.getElementById('username').value;
+                  const password = document.getElementById('password').value;
 
-          if (username && password) {
-              try {
-                  const success = await loginUser(username, password); // Call your login function
-                  if (success) {
-                      Swal.fire('Success!', 'You are now logged in.', 'success');
+                  if (username && password) {
+                      try {
+                          const success = await loginUser(username, password); // Replace with your logic
+                          if (success) {
+                              Swal.fire('Success!', 'You are now logged in.', 'success');
+                          } else {
+                              Swal.fire('Failed!', 'Invalid username or password.', 'error');
+                          }
+                      } catch (error) {
+                          Swal.fire('Error!', 'An error occurred during login. Please try again later.', 'error');
+                      }
                   } else {
-                      Swal.fire('Failed!', 'Invalid username or password.', 'error');
+                      Swal.fire('Error!', 'Please fill in all fields.', 'error');
                   }
-              } catch (error) {
-                  Swal.fire('Error!', 'An error occurred during login. Please try again later.', 'error');
               }
-          } else {
-              Swal.fire('Error!', 'Please fill in all fields.', 'error');
-          }
-      }
-  });
+          });
+      });
+  } else {
+      console.error("Element with ID 'login-modal' not found.");
+  }
 });
 
-// Example login function (replace with actual logic)
-async function loginUser(username, password) {
-  // Replace this with your login API or backend call
-  if (username === 'admin' && password === 'password') {
-      return true;
-  }
-  return false;
-}
 
 
 
