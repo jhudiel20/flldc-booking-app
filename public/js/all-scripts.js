@@ -1,6 +1,3 @@
-// External Libraries
-import { Swal } from "https://cdn.jsdelivr.net/npm/sweetalert2@11";
-
 // Local Scripts
 import "../js/sec-min.js";
 import "../sneat/assets/vendor/libs/swiper/swiper.js";
