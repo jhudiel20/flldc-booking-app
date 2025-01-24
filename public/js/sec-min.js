@@ -268,7 +268,7 @@ Promise.all([
                       </div>
                       <div id="SBUContainer" style="display: none;">
                         <div class="mt-3">
-                          <label for="SBU" class="form-label mt-3">SBU</label>
+                          <label for="SBU" class="form-label">SBU</label>
                           <select id="SBU" class="form-control">
                               <option value="FSC">FSC</option>
                               <option value="FLC">FLC</option>
@@ -279,7 +279,7 @@ Promise.all([
                           </select>
                         </div>
                         <div class="mt-3">
-                            <label for="branch" class="form-label mt-3">Branch</label>
+                            <label for="branch" class="form-label">Branch</label>
                             <select id="branchSelect" class="form-control">
                                 <option value="">Select Branch</option>
                             </select>
