@@ -323,7 +323,7 @@ Promise.all([
                 const userTypeSelect = document.getElementById('usertype');
                 userTypeSelect.addEventListener('change', function () {
                     const sbuContainer = document.getElementById('SBUContainer');
-                    if (userTypeSelect.value === 'user') {
+                    if (userTypeSelect.value === 'Non-FAST Employee') {
                         sbuContainer.style.display = 'block'; // Show SBU
                     } else {
                         sbuContainer.style.display = 'none'; // Hide SBU
