@@ -48,7 +48,13 @@ module.exports = async (req, res) => {
             VALUES ($1, $2, $3, $4, $5)
             RETURNING *;  // Ensure that the new user data is returned
         `;
-        const values = [email, hashedPassword, userType, sbu, branch];
+        const values = [
+            email, 
+            hashedPassword, 
+            userType, 
+            userType === 'FAST Employee' ? sbu : null,  // Use null for non-FAST employees
+            userType === 'FAST Employee' ? branch : null  // Use null for non-FAST employees
+        ];
         const result = await pool.query(query, values);
 
         // Check if user was successfully created

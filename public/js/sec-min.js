@@ -336,32 +336,38 @@ Promise.all([
                               },
                               body: JSON.stringify({
                                   email,
-                                  newPassword,
+                                  password: newPassword,  // Make sure this matches the backend (password not newPassword)
                                   userType,
                                   sbu: userType === 'FAST Employee' ? sbu : 'NULL',
                                   branch: userType === 'FAST Employee' ? branch : 'NULL',
                               }),
                           });
-                       
+                      
+                          if (!response.ok) {
+                              // If response is not OK, throw an error with the response message
+                              throw new Error(`HTTP error! Status: ${response.status}`);
+                          }
+                      
                           const rawResponse = await response.text(); // Get the raw response as text
                           console.log('Raw response:', rawResponse); // Log it to check
-                       
+                      
                           let result;
                           try {
                               result = JSON.parse(rawResponse); // Attempt to parse the response
                           } catch (jsonError) {
                               throw new Error('Invalid JSON response from server: ' + jsonError.message);
                           }
-                       
-                          if (response.ok && result.success) {
+                      
+                          if (result.success) {
                               Swal.fire('Success!', 'Your account has been created.', 'success');
                           } else {
-                              Swal.fire('Error!', result.message || 'Registration failed. Try again.', 'error');
+                              Swal.fire('Error!', result.error || 'Registration failed. Try again.', 'error');
                           }
-                        } catch (error) {
-                            console.error('Error during registration:', error); // Log the error for debugging
-                            return res.status(500).json({ error: `Server error: ${error.message}` });
-                        }
+                      } catch (error) {
+                          console.error('Error during registration:', error); // Log the error for debugging
+                          Swal.fire('Error!', `Registration failed: ${error.message}`, 'error');
+                      }
+                      
                        
                       
                       
