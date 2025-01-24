@@ -364,19 +364,19 @@ Promise.all([
     }
 });
 
-async function registerUser(email, password, userType, sbu, branch) {
+async function registerUser(email, newPassword, userType, sbu, branch) {
     try {
-        const response = await fetch('/api/register', {
+        const response = await fetch('/api/user-registration', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
                 email,
-                password,
+                newPassword,
                 userType,
-                sbu: userType === 'FAST Employee' ? sbu : '',
-                branch: userType === 'FAST Employee' ? branch : '',
+                sbu: userType === 'FAST Employee' ? sbu : 'NULL',
+                branch: userType === 'FAST Employee' ? branch : 'NULL',
             }),
         });
 
