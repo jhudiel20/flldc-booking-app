@@ -244,10 +244,10 @@ Promise.all([
                             <input type="password" id="newPassword" class="form-control" placeholder="Enter a password">
                         </div>
                         <div>
-                            <label for="confirmPassword" class="form-label">Confirm Password</label>
+                            <label for="confirmPassword" class="form-label mt-3">Confirm Password</label>
                             <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm your password">
                         </div>
-                        <div>
+                        <div class="">
                           <label for="usertype" class="form-label">User Type</label>
                           <select id="usertype" class="form-control">
                             <option value="Non-FAST Employee">Non-FAST Employee</option>
@@ -255,12 +255,12 @@ Promise.all([
                           </select>
                         </div>
                         <div id="SBUContainer" style="display: none;">
-                          <label for="SBU" class="form-label">SBU</label>
+                          <label for="SBU" class="form-label mt-3">SBU</label>
                           <select id="SBU" class="form-control">
                             <option value="FSC">FSC</option>
                             <option value="FLC">FLC</option>
                           </select>
-                          <label for="branch" class="form-label">Branch</label>
+                          <label for="branch" class="form-label mt-3">Branch</label>
                           <select id="branchSelect" class="form-control">
                             <option value="">Select Branch</option>
                           </select>
