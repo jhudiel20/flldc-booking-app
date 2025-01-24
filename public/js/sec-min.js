@@ -1,6 +1,6 @@
 
 document.addEventListener('DOMContentLoaded', function () {
-  const loginModal = document.getElementById('login-modal');
+  const loginModal = document.getElementById('LoginModal');
   if (loginModal) {
       loginModal.addEventListener('click', function () {
           Swal.fire({
