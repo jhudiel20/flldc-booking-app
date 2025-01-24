@@ -250,8 +250,8 @@ Promise.all([
                       <div>
                           <label for="usertype" class="form-label">User Type</label>
                           <select id="usertype" class="form-control" required>
-                              <option value="Non-FAST Employee">Non-FAST Employee</option>
-                              <option value="FAST Employee">FAST Employee</option>
+                            <option value="FAST Employee">FAST Employee</option>
+                            <option value="Non-FAST Employee">Non-FAST Employee</option>
                           </select>
                       </div>
                       <div id="SBUContainer" style="display: none;">
@@ -331,7 +331,7 @@ Promise.all([
               const userTypeSelect = document.getElementById('usertype');
               const sbuContainer = document.getElementById('SBUContainer');
               userTypeSelect.addEventListener('change', function () {
-                  if (userTypeSelect.value === 'Non-FAST Employee') {
+                  if (userTypeSelect.value === 'FAST Employee') {
                       sbuContainer.style.display = 'block';
                   } else {
                       sbuContainer.style.display = 'none';
