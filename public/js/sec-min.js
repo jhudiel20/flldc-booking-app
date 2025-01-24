@@ -110,8 +110,7 @@ Promise.all([
   }
 
 
-
-  document.addEventListener('DOMContentLoaded', function () {
+  includeHTML('header', 'header').then(() => {
     const loginModal = document.getElementById('LoginModal');
     if (loginModal) {
         loginModal.addEventListener('click', function () {
@@ -140,10 +139,10 @@ Promise.all([
                 if (result.isConfirmed) {
                     const username = document.getElementById('username').value;
                     const password = document.getElementById('password').value;
-  
+
                     if (username && password) {
                         try {
-                            const success = await loginUser(username, password); // Replace with your logic
+                            const success = await loginUser(username, password);
                             if (success) {
                                 Swal.fire('Success!', 'You are now logged in.', 'success');
                             } else {
@@ -159,9 +158,10 @@ Promise.all([
             });
         });
     } else {
-        console.error("Element with ID 'login-modal' not found.");
+        console.error("Element with ID 'LoginModal' not found.");
     }
-  });
+});
+
   
 
 
