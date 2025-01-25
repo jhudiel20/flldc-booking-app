@@ -1,6 +1,4 @@
 const { Pool } = require("pg");
-const bcrypt = require("bcryptjs");
-
 const pool = new Pool({
   connectionString: process.env.POSTGRES_URL, // Ensure this is correctly set in your Vercel environment
 });
@@ -14,20 +12,13 @@ module.exports = async (req, res) => {
   // Extract form data from request body
   const { fname, lname, email, password, userType, sbu, branch } = req.body;
 
-  // Validate that all required fields are provided
-  if (!fname || !lname || !email || !password || !userType || !sbu || !branch) {
-    return res.status(400).json({ error: 'Missing required fields' });
-  }
-
   try {
-    // Hash the password
-    const hashedPassword = await bcrypt.hash(password, 10);
 
     // Insert user into the database
     await pool.query(`
       INSERT INTO user_reservation (fname, lname, email, password, user_type, business_unit, branch)
       VALUES ($1, $2, $3, $4, $5, $6, $7)`,
-      [fname, lname, email, hashedPassword, userType, sbu, branch]
+      [fname, lname, email, password, userType, sbu, branch]
     );
 
     // Send success response
