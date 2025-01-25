@@ -287,7 +287,7 @@ Promise.all([
                     confirmButtonText: 'Register',
                     cancelButtonText: 'Cancel',
                     customClass: {
-                        confirmButton: 'btn btn-primary me-3',
+                        confirmButton: 'btn btn-primary',
                         cancelButton: 'btn btn-secondary',
                         buttons: 'custom-buttons'
                     },
@@ -351,24 +351,23 @@ Promise.all([
                         }
                     }
                 });
+                        // Populate Branch Options
+              const branchSelect = document.getElementById('branchSelect');
+              branchSelect.innerHTML = ''; // Clear previous options
+              branches.forEach((branch) => {
+                  const option = document.createElement('option');
+                  option.value = branch;
+                  option.textContent = branch;
+                  branchSelect.appendChild(option);
+              });
+
+              // Show/Hide SBU Based on User Type
+              const userTypeSelect = document.getElementById('usertype');
+              const sbuContainer = document.getElementById('SBUContainer');
+              userTypeSelect.addEventListener('change', function () {
+                  sbuContainer.style.display = userTypeSelect.value === 'FAST Employee' ? 'block' : 'none';
+              });
             });
-        });
-
-        // Populate Branch Options
-        const branchSelect = document.getElementById('branchSelect');
-        branchSelect.innerHTML = ''; // Clear previous options
-        branches.forEach((branch) => {
-            const option = document.createElement('option');
-            option.value = branch;
-            option.textContent = branch;
-            branchSelect.appendChild(option);
-        });
-
-        // Show/Hide SBU Based on User Type
-        const userTypeSelect = document.getElementById('usertype');
-        const sbuContainer = document.getElementById('SBUContainer');
-        userTypeSelect.addEventListener('change', function () {
-            sbuContainer.style.display = userTypeSelect.value === 'FAST Employee' ? 'block' : 'none';
         });
     } else {
         console.error("Element with ID 'LoginModal' not found.");
