@@ -94,7 +94,7 @@ const branches = [
       fname: document.getElementById('fname').value,
       lname: document.getElementById('lname').value,
       email: document.getElementById('email').value,
-      password: document.getElementById('new-password').value,
+      password: document.getElementById('new-password').value
     };
   
     fetch('/api/user-registration', {
