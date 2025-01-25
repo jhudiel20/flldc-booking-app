@@ -301,9 +301,12 @@ Promise.all([
                         const formData = new FormData(form);
                         const registrationData = Object.fromEntries(formData.entries());
 
-                        if (!registrationData.newPassword || !registrationData.confirmPassword) {
-                            Swal.fire('Error!', 'All fields are required.', 'error');
-                            return;
+                        // Validate required fields
+                        for (const [key, value] of Object.entries(registrationData)) {
+                            if (!value.trim()) {
+                                Swal.fire('Error!', 'All fields are required.', 'error');
+                                return;
+                            }
                         }
 
                         if (registrationData.newPassword !== registrationData.confirmPassword) {
@@ -353,6 +356,7 @@ Promise.all([
         console.error("Element with ID 'LoginModal' not found.");
     }
 });
+
 
 
 // async function registerUser(email, newPassword, userType, sbu, branch) {
