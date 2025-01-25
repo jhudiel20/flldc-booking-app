@@ -96,8 +96,8 @@ const branches = [
       email: document.getElementById('email').value,
       password: document.getElementById('new-password').value,
       userType: document.getElementById('usertype').value,
-      branch: document.getElementById('SBU').value,
-      sbu: document.getElementById('branch').value
+      branch: document.getElementById('branchSelect').value,
+      sbu: document.getElementById('SBU').value,
     };
   
     fetch('/api/user-registration', {
