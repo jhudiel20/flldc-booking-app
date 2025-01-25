@@ -99,7 +99,7 @@ const branches = [
       sbu: document.getElementById('SBU').value,
     };
   
-    fetch('/api/UserRegistration', {
+    fetch('/api/UserRegistration.js', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData),
