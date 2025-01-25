@@ -234,7 +234,7 @@ Promise.all([
             // Handle Registration Link Click
             document.getElementById('registerLink').addEventListener('click', function () {
                 Swal.fire({
-                    title: 'Register',
+                    title: 'Sign Up',
                     html: `
                         <div>
                             <label for="fname" class="form-label">First Name</label>
@@ -343,11 +343,13 @@ Promise.all([
 
                             if (result.error) {
                                 Swal.fire('Error!', result.error, 'error');
+                                return false;
                             } else {
                                 Swal.fire('Success!', 'Registration completed.', 'success');
                             }
                         } catch (error) {
                             Swal.fire('Error!', 'Registration failed. Please try again.', 'error');
+                            return false;
                         }
                     }
                 });
