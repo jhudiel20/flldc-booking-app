@@ -331,6 +331,16 @@ Promise.all([
                     }
                 });
 
+                // Populate Branch Options
+                const branchSelect = document.getElementById('branchSelect');
+                branchSelect.innerHTML = ''; // Clear previous options
+                branches.forEach((branch) => {
+                    const option = document.createElement('option');
+                    option.value = branch;
+                    option.textContent = branch;
+                    branchSelect.appendChild(option);
+                });
+
                 // Show/Hide SBU Based on User Type
                 const userTypeSelect = document.getElementById('usertype');
                 const sbuContainer = document.getElementById('SBUContainer');
