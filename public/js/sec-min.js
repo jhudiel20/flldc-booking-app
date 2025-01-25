@@ -236,7 +236,7 @@ Promise.all([
                 Swal.fire({
                     title: 'Register',
                     html: `
-                        <form id="registrationForm">
+                        <form id="registrationForm" method="POST">
                             <div>
                                 <label for="fname" class="form-label">First Name</label>
                                 <input type="text" id="fname" class="form-control mb-3" required>
@@ -298,8 +298,18 @@ Promise.all([
                 }).then(async (result) => {
                     if (result.isConfirmed) {
                         const form = document.getElementById('registrationForm');
+                        if (!form) {
+                            Swal.fire('Error!', 'Form element not found.', 'error');
+                            return;
+                        }
+
                         const formData = new FormData(form);
-                        const registrationData = Object.fromEntries(formData.entries());
+
+                        // Convert FormData to JSON
+                        const registrationData = {};
+                        formData.forEach((value, key) => {
+                            registrationData[key] = value;
+                        });
 
                         // Validate required fields
                         for (const [key, value] of Object.entries(registrationData)) {
