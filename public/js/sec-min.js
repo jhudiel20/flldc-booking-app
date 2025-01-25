@@ -357,12 +357,10 @@ Promise.all([
 
         // Populate Branch Options
         const branchSelect = document.getElementById('branchSelect');
-        branchSelect.innerHTML = ''; // Clear previous options
+        branchSelect.innerHTML = '<option value="">Select Branch</option>';
+        // Populate dropdown with branches if available
         branches.forEach((branch) => {
-            const option = document.createElement('option');
-            option.value = branch;
-            option.textContent = branch;
-            branchSelect.appendChild(option);
+            branchSelect.innerHTML += `<option value="${branch}">${branch}</option>`;
         });
 
         // Show/Hide SBU Based on User Type
