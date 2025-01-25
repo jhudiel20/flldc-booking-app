@@ -364,23 +364,14 @@ Promise.all([
                           } else {
                               alert('Error! ' + (result.message || 'Registration failed. Try again.'));
                           }
-                      
-                      
-                       
-                      
-                      
                     }
                 });
 
                 // Populate Branch Options
                 const branchSelect = document.getElementById('branchSelect');
-                branchSelect.innerHTML = ''; // Clear previous options
-                branches.forEach((branch) => {
-                    const option = document.createElement('option');
-                    option.value = branch;
-                    option.textContent = branch;
-                    branchSelect.appendChild(option);
-                });
+                if (branchSelect) {
+                    branchSelect.innerHTML = branches.map(branch => `<option value="${branch}">${branch}</option>`).join('');
+                }
 
                 // Show/Hide SBU Based on User Type
                 const userTypeSelect = document.getElementById('usertype');

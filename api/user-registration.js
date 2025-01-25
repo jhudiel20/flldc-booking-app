@@ -41,36 +41,20 @@ module.exports = async (req, res) => {
 
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        const query = `
+        const insertUserQuery  = `
             INSERT INTO user_reservation (email, password, user_type, fname, lname, business_unit, branch)
             VALUES ($1, $2, $3, $4, $5, $6, $7)
-            RETURNING *;
+            RETURNING id;
         `;
-        const values = [
-            email, 
-            hashedPassword, 
-            userType, 
-            fname, 
-            lname, 
-            userType === 'FAST Employee' ? sbu : null, 
-            userType === 'FAST Employee' ? branch : null
-        ];
+        const insertResult = await pool.query(insertUserQuery, [fname, lname, email, hashedPassword, userType, sbu || null, branch || null]);
 
-        console.log('Executing query with values:', values);
-        const result = await pool.query(query, values);
-
-        if (result.rows.length === 0) {
-            return res.status(500).json({ error: 'Failed to create user.' });
+        if (insertResult.rowCount > 0) {
+            return res.status(201).json({ success: true, message: 'Registration successful.' });
+        } else {
+            return res.status(500).json({ error: 'Failed to register user. Please try again.' });
         }
-
-        // Instead of sending JSON, we send the success message and the user data in a simpler response
-        res.status(201).json({
-            success: true,
-            user: result.rows[0],
-        });
     } catch (error) {
-        console.error('Error during registration:', error);
-        // Respond with an error message
-        res.status(500).json({ error: `Server error: ${error.message}` });
+        console.error('Registration error:', error);
+        return res.status(500).json({ error: 'Internal server error. Please try again later.' });
     }
 };
