@@ -66,5 +66,3 @@ export const branches = [
     "TALISAY", "TALISAY-NA", "TALISAY-PMFTC", "TAYTAY-NA", "TAYTAY-PMFTC", "TOLEDO", "ZAMBOANGA"
   ];
 
-  // Export the branches variable
-module.exports = branches;
