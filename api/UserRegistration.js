@@ -5,10 +5,6 @@ const pool = new Pool({
 });
 
 module.exports = async (req, res) => {
-  if (req.method !== "POST") {
-    res.setHeader("Allow", ["POST"]);
-    return res.status(405).json({ error: `Method ${req.method} Not Allowed` });
-  }
 
   const { email, password, userType, sbu, branch, fname, lname } = req.body;
 
