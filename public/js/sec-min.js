@@ -357,7 +357,7 @@ Promise.all([
 
         // Populate Branch Options
         const branchSelect = document.getElementById('branchSelect');
-        // branchSelect.innerHTML = ''; // Clear previous options
+        branchSelect.innerHTML = ''; // Clear previous options
         branches.forEach((branch) => {
             const option = document.createElement('option');
             option.value = branch;
@@ -377,82 +377,6 @@ Promise.all([
         console.error("Element with ID 'LoginModal' not found.");
     }
 });
-
-
-
-
-// async function registerUser(email, newPassword, userType, sbu, branch) {
-//     try {
-//         const response = await fetch('/api/user-registration', {
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/json',
-//             },
-//             body: JSON.stringify({
-//                 email,
-//                 newPassword,
-//                 userType,
-//                 sbu: userType === 'FAST Employee' ? sbu : 'NULL',
-//                 branch: userType === 'FAST Employee' ? branch : 'NULL',
-//             }),
-//         });
-
-//         if (!response.ok) {
-//             const errorText = await response.text();
-//             throw new Error(`Server error: ${errorText}`);
-//         }
-
-//         const data = await response.json();
-
-//         if (data.success) {
-//             Swal.fire({
-//                 icon: 'success',
-//                 title: 'Registration Successful',
-//                 text: `Welcome! Your email ${data.user.email} has been registered.`,
-//                 confirmButtonText: 'OK',
-//             });
-//             return true;
-//         } else {
-//             Swal.fire({
-//                 icon: 'error',
-//                 title: 'Registration Failed',
-//                 text: data.error || 'An unexpected error occurred.',
-//                 confirmButtonText: 'Try Again',
-//             });
-//             return false;
-//         }
-//     } 
-//     catch (error) {
-//         console.error('Error during registration:', error); // Log error for debugging
-//         Swal.fire({
-//             icon: 'error',
-//             title: 'Registration Failed',
-//             text: error.message || 'An unexpected error occurred.',
-//             confirmButtonText: 'Try Again',
-//         });
-//         return false;
-//     }
-// }
-
-
-
-// document.querySelectorAll('.toggle-password').forEach(button => {
-//   button.addEventListener('click', function () {
-//     const targetInput = document.getElementById(this.dataset.target);
-//     const icon = this.querySelector('i');
-
-//     if (targetInput.type === 'password') {
-//       targetInput.type = 'text';
-//       icon.classList.remove('fa-eye');
-//       icon.classList.add('fa-eye-slash');
-//     } else {
-//       targetInput.type = 'password';
-//       icon.classList.remove('fa-eye-slash');
-//       icon.classList.add('fa-eye');
-//     }
-//   });
-// });
-
 
 
 
