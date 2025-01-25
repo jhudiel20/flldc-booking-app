@@ -45,14 +45,14 @@ module.exports = async (req, res) => {
             try{
                 const hashedPassword = await bcrypt.hash(password, 10);
                 const insertUserQuery  = `
-                INSERT INTO user_reservation (email, password, user_type, fname, lname, business_unit, branch)
+                INSERT INTO user_reservation (fname, lname, email, password, user_type, business_unit, branch)
                 VALUES ($1, $2, $3, $4, $5, $6, $7)
                 RETURNING id;
                 `;
                 const insertResult = await client.query(insertUserQuery, [fname, lname, email, hashedPassword, userType, sbu || null, branch || null]);
             
                 try{
-                    res.status(200).json({ message: 'Booking submitted successfully.' });
+                    res.status(200).json({ message: 'Registration submitted successfully.' });
                 }catch (error) {
                     console.error('Error inserting user:', error);
                     res.status(500).json({ error: `There was a problem inserting the user: ${error.message}` });
