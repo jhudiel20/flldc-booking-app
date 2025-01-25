@@ -278,7 +278,6 @@ Promise.all([
                             <div>
                                 <label for="branch" class="form-label">Branch</label>
                                 <select id="branchSelect" class="form-control mb-3">
-                                    <option value="">Select Branch</option>
                                 </select>
                             </div>
                         </div>
