@@ -153,14 +153,28 @@ Promise.all([
                     }
 
                     try {
-                        const success = await loginUser(username, password);
-                        if (success) {
-                            Swal.fire('Success!', 'You are now logged in.', 'success');
-                        } else {
-                            Swal.fire('Failed!', 'Invalid username or password.', 'error');
-                        }
+                      const loginData = {
+                        username,
+                        password                      
+                      };
+
+                      const response = await fetch('/api/UserLogin', {
+                          method: 'POST',
+                          headers: { 'Content-Type': 'application/json' },
+                          body: JSON.stringify(registrationData)
+                      });
+
+                      const result = await response.json();
+
+                      if (result.error) {
+                          Swal.fire('Error!', result.error, 'error');
+                          return;
+                      } else {
+                          Swal.fire('Success!', 'Successfully Login.', 'success');
+                      }
                     } catch (error) {
-                        Swal.fire('Error!', 'An error occurred during login. Please try again later.', 'error');
+                        Swal.fire('Error!', 'Login failed. Please try again.', 'error');
+                        return;
                     }
                 }
             });
@@ -225,16 +239,7 @@ Promise.all([
                         cancelButton: 'btn btn-secondary',
                         buttons: 'custom-buttons'
                     },
-                    buttonsStyling: false,
-                    didOpen: () => {
-                      // Pre-fill or reset fields if needed (for re-renders)
-                      document.getElementById('fname').value;
-                      document.getElementById('lname').value;
-                      document.getElementById('email').value;
-                      document.getElementById('newPassword').value;
-                      document.getElementById('confirmPassword').value;
-                      document.getElementById('usertype').value;
-                  }
+                    buttonsStyling: false
                 }).then(async (result) => {
                     if (result.isConfirmed) {
                         const fname = document.getElementById('fname').value.trim();

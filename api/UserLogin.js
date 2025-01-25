@@ -1,4 +1,7 @@
 const { Pool } = require("pg");
+const cookie = require('cookie');
+const crypto = require('crypto');
+const bcrypt = require('bcrypt');  // For password hashing and comparison
 const pool = new Pool({
   connectionString: process.env.POSTGRES_URL, // Ensure this is correctly set in your Vercel environment
 });
@@ -10,23 +13,64 @@ module.exports = async (req, res) => {
   }
 
   // Extract form data from request body
-  const { fname, lname, email, password, userType, sbu, branch } = req.body;
+  const { email, password } = req.body;
+
+  // Input validation
+  if (!email || !password) {
+    return res.status(400).json({ error: 'All fields are required.' });
+  }
 
   try {
+    // Check if email exists in the database
+    const result = await pool.query('SELECT * FROM user_reservation WHERE email = $1', [email]);
 
-    // Insert user into the database
-    await pool.query(`
-      INSERT INTO user_reservation (fname, lname, email, password, user_type, business_unit, branch)
-      VALUES ($1, $2, $3, $4, $5, $6, $7)`,
-      [fname, lname, email, password, userType, sbu, branch]
-    );
+    if (result.rows.length === 1) {
+      const user = result.rows[0];
+      
+      // Compare the provided password with the hashed password in the database
+      const isPasswordValid = await bcrypt.compare(password, user.password);
 
-    // Send success response
-    res.status(200).end();
+      if (isPasswordValid) {
+        const secretKey = process.env.COOKIE_SECRET_KEY;
+        
+        // Select all data for the user (excluding sensitive information like the password)
+        const cookieValue = {
+          userId: user.id,  // Store the user ID in the cookie
+          email: user.email,
+          firstName: user.fname,
+          lastName: user.lname,
+          sbu: user.business_unit,
+          branch: user.branch,
+          usertype: user.user_type,
+        };
+
+        // Encrypt the cookie value
+        const encryptedCookieValue = crypto
+          .createHmac('sha256', secretKey)
+          .update(JSON.stringify(cookieValue))
+          .digest('hex');
+
+        // Set the cookie to expire in 1 hour (3600000 milliseconds)
+        res.setHeader('Set-Cookie', cookie.serialize('user_data', encryptedCookieValue, {
+          httpOnly: true,  // Ensures the cookie can't be accessed via JavaScript
+          secure: process.env.NODE_ENV === 'production',  // Only secure in production
+          maxAge: 3600,  // Cookie will expire in 1 hour (3600 seconds)
+          path: '/',  // Cookie is available for the entire domain
+          sameSite: 'Strict',  // Prevents sending the cookie with cross-site requests
+        }));
+
+        // Send success response
+        res.status(200).json({ message: 'Welcome.' });
+      } else {
+        res.status(401).json({ error: 'Incorrect password.' });
+      }
+    } else {
+      res.status(404).json({ error: 'Email not found.' });
+    }
 
   } catch (error) {
     // Handle any errors that occur during database interaction
-    console.error('Error during registration:', error);
+    console.error('Error during login:', error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
 };

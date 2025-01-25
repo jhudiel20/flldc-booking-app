@@ -1,4 +1,5 @@
 const { Pool } = require("pg");
+const bcrypt = require("bcrypt");
 const pool = new Pool({
   connectionString: process.env.POSTGRES_URL, // Ensure this is correctly set in your Vercel environment
 });
@@ -27,13 +28,13 @@ module.exports = async (req, res) => {
     return res.status(400).json({ error: 'Invalid email format.' });
   }
 
-    // Password validation: 
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    if (!passwordRegex.test(password)) {
-      return res.status(400).json({
-        error: 'Password must be at least 8 characters long, include one uppercase letter, one lowercase letter, one number, and one special character.'
-      });
-    }
+  // Password validation: 
+  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+  if (!passwordRegex.test(password)) {
+    return res.status(400).json({
+      error: 'Password must be at least 8 characters long, include one uppercase letter, one lowercase letter, one number, and one special character.'
+    });
+  }
 
   try {
     // Check if email already exists in the database
@@ -42,11 +43,14 @@ module.exports = async (req, res) => {
       return res.status(400).json({ error: 'Email already in use.' });
     }
 
-    // Insert user into the database
+    // Hash the password before storing it in the database
+    const hashedPassword = await bcrypt.hash(password, 10); // 10 is the salt rounds
+
+    // Insert user into the database with hashed password
     await pool.query(`
       INSERT INTO user_reservation (fname, lname, email, password, user_type, business_unit, branch)
       VALUES ($1, $2, $3, $4, $5, $6, $7)
-    `, [fname, lname, email, password, userType, sbu, branch]);
+    `, [fname, lname, email, hashedPassword, userType, sbu, branch]);
 
     // Send success response
     res.status(200).json({ message: 'Registration successful.' });
