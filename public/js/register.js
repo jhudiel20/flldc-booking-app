@@ -94,7 +94,10 @@ const branches = [
       fname: document.getElementById('fname').value,
       lname: document.getElementById('lname').value,
       email: document.getElementById('email').value,
-      password: document.getElementById('new-password').value
+      password: document.getElementById('new-password').value,
+      userType: document.getElementById('usertype').value,
+      branch: document.getElementById('SBU').value,
+      sbu: document.getElementById('branch').value
     };
   
     fetch('/api/user-registration', {
