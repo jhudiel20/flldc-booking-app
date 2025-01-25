@@ -31,11 +31,7 @@ module.exports = async (req, res) => {
       branch || null,
     ]);
 
-    // Success response
-    res.status(200).json({
-      message: "Registration successful.",
-      userId: insertResult.rows[0].id,
-    });
+    res.status(200).json({ message: 'Registration Successfully.' });
   } catch (error) {
     console.error("Error during registration:", error); // Logs detailed error
     res.status(500).json({ error: "Internal server error." });
