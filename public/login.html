@@ -107,19 +107,18 @@
                                             <label for="new-password">Password</label>
                                             <input type="password" id="new-password" name="password" class="form-control" placeholder="Choose a password" required>    
                                         </div>
-                                        <div class="col-md-6 mb-3">
+                                        <div class="col-md-6 ">
                                             <label for="confirmPassword" class="form-label">Confirm Password</label>
                                             <input type="password" id="confirmPassword" class="form-control" required>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-6 mb-3">
                                             <label for="usertype" class="form-label">User Type</label>
                                             <select id="usertype" class="form-control">
                                                 <option value="Non-FAST Employee">Non-FAST Employee</option>
                                                 <option value="FAST Employee">FAST Employee</option>
                                             </select>
                                         </div>
-                                        <div id="SBUContainer" style="display: none;">
-                                            <div class="col-md-6">
+                                        <div class="col-md-6" id="sbu-div" style="display: none;">
                                                 <label for="SBU" class="form-label">SBU</label>
                                                 <select id="SBU" class="form-control">
                                                     <option value="FSC">FSC</option>
@@ -129,13 +128,12 @@
                                                     <option value="FDC">FDC</option>
                                                     <option value="FUI">FUI</option>
                                                 </select>
-                                            </div>
-                                            <div class="col-md-6">
+                                        </div>
+                                        <div class="col-md-6" id="branch-div" style="display: none;">
                                                 <label for="branch" class="form-label">Branch</label>
                                                 <select id="branchSelect" class="form-control">
                                                     <option value="">Select Branch</option>
                                                 </select>
-                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group text-center">

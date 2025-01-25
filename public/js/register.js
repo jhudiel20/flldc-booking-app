@@ -78,7 +78,9 @@ const branches = [
 
   // Show/Hide SBU Based on User Type
   const userTypeSelect = document.getElementById('usertype');
-  const sbuContainer = document.getElementById('SBUContainer');
+  const sbuContainer = document.getElementById('sbu-div');
+  const branchContainer = document.getElementById('branch-div');
   userTypeSelect.addEventListener('change', function () {
       sbuContainer.style.display = userTypeSelect.value === 'FAST Employee' ? 'block' : 'none';
+      branchContainer.style.display = userTypeSelect.value === 'FAST Employee' ? 'block' : 'none';
   });
