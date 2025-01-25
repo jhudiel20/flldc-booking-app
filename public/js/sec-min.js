@@ -367,10 +367,8 @@ Promise.all([
         // Show/Hide SBU Based on User Type
         const userTypeSelect = document.getElementById('usertype');
         const sbuContainer = document.getElementById('SBUContainer');
-        const branchContainer = document.getElementById('branchSelect');
         userTypeSelect.addEventListener('change', function () {
             sbuContainer.style.display = userTypeSelect.value === 'FAST Employee' ? 'block' : 'none';
-            branchContainer.style.display = userTypeSelect.value === 'FAST Employee' ? 'block' : 'none';
         });
     } else {
         console.error("Element with ID 'LoginModal' not found.");
