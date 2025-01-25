@@ -178,7 +178,8 @@ Promise.all([
       dropdown.dataset.loaded = 'true';
   }
 
-includeHTML('header', 'header').then(() => {
+
+  includeHTML('header', 'header').then(() => {
     const loginModal = document.getElementById('LoginModal');
     if (loginModal) {
         loginModal.addEventListener('click', function () {
@@ -209,11 +210,9 @@ includeHTML('header', 'header').then(() => {
                 buttonsStyling: false
             }).then(async (result) => {
                 if (result.isConfirmed) {
-                    // Get individual values
                     const username = document.getElementById('username').value.trim();
                     const password = document.getElementById('password').value.trim();
 
-                    // Check if both fields are filled
                     if (!username || !password) {
                         Swal.fire('Error!', 'Please fill in all fields.', 'error');
                         return;
@@ -237,33 +236,54 @@ includeHTML('header', 'header').then(() => {
                 Swal.fire({
                     title: 'Register',
                     html: `
-                        <div>
-                            <label for="fname" class="form-label">First Name</label>
-                            <input type="text" id="fname" class="form-control mb-3" required>
-                        </div>
-                        <div>
-                            <label for="lname" class="form-label">Last Name</label>
-                            <input type="text" id="lname" class="form-control mb-3" required>
-                        </div>
-                        <div>
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" id="email" class="form-control mb-3" required>
-                        </div>
-                        <div>
-                            <label for="newPassword" class="form-label">Password</label>
-                            <input type="password" id="newPassword" class="form-control mb-3" required>
-                        </div>
-                        <div>
-                            <label for="confirmPassword" class="form-label">Confirm Password</label>
-                            <input type="password" id="confirmPassword" class="form-control mb-3" required>
-                        </div>
-                        <div>
-                            <label for="usertype" class="form-label">User Type</label>
-                            <select id="usertype" class="form-control mb-3">
-                                <option value="Non-FAST Employee">Non-FAST Employee</option>
-                                <option value="FAST Employee">FAST Employee</option>
-                            </select>
-                        </div>
+                        <form id="registrationForm">
+                            <div>
+                                <label for="fname" class="form-label">First Name</label>
+                                <input type="text" id="fname" class="form-control mb-3" required>
+                            </div>
+                            <div>
+                                <label for="lname" class="form-label">Last Name</label>
+                                <input type="text" id="lname" class="form-control mb-3" required>
+                            </div>
+                            <div>
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" id="email" class="form-control mb-3" required>
+                            </div>
+                            <div>
+                                <label for="newPassword" class="form-label">Password</label>
+                                <input type="password" id="newPassword" class="form-control mb-3" required>
+                            </div>
+                            <div>
+                                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                                <input type="password" id="confirmPassword" class="form-control mb-3" required>
+                            </div>
+                            <div>
+                                <label for="usertype" class="form-label">User Type</label>
+                                <select id="usertype" class="form-control mb-3">
+                                    <option value="Non-FAST Employee">Non-FAST Employee</option>
+                                    <option value="FAST Employee">FAST Employee</option>
+                                </select>
+                            </div>
+                            <div id="SBUContainer" style="display: none;">
+                                <div>
+                                    <label for="SBU" class="form-label">SBU</label>
+                                    <select id="SBU" class="form-control mb-3">
+                                        <option value="FSC">FSC</option>
+                                        <option value="FLC">FLC</option>
+                                        <option value="FTMC">FTMC</option>
+                                        <option value="FCSI">FCSI</option>
+                                        <option value="FDC">FDC</option>
+                                        <option value="FUI">FUI</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="branch" class="form-label">Branch</label>
+                                    <select id="branchSelect" class="form-control mb-3">
+                                        <option value="">Select Branch</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
                     `,
                     icon: 'info',
                     showCancelButton: true,
@@ -277,34 +297,19 @@ includeHTML('header', 'header').then(() => {
                     buttonsStyling: false
                 }).then(async (result) => {
                     if (result.isConfirmed) {
-                        // Get individual values
-                        const fname = document.getElementById('fname').value.trim();
-                        const lname = document.getElementById('lname').value.trim();
-                        const email = document.getElementById('email').value.trim();
-                        const newPassword = document.getElementById('newPassword').value.trim();
-                        const confirmPassword = document.getElementById('confirmPassword').value.trim();
-                        const usertype = document.getElementById('usertype').value;
+                        const form = document.getElementById('registrationForm');
+                        const formData = new FormData(form);
+                        const registrationData = Object.fromEntries(formData.entries());
 
-                        // Check if all fields are filled
-                        if (!fname || !lname || !email || !newPassword || !confirmPassword || !usertype) {
+                        if (!registrationData.newPassword || !registrationData.confirmPassword) {
                             Swal.fire('Error!', 'All fields are required.', 'error');
                             return;
                         }
 
-                        // Check if passwords match
-                        if (newPassword !== confirmPassword) {
+                        if (registrationData.newPassword !== registrationData.confirmPassword) {
                             Swal.fire('Error!', 'Passwords do not match.', 'error');
                             return;
                         }
-
-                        const registrationData = {
-                            fname,
-                            lname,
-                            email,
-                            newPassword,
-                            confirmPassword,
-                            usertype
-                        };
 
                         try {
                             const response = await fetch('/api/user-registration', {
@@ -314,6 +319,7 @@ includeHTML('header', 'header').then(() => {
                             });
 
                             const result = await response.json();
+
                             if (result.error) {
                                 Swal.fire('Error!', result.error, 'error');
                             } else {
@@ -324,29 +330,29 @@ includeHTML('header', 'header').then(() => {
                         }
                     }
                 });
-            });
-        });
-        // Populate Branch Options
-        const branchSelect = document.getElementById('branchSelect');
-        branchSelect.innerHTML = ''; // Clear previous options
-        branches.forEach((branch) => {
-            const option = document.createElement('option');
-            option.value = branch;
-            option.textContent = branch;
-            branchSelect.appendChild(option);
-        });
 
-        // Show/Hide SBU Based on User Type
-        const userTypeSelect = document.getElementById('usertype');
-        const sbuContainer = document.getElementById('SBUContainer');
-        userTypeSelect.addEventListener('change', function () {
-            sbuContainer.style.display = userTypeSelect.value === 'FAST Employee' ? 'block' : 'none';
+                // Populate Branch Options
+                const branchSelect = document.getElementById('branchSelect');
+                branchSelect.innerHTML = ''; // Clear previous options
+                branches.forEach((branch) => {
+                    const option = document.createElement('option');
+                    option.value = branch;
+                    option.textContent = branch;
+                    branchSelect.appendChild(option);
+                });
+
+                // Show/Hide SBU Based on User Type
+                const userTypeSelect = document.getElementById('usertype');
+                const sbuContainer = document.getElementById('SBUContainer');
+                userTypeSelect.addEventListener('change', function () {
+                    sbuContainer.style.display = userTypeSelect.value === 'FAST Employee' ? 'block' : 'none';
+                });
+            });
         });
     } else {
         console.error("Element with ID 'LoginModal' not found.");
     }
 });
-
 
 
 // async function registerUser(email, newPassword, userType, sbu, branch) {
