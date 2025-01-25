@@ -87,7 +87,7 @@ const branches = [
 
 
   document.querySelector('#signupForm').addEventListener('submit', function (e) {
-  
+    e.preventDefault();
     // Gather form data
     const formData = {
       fname: document.getElementById('fname').value,
