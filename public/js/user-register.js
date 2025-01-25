@@ -105,11 +105,7 @@ const branches = [
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(formData)
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        alert(data.message);
-      });
+    });
   });
   
   

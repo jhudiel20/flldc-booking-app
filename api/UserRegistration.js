@@ -11,13 +11,15 @@ module.exports = async (req, res) => {
 
   const hashedPassword = await bcrypt.hash(password, 10);
 
-  const result = await pool.query(`
+  await pool.query(`
     INSERT INTO user_reservation (fname, lname, email, password, user_type, business_unit, branch)
     VALUES ($1, $2, $3, $4, $5, $6, $7)`,
-    [fname, lname, email, branch, hashedPassword, userType, sbu, branch]);
+    [fname, lname, email, hashedPassword, userType, sbu, branch]);
 
-  res.status(200).json({ message: "User registered successfully." });
+  // No message, just insert and end the response
+  res.status(200).end();
 };
+
 // const { Pool } = require("pg");
 
 // const pool = new Pool({
