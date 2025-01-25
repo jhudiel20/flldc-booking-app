@@ -311,6 +311,8 @@ Promise.all([
                             registrationData[key] = value;
                         });
 
+                        console.log('Payload:', registrationData);
+
                         // Validate required fields
                         for (const [key, value] of Object.entries(registrationData)) {
                             if (!value.trim()) {
