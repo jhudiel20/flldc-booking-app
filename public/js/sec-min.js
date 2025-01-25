@@ -328,6 +328,7 @@ Promise.all([
                                 lname,
                                 email,
                                 password,
+                                confirmPassword,
                                 userType,
                                 sbu,
                                 branch
@@ -356,7 +357,7 @@ Promise.all([
 
         // Populate Branch Options
         const branchSelect = document.getElementById('branchSelect');
-        branchSelect.innerHTML = ''; // Clear previous options
+        // branchSelect.innerHTML = ''; // Clear previous options
         branches.forEach((branch) => {
             const option = document.createElement('option');
             option.value = branch;
