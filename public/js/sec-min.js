@@ -121,8 +121,8 @@ Promise.all([
                 title: 'Sign In',
                 html: `
                     <div>
-                        <label for="username" class="form-label">Username</label>
-                        <input type="text" id="username" class="form-control mb-3" placeholder="Enter your username">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="text" id="email" class="form-control mb-3" placeholder="Enter your Email">
                     </div>
                     <div>
                         <label for="password" class="form-label">Password</label>
@@ -144,17 +144,17 @@ Promise.all([
                 buttonsStyling: false
             }).then(async (result) => {
                 if (result.isConfirmed) {
-                    const username = document.getElementById('username').value.trim();
+                    const email = document.getElementById('email').value.trim();
                     const password = document.getElementById('password').value.trim();
 
-                    if (!username || !password) {
+                    if (!email || !password) {
                         Swal.fire('Error!', 'Please fill in all fields.', 'error');
                         return;
                     }
 
                     try {
                       const loginData = {
-                        username,
+                        email,
                         password                      
                       };
 
