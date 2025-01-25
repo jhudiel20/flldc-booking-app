@@ -304,6 +304,7 @@ Promise.all([
                         const sbu = document.getElementById('SBU') ? document.getElementById('SBU').value : null;
                         const branch = document.getElementById('branchSelect') ? document.getElementById('branchSelect').value : null;
 
+                        // Enhanced validation
                         if (!fname || !lname || !email || !password || !confirmPassword) {
                             Swal.fire('Error!', 'All fields are required.', 'error');
                             return;
@@ -311,6 +312,13 @@ Promise.all([
 
                         if (password !== confirmPassword) {
                             Swal.fire('Error!', 'Passwords do not match.', 'error');
+                            return;
+                        }
+
+                        // Check for valid email format
+                        const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+                        if (!emailRegex.test(email)) {
+                            Swal.fire('Error!', 'Please enter a valid email address.', 'error');
                             return;
                         }
 
@@ -345,28 +353,30 @@ Promise.all([
                 });
             });
         });
-         // Populate Branch Options
-  const branchSelect = document.getElementById('branchSelect');
-  branchSelect.innerHTML = ''; // Clear previous options
-  branches.forEach((branch) => {
-      const option = document.createElement('option');
-      option.value = branch;
-      option.textContent = branch;
-      branchSelect.appendChild(option);
-  });
 
-  // Show/Hide SBU Based on User Type
-  const userTypeSelect = document.getElementById('usertype');
-  const sbuContainer = document.getElementById('sbu-div');
-  const branchContainer = document.getElementById('branch-div');
-  userTypeSelect.addEventListener('change', function () {
-      sbuContainer.style.display = userTypeSelect.value === 'FAST Employee' ? 'block' : 'none';
-      branchContainer.style.display = userTypeSelect.value === 'FAST Employee' ? 'block' : 'none';
-  });
+        // Populate Branch Options
+        const branchSelect = document.getElementById('branchSelect');
+        branchSelect.innerHTML = ''; // Clear previous options
+        branches.forEach((branch) => {
+            const option = document.createElement('option');
+            option.value = branch;
+            option.textContent = branch;
+            branchSelect.appendChild(option);
+        });
+
+        // Show/Hide SBU Based on User Type
+        const userTypeSelect = document.getElementById('usertype');
+        const sbuContainer = document.getElementById('SBUContainer');
+        const branchContainer = document.getElementById('branchSelect');
+        userTypeSelect.addEventListener('change', function () {
+            sbuContainer.style.display = userTypeSelect.value === 'FAST Employee' ? 'block' : 'none';
+            branchContainer.style.display = userTypeSelect.value === 'FAST Employee' ? 'block' : 'none';
+        });
     } else {
         console.error("Element with ID 'LoginModal' not found.");
     }
 });
+
 
 
 
