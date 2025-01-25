@@ -87,7 +87,6 @@ const branches = [
 
 
   document.querySelector('#signupForm').addEventListener('submit', function (e) {
-    e.preventDefault(); // Prevent default form submission
   
     // Gather form data
     const formData = {
