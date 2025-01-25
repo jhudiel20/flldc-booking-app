@@ -86,39 +86,39 @@ const branches = [
   });
 
 
-  document.querySelector('#signupForm').addEventListener('submit', function (e) {
+document.querySelector('#signupForm').addEventListener('submit', function (e) {
     e.preventDefault(); // Prevent default form submission
   
     // Gather form data
     const formData = {
-        fname: document.getElementById('fname').value,
-        lname: document.getElementById('lname').value,
-        email: document.getElementById('email').value,
-        password: document.getElementById('new-password').value,
-        userType: document.getElementById('usertype').value,
-        branch: document.getElementById('branchSelect').value,
-        sbu: document.getElementById('SBU').value,
+      fname: document.getElementById('fname').value,
+      lname: document.getElementById('lname').value,
+      email: document.getElementById('email').value,
+      password: document.getElementById('new-password').value,
+      userType: document.getElementById('usertype').value,
+      branch: document.getElementById('branchSelect').value,
+      sbu: document.getElementById('SBU').value,
     };
   
     fetch('/api/user-registration', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
     })
-    .then(response => {
+      .then((response) => {
         if (!response.ok) {
-            throw new Error('Network response was not ok ' + response.statusText);
+          throw new Error(`Network response was not ok: ${response.statusText}`);
         }
-        return response.json(); // Parse JSON response
-    })
-    .then(data => {
-        // Display success message
-        alert('Registration successful: ' + data.message);
-    })
-    .catch(error => {
-        // Display error message
-        alert('Registration failed: ' + error.message);
-    });
-});
+        return response.json();
+      })
+      .then((data) => {
+        alert(`Success: ${data.message}`);
+      })
+      .catch((error) => {
+        console.error("Registration failed:", error);
+        alert("Registration failed. Please try again.");
+      });
+  });
+  
 
   

@@ -15,15 +15,13 @@ module.exports = async (req, res) => {
   // Destructure fields from the request body
   const { email, password, userType, sbu, branch, fname, lname } = req.body;
 
-  let client;
   try {
-    // Connect to the database
     client = await pool.connect();
-
-    // Hash the password securely
+  
+    // Hash the password
     const hashedPassword = await bcrypt.hash(password, 10);
-
-    // Insert the new user into the database
+  
+    // Insert user into the database
     const insertUserQuery = `
       INSERT INTO user_reservation (fname, lname, email, password, user_type, business_unit, branch)
       VALUES ($1, $2, $3, $4, $5, $6, $7)
@@ -38,17 +36,18 @@ module.exports = async (req, res) => {
       sbu || null,
       branch || null,
     ]);
-
-    // Respond with success and the new user's ID
+  
+    // Success response
     return res.status(200).json({
-      message: "Booking submitted successfully.",
+      message: "Registration successful.",
       userId: insertResult.rows[0].id,
     });
   } catch (error) {
-    console.error("Error during registration:", error);
+    console.error("Error during registration:", error); // Logs detailed error
     res.status(500).json({ error: "Internal server error." });
   } finally {
-    if (client) client.release(); // Ensure the database client is released
+    if (client) client.release();
   }
+  
 };
 
