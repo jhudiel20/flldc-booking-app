@@ -291,7 +291,16 @@ Promise.all([
                         cancelButton: 'btn btn-secondary',
                         buttons: 'custom-buttons'
                     },
-                    buttonsStyling: false
+                    buttonsStyling: false,
+                    didOpen: () => {
+                      // Pre-fill or reset fields if needed (for re-renders)
+                      document.getElementById('fname').value;
+                      document.getElementById('lname').value;
+                      document.getElementById('email').value;
+                      document.getElementById('newPassword').value;
+                      document.getElementById('confirmPassword').value;
+                      document.getElementById('usertype').value;
+                  }
                 }).then(async (result) => {
                     if (result.isConfirmed) {
                         const fname = document.getElementById('fname').value.trim();
@@ -343,13 +352,13 @@ Promise.all([
 
                             if (result.error) {
                                 Swal.fire('Error!', result.error, 'error');
-                                return false;
+                                return;
                             } else {
                                 Swal.fire('Success!', 'Registration completed.', 'success');
                             }
                         } catch (error) {
                             Swal.fire('Error!', 'Registration failed. Please try again.', 'error');
-                            return false;
+                            return;
                         }
                     }
                 });
