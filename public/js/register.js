@@ -88,7 +88,7 @@ const branches = [
 
   document.querySelector('#signupForm').addEventListener('submit', function (e) {
     e.preventDefault();
-    // Gather form data
+  
     const formData = {
       fname: document.getElementById('fname').value,
       lname: document.getElementById('lname').value,
@@ -99,29 +99,20 @@ const branches = [
       sbu: document.getElementById('SBU').value,
     };
   
-    fetch('/api/UserRegistration', {
+    fetch('/api/user-registration', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData),
     })
-      .then((response) => {
-        if (!response.ok) {
-          // Log response for debugging
-          return response.json().then((errorData) => {
-            console.error("Error response:", errorData);
-            throw new Error(errorData.error || "Unknown error occurred");
-          });
-        }
-        return response.json();
-      })
+      .then((response) => response.json())
       .then((data) => {
-        alert(`Success: ${data.message}`);
+        alert(data.message);
       })
       .catch((error) => {
-        console.error("Registration failed:", error.message);
-        alert(`Registration failed: ${error.message}`);
+        alert("Registration failed. Please try again.");
       });
   });
+  
   
   
 
