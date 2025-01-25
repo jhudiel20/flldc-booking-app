@@ -161,7 +161,7 @@ Promise.all([
                       const response = await fetch('/api/UserLogin', {
                           method: 'POST',
                           headers: { 'Content-Type': 'application/json' },
-                          body: JSON.stringify(registrationData)
+                          body: JSON.stringify(loginData)
                       });
 
                       const result = await response.json();
