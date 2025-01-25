@@ -1,9 +1,7 @@
 const { Pool } = require("pg");
 const bcrypt = require("bcryptjs");
-
-// Initialize PostgreSQL connection pool
 const pool = new Pool({
-  connectionString: process.env.POSTGRES_URL, // Ensure this is set correctly in your Vercel environment
+  connectionString: process.env.POSTGRES_URL, // Ensure this is correctly set in your Vercel environment
 });
 
 module.exports = async (req, res) => {
@@ -12,15 +10,15 @@ module.exports = async (req, res) => {
     return res.status(405).json({ error: `Method ${req.method} Not Allowed` });
   }
 
-  // Destructure fields from the request body
   const { email, password, userType, sbu, branch, fname, lname } = req.body;
 
+  let client;
   try {
     client = await pool.connect();
-  
+
     // Hash the password
     const hashedPassword = await bcrypt.hash(password, 10);
-  
+
     // Insert user into the database
     const insertUserQuery = `
       INSERT INTO user_reservation (fname, lname, email, password, user_type, business_unit, branch)
@@ -36,9 +34,9 @@ module.exports = async (req, res) => {
       sbu || null,
       branch || null,
     ]);
-  
+
     // Success response
-    return res.status(200).json({
+    res.status(200).json({
       message: "Registration successful.",
       userId: insertResult.rows[0].id,
     });
@@ -46,8 +44,6 @@ module.exports = async (req, res) => {
     console.error("Error during registration:", error); // Logs detailed error
     res.status(500).json({ error: "Internal server error." });
   } finally {
-    if (client) client.release();
+    if (client) client.release(); // Ensure the database client is released
   }
-  
 };
-

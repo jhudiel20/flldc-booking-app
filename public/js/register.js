@@ -86,7 +86,7 @@ const branches = [
   });
 
 
-document.querySelector('#signupForm').addEventListener('submit', function (e) {
+  document.querySelector('#signupForm').addEventListener('submit', function (e) {
     e.preventDefault(); // Prevent default form submission
   
     // Gather form data
@@ -100,14 +100,18 @@ document.querySelector('#signupForm').addEventListener('submit', function (e) {
       sbu: document.getElementById('SBU').value,
     };
   
-    fetch('/api/user-registration', {
+    fetch('/api/UserRegistration', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData),
     })
       .then((response) => {
         if (!response.ok) {
-          throw new Error(`Network response was not ok: ${response.statusText}`);
+          // Log response for debugging
+          return response.json().then((errorData) => {
+            console.error("Error response:", errorData);
+            throw new Error(errorData.error || "Unknown error occurred");
+          });
         }
         return response.json();
       })
@@ -115,10 +119,11 @@ document.querySelector('#signupForm').addEventListener('submit', function (e) {
         alert(`Success: ${data.message}`);
       })
       .catch((error) => {
-        console.error("Registration failed:", error);
-        alert("Registration failed. Please try again.");
+        console.error("Registration failed:", error.message);
+        alert(`Registration failed: ${error.message}`);
       });
   });
+  
   
 
   
