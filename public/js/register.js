@@ -91,31 +91,34 @@ const branches = [
   
     // Gather form data
     const formData = {
-      fname: document.getElementById('fname').value,
-      lname: document.getElementById('lname').value,
-      email: document.getElementById('email').value,
-      password: document.getElementById('new-password').value,
-      userType: document.getElementById('usertype').value,
-      branch: document.getElementById('branchSelect').value,
-      sbu: document.getElementById('SBU').value,
+        fname: document.getElementById('fname').value,
+        lname: document.getElementById('lname').value,
+        email: document.getElementById('email').value,
+        password: document.getElementById('new-password').value,
+        userType: document.getElementById('usertype').value,
+        branch: document.getElementById('branchSelect').value,
+        sbu: document.getElementById('SBU').value,
     };
   
     fetch('/api/user-registration', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData),
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
     })
-      .then(response => response.json())
-      .then(data => {
-        if (data.errors) {
-          Swal.fire({ icon: 'error', title: 'Oops!', text: data.errors.join(', ') });
-        } else {
-          Swal.fire({ icon: 'success', title: 'Welcome!', text: 'Registration successful!' });
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
         }
-      })
-      .catch(error => {
-        Swal.fire({ icon: 'error', title: 'Error', text: 'Something went wrong!' });
-        console.error(error);
-      });
-  });
+        return response.json(); // Parse JSON response
+    })
+    .then(data => {
+        // Display success message
+        alert('Registration successful: ' + data.message);
+    })
+    .catch(error => {
+        // Display error message
+        alert('Registration failed: ' + error.message);
+    });
+});
+
   
