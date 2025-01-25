@@ -1,4 +1,4 @@
-import { branches } from '/js/modules';
+import { branches } from '/js/modules.js';
 
 
 if (typeof AOS !== 'undefined') {
