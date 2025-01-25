@@ -340,8 +340,23 @@ Promise.all([
     if (loginItem) {
       loginItem.style.display = 'none';
     }
-  }
 
+    // Add a user icon with a green dot
+    const navBar = document.querySelector('.navbar-nav'); // Adjust selector to your nav container
+    if (navBar) {
+      const userItem = document.createElement('li');
+      userItem.className = 'nav-item cta';
+      userItem.innerHTML = `
+        <a class="nav-link" href="profile">
+          <span style="display: flex; align-items: center;">
+            <i class="fas fa-user-circle" style="font-size: 20px;"></i>
+            <span style="width: 8px; height: 8px; background-color: green; border-radius: 50%; margin-left: 5px;"></span>
+          </span>
+        </a>
+      `;
+      navBar.appendChild(userItem);
+    }
+  }
 
 
 
