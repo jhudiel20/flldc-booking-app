@@ -1,37 +1,37 @@
-.site-section {
+.custom-site-section {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 
-.container {
+.custom-container {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.row {
+.custom-row {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
 }
 
-.image-container {
+.custom-image-container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.flip-container {
+.custom-flip-container {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
 }
 
-.flip-container .flipper {
+.custom-flip-container .custom-flipper {
   display: flex;
   justify-content: center;
   align-items: center;
