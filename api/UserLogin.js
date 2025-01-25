@@ -1,7 +1,7 @@
 const { Pool } = require("pg");
 const cookie = require('cookie');
 const crypto = require('crypto');
-const bcrypt = require('bcrypt');  // For password hashing and comparison
+const bcrypt = require('bcryptjs'); // For password hashing and comparison
 const pool = new Pool({
   connectionString: process.env.POSTGRES_URL, // Ensure this is correctly set in your Vercel environment
 });
