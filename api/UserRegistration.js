@@ -6,7 +6,7 @@ const pool = new Pool({
 });
 
 module.exports = async (req, res) => {
-  if (req.method !== "POST") {
+  if (req.method === "POST") {
     res.setHeader("Allow", ["POST"]);
     return res.status(405).end(`Method ${req.method} Not Allowed`);
   }
