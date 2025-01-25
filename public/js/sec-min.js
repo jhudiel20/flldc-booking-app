@@ -1,4 +1,4 @@
-const branches = require('/js/modules');
+import { branches } from '/js/modules';
 
 
 if (typeof AOS !== 'undefined') {
