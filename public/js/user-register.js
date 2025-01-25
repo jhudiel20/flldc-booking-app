@@ -99,12 +99,17 @@ const branches = [
       sbu: document.getElementById('SBU').value,
     };
   
-    fetch(`/api/UserRegistration`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
+    $.ajax({
+      url: '/api/UserRegistration',
+      type: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify(formData),
+      success: function(response) {
+        console.log('User registered successfully!');
       },
-      body: JSON.stringify(formData)
+      error: function(xhr, status, error) {
+        console.error('Error during registration:', error);
+      }
     });
   });
   
