@@ -66,54 +66,5 @@ const branches = [
     "TALISAY", "TALISAY-NA", "TALISAY-PMFTC", "TAYTAY-NA", "TAYTAY-PMFTC", "TOLEDO", "ZAMBOANGA"
   ];
 
-  // Populate Branch Options
-  const branchSelect = document.getElementById('branchSelect');
-  branchSelect.innerHTML = ''; // Clear previous options
-  branches.forEach((branch) => {
-      const option = document.createElement('option');
-      option.value = branch;
-      option.textContent = branch;
-      branchSelect.appendChild(option);
-  });
-
-  // Show/Hide SBU Based on User Type
-  const userTypeSelect = document.getElementById('usertype');
-  const sbuContainer = document.getElementById('sbu-div');
-  const branchContainer = document.getElementById('branch-div');
-  userTypeSelect.addEventListener('change', function () {
-      sbuContainer.style.display = userTypeSelect.value === 'FAST Employee' ? 'block' : 'none';
-      branchContainer.style.display = userTypeSelect.value === 'FAST Employee' ? 'block' : 'none';
-  });
-
-
-  document.querySelector('#signupForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-  
-    const formData = {
-      fname: document.getElementById('fname').value,
-      lname: document.getElementById('lname').value,
-      email: document.getElementById('email').value,
-      password: document.getElementById('new-password').value,
-      userType: document.getElementById('usertype').value,
-      branch: document.getElementById('branchSelect').value,
-      sbu: document.getElementById('SBU').value,
-    };
-  
-    $.ajax({
-      url: '/api/UserRegistration',
-      type: 'POST',
-      contentType: 'application/json',
-      data: JSON.stringify(formData),
-      success: function(response) {
-        console.log('User registered successfully!');
-      },
-      error: function(xhr, status, error) {
-        console.error('Error during registration:', error);
-      }
-    });
-  });
-  
-  
-  
-
-  
+  // Export the branches variable
+module.exports = branches;
