@@ -84,3 +84,35 @@ const branches = [
       sbuContainer.style.display = userTypeSelect.value === 'FAST Employee' ? 'block' : 'none';
       branchContainer.style.display = userTypeSelect.value === 'FAST Employee' ? 'block' : 'none';
   });
+
+
+  document.querySelector('#signupForm').addEventListener('submit', function (e) {
+    e.preventDefault(); // Prevent default form submission
+  
+    // Gather form data
+    const formData = {
+      fname: document.getElementById('fname').value,
+      lname: document.getElementById('lname').value,
+      email: document.getElementById('email').value,
+      password: document.getElementById('new-password').value,
+    };
+  
+    fetch('/api/user-registration', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.errors) {
+          Swal.fire({ icon: 'error', title: 'Oops!', text: data.errors.join(', ') });
+        } else {
+          Swal.fire({ icon: 'success', title: 'Welcome!', text: 'Registration successful!' });
+        }
+      })
+      .catch(error => {
+        Swal.fire({ icon: 'error', title: 'Error', text: 'Something went wrong!' });
+        console.error(error);
+      });
+  });
+  
