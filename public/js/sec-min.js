@@ -325,6 +325,26 @@ Promise.all([
 });
 
 
+  function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+  }
+
+  // Check for the 'user_data' cookie (or your actual cookie name)
+  const userData = getCookie('user_data');
+
+  if (userData) {
+    // Hide the "Login" link
+    const loginItem = document.getElementById('loginItem');
+    if (loginItem) {
+      loginItem.style.display = 'none';
+    }
+  }
+
+
+
+
 
 
 
