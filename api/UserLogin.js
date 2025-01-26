@@ -1,6 +1,5 @@
 const { Pool } = require("pg");
 const cookie = require('cookie');
-const crypto = require('crypto');
 const bcrypt = require('bcryptjs'); // For password hashing and comparison
 const pool = new Pool({
   connectionString: process.env.POSTGRES_URL, // Ensure this is correctly set in your Vercel environment
@@ -31,7 +30,7 @@ module.exports = async (req, res) => {
       const isPasswordValid = await bcrypt.compare(password, user.password);
 
       if (isPasswordValid) {
-        // const secretKey = process.env.COOKIE_SECRET_KEY;
+        const secretKey = process.env.COOKIE_SECRET_KEY;
         
         // Select all data for the user (excluding sensitive information like the password)
         const cookieValue = {
@@ -45,7 +44,7 @@ module.exports = async (req, res) => {
         };
 
         // Set the cookie to expire in 1 hour (3600000 milliseconds)
-        res.setHeader('Set-Cookie', cookie.serialize('user_data', cookieValue, {
+        res.setHeader('Set-Cookie', cookie.serialize('user_data', JSON.stringify(cookieValue), {
           httpOnly: true,  // Ensures the cookie can't be accessed via JavaScript
           secure: process.env.NODE_ENV === 'production',  // Only secure in production
           maxAge: 3600,  // Cookie will expire in 1 hour (3600 seconds)
