@@ -1,5 +1,5 @@
 import { branches } from '/js/modules.js';
-import { decryptCookie } from '/api/encryption-key';
+import { decryptCookie } from '/api/encryption-key.js';
 
 
 if (typeof AOS !== 'undefined') {
