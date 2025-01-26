@@ -337,24 +337,11 @@ async function checkUserStatus() {
         if (BookNow) {
             BookNow.style.display = 'block';
         }
-        
-        // Add a user icon with a green dot
-        const navBar = document.querySelector('.navbar-nav');
-        if (navBar) {
-          const userItem = document.createElement('li');
-          userItem.className = 'nav-item dropdown';
-          userItem.innerHTML = `
-                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-user-circle" style="font-size: 20px;"></i>
-                    <span style="width: 8px; height: 8px; background-color: green; border-radius: 100%; margin-left: 5px;"></span>
-                </a>
-                <div class="dropdown-menu" aria-labelledby="dropdown04" id="userDropdown" >
-                    <a class="dropdown-item" href="profile">Profile</a>
-                    <a class="dropdown-item" id="logoutBtn">Logout</a>
-                </div>
-          `;
-          navBar.appendChild(userItem);
+        const LogoutDropdown = document.getElementById('LogoutDropdown');
+        if (LogoutDropdown) {
+            LogoutDropdown.style.display = 'block';
         }
+
       } else {
         console.error('User is not logged in.');
       }
@@ -362,62 +349,55 @@ async function checkUserStatus() {
       console.error('Error checking user status:', error);
     }
   }
-// Set up a MutationObserver to watch for the logout button being added to the DOM
-function setupLogoutListener() {
-    const navBar = document.querySelector('.navbar-nav');
-    if (navBar) {
-        const observer = new MutationObserver((mutationsList, observer) => {
-            // Look through all mutations that just occurred
-            for (let mutation of mutationsList) {
-                if (mutation.type === 'childList') {
-                    // Check if the logout button is added to the DOM
-                    const logoutBtn = document.getElementById('logoutBtn');
-                    if (logoutBtn) {
-                        logoutBtn.addEventListener('click', function(event) {
-                            event.preventDefault(); // Prevent the default link action
+  
+  checkUserStatus();
 
-                            // Show SweetAlert confirmation dialog
-                            Swal.fire({
-                                title: 'Are you sure?',
-                                text: 'You will be logged out!',
-                                icon: 'warning',
-                                showCancelButton: true,
-                                confirmButtonText: 'Yes, log me out',
-                                cancelButtonText: 'No, stay logged in',
-                                reverseButtons: true
-                            }).then((result) => {
-                                if (result.isConfirmed) {
-                                    // Function to delete a specific cookie
-                                    function deleteCookie(name) {
-                                        document.cookie = name + '=; Max-Age=-99999999; path=/';
-                                    }
 
-                                    // Clear all cookies (you can adjust the names as needed)
-                                    document.cookie.split(';').forEach(function(cookie) {
-                                        var cookieName = cookie.split('=')[0].trim();
-                                        deleteCookie(cookieName);
-                                    });
+  document.addEventListener('DOMContentLoaded', function() {
+    const logoutBtn = document.getElementById('logoutBtn');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent the default link action
 
-                                    // Reload the current page after logout
-                                    window.location.reload(); // This reloads the current page
-                                }
-                            });
-                        });
-
-                        // Once the logout button is found, disconnect the observer
-                        observer.disconnect();
+            // Show SweetAlert confirmation dialog
+            Swal.fire({
+                title: 'Are you sure?',
+                text: 'You will be logged out!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, log me out',
+                cancelButtonText: 'No, stay logged in',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Function to delete a specific cookie
+                    function deleteCookie(name) {
+                        document.cookie = name + '=; Max-Age=-99999999; path=/';
                     }
+
+                    // Clear all cookies (you can adjust the names as needed)
+                    document.cookie.split(';').forEach(function(cookie) {
+                        var cookieName = cookie.split('=')[0].trim();
+                        deleteCookie(cookieName);
+                    });
+
+                    // Reload the current page after logout
+                    window.location.reload(); // This reloads the current page
                 }
-            }
+            });
         });
-
-        // Start observing the navbar for changes
-        observer.observe(navBar, { childList: true, subtree: true });
+    } else {
+        console.log('Logout button not found');
     }
-}
-
-// Wait for the DOM content to be fully loaded before running the script
-document.addEventListener('DOMContentLoaded', function() {
-    checkUserStatus(); // Call checkUserStatus here
-    setupLogoutListener(); // Set up the MutationObserver
 });
+
+  
+
+
+
+
+
+
+  
+
+
