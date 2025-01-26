@@ -362,9 +362,6 @@ async function checkUserStatus() {
       console.error('Error checking user status:', error);
     }
   }
-  
-  checkUserStatus();
-
 
 // Wait for the DOM content to be fully loaded before running the script
 document.addEventListener('DOMContentLoaded', function() {
