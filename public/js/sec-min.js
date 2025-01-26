@@ -166,7 +166,9 @@ Promise.all([
                           Swal.fire('Error!', result.error, 'error');
                           return;
                       } else {
-                          Swal.fire('Success!', 'Successfully Login.', 'success');
+                          Swal.fire('Success!', 'Successfully Login.', 'success').then(() => {
+                            location.reload();
+                        });
                       }
                     } catch (error) {
                         Swal.fire('Error!', 'Login failed. Please try again.', 'error');
@@ -331,19 +333,27 @@ async function checkUserStatus() {
         if (loginItem) {
           loginItem.style.display = 'none';
         }
-  
+        const BookNow = document.getElementById('BookNow');
+        if (BookNow) {
+            BookNow.style.display = 'block';
+        }
+        
         // Add a user icon with a green dot
         const navBar = document.querySelector('.navbar-nav');
         if (navBar) {
           const userItem = document.createElement('li');
-          userItem.className = 'nav-item cta';
+          userItem.className = 'nav-item';
           userItem.innerHTML = `
-            <a class="nav-link" href="profile">
-              <span style="display: flex; align-items: center;">
-                <i class="fas fa-user-circle" style="font-size: 20px;"></i>
-                <span style="width: 8px; height: 8px; background-color: green; border-radius: 50%; margin-left: 5px;"></span>
-              </span>
-            </a>
+           <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-user-circle" style="font-size: 20px;"></i>
+                    <span style="width: 8px; height: 8px; background-color: green; border-radius: 100%; margin-left: 5px;"></span>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                    <li><a class="dropdown-item" href="profile">Profile</a></li>
+                    <li><a class="dropdown-item" id="logoutBtn">Logout</a></li>
+                </ul>
+            </li>
           `;
           navBar.appendChild(userItem);
         }
@@ -356,6 +366,38 @@ async function checkUserStatus() {
   }
   
   checkUserStatus();
+
+
+  document.querySelector('#logoutBtn').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent the default link action
+
+    // Show SweetAlert confirmation dialog
+    Swal.fire({
+        title: 'Are you sure?',
+        text: 'You will be logged out!',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, log me out',
+        cancelButtonText: 'No, stay logged in',
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Function to delete a specific cookie
+            function deleteCookie(name) {
+                document.cookie = name + '=; Max-Age=-99999999; path=/';
+            }
+
+            // Clear all cookies (you can adjust the names as needed)
+            document.cookie.split(';').forEach(function(cookie) {
+                var cookieName = cookie.split('=')[0].trim();
+                deleteCookie(cookieName);
+            });
+
+            window.location.reload();
+        }
+    });
+});
+
   
 
 
