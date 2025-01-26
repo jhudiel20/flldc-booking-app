@@ -4,7 +4,7 @@ const cookie = require('cookie');
 module.exports = async (req, res) => {
   try {
     // Handle logout (when the method is POST and URL is /logout)
-    if (req.method === 'POST' && req.url === '/logout') {
+    if (req.method === 'POST' && req.url === '/api/logout') {
       // Set the cookie with maxAge 0 to delete it
       res.setHeader('Set-Cookie', cookie.serialize('user_data', '', {
         httpOnly: true,
