@@ -149,6 +149,7 @@ export const validateCookieHandler = async (req, res) => {
       return res.status(400).json({ error: 'Invalid cookie' });
     }
 };
+  
 
 
 // Main handler that determines which function to call
