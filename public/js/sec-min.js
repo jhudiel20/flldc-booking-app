@@ -325,7 +325,7 @@ Promise.all([
 
 async function checkUserStatus() {
   try {
-    const response = await fetch('/api/validate-cookie'); // API endpoint to validate the cookie
+    const response = await fetch('/api/validate-cookie.js'); // API endpoint to validate the cookie
     if (response.ok) {
       const userData = await response.json();
       console.log('User Data:', userData);
