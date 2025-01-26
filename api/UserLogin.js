@@ -2,6 +2,7 @@ const { Pool } = require("pg");
 const cookie = require('cookie');
 const crypto = require('crypto');
 const bcrypt = require('bcryptjs'); // For password hashing and comparison
+const { encryptCookie } = require('/api/encryption-key');
 const pool = new Pool({
   connectionString: process.env.POSTGRES_URL, // Ensure this is correctly set in your Vercel environment
 });
@@ -31,11 +32,10 @@ module.exports = async (req, res) => {
       const isPasswordValid = await bcrypt.compare(password, user.password);
 
       if (isPasswordValid) {
-        const secretKey = process.env.COOKIE_SECRET_KEY;
-        
-        // Select all data for the user (excluding sensitive information like the password)
+
+        // Example usage
         const cookieValue = {
-          userId: user.id,  // Store the user ID in the cookie
+          userId: user.id,
           email: user.email,
           firstName: user.fname,
           lastName: user.lname,
@@ -44,21 +44,15 @@ module.exports = async (req, res) => {
           usertype: user.user_type,
         };
 
-        // Encrypt the cookie value
-        const encryptedCookieValue = crypto
-          .createHmac('sha256', secretKey)
-          .update(JSON.stringify(cookieValue))
-          .digest('hex');
+        const encryptedCookieValue = encryptCookie(cookieValue);
 
-        // Set the cookie to expire in 1 hour (3600000 milliseconds)
         res.setHeader('Set-Cookie', cookie.serialize('user_data', encryptedCookieValue, {
-          httpOnly: true,  // Ensures the cookie can't be accessed via JavaScript
-          secure: process.env.NODE_ENV === 'production',  // Only secure in production
-          maxAge: 3600,  // Cookie will expire in 1 hour (3600 seconds)
-          path: '/',  // Cookie is available for the entire domain
-          sameSite: 'Strict',  // Prevents sending the cookie with cross-site requests
+          httpOnly: true,
+          secure: process.env.NODE_ENV === 'production',
+          maxAge: 3600,
+          path: '/',
+          sameSite: 'Strict',
         }));
-
         // Send success response
         res.status(200).json({ message: 'Welcome.' });
       } else {

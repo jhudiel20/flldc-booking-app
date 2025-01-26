@@ -1,4 +1,5 @@
 import { branches } from '/js/modules.js';
+const { encryptCookie, decryptCookie } = require('/api/encryption-key');
 
 
 if (typeof AOS !== 'undefined') {
@@ -323,6 +324,24 @@ Promise.all([
         console.error("Element with ID 'LoginModal' not found.");
     }
 });
+
+
+// Example usage
+const cookieHeader = req.headers.cookie || '';
+const userCookie = cookieHeader
+  .split('; ')
+  .find(row => row.startsWith('user_data='))
+  ?.split('=')[1];
+
+if (userCookie) {
+  try {
+    const decryptedData = decryptCookie(decodeURIComponent(userCookie));
+    console.log('Decrypted Cookie Data:', decryptedData);
+  } catch (error) {
+    console.error('Failed to decrypt cookie:', error);
+  }
+}
+
 
   function getCookie(name) {
     const value = `; ${document.cookie}`;
