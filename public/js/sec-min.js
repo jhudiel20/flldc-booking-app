@@ -319,45 +319,44 @@ Promise.all([
         console.error("Element with ID 'LoginModal' not found.");
     }
 });
-
-// async function checkUserStatus() {
-//   try {
-//     const response = await fetch('/api/validate-cookie.js'); // API endpoint to validate the cookie
-//     if (response.ok) {
-//       const userData = await response.json();
-//       console.log('User Data:', userData);
-
-//       // Hide the "Login" link
-//       const loginItem = document.getElementById('loginItem');
-//       if (loginItem) {
-//         loginItem.style.display = 'none';
-//       }
-
-//       // Add a user icon with a green dot
-//       const navBar = document.querySelector('.navbar-nav');
-//       if (navBar) {
-//         const userItem = document.createElement('li');
-//         userItem.className = 'nav-item cta';
-//         userItem.innerHTML = `
-//           <a class="nav-link" href="profile">
-//             <span style="display: flex; align-items: center;">
-//               <i class="fas fa-user-circle" style="font-size: 20px;"></i>
-//               <span style="width: 8px; height: 8px; background-color: green; border-radius: 50%; margin-left: 5px;"></span>
-//             </span>
-//           </a>
-//         `;
-//         navBar.appendChild(userItem);
-//       }
-//     } else {
-//       console.error('User is not logged in.');
-//     }
-//   } catch (error) {
-//     console.error('Error checking user status:', error);
-//   }
-// }
-
-// checkUserStatus();
-
+async function checkUserStatus() {
+    try {
+      const response = await fetch('/api/validate-cookie.js'); // API endpoint to validate the cookie
+      if (response.ok) {
+        const userData = await response.json();
+        console.log('User Data:', userData);
+  
+        // Hide the "Login" link
+        const loginItem = document.getElementById('loginItem');
+        if (loginItem) {
+          loginItem.style.display = 'none';
+        }
+  
+        // Add a user icon with a green dot
+        const navBar = document.querySelector('.navbar-nav');
+        if (navBar) {
+          const userItem = document.createElement('li');
+          userItem.className = 'nav-item cta';
+          userItem.innerHTML = `
+            <a class="nav-link" href="profile">
+              <span style="display: flex; align-items: center;">
+                <i class="fas fa-user-circle" style="font-size: 20px;"></i>
+                <span style="width: 8px; height: 8px; background-color: green; border-radius: 50%; margin-left: 5px;"></span>
+              </span>
+            </a>
+          `;
+          navBar.appendChild(userItem);
+        }
+      } else {
+        console.error('User is not logged in.');
+      }
+    } catch (error) {
+      console.error('Error checking user status:', error);
+    }
+  }
+  
+  checkUserStatus();
+  
 
 
 
