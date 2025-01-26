@@ -111,7 +111,6 @@ Promise.all([
       dropdown.dataset.loaded = 'true';
   }
 
-
   includeHTML('header', 'header').then(() => {
     const loginModal = document.getElementById('LoginModal');
     if (loginModal) {
