@@ -30,7 +30,6 @@ function toggleExtras() {
    }
  });
 
-
 // Function to load HTML files from the 'includes' folder into a specified element
 function includeHTML(file, elementID) {
   return fetch(`includes/${file}.html`)
