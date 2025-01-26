@@ -31,38 +31,28 @@ module.exports = async (req, res) => {
       const isPasswordValid = await bcrypt.compare(password, user.password);
 
       if (isPasswordValid) {
-        const secretKey = process.env.COOKIE_SECRET_KEY;
+        // const secretKey = process.env.COOKIE_SECRET_KEY;
         
-        const algorithm = 'aes-256-cbc';
+        // Select all data for the user (excluding sensitive information like the password)
+        const cookieValue = {
+          userId: user.id,  // Store the user ID in the cookie
+          email: user.email,
+          firstName: user.fname,
+          lastName: user.lname,
+          sbu: user.business_unit,
+          branch: user.branch,
+          usertype: user.user_type,
+        };
 
-      function encryptCookie(data) {
-        const iv = crypto.randomBytes(16); // Generate a random initialization vector (IV)
-        const cipher = crypto.createCipheriv(algorithm, secretKey, iv);
-        let encrypted = cipher.update(JSON.stringify(data), 'utf8', 'hex');
-        encrypted += cipher.final('hex');
-        return `${iv.toString('hex')}:${encrypted}`; // Return IV and encrypted data
-      }
+        // Set the cookie to expire in 1 hour (3600000 milliseconds)
+        res.setHeader('Set-Cookie', cookie.serialize('user_data', cookieValue, {
+          httpOnly: true,  // Ensures the cookie can't be accessed via JavaScript
+          secure: process.env.NODE_ENV === 'production',  // Only secure in production
+          maxAge: 3600,  // Cookie will expire in 1 hour (3600 seconds)
+          path: '/',  // Cookie is available for the entire domain
+          sameSite: 'Strict',  // Prevents sending the cookie with cross-site requests
+        }));
 
-      // Example usage
-      const cookieValue = {
-        userId: user.id,
-        email: user.email,
-        firstName: user.fname,
-        lastName: user.lname,
-        sbu: user.business_unit,
-        branch: user.branch,
-        usertype: user.user_type,
-      };
-
-      const encryptedCookieValue = encryptCookie(cookieValue);
-
-      res.setHeader('Set-Cookie', cookie.serialize('user_data', encryptedCookieValue, {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
-        maxAge: 3600,
-        path: '/',
-        sameSite: 'Strict',
-      }));
         // Send success response
         res.status(200).json({ message: 'Welcome.' });
       } else {
