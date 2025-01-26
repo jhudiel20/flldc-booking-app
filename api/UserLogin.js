@@ -1,39 +1,38 @@
 const { Pool } = require("pg");
 const cookie = require('cookie');
-const crypto = require('crypto');
 const bcrypt = require('bcryptjs'); // For password hashing and comparison
 const { encryptCookie } = require('/api/encryption-key');
+
 const pool = new Pool({
   connectionString: process.env.POSTGRES_URL, // Ensure this is correctly set in your Vercel environment
 });
 
 module.exports = async (req, res) => {
-  // Ensure method is POST before proceeding
+  // Allow only POST requests
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method Not Allowed' });
   }
 
-  // Extract form data from request body
+  // Destructure form data from request body
   const { email, password } = req.body;
 
-  // Input validation
+  // Validate input
   if (!email || !password) {
-    return res.status(400).json({ error: 'All fields are required.' });
+    return res.status(400).json({ error: 'Email and password are required.' });
   }
 
   try {
-    // Check if email exists in the database
+    // Query the database for the user by email
     const result = await pool.query('SELECT * FROM user_reservation WHERE email = $1', [email]);
 
     if (result.rows.length === 1) {
       const user = result.rows[0];
-      
-      // Compare the provided password with the hashed password in the database
+
+      // Verify the password
       const isPasswordValid = await bcrypt.compare(password, user.password);
 
       if (isPasswordValid) {
-
-        // Example usage
+        // Prepare the cookie value with user data
         const cookieValue = {
           userId: user.id,
           email: user.email,
@@ -41,30 +40,34 @@ module.exports = async (req, res) => {
           lastName: user.lname,
           sbu: user.business_unit,
           branch: user.branch,
-          usertype: user.user_type,
+          userType: user.user_type,
         };
 
+        // Encrypt the cookie value
         const encryptedCookieValue = encryptCookie(cookieValue);
 
+        // Set the cookie in the response header
         res.setHeader('Set-Cookie', cookie.serialize('user_data', encryptedCookieValue, {
-          httpOnly: true,
-          secure: process.env.NODE_ENV === 'production',
-          maxAge: 3600,
-          path: '/',
-          sameSite: 'Strict',
+          httpOnly: true, // Prevents JavaScript access to the cookie
+          secure: process.env.NODE_ENV === 'production', // Secure in production
+          maxAge: 3600, // 1 hour
+          path: '/', // Cookie available to all routes
+          sameSite: 'Strict', // CSRF protection
         }));
-        // Send success response
-        res.status(200).json({ message: 'Welcome.' });
+
+        // Send a success response
+        return res.status(200).json({ message: 'Login successful. Welcome!' });
       } else {
-        res.status(401).json({ error: 'Incorrect password.' });
+        // Handle incorrect password
+        return res.status(401).json({ error: 'Incorrect password.' });
       }
     } else {
-      res.status(404).json({ error: 'Email not found.' });
+      // Handle email not found
+      return res.status(404).json({ error: 'Email not found.' });
     }
-
   } catch (error) {
-    // Handle any errors that occur during database interaction
+    // Log and handle unexpected errors
     console.error('Error during login:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
+    return res.status(500).json({ error: 'Internal Server Error' });
   }
 };

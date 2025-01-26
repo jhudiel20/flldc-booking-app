@@ -325,56 +325,43 @@ Promise.all([
     }
 });
 
-
-// Example usage
-const cookieHeader = req.headers.cookie || '';
-const userCookie = cookieHeader
-  .split('; ')
-  .find(row => row.startsWith('user_data='))
-  ?.split('=')[1];
-
-if (userCookie) {
+async function checkUserStatus() {
   try {
-    const decryptedData = decryptCookie(decodeURIComponent(userCookie));
-    console.log('Decrypted Cookie Data:', decryptedData);
+    const response = await fetch('/api/validate-cookie'); // API endpoint to validate the cookie
+    if (response.ok) {
+      const userData = await response.json();
+      console.log('User Data:', userData);
+
+      // Hide the "Login" link
+      const loginItem = document.getElementById('loginItem');
+      if (loginItem) {
+        loginItem.style.display = 'none';
+      }
+
+      // Add a user icon with a green dot
+      const navBar = document.querySelector('.navbar-nav');
+      if (navBar) {
+        const userItem = document.createElement('li');
+        userItem.className = 'nav-item cta';
+        userItem.innerHTML = `
+          <a class="nav-link" href="profile">
+            <span style="display: flex; align-items: center;">
+              <i class="fas fa-user-circle" style="font-size: 20px;"></i>
+              <span style="width: 8px; height: 8px; background-color: green; border-radius: 50%; margin-left: 5px;"></span>
+            </span>
+          </a>
+        `;
+        navBar.appendChild(userItem);
+      }
+    } else {
+      console.error('User is not logged in.');
+    }
   } catch (error) {
-    console.error('Failed to decrypt cookie:', error);
+    console.error('Error checking user status:', error);
   }
 }
 
-
-  function getCookie(name) {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(';').shift();
-  }
-
-  // Check for the 'user_data' cookie (or your actual cookie name)
-  const userData = getCookie('user_data');
-
-  if (userData) {
-    // Hide the "Login" link
-    const loginItem = document.getElementById('loginItem');
-    if (loginItem) {
-      loginItem.style.display = 'none';
-    }
-
-    // Add a user icon with a green dot
-    const navBar = document.querySelector('.navbar-nav'); // Adjust selector to your nav container
-    if (navBar) {
-      const userItem = document.createElement('li');
-      userItem.className = 'nav-item cta';
-      userItem.innerHTML = `
-        <a class="nav-link" href="profile">
-          <span style="display: flex; align-items: center;">
-            <i class="fas fa-user-circle" style="font-size: 20px;"></i>
-            <span style="width: 8px; height: 8px; background-color: green; border-radius: 50%; margin-left: 5px;"></span>
-          </span>
-        </a>
-      `;
-      navBar.appendChild(userItem);
-    }
-  }
+checkUserStatus();
 
 
 
