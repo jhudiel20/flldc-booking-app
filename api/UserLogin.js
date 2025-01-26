@@ -1,38 +1,49 @@
 const { Pool } = require("pg");
 const cookie = require('cookie');
+const crypto = require('crypto');
 const bcrypt = require('bcryptjs'); // For password hashing and comparison
-const { encryptCookie } = require('./encryption-key');
-
 const pool = new Pool({
   connectionString: process.env.POSTGRES_URL, // Ensure this is correctly set in your Vercel environment
 });
 
 module.exports = async (req, res) => {
-  // Allow only POST requests
+  // Ensure method is POST before proceeding
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method Not Allowed' });
   }
 
-  // Destructure form data from request body
+  // Extract form data from request body
   const { email, password } = req.body;
 
-  // Validate input
+  // Input validation
   if (!email || !password) {
-    return res.status(400).json({ error: 'Email and password are required.' });
+    return res.status(400).json({ error: 'All fields are required.' });
   }
 
   try {
-    // Query the database for the user by email
+    // Check if email exists in the database
     const result = await pool.query('SELECT * FROM user_reservation WHERE email = $1', [email]);
 
     if (result.rows.length === 1) {
       const user = result.rows[0];
-
-      // Verify the password
+      
+      // Compare the provided password with the hashed password in the database
       const isPasswordValid = await bcrypt.compare(password, user.password);
 
       if (isPasswordValid) {
-        // Prepare the cookie value with user data
+        const secretKey = process.env.COOKIE_SECRET_KEY;
+        
+        const algorithm = 'aes-256-cbc';
+
+        function encryptCookie(data) {
+          const iv = crypto.randomBytes(16); // Generate a random initialization vector (IV)
+          const cipher = crypto.createCipheriv(algorithm, secretKey, iv);
+          let encrypted = cipher.update(JSON.stringify(data), 'utf8', 'hex');
+          encrypted += cipher.final('hex');
+          return `${iv.toString('hex')}:${encrypted}`; // Return IV and encrypted data
+        }
+
+        // Example usage
         const cookieValue = {
           userId: user.id,
           email: user.email,
@@ -40,34 +51,30 @@ module.exports = async (req, res) => {
           lastName: user.lname,
           sbu: user.business_unit,
           branch: user.branch,
-          userType: user.user_type,
+          usertype: user.user_type,
         };
 
-        // Encrypt the cookie value
         const encryptedCookieValue = encryptCookie(cookieValue);
 
-        // Set the cookie in the response header
         res.setHeader('Set-Cookie', cookie.serialize('user_data', encryptedCookieValue, {
-          httpOnly: true, // Prevents JavaScript access to the cookie
-          secure: process.env.NODE_ENV === 'production', // Secure in production
-          maxAge: 3600, // 1 hour
-          path: '/', // Cookie available to all routes
-          sameSite: 'Strict', // CSRF protection
+          httpOnly: true,
+          secure: process.env.NODE_ENV === 'production',
+          maxAge: 3600,
+          path: '/',
+          sameSite: 'Strict',
         }));
-
-        // Send a success response
-        return res.status(200).json({ message: 'Login successful. Welcome!' });
+        // Send success response
+        res.status(200).json({ message: 'Welcome.' });
       } else {
-        // Handle incorrect password
-        return res.status(401).json({ error: 'Incorrect password.' });
+        res.status(401).json({ error: 'Incorrect password.' });
       }
     } else {
-      // Handle email not found
-      return res.status(404).json({ error: 'Email not found.' });
+      res.status(404).json({ error: 'Email not found.' });
     }
+
   } catch (error) {
-    // Log and handle unexpected errors
+    // Handle any errors that occur during database interaction
     console.error('Error during login:', error);
-    return res.status(500).json({ error: 'Internal Server Error' });
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 };
