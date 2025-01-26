@@ -345,14 +345,14 @@ async function checkUserStatus() {
           userItem.className = 'nav-item';
           userItem.innerHTML = `
            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-user-circle" style="font-size: 20px;"></i>
                     <span style="width: 8px; height: 8px; background-color: green; border-radius: 100%; margin-left: 5px;"></span>
                 </a>
-                <ul class="dropdown-menu" aria-labelledby="userDropdown">
-                    <li><a class="dropdown-item" href="profile">Profile</a></li>
-                    <li><a class="dropdown-item" id="logoutBtn">Logout</a></li>
-                </ul>
+                <div class="dropdown-menu" aria-labelledby="dropdown04" id="userDropdown" >
+                    <a class="dropdown-item" href="profile">Profile</a>
+                    <a class="dropdown-item" id="logoutBtn">Logout</a>
+                </div>
             </li>
           `;
           navBar.appendChild(userItem);
