@@ -362,56 +362,62 @@ async function checkUserStatus() {
       console.error('Error checking user status:', error);
     }
   }
+// Set up a MutationObserver to watch for the logout button being added to the DOM
+function setupLogoutListener() {
+    const navBar = document.querySelector('.navbar-nav');
+    if (navBar) {
+        const observer = new MutationObserver((mutationsList, observer) => {
+            // Look through all mutations that just occurred
+            for (let mutation of mutationsList) {
+                if (mutation.type === 'childList') {
+                    // Check if the logout button is added to the DOM
+                    const logoutBtn = document.getElementById('logoutBtn');
+                    if (logoutBtn) {
+                        logoutBtn.addEventListener('click', function(event) {
+                            event.preventDefault(); // Prevent the default link action
+
+                            // Show SweetAlert confirmation dialog
+                            Swal.fire({
+                                title: 'Are you sure?',
+                                text: 'You will be logged out!',
+                                icon: 'warning',
+                                showCancelButton: true,
+                                confirmButtonText: 'Yes, log me out',
+                                cancelButtonText: 'No, stay logged in',
+                                reverseButtons: true
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    // Function to delete a specific cookie
+                                    function deleteCookie(name) {
+                                        document.cookie = name + '=; Max-Age=-99999999; path=/';
+                                    }
+
+                                    // Clear all cookies (you can adjust the names as needed)
+                                    document.cookie.split(';').forEach(function(cookie) {
+                                        var cookieName = cookie.split('=')[0].trim();
+                                        deleteCookie(cookieName);
+                                    });
+
+                                    // Reload the current page after logout
+                                    window.location.reload(); // This reloads the current page
+                                }
+                            });
+                        });
+
+                        // Once the logout button is found, disconnect the observer
+                        observer.disconnect();
+                    }
+                }
+            }
+        });
+
+        // Start observing the navbar for changes
+        observer.observe(navBar, { childList: true, subtree: true });
+    }
+}
 
 // Wait for the DOM content to be fully loaded before running the script
 document.addEventListener('DOMContentLoaded', function() {
     checkUserStatus(); // Call checkUserStatus here
-
-    // Now, after the user item is added, check for the logout button
-    const logoutBtn = document.getElementById('logoutBtn');
-    if (logoutBtn) {
-        logoutBtn.addEventListener('click', function(event) {
-            event.preventDefault(); // Prevent the default link action
-
-            // Show SweetAlert confirmation dialog
-            Swal.fire({
-                title: 'Are you sure?',
-                text: 'You will be logged out!',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonText: 'Yes, log me out',
-                cancelButtonText: 'No, stay logged in',
-                reverseButtons: true
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    // Function to delete a specific cookie
-                    function deleteCookie(name) {
-                        document.cookie = name + '=; Max-Age=-99999999; path=/';
-                    }
-
-                    // Clear all cookies (you can adjust the names as needed)
-                    document.cookie.split(';').forEach(function(cookie) {
-                        var cookieName = cookie.split('=')[0].trim();
-                        deleteCookie(cookieName);
-                    });
-
-                    // Reload the current page after logout
-                    window.location.reload(); // This reloads the current page
-                }
-            });
-        });
-    } else {
-        console.log('Logout button not found');
-    }
+    setupLogoutListener(); // Set up the MutationObserver
 });
-
-  
-
-
-
-
-
-
-  
-
-
