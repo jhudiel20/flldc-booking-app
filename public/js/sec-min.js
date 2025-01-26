@@ -366,21 +366,24 @@ document.addEventListener('DOMContentLoaded', async function() {
                 confirmButtonText: 'Yes, log me out',
                 cancelButtonText: 'No, stay logged in',
                 reverseButtons: true
-            }).then((result) => {
+            }).then(async (result) => {
                 if (result.isConfirmed) {
-                    // Function to delete a specific cookie
-                    function deleteCookie(name) {
-                        document.cookie = name + '=; Max-Age=-99999999; path=/';
+                    try {
+                        // Send a POST request to the /logout route to delete the cookie
+                        const logoutResponse = await fetch('/api/validate-cookie.js', {
+                            method: 'POST', // POST method for logout
+                            credentials: 'same-origin', // Include cookies with the request
+                        });
+
+                        if (logoutResponse.ok) {
+                            // Reload the current page after logout
+                            window.location.reload(); // This reloads the current page
+                        } else {
+                            console.error('Logout failed');
+                        }
+                    } catch (error) {
+                        console.error('Error logging out:', error);
                     }
-
-                    // Clear all cookies (you can adjust the names as needed)
-                    document.cookie.split(';').forEach(function(cookie) {
-                        var cookieName = cookie.split('=')[0].trim();
-                        deleteCookie(cookieName);
-                    });
-
-                    // Reload the current page after logout
-                    window.location.reload(); // This reloads the current page
                 }
             });
         });
