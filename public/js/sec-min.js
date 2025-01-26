@@ -366,7 +366,11 @@ async function checkUserStatus() {
   checkUserStatus();
 
 
-  document.addEventListener('DOMContentLoaded', function() {
+// Wait for the DOM content to be fully loaded before running the script
+document.addEventListener('DOMContentLoaded', function() {
+    checkUserStatus(); // Call checkUserStatus here
+
+    // Now, after the user item is added, check for the logout button
     const logoutBtn = document.getElementById('logoutBtn');
     if (logoutBtn) {
         logoutBtn.addEventListener('click', function(event) {
