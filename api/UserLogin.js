@@ -35,34 +35,34 @@ module.exports = async (req, res) => {
         
         const algorithm = 'aes-256-cbc';
 
-        function encryptCookie(data) {
-          const iv = crypto.randomBytes(16); // Generate a random initialization vector (IV)
-          const cipher = crypto.createCipheriv(algorithm, secretKey, iv);
-          let encrypted = cipher.update(JSON.stringify(data), 'utf8', 'hex');
-          encrypted += cipher.final('hex');
-          return `${iv.toString('hex')}:${encrypted}`; // Return IV and encrypted data
-        }
+      function encryptCookie(data) {
+        const iv = crypto.randomBytes(16); // Generate a random initialization vector (IV)
+        const cipher = crypto.createCipheriv(algorithm, secretKey, iv);
+        let encrypted = cipher.update(JSON.stringify(data), 'utf8', 'hex');
+        encrypted += cipher.final('hex');
+        return `${iv.toString('hex')}:${encrypted}`; // Return IV and encrypted data
+      }
 
-        // Example usage
-        const cookieValue = {
-          userId: user.id,
-          email: user.email,
-          firstName: user.fname,
-          lastName: user.lname,
-          sbu: user.business_unit,
-          branch: user.branch,
-          usertype: user.user_type,
-        };
+      // Example usage
+      const cookieValue = {
+        userId: user.id,
+        email: user.email,
+        firstName: user.fname,
+        lastName: user.lname,
+        sbu: user.business_unit,
+        branch: user.branch,
+        usertype: user.user_type,
+      };
 
-        const encryptedCookieValue = encryptCookie(cookieValue);
+      const encryptedCookieValue = encryptCookie(cookieValue);
 
-        res.setHeader('Set-Cookie', cookie.serialize('user_data', encryptedCookieValue, {
-          httpOnly: true,
-          secure: process.env.NODE_ENV === 'production',
-          maxAge: 3600,
-          path: '/',
-          sameSite: 'Strict',
-        }));
+      res.setHeader('Set-Cookie', cookie.serialize('user_data', encryptedCookieValue, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        maxAge: 3600,
+        path: '/',
+        sameSite: 'Strict',
+      }));
         // Send success response
         res.status(200).json({ message: 'Welcome.' });
       } else {
