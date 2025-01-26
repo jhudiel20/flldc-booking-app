@@ -342,9 +342,8 @@ async function checkUserStatus() {
         const navBar = document.querySelector('.navbar-nav');
         if (navBar) {
           const userItem = document.createElement('li');
-          userItem.className = 'nav-item';
+          userItem.className = 'nav-item dropdown';
           userItem.innerHTML = `
-           <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-user-circle" style="font-size: 20px;"></i>
                     <span style="width: 8px; height: 8px; background-color: green; border-radius: 100%; margin-left: 5px;"></span>
@@ -353,7 +352,6 @@ async function checkUserStatus() {
                     <a class="dropdown-item" href="profile">Profile</a>
                     <a class="dropdown-item" id="logoutBtn">Logout</a>
                 </div>
-            </li>
           `;
           navBar.appendChild(userItem);
         }
