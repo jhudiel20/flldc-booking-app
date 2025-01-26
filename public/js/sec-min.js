@@ -1,5 +1,5 @@
 import { branches } from '/js/modules.js';
-const { encryptCookie, decryptCookie } = require('/api/encryption-key');
+import { decryptCookie } from '/api/encryption-key';
 
 
 if (typeof AOS !== 'undefined') {
