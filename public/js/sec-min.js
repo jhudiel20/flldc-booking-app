@@ -321,36 +321,74 @@ Promise.all([
         console.error("Element with ID 'LoginModal' not found.");
     }
 });
-async function checkUserStatus() {
+document.addEventListener('DOMContentLoaded', async function() {
+    // Check user status
     try {
-      const response = await fetch('/api/validate-cookie.js'); // API endpoint to validate the cookie
-      if (response.ok) {
-        const userData = await response.json();
-        console.log('User Data:', userData);
-  
-        // Hide the "Login" link
-        const loginItem = document.getElementById('loginItem');
-        if (loginItem) {
-          loginItem.style.display = 'none';
-        }
-        const BookNow = document.getElementById('BookNow');
-        if (BookNow) {
-            BookNow.style.display = 'block';
-        }
-        const LogoutDropdown = document.getElementById('LogoutDropdown');
-        if (LogoutDropdown) {
-            LogoutDropdown.style.display = 'block';
-        }
+        const response = await fetch('/api/validate-cookie.js'); // API endpoint to validate the cookie
+        if (response.ok) {
+            const userData = await response.json();
+            console.log('User Data:', userData);
 
-      } else {
-        console.error('User is not logged in.');
-      }
+            // Hide the "Login" link
+            const loginItem = document.getElementById('loginItem');
+            if (loginItem) {
+                loginItem.style.display = 'none';
+            }
+
+            const BookNow = document.getElementById('BookNow');
+            if (BookNow) {
+                BookNow.style.display = 'block';
+            }
+
+            const LogoutDropdown = document.getElementById('LogoutDropdown');
+            if (LogoutDropdown) {
+                LogoutDropdown.style.display = 'block';
+            }
+        } else {
+            console.error('User is not logged in.');
+        }
     } catch (error) {
-      console.error('Error checking user status:', error);
+        console.error('Error checking user status:', error);
     }
-  }
-  
-  checkUserStatus();
+
+    // Add event listener to logout button
+    const logoutBtn = document.getElementById('logoutBtn');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent the default link action
+
+            // Show SweetAlert confirmation dialog
+            Swal.fire({
+                title: 'Are you sure?',
+                text: 'You will be logged out!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, log me out',
+                cancelButtonText: 'No, stay logged in',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Function to delete a specific cookie
+                    function deleteCookie(name) {
+                        document.cookie = name + '=; Max-Age=-99999999; path=/';
+                    }
+
+                    // Clear all cookies (you can adjust the names as needed)
+                    document.cookie.split(';').forEach(function(cookie) {
+                        var cookieName = cookie.split('=')[0].trim();
+                        deleteCookie(cookieName);
+                    });
+
+                    // Reload the current page after logout
+                    window.location.reload(); // This reloads the current page
+                }
+            });
+        });
+    } else {
+        console.log('Logout button not found');
+    }
+});
+
 
 
 
