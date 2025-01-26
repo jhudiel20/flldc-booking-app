@@ -320,10 +320,11 @@ Promise.all([
         console.error("Element with ID 'LoginModal' not found.");
     }
 });
+
 document.addEventListener('DOMContentLoaded', async function() {
     // Check user status
     try {
-        const response = await fetch('/api/validate-cookie.js'); // API endpoint to validate the cookie
+        const response = await fetch('/api/validateCookie'); // API endpoint to validate the cookie
         if (response.ok) {
             const userData = await response.json();
             console.log('User Data:', userData);
@@ -369,7 +370,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                 if (result.isConfirmed) {
                     try {
                         // Send a POST request to the /logout route to delete the cookie
-                        const logoutResponse = await fetch('/api/validate-cookie.js', {
+                        const logoutResponse = await fetch('/api/logout', {
                             method: 'POST', // POST method for logout
                             credentials: 'same-origin', // Include cookies with the request
                         });

@@ -109,6 +109,47 @@ export const registrationHandler = async (req, res) => {
   }
 };
 
+export const logoutHandler = async (req, res) => {
+    try {
+      if (req.method === 'POST') {
+        res.setHeader('Set-Cookie', cookie.serialize('user_data', '', {
+          httpOnly: true,
+          secure: process.env.NODE_ENV === 'production',
+          maxAge: 0, // Expire the cookie immediately
+          path: '/',
+          sameSite: 'Strict',
+        }));
+  
+        return res.status(200).json({ message: 'Logged out successfully' });
+      } else {
+        return res.status(405).json({ error: 'Method Not Allowed' });
+      }
+    } catch (error) {
+      console.error('Error during logout:', error);
+      return res.status(500).json({ error: 'Internal Server Error' });
+    }
+};
+
+export const validateCookieHandler = async (req, res) => {
+    try {
+      const cookieHeader = req.headers.cookie || '';
+      const userCookie = cookieHeader
+        .split('; ')
+        .find(row => row.startsWith('user_data='))
+        ?.split('=')[1];
+  
+      if (userCookie) {
+        const userData = JSON.parse(decodeURIComponent(userCookie));
+        return res.status(200).json(userData);
+      }
+  
+      return res.status(401).json({ error: 'Unauthorized' });
+    } catch (error) {
+      console.error('Error processing cookie:', error);
+      return res.status(400).json({ error: 'Invalid cookie' });
+    }
+};
+
 
 // Main handler that determines which function to call
 export default async function handler(req, res) {
@@ -118,6 +159,10 @@ export default async function handler(req, res) {
       return loginHandler(req, res);
     } else if (url === '/api/UserRegistration') {
       return registrationHandler(req, res);
+    } else if (url === '/api/logout' && method === 'POST') {
+        return logoutHandler(req, res);
+    } else if (url === '/api/validateCookie' && method === 'GET') {
+        return validateCookieHandler(req, res);
     } else {
       res.status(404).json({ message: 'Not Found' });
     }
