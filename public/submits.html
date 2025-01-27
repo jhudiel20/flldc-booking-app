@@ -48,6 +48,11 @@
                     return response.json(); // Parse the response as JSON
                 } else {
                     console.error('User is not logged in.');
+                    // Hide the table section and show the login prompt message
+                    document.querySelector('.site-section').style.display = 'none'; // Hide the section with the table
+                    const message = document.createElement('div');
+                    message.innerHTML = '<h1>Please login to show your submitted reservations</h1>';
+                    document.querySelector('.container').appendChild(message); // Append the message to the container
                     throw new Error('User not logged in');
                 }
             })
