@@ -202,7 +202,7 @@ document.querySelector('#bookingForm').addEventListener('submit', function (e) {
       Swal.fire({
         icon: 'error',
         title: 'Error',
-        text: data.error || 'There was an issue with your booking.',
+        text: data.error,
       }).then(() => {
         window.location.reload(); // Optionally reload the page
       });
