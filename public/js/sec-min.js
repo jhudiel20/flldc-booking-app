@@ -423,7 +423,7 @@ function includeHTML(file, elementID) {
               .then((response) => {
                 if (response.ok) {
                   Swal.fire('Logged Out', 'You have been successfully logged out.', 'success').then(() => {
-                    window.location.reload; // Redirect to login page
+                    window.location.reload(); // Redirect to login page
                   });
                 } else {
                   Swal.fire('Error', 'Logout failed. Please try again.', 'error');
@@ -456,7 +456,6 @@ function checkUserStatus() {
         })
         .then(function(userData) {
             if (userData) {
-                console.log('User Data:', userData.email);
 
                 // Hide the "Login" link
                 const loginItem = document.getElementById('loginItem');
