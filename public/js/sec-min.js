@@ -152,7 +152,7 @@ function includeHTML(file, elementID) {
     const checkReservationLink = document.createElement('a');
     checkReservationLink.classList.add('dropdown-item');
     checkReservationLink.href = 'submits';
-    checkReservationLink.textContent = 'Reservation Submitted';
+    checkReservationLink.textContent = 'Submitted Reservations';
     dropdown.appendChild(checkReservationLink);
 
     // Add the horizontal rule
