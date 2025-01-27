@@ -107,19 +107,17 @@ module.exports = async (req, res) => {
       const countQuery = `
         SELECT COUNT(*) AS count 
         FROM reservations 
-        JOIN user_reservations ON user_reservations.id = reservations.user_id
-        WHERE user_reservations.id = $1 ${filterSQL}`;
+        WHERE user_id = $1 ${filterSQL}`;
       const countResult = await pool.query(countQuery, [userId, ...filterParams]);
       const totalQuery = parseInt(countResult.rows[0].count, 10);
       const totalPages = totalQuery > 0 ? Math.ceil(totalQuery / queryLimit) : 1;
 
       // Get paginated data
       const dataQuery = `
-        SELECT reservations.*, user_reservations.*,
+        SELECT *,
                TO_CHAR(reservations.date_created, 'YYYY-MM-DD HH12:MI:SS AM') AS date_created
         FROM reservations 
-        JOIN user_reservations ON user_reservations.id = reservations.user_id
-        WHERE user_reservations.id = $1 ${filterSQL} 
+        WHERE user_id = $1 ${filterSQL} 
         ORDER BY ${sortField} ${sortDir}
         LIMIT $${paramIndex} OFFSET $${paramIndex + 1}`;
       filterParams.push(queryLimit, start);
