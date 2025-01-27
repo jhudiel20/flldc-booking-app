@@ -95,16 +95,19 @@ function includeHTML(file, elementID) {
       dropdown.dataset.loaded = 'true';
   }
 
-  // Load navigation and footer
-Promise.all([
-    includeHTML('header', 'header'),
-    includeHTML('footer', 'footer')
-  ]).then(() => {
-    // Call loadRooms only after the header has been loaded
-    loadRooms();
-    if (typeof loadAllRooms === 'function') {
-      loadAllRooms();
-    }
+// Ensure scripts run after DOM is fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Load navigation and footer after DOM is loaded
+    Promise.all([
+      includeHTML('header', 'header'),
+      includeHTML('footer', 'footer')
+    ]).then(() => {
+      // Call loadRooms only after the header has been loaded
+      loadRooms();
+      if (typeof loadAllRooms === 'function') {
+        loadAllRooms();
+      }
+    });
   });
 
   includeHTML('header', 'header').then(() => {
