@@ -48,11 +48,7 @@
                     return response.json(); // Parse the response as JSON
                 } else {
                     // Hide the table section and show the login prompt message
-                    document.querySelector('h2.mb-4.mt-4').style.display = 'none'; // Hide the h2
-                    document.querySelector('#reserve-table').style.display = 'none'; // Hide the table div
-
-                   // Replace the content inside the container with the login message
-                     document.querySelector('.container').innerHTML = '<h1>Please login to show your submitted reservations</h1>';
+                   document.querySelector('h2.mb-4.mt-4').innerText = 'Please login to show your submitted reservations';
                 }
             })
             .then(userData => {
