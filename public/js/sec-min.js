@@ -182,7 +182,7 @@ function includeHTML(file, elementID) {
         loginModal.addEventListener('click', function (event) {
           event.preventDefault(); // Prevent default anchor link behavior
     
-    
+        const showLoginModal = (errorMessage = '') => {
             Swal.fire({
                 title: 'Sign In',
                 html: `
@@ -194,6 +194,7 @@ function includeHTML(file, elementID) {
                         <label for="password" class="form-label">Password</label>
                         <input type="password" id="password" class="form-control" placeholder="Enter your password">
                     </div>
+                    <div id="errorMessage" class="text-danger mt-3">${errorMessage}</div>
                     <div class="mt-3">
                         <button id="registerLink" class="btn btn-link p-0">Don't have an account? Register here</button>
                     </div>
@@ -207,15 +208,14 @@ function includeHTML(file, elementID) {
                     cancelButton: 'btn btn-secondary',
                     buttons: 'custom-buttons'
                 },
-                buttonsStyling: false
-            }).then(async (result) => {
-                if (result.isConfirmed) {
+                buttonsStyling: false,
+                preConfirm: async () => {
                     const email = document.getElementById('email_login').value.trim();
                     const password = document.getElementById('password').value.trim();
 
                     if (!email || !password) {
-                        Swal.fire('Error!', 'Please fill in all fields.', 'error');
-                        return;
+                        document.getElementById('errorMessage').innerText = 'Please fill in all fields.';
+                            return false;
                     }
 
                     try {
@@ -233,19 +233,21 @@ function includeHTML(file, elementID) {
                       const result = await response.json();
 
                       if (result.error) {
-                          Swal.fire('Error!', result.error, 'error');
-                          return;
+                        document.getElementById('errorMessage').innerText = result.error;
+                        return false; 
                       } else {
                           Swal.fire('Success!', 'Successfully Login.', 'success').then(() => {
                             location.reload();
                         });
                       }
                     } catch (error) {
-                        Swal.fire('Error!', 'Login failed. Please try again.', 'error');
-                        return;
+                        document.getElementById('errorMessage').innerText = 'Login failed. Please try again.';
+                        return false; 
                     }
                 }
             });
+        };
+        showLoginModal();
 
             // Handle Registration Link Click
             document.getElementById('registerLink').addEventListener('click', function () {
