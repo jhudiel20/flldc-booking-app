@@ -193,7 +193,29 @@ function validateMinDate(input) {
       },
       body: JSON.stringify(formData)
     })
-    .then(response => response.json())
+    // .then(response => response.json())
+    .then(async (response) => {
+      document.getElementById('loader').classList.remove('show'); // Hide the loader
+
+      if (response.status === 401) {
+        // If the user is not logged in
+        const errorData = await response.json();
+        Swal.fire({
+          icon: 'warning',
+          title: 'Unauthorized',
+          text: errorData.message || 'You must be logged in to make a reservation.',
+        });
+        return;
+      }
+
+      if (!response.ok) {
+        // Handle other errors
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Something went wrong.');
+      }
+
+      return response.json();
+    })
     .then(data => {
       if (data.errors) {
         // If there are validation errors, display them

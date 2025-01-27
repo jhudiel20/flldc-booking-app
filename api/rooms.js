@@ -1,6 +1,7 @@
 const { Pool } = require('pg');
 const nodemailer = require('nodemailer');
 const path = require('path');
+const cookie = require('cookie');
 
 const logoPath = path.join(__dirname, '../public/images/LOGO.png');
 // PostgreSQL connection using connection string from environment variables
@@ -47,6 +48,19 @@ const validateInput = (data) => {
 };
 
 module.exports = async (req, res) => {
+  
+    // Validate cookie
+    const cookieHeader = req.headers.cookie || '';
+    const userCookie = cookieHeader
+      .split('; ')
+      .find((row) => row.startsWith('user_data='))
+      ?.split('=')[1];
+
+    if (!userCookie) {
+      // If no cookie is found, return unauthorized response
+      return res.status(401).json({ error: 'Unauthorized', message: 'You must be logged in to make a reservation.' });
+    }
+
   if (req.method === 'POST') {
     const { fname, lname, roomPrices, reserve_date, time, businessunit, branch, roomID, roomName, setup, guest, contact, email, table, chair, hdmi, extension, message } = req.body;
 

@@ -3,21 +3,7 @@ const cookie = require('cookie');
 // This function will handle both cookie validation and logout logic
 module.exports = async (req, res) => {
   try {
-    // Handle logout (when the method is POST and URL is /logout)
-    if (req.method === 'POST' && req.url === '/api/logout') {
-      // Set the cookie with maxAge 0 to delete it
-      res.setHeader('Set-Cookie', cookie.serialize('user_data', '', {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',  // Only secure in production
-        maxAge: 0,  // Expire the cookie immediately
-        path: '/',
-        sameSite: 'Strict'
-      }));
-
-      // Send a response back to the client indicating logout success
-      return res.status(200).json({ message: 'Logged out successfully' });
-    }
-
+  
     // Handle cookie validation (GET request for validation)
     const cookieHeader = req.headers.cookie || '';
     const userCookie = cookieHeader
