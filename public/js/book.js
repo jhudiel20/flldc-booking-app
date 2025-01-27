@@ -204,7 +204,6 @@ function validateMinDate(input) {
           title: 'Login Required',
           text: 'You must be logged in to make a reservation.',
         });
-        throw new Error('User must be logged in');
       }
 
       return response.json();
