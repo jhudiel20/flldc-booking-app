@@ -13,9 +13,26 @@ fetch('/api/validate-cookie') // API endpoint to validate the cookie
             document.getElementById('email').value = userData.email;
             document.getElementById('fname').value = userData.firstName;
             document.getElementById('lname').value = userData.lastName;
-            
             // document.getElementById('branch').textContent = userData.branch;
-            document.getElementById('sbu').value = userData.sbu;
+            let businessUnitSelect = document.getElementById('businessunit');
+            let sbuValue = userData.sbu;
+
+            for (let i = 0; i < businessUnitSelect.options.length; i++) {
+                if (businessUnitSelect.options[i].value === sbuValue) {
+                    businessUnitSelect.selectedIndex = i;
+                    break;
+                }
+            }
+
+            // Set branch
+            let branchSelect = document.getElementById('branch');
+            let branchValue = userData.branch;
+            for (let i = 0; i < branchSelect.options.length; i++) {
+                if (branchSelect.options[i].value === branchValue) {
+                    branchSelect.selectedIndex = i;
+                    break;
+                }
+            }
         }
     })
     .catch(function(error) {
