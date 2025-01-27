@@ -369,8 +369,8 @@ function includeHTML(file, elementID) {
                             return false;
                         }
                     }
-                }).then(() => {
-                    // Populate Branch Options
+                });
+                
                     const branchSelect = document.getElementById('branchSelect');
                     branchSelect.innerHTML = ''; // Clear previous options
                     branches.forEach((branch) => {
@@ -386,7 +386,7 @@ function includeHTML(file, elementID) {
                     userTypeSelect.addEventListener('change', function () {
                         sbuContainer.style.display = userTypeSelect.value === 'FAST Employee' ? 'block' : 'none';
                     });
-                });
+                
             };
         
             showSignUpModal();
