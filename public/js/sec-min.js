@@ -249,8 +249,8 @@ function includeHTML(file, elementID) {
         };
         showLoginModal();
 
-            // Handle Registration Link Click
-            document.getElementById('registerLink').addEventListener('click', function () {
+        document.getElementById('registerLink').addEventListener('click', function () {
+            const showSignUpModal = (errorMessage = '') => {
                 Swal.fire({
                     title: 'Sign Up',
                     html: `
@@ -299,6 +299,7 @@ function includeHTML(file, elementID) {
                                 </select>
                             </div>
                         </div>
+                        <div id="errorMessage" class="text-danger mt-3">${errorMessage}</div>
                     `,
                     icon: 'info',
                     showCancelButton: true,
@@ -309,9 +310,8 @@ function includeHTML(file, elementID) {
                         cancelButton: 'btn btn-secondary',
                         buttons: 'custom-buttons'
                     },
-                    buttonsStyling: false
-                }).then(async (result) => {
-                    if (result.isConfirmed) {
+                    buttonsStyling: false,
+                    preConfirm: async () => {
                         const fname = document.getElementById('fname').value.trim();
                         const lname = document.getElementById('lname').value.trim();
                         const email = document.getElementById('email').value.trim();
@@ -320,25 +320,24 @@ function includeHTML(file, elementID) {
                         const userType = document.getElementById('usertype').value;
                         const sbu = document.getElementById('SBU') ? document.getElementById('SBU').value : null;
                         const branch = document.getElementById('branchSelect') ? document.getElementById('branchSelect').value : null;
-
+        
                         // Enhanced validation
                         if (!fname || !lname || !email || !password || !confirmPassword) {
-                            Swal.fire('Error!', 'All fields are required.', 'error');
-                            return;
+                            document.getElementById('errorMessage').innerText = 'All fields are required.';
+                            return false;
                         }
-
+        
                         if (password !== confirmPassword) {
-                            Swal.fire('Error!', 'Passwords do not match.', 'error');
-                            return;
+                            document.getElementById('errorMessage').innerText = 'Passwords do not match.';
+                            return false;
                         }
-
-                        // Check for valid email format
+        
                         const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
                         if (!emailRegex.test(email)) {
-                            Swal.fire('Error!', 'Please enter a valid email address.', 'error');
-                            return;
+                            document.getElementById('errorMessage').innerText = 'Please enter a valid email address.';
+                            return false;
                         }
-
+        
                         try {
                             const registrationData = {
                                 fname,
@@ -350,44 +349,50 @@ function includeHTML(file, elementID) {
                                 sbu,
                                 branch
                             };
-
+        
                             const response = await fetch('/api/UserRegistration', {
                                 method: 'POST',
                                 headers: { 'Content-Type': 'application/json' },
                                 body: JSON.stringify(registrationData)
                             });
-
+        
                             const result = await response.json();
-
+        
                             if (result.error) {
-                                Swal.fire('Error!', result.error, 'error');
-                                return;
+                                document.getElementById('errorMessage').innerText = result.error;
+                                return false;
                             } else {
                                 Swal.fire('Success!', 'Registration completed.', 'success');
                             }
                         } catch (error) {
-                            Swal.fire('Error!', 'Registration failed. Please try again.', 'error');
-                            return;
+                            document.getElementById('errorMessage').innerText = 'Registration failed. Please try again.';
+                            return false;
                         }
                     }
+                }).then(() => {
+                    // Populate Branch Options
+                    const branchSelect = document.getElementById('branchSelect');
+                    branchSelect.innerHTML = ''; // Clear previous options
+                    branches.forEach((branch) => {
+                        const option = document.createElement('option');
+                        option.value = branch;
+                        option.textContent = branch;
+                        branchSelect.appendChild(option);
+                    });
+        
+                    // Show/Hide SBU Based on User Type
+                    const userTypeSelect = document.getElementById('usertype');
+                    const sbuContainer = document.getElementById('SBUContainer');
+                    userTypeSelect.addEventListener('change', function () {
+                        sbuContainer.style.display = userTypeSelect.value === 'FAST Employee' ? 'block' : 'none';
+                    });
                 });
-                        // Populate Branch Options
-              const branchSelect = document.getElementById('branchSelect');
-              branchSelect.innerHTML = ''; // Clear previous options
-              branches.forEach((branch) => {
-                  const option = document.createElement('option');
-                  option.value = branch;
-                  option.textContent = branch;
-                  branchSelect.appendChild(option);
-              });
+            };
+        
+            showSignUpModal();
+        });
+        
 
-              // Show/Hide SBU Based on User Type
-              const userTypeSelect = document.getElementById('usertype');
-              const sbuContainer = document.getElementById('SBUContainer');
-              userTypeSelect.addEventListener('change', function () {
-                  sbuContainer.style.display = userTypeSelect.value === 'FAST Employee' ? 'block' : 'none';
-              });
-            });
         });
     } else {
         console.error("Element with ID 'LoginModal' not found.");
