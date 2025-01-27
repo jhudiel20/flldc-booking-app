@@ -193,21 +193,7 @@ function validateMinDate(input) {
       },
       body: JSON.stringify(formData)
     })
-    // .then(response => response.json())
-    .then(async (response) => {
-      document.getElementById('loader').classList.remove('show'); // Hide the loader
-
-      // Check for 401 Unauthorized error (User not logged in)
-      if (response.status === 401) {
-        Swal.fire({
-          icon: 'error',
-          title: 'Login Required',
-          text: 'You must be logged in to make a reservation.',
-        });
-      }
-
-      return response.json();
-    })
+    .then(response => response.json())
     .then(data => {
       if (data.errors) {
         // If there are validation errors, display them
