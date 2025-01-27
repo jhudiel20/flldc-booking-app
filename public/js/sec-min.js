@@ -112,6 +112,21 @@ function includeHTML(file, elementID) {
     })
     .catch(error => console.error('Error loading HTML:', error));
 }
+
+// Ensure scripts run after DOM is fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Load navigation and footer after DOM is loaded
+    Promise.all([
+      includeHTML('header', 'header'),
+      includeHTML('footer', 'footer')
+    ]).then(() => {
+      // Call loadRooms only after the header has been loaded
+      loadRooms();
+      if (typeof loadAllRooms === 'function') {
+        loadAllRooms();
+      }
+    });
+  });
   
   async function loadRooms() {
     const dropdown = document.querySelector('#roomDropdown');
@@ -163,20 +178,7 @@ function includeHTML(file, elementID) {
       dropdown.dataset.loaded = 'true';
   }
 
-// Ensure scripts run after DOM is fully loaded
-document.addEventListener('DOMContentLoaded', function() {
-    // Load navigation and footer after DOM is loaded
-    Promise.all([
-      includeHTML('header', 'header'),
-      includeHTML('footer', 'footer')
-    ]).then(() => {
-      // Call loadRooms only after the header has been loaded
-      loadRooms();
-      if (typeof loadAllRooms === 'function') {
-        loadAllRooms();
-      }
-    });
-  });
+
 
   includeHTML('header', 'header').then(() => {
     console.log('Header loaded successfully');
