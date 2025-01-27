@@ -416,7 +416,7 @@ function includeHTML(file, elementID) {
               .then((response) => {
                 if (response.ok) {
                   Swal.fire('Logged Out', 'You have been successfully logged out.', 'success').then(() => {
-                    window.location.reload; // Redirect to login page
+                    window.location.reload(); // Redirect to login page
                   });
                 } else {
                   Swal.fire('Error', 'Logout failed. Please try again.', 'error');
