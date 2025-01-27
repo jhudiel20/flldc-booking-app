@@ -182,7 +182,7 @@ function includeHTML(file, elementID) {
         loginModal.addEventListener('click', function (event) {
           event.preventDefault(); // Prevent default anchor link behavior
     
-        const showLoginModal = (errorMessage = '') => {
+    
             Swal.fire({
                 title: 'Sign In',
                 html: `
@@ -207,8 +207,9 @@ function includeHTML(file, elementID) {
                     cancelButton: 'btn btn-secondary',
                     buttons: 'custom-buttons'
                 },
-                buttonsStyling: false,
-                    preConfirm: async () => {
+                buttonsStyling: false
+            }).then(async (result) => {
+                if (result.isConfirmed) {
                     const email = document.getElementById('email_login').value.trim();
                     const password = document.getElementById('password').value.trim();
 
@@ -233,20 +234,18 @@ function includeHTML(file, elementID) {
 
                       if (result.error) {
                           Swal.fire('Error!', result.error, 'error');
-                          return false;
+                          return;
                       } else {
                           Swal.fire('Success!', 'Successfully Login.', 'success').then(() => {
                             location.reload();
                         });
                       }
                     } catch (error) {
-                        showLoginModal('Login failed. Please try again.');
-                        return false; // Prevent modal from closing
+                        Swal.fire('Error!', 'Login failed. Please try again.', 'error');
+                        return;
                     }
                 }
             });
-        };
-        showLoginModal();
 
             // Handle Registration Link Click
             document.getElementById('registerLink').addEventListener('click', function () {
@@ -417,7 +416,7 @@ function includeHTML(file, elementID) {
               .then((response) => {
                 if (response.ok) {
                   Swal.fire('Logged Out', 'You have been successfully logged out.', 'success').then(() => {
-                    window.location.reload(); // Redirect to login page
+                    window.location.reload; // Redirect to login page
                   });
                 } else {
                   Swal.fire('Error', 'Logout failed. Please try again.', 'error');
