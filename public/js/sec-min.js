@@ -44,18 +44,6 @@ function includeHTML(file, elementID) {
     })
     .catch(error => console.error('Error loading HTML:', error));
 }
-
-// Load navigation and footer
-Promise.all([
-  includeHTML('header', 'header'),
-  includeHTML('footer', 'footer')
-]).then(() => {
-  // Call loadRooms only after the header has been loaded
-  loadRooms();
-  if (typeof loadAllRooms === 'function') {
-    loadAllRooms();
-  }
-});
   
   async function loadRooms() {
     const dropdown = document.querySelector('#roomDropdown');
@@ -106,6 +94,18 @@ Promise.all([
     
       dropdown.dataset.loaded = 'true';
   }
+
+  // Load navigation and footer
+Promise.all([
+    includeHTML('header', 'header'),
+    includeHTML('footer', 'footer')
+  ]).then(() => {
+    // Call loadRooms only after the header has been loaded
+    loadRooms();
+    if (typeof loadAllRooms === 'function') {
+      loadAllRooms();
+    }
+  });
 
   includeHTML('header', 'header').then(() => {
     const loginModal = document.getElementById('LoginModal');
