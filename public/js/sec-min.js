@@ -176,16 +176,6 @@ function includeHTML(file, elementID) {
       dropdown.dataset.loaded = 'true';
   }
 
-
-  // Function to get a specific cookie by name
-function getCookie(name) {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(';').shift();
-    return null;
-}
-
-
   includeHTML('header', 'header').then(() => {
     const loginModal = document.getElementById('LoginModal');
     if (loginModal) {
@@ -402,6 +392,25 @@ function getCookie(name) {
     }
 });
 
+// Function to get a specific cookie by name
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+    return null;
+}
+
+// Function to parse the user_data cookie and extract the user information
+function parseUserData(cookieValue) {
+    try {
+        const decodedData = decodeURIComponent(cookieValue); // Decode the cookie value
+        return JSON.parse(decodedData); // Parse the JSON string into an object
+    } catch (error) {
+        console.error('Error parsing user data:', error);
+        return null;
+    }
+}
+
 async function checkUserStatus() {
     try {
         const response = await fetch('/api/validate-cookie'); // API endpoint to validate the cookie
@@ -472,13 +481,20 @@ async function checkUserStatus() {
     }
 }
 
-// Check if a specific cookie (e.g., 'auth_token') exists
-const authToken = getCookie('user_data'); // Replace 'auth_token' with your actual cookie name
-if (authToken) {
-    // If the cookie exists, call the checkUserStatus function
-    checkUserStatus();
+// Check if the 'user_data' cookie exists
+const userDataCookie = getCookie('user_data'); // Get the 'user_data' cookie
+if (userDataCookie) {
+    // Parse the cookie value into a JavaScript object
+    const userData = parseUserData(userDataCookie);
+
+    if (userData) {
+        // If user data is valid, call checkUserStatus
+        checkUserStatus();
+    } else {
+        console.log('Invalid or corrupted user data.');
+    }
 } else {
-    console.log('No auth token found, user is not logged in.');
+    console.log('No user data cookie found, user is not logged in.');
 }
 
   
