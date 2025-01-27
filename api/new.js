@@ -152,19 +152,21 @@ export const validateCookieHandler = async (req, res) => {
   
 
 
-// // Main handler that determines which function to call
-// export default async function handler(req, res) {
-//     const { url } = req;
+// Main handler that determines which function to call
+export default async function handler(req, res) {
+    const { url } = req;
   
-//     if (url === '/api/UserLogin') {
-//       return loginHandler(req, res);
-//     } else if (url === '/api/UserRegistration') {
-//       return registrationHandler(req, res);
-//     } else if (url === '/api/logout' && method === 'POST') {
-//         return logoutHandler(req, res);
-//     } else if (url === '/api/validateCookie' && method === 'GET') {
-//         return validateCookieHandler(req, res);
-//     } else {
-//       res.status(404).json({ message: 'Not Found' });
-//     }
-//   }
+    if (url === '/api/UserLogin') {
+      return loginHandler(req, res);
+    } else if (url === '/api/UserRegistration') {
+      return registrationHandler(req, res);
+    } else if (url === '/api/logout' && method === 'POST') {
+        return logoutHandler(req, res);
+    }  else {
+      res.status(404).json({ message: 'Not Found' });
+    }
+  }
+
+//   else if (url === '/api/validateCookie' && method === 'GET') {
+//     return validateCookieHandler(req, res);
+// }
