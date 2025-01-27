@@ -128,32 +128,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     }
+
+    function validateGuest() {
+      const input = document.getElementById('guest');
+      const roomGuestMax = document.getElementById('roomGuest');
+    
+      // Get the maximum value from the 'roomGuest' element
+      const max = parseInt(roomGuestMax.value);
+    
+      // Convert input value to an integer for comparison, defaulting to 0 if not a valid number
+      const value = parseInt(input.value);
+    
+      // If the input exceeds the maximum, set it to the max
+      if (value > max) {
+          input.value = max;
+      } else if (value < parseInt(input.min)) {
+          input.value = input.min;
+      }
+    }
+    
+    function validateMinDate(input) {
+      const today = new Date().toISOString().split('T')[0];
+      if (input.value < today) {
+          input.value = today;  // Reset the value to today if it's earlier
+      }
+    }
+
 });
 
-function validateGuest() {
-  const input = document.getElementById('guest');
-  const roomGuestMax = document.getElementById('roomGuest');
 
-  // Get the maximum value from the 'roomGuest' element
-  const max = parseInt(roomGuestMax.value);
-
-  // Convert input value to an integer for comparison, defaulting to 0 if not a valid number
-  const value = parseInt(input.value);
-
-  // If the input exceeds the maximum, set it to the max
-  if (value > max) {
-      input.value = max;
-  } else if (value < parseInt(input.min)) {
-      input.value = input.min;
-  }
-}
-
-function validateMinDate(input) {
-  const today = new Date().toISOString().split('T')[0];
-  if (input.value < today) {
-      input.value = today;  // Reset the value to today if it's earlier
-  }
-}
   
 // Handle form submission
 document.querySelector('#bookingForm').addEventListener('submit', function (e) {
