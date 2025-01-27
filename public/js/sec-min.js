@@ -431,14 +431,11 @@ function checkUserStatus() {
         });
 }
 
-// Ensure the DOM is fully loaded before running the script
-document.addEventListener('DOMContentLoaded', () => {
+includeHTML('header', 'header').then(() => {
     const logoutButton = document.getElementById('LogoutButton');
-  
+    
     if (logoutButton) {
-      logoutButton.addEventListener('click', (event) => {
-        event.preventDefault(); // Prevent default action
-  
+      logoutButton.addEventListener('click', function () {
         // Confirm the logout action with the user
         Swal.fire({
           title: 'Are you sure?',
