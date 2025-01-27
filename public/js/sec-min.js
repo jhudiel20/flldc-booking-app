@@ -456,7 +456,24 @@ function checkUserStatus() {
         })
         .then(function(userData) {
             if (userData) {
-                console.log('User Data:', userData);
+                console.log('User Data:', userData.email);
+
+                // Log specific cookie
+                const cookieName = 'firstName'; // Replace with the name of the cookie you're interested in
+                const cookies = document.cookie.split(';');
+                let specificCookie = null;
+
+                cookies.forEach(function(cookie) {
+                    if (cookie.trim().startsWith(cookieName + '=')) {
+                        specificCookie = cookie.trim().substring(cookieName.length + 1);
+                    }
+                });
+
+                if (specificCookie) {
+                    console.log('Specific Cookie:', specificCookie);
+                } else {
+                    console.log('Cookie not found');
+                }
 
                 // Hide the "Login" link
                 const loginItem = document.getElementById('loginItem');
