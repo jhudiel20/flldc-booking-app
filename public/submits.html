@@ -39,144 +39,74 @@
     <!-- END footer -->
 
     <script>
-        var table = new Tabulator("#reserve-table", {
-    layout: "fitDataFill",
-    movableColumns: true,
-    placeholder: "No Data Found",
-    pagination: true, //enable pagination
-    paginationMode: "remote", //enable remote pagination
-    paginationSizeSelector: [40, 50, 100, 500, 1000, true],
-    paginationSize: 40,
-    filterMode: "remote",
-    sortMode: "remote",
-    ajaxURL: "/api/fetch-booking-details",
-    columns: [
-        {
-            title: "DATE",
-            field: "date_created",
-            visible: false,
-            download: true
-        },
-        {
-            title: "Booking ID",
-            field: "booking_id",
-            headerFilter: "input",
-            hozAlign: "center",
-            headerFilterLiveFilter: false
-        },
-        {
-            title: "Reservation ID",
-            field: "reservation_id",
-            headerFilter: "input",
-            hozAlign: "center",
-            headerFilterLiveFilter: false
-        },
-        {
-            title: "Reservation Date",
-            field: "reserve_date",
-            headerFilter: "date",
-            hozAlign: "center",
-            headerFilterLiveFilter: false
-        },
-        {
-            title: "Time",
-            field: "time",
-            hozAlign: "center",
-            headerFilter: "list",
-            headerFilterParams: {
-                valuesLookup: true,
-                clearable: true
-            },
-            headerFilterLiveFilter: false
-        },
-        {
-            title: "Room",
-            field: "room",
-            hozAlign: "center",
-            headerFilter: "list",
-            headerFilterParams: {
-                valuesLookup: true,
-                clearable: true
-            },
-            headerFilterLiveFilter: false
-        },
-        {
-            title: "Room Setup",
-            field: "setup",
-            hozAlign: "center",
-            headerFilter: "list",
-            headerFilterParams: {
-                valuesLookup: true,
-                clearable: true
-            },
-            headerFilterLiveFilter: false
-        },
-        {
-            title: "Guest",
-            field: "guest",
-            headerFilter: "input",
-            hozAlign: "center",
-            headerFilterLiveFilter: false
-        },
-        {
-            title: "Email",
-            field: "email",
-            visible: false,
-            download: true
-        },
-        {
-            title: "Contact",
-            field: "contact",
-            visible: false,
-            download: true
-        },
-        {
-            title: "HDMI Cable",
-            field: "hdmi",
-            visible: false,
-            download: true
-        },
-        {
-            title: "Externsion Cord",
-            field: "extension",
-            visible: false,
-            download: true
-        },
-        {
-            title: "Additional Chairs",
-            field: "chair",
-            visible: false,
-            download: true
-        },
-        {
-            title: "Additional Table",
-            field: "table",
-            visible: false,
-            download: true
-        },
-        {
-            title: "Purpose",
-            field: "message",
-            visible: false,
-            download: true
-        },
-        {
-            title: "Price",
-            field: "prices",
-            visible: false,
-            download: true
-        },
-    ],
-    ajaxResponse: function(url, params, response) {
-        return {
-                last_page: response.last_page,
-                total: response.total_record,
-                data: response.data
-                }; //response.data; //return the tableData property of a response json object
-    },
-});
-
+        let USERID = null; // Define USERID in the global scope to be accessible in Tabulator configuration
+    
+        // Fetch API to validate the cookie
+        fetch('/api/validate-cookie') // API endpoint to validate the cookie
+            .then(response => {
+                if (response.ok) {
+                    return response.json(); // Parse the response as JSON
+                } else {
+                    console.error('User is not logged in.');
+                    throw new Error('User not logged in');
+                }
+            })
+            .then(userData => {
+                if (userData && userData.userId) {
+                    USERID = userData.userId; // Assign the userId to the global variable
+                    initializeTable(); // Initialize Tabulator table after USERID is set
+                } else {
+                    console.error('Invalid user data received.');
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching user data:', error);
+            });
+    
+        // Function to initialize the Tabulator table
+        function initializeTable() {
+            new Tabulator("#reserve-table", {
+                layout: "fitDataFill",
+                movableColumns: true,
+                placeholder: "No Data Found",
+                pagination: true, // Enable pagination
+                paginationMode: "remote", // Enable remote pagination
+                paginationSizeSelector: [40, 50, 100, 500, 1000, true],
+                paginationSize: 40,
+                filterMode: "remote",
+                sortMode: "remote",
+                ajaxParams: { userid: USERID }, // Pass USERID in AJAX parameters
+                ajaxURL: "/api/fetch-booking-details",
+                columns: [
+                    { title: "DATE", field: "date_created", visible: false, download: true },
+                    { title: "Booking ID", field: "booking_id", headerFilter: "input", hozAlign: "center", headerFilterLiveFilter: false },
+                    { title: "Reservation ID", field: "reservation_id", headerFilter: "input", hozAlign: "center", headerFilterLiveFilter: false },
+                    { title: "Reservation Date", field: "reserve_date", headerFilter: "date", hozAlign: "center", headerFilterLiveFilter: false },
+                    { title: "Time", field: "time", hozAlign: "center", headerFilter: "list", headerFilterParams: { valuesLookup: true, clearable: true }, headerFilterLiveFilter: false },
+                    { title: "Room", field: "room", hozAlign: "center", headerFilter: "list", headerFilterParams: { valuesLookup: true, clearable: true }, headerFilterLiveFilter: false },
+                    { title: "Room Setup", field: "setup", hozAlign: "center", headerFilter: "list", headerFilterParams: { valuesLookup: true, clearable: true }, headerFilterLiveFilter: false },
+                    { title: "Guest", field: "guest", headerFilter: "input", hozAlign: "center", headerFilterLiveFilter: false },
+                    { title: "Email", field: "email", visible: false, download: true },
+                    { title: "Contact", field: "contact", visible: false, download: true },
+                    { title: "HDMI Cable", field: "hdmi", visible: false, download: true },
+                    { title: "Extension Cord", field: "extension", visible: false, download: true },
+                    { title: "Additional Chairs", field: "chair", visible: false, download: true },
+                    { title: "Additional Table", field: "table", visible: false, download: true },
+                    { title: "Purpose", field: "message", visible: false, download: true },
+                    { title: "Price", field: "prices", visible: false, download: true },
+                ],
+                ajaxResponse: function(url, params, response) {
+                    // Customize response to fit Tabulator's expected format
+                    return {
+                        last_page: response.last_page,
+                        total: response.total_record,
+                        data: response.data,
+                    };
+                },
+            });
+        }
     </script>
+    
     
     
     <!-- loader -->
