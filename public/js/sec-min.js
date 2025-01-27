@@ -497,11 +497,11 @@ function includeHTML(file, elementID) {
 //     console.log('No user data cookie found, user is not logged in.');
 // }
 document.addEventListener('DOMContentLoaded', function() {
-    // Check if the cookie is present
-    const userDataCookie = getCookie('user_data');
+    // Directly access the cookie
+    const userDataCookie = document.cookie.split('; ').find(row => row.startsWith('user_data='));
     if (userDataCookie) {
         // If cookie is found, parse it and proceed
-        const userData = JSON.parse(decodeURIComponent(userDataCookie));
+        const userData = JSON.parse(decodeURIComponent(userDataCookie.split('=')[1]));
         console.log('User Data:', userData);
 
         // Hide the "Login" link
@@ -564,19 +564,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Function to get cookie by name
-function getCookie(name) {
-    const cookieArr = document.cookie.split(';');
-    for (let i = 0; i < cookieArr.length; i++) {
-        const cookie = cookieArr[i].trim();
-        if (cookie.startsWith(name + '=')) {
-            return cookie.substring(name.length + 1);
-        }
-    }
-    return null;
-}
-
-console.log(document.cookie);
 
 
 
