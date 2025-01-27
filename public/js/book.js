@@ -155,88 +155,83 @@ function validateMinDate(input) {
   }
 }
   
-  // Handle form submission
-  document.querySelector('#bookingForm').addEventListener('submit', function (e) {
-    e.preventDefault(); // Prevent default form submission
+// Handle form submission
+document.querySelector('#bookingForm').addEventListener('submit', function (e) {
+  e.preventDefault(); // Prevent default form submission
 
-    // Show the loader
-    document.getElementById('loader').classList.add('show');
+  // Show the loader
+  document.getElementById('loader').classList.add('show');
 
-    // Gather form data
-    const formData = {
-      fname: document.getElementById('fname').value,
-      lname: document.getElementById('lname').value,
-      reserve_date: document.getElementById('reserve_date').value,
-      time: document.getElementById('time').value,
-      setup: document.getElementById('setup').value,
-      businessunit: document.getElementById('businessunit').value,
-      branch: document.getElementById('branch').value,
-      roomID: document.getElementById('roomID').value,
-      roomPrices: document.getElementById('roomPrices').value,
-      roomName: document.getElementById('roomName').value,
-      guest: document.getElementById('guest').value,
-      contact: document.getElementById('contact').value,
-      email: document.getElementById('email').value,
-      table: document.getElementById('table').value, // Checkbox for table
-      chair: document.getElementById('chair').value,
-      hdmi: document.getElementById('hdmi').checked,  // Checkbox for HDMI
-      extension: document.getElementById('extension').checked, // Checkbox for extension
-      message: document.getElementById('message').value
-    };
-  
+  // Gather form data
+  const formData = {
+    fname: document.getElementById('fname').value,
+    lname: document.getElementById('lname').value,
+    reserve_date: document.getElementById('reserve_date').value,
+    time: document.getElementById('time').value,
+    setup: document.getElementById('setup').value,
+    businessunit: document.getElementById('businessunit').value,
+    branch: document.getElementById('branch').value,
+    roomID: document.getElementById('roomID').value,
+    roomPrices: document.getElementById('roomPrices').value,
+    roomName: document.getElementById('roomName').value,
+    guest: document.getElementById('guest').value,
+    contact: document.getElementById('contact').value,
+    email: document.getElementById('email').value,
+    table: document.getElementById('table').value, // Checkbox for table
+    chair: document.getElementById('chair').value,
+    hdmi: document.getElementById('hdmi').checked,  // Checkbox for HDMI
+    extension: document.getElementById('extension').checked, // Checkbox for extension
+    message: document.getElementById('message').value
+  };
 
-    // Send form data to the backend via fetch
-    fetch('/api/rooms', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formData)
-    })
-    .then(response => response.json())
-    .then(data => {
-      if (data.errors) {
-        // If there are validation errors, display them
-        Swal.fire({
-          icon: 'error',
-          title: 'Validation Error',
-          html: data.errors.join('<br>'),  // Display each validation error on a new line
-        }).then(function() {
-          window.location.reload();
-      });
-      } else if (data.error) {
-        // If there is a backend error
-        Swal.fire({
-          icon: 'error',
-          title: 'Booking Failed',
-          text: data.error,
-        }).then(function() {
-          window.location.reload();
-      });
-      } else {
-        // On successful booking
-        Swal.fire({
-          icon: 'success',
-          title: 'Booking Submitted',
-          text: `Please wait the email confirmation of your booking.`,
-          timer: 1500
-        }).then(function() {
-          window.location.reload();
-      });
-      }
-    })
-    .catch(err => {
-      document.getElementById('loader').classList.remove('show');
-      // If there's a network error or other fetch issue
+  // Send form data to the backend via fetch
+  fetch('/api/rooms', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(formData)
+  })
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById('loader').classList.remove('show'); // Hide loader
+
+    // Check if there's any error in the response
+    if (data.error || data.errors) {
+      // Display error notification
       Swal.fire({
         icon: 'error',
         title: 'Error',
-        text: `An unexpected error occurred. Please try again. Error: ${err.message || err}`,
-      }).then(function() {
-        window.location.reload();
-    });
+        text: data.error || 'There was an issue with your booking.',
+      }).then(() => {
+        window.location.reload(); // Optionally reload the page
+      });
+    } else {
+      // On successful booking
+      Swal.fire({
+        icon: 'success',
+        title: 'Booking Submitted',
+        text: 'Please wait for the email confirmation of your booking.',
+        timer: 1500,
+      }).then(() => {
+        window.location.reload(); // Optionally reload the page
+      });
+    }
+  })
+  .catch(err => {
+    document.getElementById('loader').classList.remove('show'); // Hide loader
+
+    // If there's a network error or other fetch issue
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: `An unexpected error occurred. Please try again. Error: ${err.message || err}`,
+    }).then(() => {
+      window.location.reload(); // Optionally reload the page
     });
   });
+});
+
 
   const selectElement = document.getElementById('setup');
   const previewLink = document.getElementById('previewLink');
