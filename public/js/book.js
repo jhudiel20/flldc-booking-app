@@ -15,7 +15,7 @@ fetch('/api/validate-cookie') // API endpoint to validate the cookie
             document.getElementById('lname').value = userData.lastName;
             
             // document.getElementById('branch').textContent = userData.branch;
-            document.getElementById('sbu').textContent = userData.sbu;
+            document.getElementById('sbu').value = userData.sbu;
         }
     })
     .catch(function(error) {
