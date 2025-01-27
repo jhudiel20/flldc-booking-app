@@ -1,5 +1,27 @@
+fetch('/api/validate-cookie') // API endpoint to validate the cookie
+    .then(function(response) {
+        if (response.ok) {
+            return response.json();  // Parse the response as JSON
+        } else {
+            console.error('User is not logged in.');
+        }
+    })
+    .then(function(userData) {
+        if (userData) {
+            console.log('User Data:', userData.email);
 
-document.getElementById('fname').text = cookieValue.firstName;
+            // DOM manipulation: Populating the input fields with user data
+            document.getElementById('email').text = userData.email;
+            document.getElementById('fname').text = userData.firstName;
+            document.getElementById('lname').text = userData.lastName;
+            document.getElementById('branch').text = userData.branch;
+            document.getElementById('sbu').text = userData.sbu;
+        }
+    })
+    .catch(function(error) {
+        console.error('Error fetching user data:', error);
+    });
+
 
 async function checkUserStatus() {
   try {
