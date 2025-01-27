@@ -390,6 +390,48 @@ function includeHTML(file, elementID) {
     } else {
         console.error("Element with ID 'LoginModal' not found.");
     }
+    const logoutButton = document.getElementById('LogoutButton');
+    
+    if (logoutButton) {
+      logoutButton.addEventListener('click', function () {
+        // Confirm the logout action with the user
+        Swal.fire({
+          title: 'Are you sure?',
+          text: 'You will be logged out of your account.',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonText: 'Yes, log out',
+          cancelButtonText: 'Cancel',
+          customClass: {
+            confirmButton: 'btn btn-danger',
+            cancelButton: 'btn btn-secondary',
+          },
+          buttonsStyling: false,
+        }).then((result) => {
+          if (result.isConfirmed) {
+            // Perform the logout action (e.g., API call, session clear)
+            fetch('/api/logout', {
+              method: 'POST',
+            })
+              .then((response) => {
+                if (response.ok) {
+                  Swal.fire('Logged Out', 'You have been successfully logged out.', 'success').then(() => {
+                    window.location.reload; // Redirect to login page
+                  });
+                } else {
+                  Swal.fire('Error', 'Logout failed. Please try again.', 'error');
+                }
+              })
+              .catch((error) => {
+                Swal.fire('Error', 'An unexpected error occurred.', 'error');
+                console.error('Logout error:', error);
+              });
+          }
+        });
+      });
+    } else {
+      console.warn('Logout button not found');
+    }
 });
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -431,50 +473,6 @@ function checkUserStatus() {
         });
 }
 
-includeHTML('header', 'header').then(() => {
-    const logoutButton = document.getElementById('LogoutButton');
-    
-    if (logoutButton) {
-      logoutButton.addEventListener('click', function () {
-        // Confirm the logout action with the user
-        Swal.fire({
-          title: 'Are you sure?',
-          text: 'You will be logged out of your account.',
-          icon: 'warning',
-          showCancelButton: true,
-          confirmButtonText: 'Yes, log out',
-          cancelButtonText: 'Cancel',
-          customClass: {
-            confirmButton: 'btn btn-danger',
-            cancelButton: 'btn btn-secondary',
-          },
-          buttonsStyling: false,
-        }).then((result) => {
-          if (result.isConfirmed) {
-            // Perform the logout action (e.g., API call, session clear)
-            fetch('/api/logout', {
-              method: 'POST',
-            })
-              .then((response) => {
-                if (response.ok) {
-                  Swal.fire('Logged Out', 'You have been successfully logged out.', 'success').then(() => {
-                    window.location.href = '/login'; // Redirect to login page
-                  });
-                } else {
-                  Swal.fire('Error', 'Logout failed. Please try again.', 'error');
-                }
-              })
-              .catch((error) => {
-                Swal.fire('Error', 'An unexpected error occurred.', 'error');
-                console.error('Logout error:', error);
-              });
-          }
-        });
-      });
-    } else {
-      console.warn('Logout button not found');
-    }
-  });
   
   
 
