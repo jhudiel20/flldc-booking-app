@@ -147,14 +147,22 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
     
-    function validateMinDate(input) {
-      const today = new Date().toISOString().split('T')[0];
-      if (input.value < today) {
-          input.value = today;  // Reset the value to today if it's earlier
-      }
-    }
-
 });
+
+function validateMinDate(input) {
+  const today = new Date().toISOString().split('T')[0];
+  if (input.value < today) {
+      input.value = today;  // Reset the value to today if it's earlier
+  }
+}
+
+// Attach the event listener for the date input
+const reserveDateInput = document.getElementById('reserve_date');
+if (reserveDateInput) {
+  reserveDateInput.addEventListener('change', function() {
+    validateMinDate(reserveDateInput);
+  });
+}
 
 
   
