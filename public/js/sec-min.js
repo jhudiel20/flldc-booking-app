@@ -190,7 +190,7 @@ function includeHTML(file, elementID) {
                 html: `
                     <div>
                         <label for="email_login" class="form-label">Email</label>
-                        <input type="text" id="email_login" class="form-control mb-3" placeholder="Enter your Email">
+                        <input type="email" id="email_login" class="form-control mb-3" placeholder="Enter your Email">
                     </div>
                     <div>
                         <label for="password" class="form-label">Password</label>
