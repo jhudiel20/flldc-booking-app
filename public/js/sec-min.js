@@ -412,6 +412,11 @@ function includeHTML(file, elementID) {
 // }
 
 document.addEventListener('DOMContentLoaded', function() {
+    checkUserStatus();
+    setupLogoutButton();
+});
+
+function checkUserStatus() {
     fetch('/api/validate-cookie') // API endpoint to validate the cookie
         .then(function(response) {
             if (response.ok) {
@@ -444,8 +449,9 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(function(error) {
             console.error('Error checking user status:', error);
         });
+}
 
-    // Add event listener to logout button
+function setupLogoutButton() {
     const logoutBtn = document.getElementById('logoutBtn');
     if (logoutBtn) {
         logoutBtn.addEventListener('click', function(event) {
@@ -484,7 +490,8 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         console.log('Logout button not found');
     }
-});
+}
+
 
 
 // // Check if the 'user_data' cookie exists
