@@ -66,7 +66,7 @@
         // Function to initialize the Tabulator table
         function initializeTable() {
             new Tabulator("#reserve-table", {
-                layout: "fitDataFill",
+                layout: "fitData",
                 placeholder: "No Data Found",
                 pagination: true, // Enable pagination
                 paginationMode: "remote", // Enable remote pagination
@@ -78,6 +78,8 @@
                 ajaxURL: "/api/fetch-booking-details",
                 columns: [
                     { title: "Status", field: "reserve_status", hozAlign: "center", headerFilter: "list", headerFilterParams: { valuesLookup: true, clearable: true }, headerFilterLiveFilter: false },
+                    { title: "Booking ID", field: "booking_id", headerFilter: "input", hozAlign: "center", headerFilterLiveFilter: false },
+                    { title: "Reservation ID", field: "reservation_id", headerFilter: "input", hozAlign: "center", headerFilterLiveFilter: false },
                     { title: "Date", field: "date_created", headerFilter: "input", hozAlign: "center", headerFilterLiveFilter: false },
                     { title: "Time", field: "time", hozAlign: "center", headerFilter: "list", headerFilterParams: { valuesLookup: true, clearable: true }, headerFilterLiveFilter: false },
                     { title: "Room", field: "room", hozAlign: "center", headerFilter: "list", headerFilterParams: { valuesLookup: true, clearable: true }, headerFilterLiveFilter: false },

@@ -62,7 +62,7 @@ export default async function handler(req, res) {
 
       // Get paginated data
       const dataQuery = `
-        SELECT *,TO_CHAR(reserve_date, 'YYYY-MM-DD') AS reserve_date
+        SELECT *,TO_CHAR(reserve_date, 'YYYY-MM-DD') AS reserve_date ,TO_CHAR(date_created, 'YYYY-MM-DD') AS date_created
         FROM reservations 
         WHERE user_id = $1 ${filterSQL} 
         ORDER BY ${sortField} ${sortDir}
