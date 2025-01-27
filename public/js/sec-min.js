@@ -114,7 +114,6 @@ function includeHTML(file, elementID) {
 }
 
 // Ensure scripts run after DOM is fully loaded
-document.addEventListener('DOMContentLoaded', function() {
     // Load navigation and footer after DOM is loaded
     Promise.all([
       includeHTML('header', 'header'),
@@ -126,7 +125,6 @@ document.addEventListener('DOMContentLoaded', function() {
         loadAllRooms();
       }
     });
-  });
   
   async function loadRooms() {
     const dropdown = document.querySelector('#roomDropdown');
@@ -399,75 +397,75 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-async function checkUserStatus() {
-    try {
-        const response = await fetch('/api/validate-cookie'); // API endpoint to validate the cookie
-        if (response.ok) {
-            const userData = await response.json();
-            console.log('User Data:', userData);
+// async function checkUserStatus() {
+//     try {
+//         const response = await fetch('/api/validate-cookie'); // API endpoint to validate the cookie
+//         if (response.ok) {
+//             const userData = await response.json();
+//             console.log('User Data:', userData);
 
-            // Hide the "Login" link
-            const loginItem = document.getElementById('loginItem');
-            if (loginItem) {
-                loginItem.style.display = 'none';
-            }
+//             // Hide the "Login" link
+//             const loginItem = document.getElementById('loginItem');
+//             if (loginItem) {
+//                 loginItem.style.display = 'none';
+//             }
 
-            const BookNow = document.getElementById('BookNow');
-            if (BookNow) {
-                BookNow.style.display = 'block';
-            }
+//             const BookNow = document.getElementById('BookNow');
+//             if (BookNow) {
+//                 BookNow.style.display = 'block';
+//             }
 
-            const LogoutDropdown = document.getElementById('LogoutDropdown');
-            if (LogoutDropdown) {
-                LogoutDropdown.style.display = 'block';
-            }
-        } else {
-            console.error('User is not logged in.');
-        }
-    } catch (error) {
-        console.error('Error checking user status:', error);
-    }
+//             const LogoutDropdown = document.getElementById('LogoutDropdown');
+//             if (LogoutDropdown) {
+//                 LogoutDropdown.style.display = 'block';
+//             }
+//         } else {
+//             console.error('User is not logged in.');
+//         }
+//     } catch (error) {
+//         console.error('Error checking user status:', error);
+//     }
 
-    // Add event listener to logout button
-    const logoutBtn = document.getElementById('logoutBtn');
-    if (logoutBtn) {
-        logoutBtn.addEventListener('click', function(event) {
-            event.preventDefault(); // Prevent the default link action
+//     // Add event listener to logout button
+//     const logoutBtn = document.getElementById('logoutBtn');
+//     if (logoutBtn) {
+//         logoutBtn.addEventListener('click', function(event) {
+//             event.preventDefault(); // Prevent the default link action
 
-            // Show SweetAlert confirmation dialog
-            Swal.fire({
-                title: 'Are you sure?',
-                text: 'You will be logged out!',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonText: 'Yes, log me out',
-                cancelButtonText: 'No, stay logged in',
-                reverseButtons: true
-            }).then(async (result) => {
-                if (result.isConfirmed) {
-                    try {
-                        // Send a POST request to the /logout route to delete the cookie
-                        const logoutResponse = await fetch('/api/logout', {
-                            method: 'POST', // POST method for logout
-                            credentials: 'same-origin', // Include cookies with the request
-                        });
+//             // Show SweetAlert confirmation dialog
+//             Swal.fire({
+//                 title: 'Are you sure?',
+//                 text: 'You will be logged out!',
+//                 icon: 'warning',
+//                 showCancelButton: true,
+//                 confirmButtonText: 'Yes, log me out',
+//                 cancelButtonText: 'No, stay logged in',
+//                 reverseButtons: true
+//             }).then(async (result) => {
+//                 if (result.isConfirmed) {
+//                     try {
+//                         // Send a POST request to the /logout route to delete the cookie
+//                         const logoutResponse = await fetch('/api/logout', {
+//                             method: 'POST', // POST method for logout
+//                             credentials: 'same-origin', // Include cookies with the request
+//                         });
 
-                        if (logoutResponse.ok) {
-                            // Reload the current page after logout
-                            window.location.reload(); // This reloads the current page
-                        } else {
-                            console.error('Logout failed');
-                        }
-                    } catch (error) {
-                        console.error('Error logging out:', error);
-                    }
-                }
-            });
-        });
-    } else {
-        console.log('Logout button not found');
-    }
-}
+//                         if (logoutResponse.ok) {
+//                             // Reload the current page after logout
+//                             window.location.reload(); // This reloads the current page
+//                         } else {
+//                             console.error('Logout failed');
+//                         }
+//                     } catch (error) {
+//                         console.error('Error logging out:', error);
+//                     }
+//                 }
+//             });
+//         });
+//     } else {
+//         console.log('Logout button not found');
+//     }
+// }
 
 
 
