@@ -97,7 +97,6 @@ Promise.all([
   
       rooms.forEach(room => {
         const roomLink = document.createElement('a');
-        roomLink.classList.add('disabled'); 
         roomLink.className = 'dropdown-item';
         const encodedRoomId = encodeURIComponent(room.room_id);
         roomLink.href = `rooms?ID=${encodedRoomId}`;
@@ -321,8 +320,7 @@ Promise.all([
     }
 });
 
-document.addEventListener('DOMContentLoaded', async function() {
-    // Check user status
+export async function checkUserStatus() {
     try {
         const response = await fetch('/api/validate-cookie'); // API endpoint to validate the cookie
         if (response.ok) {
@@ -390,8 +388,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     } else {
         console.log('Logout button not found');
     }
-});
-
+}
 
 
 

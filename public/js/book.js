@@ -1,4 +1,4 @@
-
+import { checkUserStatus } from './sec-min.js';
 
 document.addEventListener('DOMContentLoaded', function () {
     const bookingForm = document.getElementById('bookingForm');
@@ -158,6 +158,7 @@ function validateMinDate(input) {
 // Handle form submission
 document.querySelector('#bookingForm').addEventListener('submit', function (e) {
   e.preventDefault(); // Prevent default form submission
+  checkUserStatus();
 
   // Show the loader
   document.getElementById('loader').classList.add('show');
