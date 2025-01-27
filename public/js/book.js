@@ -11,11 +11,11 @@ fetch('/api/validate-cookie') // API endpoint to validate the cookie
             console.log('User Data:', userData.email);
 
             // DOM manipulation: Populating the input fields with user data
-            document.getElementById('email').text = userData.email;
-            document.getElementById('fname').text = userData.firstName;
-            document.getElementById('lname').text = userData.lastName;
-            document.getElementById('branch').text = userData.branch;
-            document.getElementById('sbu').text = userData.sbu;
+            document.getElementById('email').textContent = userData.email;
+            document.getElementById('fname').textContent = userData.firstName;
+            document.getElementById('lname').textContent = userData.lastName;
+            // document.getElementById('branch').textContent = userData.branch;
+            // document.getElementById('sbu').textContent = userData.sbu;
         }
     })
     .catch(function(error) {
