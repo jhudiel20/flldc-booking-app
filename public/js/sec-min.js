@@ -452,6 +452,7 @@ function checkUserStatus() {
                 return response.json();
             } else {
                 console.error('User is not logged in.');
+                showLoginModal();
             }
         })
         .then(function(userData) {

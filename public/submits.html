@@ -48,7 +48,7 @@
                     return response.json(); // Parse the response as JSON
                 } else {
                     // Hide the table section and show the login prompt message
-                   document.querySelector('h2.mb-4.mt-4').innerText = 'Please login to show your submitted reservations';
+                   document.querySelector('h2.mb-4.mt-4').innerText = 'Please login to show your submitted reservations!';
                 }
             })
             .then(userData => {
@@ -97,8 +97,7 @@
             });
         }
     </script>
-    
-    
+
     
     <!-- loader -->
     <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
