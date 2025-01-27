@@ -8,12 +8,12 @@ fetch('/api/validate-cookie') // API endpoint to validate the cookie
     })
     .then(function(userData) {
         if (userData) {
-            console.log('User Data:', userData.email);
 
             // DOM manipulation: Populating the input fields with user data
-            document.getElementById('email').textContent = userData.email;
-            document.getElementById('fname').textContent = userData.firstName;
-            document.getElementById('lname').textContent = userData.lastName;
+            document.getElementById('email').value = userData.email;
+            document.getElementById('fname').value = userData.firstName;
+            document.getElementById('lname').value = userData.lastName;
+            
             // document.getElementById('branch').textContent = userData.branch;
             // document.getElementById('sbu').textContent = userData.sbu;
         }
