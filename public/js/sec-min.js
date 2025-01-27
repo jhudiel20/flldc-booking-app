@@ -593,7 +593,8 @@ function parseUserData(cookieValue) {
         return null;
     }
 }
-  
+console.log(document.cookie);
+
 
 
 
