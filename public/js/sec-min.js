@@ -179,9 +179,11 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   includeHTML('header', 'header').then(() => {
+    console.log('Header loaded successfully');
     const loginModal = document.getElementById('LoginModal');
     if (loginModal) {
-        loginModal.addEventListener('click', function () {
+        loginModal.addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent default anchor link behavior
             Swal.fire({
                 title: 'Sign In',
                 html: `
