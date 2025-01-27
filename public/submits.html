@@ -47,13 +47,14 @@
                 if (response.ok) {
                     return response.json(); // Parse the response as JSON
                 } else {
-                    console.error('User is not logged in.');
                     // Hide the table section and show the login prompt message
-                    document.querySelector('.site-section').style.display = 'none'; // Hide the section with the table
-                    const message = document.createElement('div');
-                    message.innerHTML = '<h1>Please login to show your submitted reservations</h1>';
+                    document.querySelector('h2.mb-4.mt-4').style.display = 'none'; // Hide the h2
+                    document.querySelector('#reserve-table').style.display = 'none'; // Hide the table div
+
+                    // Insert the "Please login" message
+                    const message = document.createElement('h1');
+                    message.innerText = 'Please login to show your submitted reservations';
                     document.querySelector('.container').appendChild(message); // Append the message to the container
-                    throw new Error('User not logged in');
                 }
             })
             .then(userData => {
