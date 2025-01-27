@@ -370,7 +370,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                 if (result.isConfirmed) {
                     try {
                         // Send a POST request to the /logout route to delete the cookie
-                        const logoutResponse = await fetch('/api/new', {
+                        const logoutResponse = await fetch('/api/logout', {
                             method: 'POST', // POST method for logout
                             credentials: 'same-origin', // Include cookies with the request
                         });
