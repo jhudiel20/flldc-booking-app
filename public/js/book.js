@@ -1,3 +1,6 @@
+
+document.getElementById('fname').value = cookieValue.firstName;
+
 async function checkUserStatus() {
   try {
       const response = await fetch('/api/validate-cookie'); // API endpoint to validate the cookie
