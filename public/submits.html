@@ -51,10 +51,8 @@
                     document.querySelector('h2.mb-4.mt-4').style.display = 'none'; // Hide the h2
                     document.querySelector('#reserve-table').style.display = 'none'; // Hide the table div
 
-                    // Insert the "Please login" message
-                    const message = document.createElement('h1');
-                    message.innerText = 'Please login to show your submitted reservations';
-                    document.querySelector('.container').appendChild(message); // Append the message to the container
+                   // Replace the content inside the container with the login message
+                     document.querySelector('.container').innerHTML = '<h1>Please login to show your submitted reservations</h1>';
                 }
             })
             .then(userData => {
