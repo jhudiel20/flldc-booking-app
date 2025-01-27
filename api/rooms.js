@@ -58,7 +58,7 @@ module.exports = async (req, res) => {
 
     if (!userCookie) {
       // If no cookie is found, return unauthorized response
-      return res.status(401).json({ error: 'Unauthorized', message: 'You must be logged in to make a reservation.' });
+      return res.status(401).json({ message: 'You must be logged in to make a reservation.' });
     }
 
   if (req.method === 'POST') {
