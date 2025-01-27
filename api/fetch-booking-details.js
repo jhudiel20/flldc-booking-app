@@ -66,7 +66,6 @@ module.exports = async (req, res) => {
     }
 
     if (req.method === "GET") {
-      const { searchParams } = new URL(req.url, `https://${req.headers.host}`);
       const queryLimit = searchParams.get("size") === "true" ? Number.MAX_SAFE_INTEGER : 40;
       const page = parseInt(searchParams.get("page") || "1", 10) - 1;
       const start = page * queryLimit;
