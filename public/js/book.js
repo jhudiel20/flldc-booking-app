@@ -10,6 +10,7 @@ fetch('/api/validate-cookie') // API endpoint to validate the cookie
         if (userData) {
 
             // DOM manipulation: Populating the input fields with user data
+            document.getElementById('user_id').value = userData.userId;
             document.getElementById('email').value = userData.email;
             document.getElementById('fname').value = userData.firstName;
             document.getElementById('lname').value = userData.lastName;
@@ -275,6 +276,7 @@ document.querySelector('#bookingForm').addEventListener('submit', function (e) {
 
   // Gather form data
   const formData = {
+    user_id: document.getElementById('user_id').value,
     fname: document.getElementById('fname').value,
     lname: document.getElementById('lname').value,
     reserve_date: document.getElementById('reserve_date').value,
