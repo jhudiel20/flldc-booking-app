@@ -1,4 +1,72 @@
-import { checkUserStatus } from './sec-min.js';
+async function checkUserStatus() {
+  try {
+      const response = await fetch('/api/validate-cookie'); // API endpoint to validate the cookie
+      if (response.ok) {
+          const userData = await response.json();
+          console.log('User Data:', userData);
+
+          // Hide the "Login" link
+          const loginItem = document.getElementById('loginItem');
+          if (loginItem) {
+              loginItem.style.display = 'none';
+          }
+
+          const BookNow = document.getElementById('BookNow');
+          if (BookNow) {
+              BookNow.style.display = 'block';
+          }
+
+          const LogoutDropdown = document.getElementById('LogoutDropdown');
+          if (LogoutDropdown) {
+              LogoutDropdown.style.display = 'block';
+          }
+      } else {
+          console.error('User is not logged in.');
+      }
+  } catch (error) {
+      console.error('Error checking user status:', error);
+  }
+
+  // Add event listener to logout button
+  const logoutBtn = document.getElementById('logoutBtn');
+  if (logoutBtn) {
+      logoutBtn.addEventListener('click', function(event) {
+          event.preventDefault(); // Prevent the default link action
+
+          // Show SweetAlert confirmation dialog
+          Swal.fire({
+              title: 'Are you sure?',
+              text: 'You will be logged out!',
+              icon: 'warning',
+              showCancelButton: true,
+              confirmButtonText: 'Yes, log me out',
+              cancelButtonText: 'No, stay logged in',
+              reverseButtons: true
+          }).then(async (result) => {
+              if (result.isConfirmed) {
+                  try {
+                      // Send a POST request to the /logout route to delete the cookie
+                      const logoutResponse = await fetch('/api/logout', {
+                          method: 'POST', // POST method for logout
+                          credentials: 'same-origin', // Include cookies with the request
+                      });
+
+                      if (logoutResponse.ok) {
+                          // Reload the current page after logout
+                          window.location.reload(); // This reloads the current page
+                      } else {
+                          console.error('Logout failed');
+                      }
+                  } catch (error) {
+                      console.error('Error logging out:', error);
+                  }
+              }
+          });
+      });
+  } else {
+      console.log('Logout button not found');
+  }
+}
 
 document.addEventListener('DOMContentLoaded', function () {
     const bookingForm = document.getElementById('bookingForm');
@@ -128,45 +196,32 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     }
-
-    function validateGuest() {
-      const input = document.getElementById('guest');
-      const roomGuestMax = document.getElementById('roomGuest');
-    
-      // Get the maximum value from the 'roomGuest' element
-      const max = parseInt(roomGuestMax.value);
-    
-      // Convert input value to an integer for comparison, defaulting to 0 if not a valid number
-      const value = parseInt(input.value);
-    
-      // If the input exceeds the maximum, set it to the max
-      if (value > max) {
-          input.value = max;
-      } else if (value < parseInt(input.min)) {
-          input.value = input.min;
-      }
-    }
-    
 });
 
-// Validate if the date is earlier than today
-export function validateMinDate(input) {
-  const today = new Date().toISOString().split('T')[0];
-  if (input.value < today) {
-    input.value = today;  // Reset the value to today if it's earlier
+function validateGuest() {
+  const input = document.getElementById('guest');
+  const roomGuestMax = document.getElementById('roomGuest');
+
+  // Get the maximum value from the 'roomGuest' element
+  const max = parseInt(roomGuestMax.value);
+
+  // Convert input value to an integer for comparison, defaulting to 0 if not a valid number
+  const value = parseInt(input.value);
+
+  // If the input exceeds the maximum, set it to the max
+  if (value > max) {
+      input.value = max;
+  } else if (value < parseInt(input.min)) {
+      input.value = input.min;
   }
 }
 
-// Attach event listener directly
-const reserveDateInput = document.getElementById('reserve_date');
-
-if (reserveDateInput) {
-  reserveDateInput.addEventListener('change', function () {
-    validateMinDate(reserveDateInput);
-  });
+function validateMinDate(input) {
+  const today = new Date().toISOString().split('T')[0];
+  if (input.value < today) {
+      input.value = today;  // Reset the value to today if it's earlier
+  }
 }
-
-
   
 // Handle form submission
 document.querySelector('#bookingForm').addEventListener('submit', function (e) {

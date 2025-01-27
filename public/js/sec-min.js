@@ -323,7 +323,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-export async function checkUserStatus() {
+async function checkUserStatus() {
     try {
         const response = await fetch('/api/validate-cookie'); // API endpoint to validate the cookie
         if (response.ok) {
