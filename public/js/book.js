@@ -1,5 +1,5 @@
 
-document.getElementById('fname').value = cookieValue.firstName;
+document.getElementById('fname').text = cookieValue.firstName;
 
 async function checkUserStatus() {
   try {
