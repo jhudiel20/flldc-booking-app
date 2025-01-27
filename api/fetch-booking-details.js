@@ -59,7 +59,7 @@ module.exports = async (req, res) => {
 
     // Parse the user data from the cookie
     const userData = JSON.parse(decodeURIComponent(userCookie));
-    const userId = userData.ID; // Assuming 'ID' is the key for user_id in the cookie
+    const userId = userData.userId; // Assuming 'ID' is the key for user_id in the cookie
 
     if (!userId) {
       return res.status(401).json({ error: "Unauthorized: User ID not found in cookies" });
