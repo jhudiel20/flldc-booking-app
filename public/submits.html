@@ -31,8 +31,8 @@
 
     <section class="site-section">
       <div class="container">
-        <h2 class="mb-3 mt-4">Submitted Reservations</h2>
-        <div id="reserve-table" style="font-size: 14;"></div>
+        <h2 class="mb-4 mt-4">Submitted Reservations</h2>
+        <div id="reserve-table" style="font-size: 14;overflow-x: auto;overflow-y: auto;border: 1px solid #ccc;max-height: 400px; padding: 4px;"></div>
     </section>
 
     <div id="footer"></div>
@@ -67,7 +67,6 @@
         function initializeTable() {
             new Tabulator("#reserve-table", {
                 layout: "fitDataFill",
-                movableColumns: true,
                 placeholder: "No Data Found",
                 pagination: true, // Enable pagination
                 paginationMode: "remote", // Enable remote pagination
@@ -78,22 +77,12 @@
                 ajaxParams: { userid: USERID }, // Pass USERID in AJAX parameters
                 ajaxURL: "/api/fetch-booking-details",
                 columns: [
-                    { title: "DATE", field: "date_created", visible: false, download: true },
-                    { title: "Booking ID", field: "booking_id", headerFilter: "input", hozAlign: "center", headerFilterLiveFilter: false },
-                    { title: "Reservation ID", field: "reservation_id", headerFilter: "input", hozAlign: "center", headerFilterLiveFilter: false },
-                    { title: "Reservation Date", field: "reserve_date", headerFilter: "date", hozAlign: "center", headerFilterLiveFilter: false },
+                    { title: "Status", field: "reserve_status", hozAlign: "center", headerFilter: "list", headerFilterParams: { valuesLookup: true, clearable: true }, headerFilterLiveFilter: false },
+                    { title: "Date", field: "date_created", headerFilter: "input", hozAlign: "center", headerFilterLiveFilter: false },
                     { title: "Time", field: "time", hozAlign: "center", headerFilter: "list", headerFilterParams: { valuesLookup: true, clearable: true }, headerFilterLiveFilter: false },
                     { title: "Room", field: "room", hozAlign: "center", headerFilter: "list", headerFilterParams: { valuesLookup: true, clearable: true }, headerFilterLiveFilter: false },
                     { title: "Room Setup", field: "setup", hozAlign: "center", headerFilter: "list", headerFilterParams: { valuesLookup: true, clearable: true }, headerFilterLiveFilter: false },
                     { title: "Guest", field: "guest", headerFilter: "input", hozAlign: "center", headerFilterLiveFilter: false },
-                    { title: "Email", field: "email", visible: false, download: true },
-                    { title: "Contact", field: "contact", visible: false, download: true },
-                    { title: "HDMI Cable", field: "hdmi", visible: false, download: true },
-                    { title: "Extension Cord", field: "extension", visible: false, download: true },
-                    { title: "Additional Chairs", field: "chair", visible: false, download: true },
-                    { title: "Additional Table", field: "table", visible: false, download: true },
-                    { title: "Purpose", field: "message", visible: false, download: true },
-                    { title: "Price", field: "prices", visible: false, download: true },
                 ],
                 ajaxResponse: function(url, params, response) {
                     // Customize response to fit Tabulator's expected format
