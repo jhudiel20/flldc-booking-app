@@ -121,8 +121,10 @@
                             const booking_id = cell.getValue();
                             const button = e.target;
 
-                            // Prevent click action if the button is disabled
-                            if (button.disabled) return;
+                            if (button.disabled) {
+                                e.stopImmediatePropagation(); // Stop the event from propagating
+                                return;
+                            }
 
                             Swal.fire({
                                 title: 'Are you sure?',
