@@ -298,12 +298,6 @@ function includeHTML(file, elementID) {
                     showCancelButton: true,
                     confirmButtonText: 'Register',
                     cancelButtonText: 'Cancel',
-                    customClass: {
-                        confirmButton: 'btn btn-primary',
-                        cancelButton: 'btn btn-secondary',
-                        buttons: 'custom-buttons'
-                    },
-                    buttonsStyling: false,
                     preConfirm: async () => {
                         const fname = document.getElementById('fname').value.trim();
                         const lname = document.getElementById('lname').value.trim();
