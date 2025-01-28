@@ -114,16 +114,18 @@
                                     })
                                         .then(response => response.json())
                                         .then(data => {
-                                            if (data.success) {
+                                            if (data.success === true) {
                                                 Swal.fire(
                                                     'Cancelled!',
-                                                    'Your reservation has been cancelled.',
+                                                    data.message,
                                                     'success'
-                                                );
+                                                ).then(() => {
+                                                    window.location.reload();
+                                                });
                                             } else {
                                                 Swal.fire(
                                                     'Error!',
-                                                    'Failed to cancel the reservation. Please try again.',
+                                                    data.message,
                                                     'error'
                                                 );
                                             }

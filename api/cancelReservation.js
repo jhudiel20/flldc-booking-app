@@ -303,9 +303,9 @@ module.exports = async (req, res) => {
     await transporter.sendMail(ClientNotif);
 
     console.log(`Reservation cancelled: ${JSON.stringify(bookingDetails)}`);
-    res.status(200).json({ message: "Reservation cancelled successfully.", data: bookingDetails });
+    res.status(200).json({ success: true, message: "Reservation cancelled successfully.", data: bookingDetails });
   } catch (error) {
     console.error("Error cancelling reservation:", error.message);
-    res.status(500).json({ error: `Server error: ${error.message}` });
+    res.status(500).json({ success: false, error: `Server error: ${error.message}`, });
   }
 };
