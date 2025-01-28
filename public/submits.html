@@ -83,7 +83,7 @@
                         hozAlign: "center",
                         formatter: function(cell, formatterParams) {
                             const rowData = cell.getRow().getData(); // Get the row data
-                            const reservationDate = new Date(rowData.date); // Parse the reservation date
+                            const reservationDate = new Date(rowData.reserve_date); // Parse the reservation date
                             const currentDate = new Date();
                             const differenceInDays = Math.ceil((reservationDate - currentDate) / (1000 * 60 * 60 * 24)); // Calculate the difference in days
 
@@ -149,11 +149,12 @@
                     { title: "Status", field: "reserve_status", hozAlign: "center", headerFilter: "list", headerFilterParams: { valuesLookup: true, clearable: true }, headerFilterLiveFilter: false },
                     { title: "Booking ID", field: "booking_id", headerFilter: "input", hozAlign: "center", headerFilterLiveFilter: false },
                     { title: "Reservation ID", field: "reservation_id", headerFilter: "input", hozAlign: "center", headerFilterLiveFilter: false },
-                    { title: "Date", field: "date", headerFilter: "input", hozAlign: "center", headerFilterLiveFilter: false },
+                    { title: "Reservation Date", field: "reserve_date", headerFilter: "input", hozAlign: "center", headerFilterLiveFilter: false },
                     { title: "Time", field: "time", hozAlign: "center", headerFilter: "list", headerFilterParams: { valuesLookup: true, clearable: true }, headerFilterLiveFilter: false },
-                    { title: "Room", field: "room", hozAlign: "center", headerFilter: "list", headerFilterParams: { valuesLookup: true, clearable: true }, headerFilterLiveFilter: false },
-                    { title: "Room Setup", field: "setup", hozAlign: "center", headerFilter: "list", headerFilterParams: { valuesLookup: true, clearable: true }, headerFilterLiveFilter: false },
-                    { title: "Guest", field: "guest", headerFilter: "input", hozAlign: "center", headerFilterLiveFilter: false },
+                    { title: "Date Created", field: "date", headerFilter: "input", hozAlign: "center", headerFilterLiveFilter: false },
+                    // { title: "Room", field: "room", hozAlign: "center", headerFilter: "list", headerFilterParams: { valuesLookup: true, clearable: true }, headerFilterLiveFilter: false },
+                    // { title: "Room Setup", field: "setup", hozAlign: "center", headerFilter: "list", headerFilterParams: { valuesLookup: true, clearable: true }, headerFilterLiveFilter: false },
+                    // { title: "Guest", field: "guest", headerFilter: "input", hozAlign: "center", headerFilterLiveFilter: false },
                 ],
                 ajaxResponse: function(url, params, response) {
                     // Customize response to fit Tabulator's expected format
