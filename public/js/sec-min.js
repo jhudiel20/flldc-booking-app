@@ -201,7 +201,6 @@ function includeHTML(file, elementID) {
                 `,
                 icon: 'info',
                 showCancelButton: true,
-                confirmButtonColor: '#d33',
                 confirmButtonText: 'Login',
                 preConfirm: async () => {
                     const email = document.getElementById('email_login').value.trim();
