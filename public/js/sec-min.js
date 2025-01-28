@@ -230,7 +230,7 @@ function includeHTML(file, elementID) {
                         return false; 
                       } else {
                           Swal.fire('Success!', 'Successfully Login.', 'success').then(() => {
-                            location.reload();
+                            window.location.reload();
                         });
                       }
                     } catch (error) {

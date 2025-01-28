@@ -1,7 +1,7 @@
 {
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/$1" },
-    { "source": "/profile", "destination": "/public/profile.php" },
+    { "source": "/profile", "destination": "/api/profile.php" },
     { "source": "/.", "destination": "/404" }
   ],
   "cleanUrls": true, 
