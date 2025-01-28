@@ -82,10 +82,22 @@
                         field: "booking_id",
                         hozAlign: "center",
                         formatter: function(cell, formatterParams) {
-                            return `<button class="btn btn-danger btn-sm cancel-btn">Cancel</button>`;
+                            const rowData = cell.getRow().getData(); // Get the row data
+                            const reservationDate = new Date(rowData.date); // Parse the reservation date
+                            const currentDate = new Date();
+                            const differenceInDays = Math.ceil((reservationDate - currentDate) / (1000 * 60 * 60 * 24)); // Calculate the difference in days
+
+                            // Disable the button if the reservation is less than 5 days away
+                            const disabled = differenceInDays < 5 ? 'disabled' : '';
+                            return `<button class="btn btn-danger btn-sm cancel-btn" ${disabled}>Cancel</button>`;
                         },
                         cellClick: function(e, cell) {
                             const booking_id = cell.getValue();
+                            const button = e.target;
+
+                            // Prevent click action if the button is disabled
+                            if (button.hasAttribute('disabled')) return;
+
                             Swal.fire({
                                 title: 'Are you sure?',
                                 text: `You are about to cancel Booking ID: ${booking_id}`,
