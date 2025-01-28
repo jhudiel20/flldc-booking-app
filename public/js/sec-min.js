@@ -396,11 +396,6 @@ function includeHTML(file, elementID) {
           showCancelButton: true,
           confirmButtonText: 'Yes, log out',
           cancelButtonText: 'Cancel',
-          customClass: {
-            confirmButton: 'btn btn-danger',
-            cancelButton: 'btn btn-secondary',
-          },
-          buttonsStyling: false,
         }).then((result) => {
           if (result.isConfirmed) {
             // Perform the logout action (e.g., API call, session clear)
