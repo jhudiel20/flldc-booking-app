@@ -114,12 +114,19 @@
                             const differenceInDays = Math.ceil((reservationDate - currentDate) / (1000 * 60 * 60 * 24)); // Calculate the difference in days
 
                             // Disable the button if the reservation is less than 5 days away
-                            const disabled = (differenceInDays < 5 || rowData.reserve_status === 'CANCELLED');
-                            return '';
+                            // Remove the button if the reservation is less than 5 days away or if the reserve_status is 'cancelled'
+                            if (differenceInDays < 5 || rowData.reserve_status === 'cancelled') {
+                                return ''; // Return an empty string to remove the button
+                            }
+                            // Return the button if the conditions are not met
+                            return `<button class="btn btn-danger btn-sm cancel-btn">Cancel</button>`;
                         },
                         cellClick: function(e, cell) {
                             const booking_id = cell.getValue();
                             const button = e.target;
+                            // Check if the clicked element is the button, if not, return
+                            if (!button.classList.contains('cancel-btn')) return;
+
                             // Prevent click action if the button is removed (i.e., it doesn't exist)
                             if (!button) return;
 
