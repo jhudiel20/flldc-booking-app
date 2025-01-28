@@ -350,6 +350,7 @@ function includeHTML(file, elementID) {
                                 return false;
                             } else {
                                 Swal.fire('Success!', 'Registration completed.', 'success');
+                                window.location.reload();
                             }
                         } catch (error) {
                             document.getElementById('errorMessage').innerText = 'Registration failed. Please try again.';
