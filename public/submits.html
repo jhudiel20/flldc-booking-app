@@ -115,7 +115,7 @@
 
                             // Disable the button if the reservation is less than 5 days away
                             // Remove the button if the reservation is less than 5 days away or if the reserve_status is 'cancelled'
-                            if (differenceInDays < 5 || rowData.reserve_status === 'cancelled') {
+                            if (differenceInDays < 5 || rowData.reserve_status === 'CANCELLED') {
                                 return ''; // Return an empty string to remove the button
                             }
                             // Return the button if the conditions are not met
