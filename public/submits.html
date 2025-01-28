@@ -122,7 +122,7 @@
                             const button = e.target;
 
                             // Prevent click action if the button is disabled
-                            if (button.hasAttribute('disabled')) return;
+                            if (button.disabled) return;
 
                             Swal.fire({
                                 title: 'Are you sure?',
