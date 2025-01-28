@@ -114,7 +114,7 @@
                             const differenceInDays = Math.ceil((reservationDate - currentDate) / (1000 * 60 * 60 * 24)); // Calculate the difference in days
 
                             // Disable the button if the reservation is less than 5 days away
-                            const disabled = differenceInDays < 5 ? 'disabled' : '';
+                            const disabled = (differenceInDays < 5 || rowData.reserve_status === 'CANCELLED');
                             return `<button class="btn btn-danger btn-sm cancel-btn" ${disabled}>Cancel</button>`;
                         },
                         cellClick: function(e, cell) {
