@@ -85,6 +85,61 @@
                     { title: "Room", field: "room", hozAlign: "center", headerFilter: "list", headerFilterParams: { valuesLookup: true, clearable: true }, headerFilterLiveFilter: false },
                     { title: "Room Setup", field: "setup", hozAlign: "center", headerFilter: "list", headerFilterParams: { valuesLookup: true, clearable: true }, headerFilterLiveFilter: false },
                     { title: "Guest", field: "guest", headerFilter: "input", hozAlign: "center", headerFilterLiveFilter: false },
+                    {
+                        title: "Actions",
+                        field: "booking_id",
+                        hozAlign: "center",
+                        formatter: function(cell, formatterParams) {
+                            return `<button class="btn btn-danger btn-sm cancel-btn">Cancel</button>`;
+                        },
+                        cellClick: function(e, cell) {
+                            const booking_id = cell.getValue();
+                            Swal.fire({
+                                title: 'Are you sure?',
+                                text: `You are about to cancel Booking ID: ${booking_id}`,
+                                icon: 'warning',
+                                showCancelButton: true,
+                                confirmButtonColor: '#d33',
+                                cancelButtonColor: '#3085d6',
+                                confirmButtonText: 'Yes, cancel it!',
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    // Call API to cancel the reservation
+                                    fetch(`/api/cancelReservation`, {
+                                        method: 'POST',
+                                        headers: {
+                                            'Content-Type': 'application/json',
+                                        },
+                                        body: JSON.stringify({ bookingId: booking_id }),
+                                    })
+                                        .then(response => response.json())
+                                        .then(data => {
+                                            if (data.success) {
+                                                Swal.fire(
+                                                    'Cancelled!',
+                                                    'Your reservation has been cancelled.',
+                                                    'success'
+                                                );
+                                            } else {
+                                                Swal.fire(
+                                                    'Error!',
+                                                    'Failed to cancel the reservation. Please try again.',
+                                                    'error'
+                                                );
+                                            }
+                                        })
+                                        .catch(error => {
+                                            console.error('Error:', error);
+                                            Swal.fire(
+                                                'Error!',
+                                                'An error occurred. Please try again later.',
+                                                'error'
+                                            );
+                                        });
+                                }
+                            });
+                        },
+                    },
                 ],
                 ajaxResponse: function(url, params, response) {
                     // Customize response to fit Tabulator's expected format
@@ -102,7 +157,7 @@
     <!-- loader -->
     <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <!-- <script src="js/fetch_cancel.js"></script> -->
+    <script src="js/fetch_cancel.js"></script>
     <script src="sneat/assets/js/ui-modals.js"></script>
     <script src="js/sec-min.js"></script>
     <script src="js/jquery-3.2.1.min.js"></script>

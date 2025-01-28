@@ -1,13 +1,5 @@
 async function fetchBookingDetails() {
     
-    const reserveID = document.getElementById('reserveID').value.trim();
-
-    if (!reserveID) {
-        Swal.fire('Error!', 'Please enter a Reservation ID or Booking ID.', 'error');
-        return;
-    }
-    const loader = document.getElementById('loader');
-    loader.classList.add('show');
     try {
         // Query the server
         const response = await fetch(`/api/fetch-booking-details?reservation_id=${reserveID}`);
@@ -135,13 +127,6 @@ document.getElementById('cancelButton').addEventListener('click', function () {
 
 // Async function for canceling the reservation
 async function cancelReservation() {
-    const reservationId = document.getElementById("reserveID").value;
-
-    if (!reservationId) {
-        Swal.fire('Error!', 'Please enter a Reservation ID.', 'error');
-        return false; // Indicate failure
-    }
-
     try {
         const response = await fetch(`/api/cancelReservation`, {
             method: "POST",

@@ -167,24 +167,24 @@ const logoPath = path.join(__dirname, '../public/images/LOGO.png');
 
 module.exports = async (req, res) => {
   try {
-    const { reservation_id } = req.body; // Get reservation_id from the body
+    const { bookingId } = req.body; // Get reservation_id from the body
 
-    if (!reservation_id) {
+    if (!bookingId) {
       console.error("Reservation ID is missing in the request.");
       return res.status(400).json({ error: "Reservation ID is required." });
     }
 
-    console.log(`Cancelling reservation for ID: ${reservation_id}`);
+    console.log(`Cancelling reservation for ID: ${bookingId}`);
 
     // Fetch reservation details first
     const selectQuery = `
       SELECT * FROM reservations
       WHERE reservation_id = $1 OR booking_id = $1;
     `;
-    const selectResult = await pool.query(selectQuery, [reservation_id]);
+    const selectResult = await pool.query(selectQuery, [bookingId]);
 
     if (selectResult.rowCount === 0) {
-      console.log(`No reservation found for ID: ${reservation_id}`);
+      console.log(`No reservation found for ID: ${bookingId}`);
       return res.status(404).json({ error: "No reservation found to cancel." });
     }
 
@@ -196,7 +196,7 @@ module.exports = async (req, res) => {
       SET reserve_status = 'CANCELLED'
       WHERE reservation_id = $1 OR booking_id = $1;
     `;
-    await pool.query(updateQuery, [reservation_id]);
+    await pool.query(updateQuery, [bookingId]);
 
     // Create the transporter for sending email
     const transporter = nodemailer.createTransport({
