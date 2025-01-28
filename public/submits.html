@@ -115,16 +115,13 @@
 
                             // Disable the button if the reservation is less than 5 days away
                             const disabled = (differenceInDays < 5 || rowData.reserve_status === 'CANCELLED');
-                            return `<button class="btn btn-danger btn-sm cancel-btn" ${disabled}>Cancel</button>`;
+                            return '';
                         },
                         cellClick: function(e, cell) {
                             const booking_id = cell.getValue();
                             const button = e.target;
-
-                            if (button.disabled) {
-                                e.stopImmediatePropagation(); // Stop the event from propagating
-                                return;
-                            }
+                            // Prevent click action if the button is removed (i.e., it doesn't exist)
+                            if (!button) return;
 
                             Swal.fire({
                                 title: 'Are you sure?',
