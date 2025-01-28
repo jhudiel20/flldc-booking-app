@@ -66,18 +66,23 @@
         // Function to initialize the Tabulator table
         function initializeTable() {
 
-            var rowPopupFormatter = function(e, row, onRendered){
-                const rowData = row.getRow().getData();
-                container = document.createElement("div"),
-                contents = "<strong style='font-size:1.2em;'>Reservation Details</strong><br/><ul style='padding:0;  margin-top:10px; margin-bottom:0;'>";
-                contents += "<li><strong>Room Name:</strong> " + rowData.room + "</li>";
-                contents += "<li><strong>Room Setup:</strong> " + rowData.setup + "</li>";
-                contents += "<li><strong>No. of Pax:</strong> " + rowData.guest + "</li>";
-                contents += "</ul>";
+            var rowPopupFormatter = function(e, row) {
+                const rowData = row.getData(); // Fetch row data
+                const container = document.createElement("div"); // Create a container element
 
-                container.innerHTML = contents;
+                // Build popup contents
+                const contents = `
+                    <strong style="font-size:1.2em;">Reservation Details</strong>
+                    <br/>
+                    <ul style="padding:0; margin-top:10px; margin-bottom:0; list-style:none;">
+                        <li><strong>Room Name:</strong> ${rowData.room || "N/A"}</li>
+                        <li><strong>Room Setup:</strong> ${rowData.setup || "N/A"}</li>
+                        <li><strong>No. of Pax:</strong> ${rowData.guest || "N/A"}</li>
+                    </ul>
+                `;
 
-                return container;
+                container.innerHTML = contents; // Set the container's content
+                return container; // Return the container element
             };
 
             new Tabulator("#reserve-table", {
@@ -88,7 +93,7 @@
                 paginationSizeSelector: [40, 50, 100, 500, 1000, true],
                 paginationSize: 40,
                 filterMode: "remote",
-                rowClickPopup:rowPopupFormatter,
+                rowClickPopup: rowPopupFormatter,
                 sortMode: "remote",
                 ajaxParams: { userid: USERID }, // Pass USERID in AJAX parameters
                 ajaxURL: "/api/fetch-booking-details",
