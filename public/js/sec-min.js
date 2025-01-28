@@ -202,12 +202,11 @@ function includeHTML(file, elementID) {
                 icon: 'info',
                 showCancelButton: true,
                 confirmButtonText: 'Login',
-                cancelButtonText: 'Cancel',
                 customClass: {
-                    confirmButton: 'btn btn-primary me-3',
-                    cancelButton: 'btn btn-secondary',
-                    buttons: 'custom-buttons'
-                },
+                  confirmButton: 'btn btn-primary me-3',
+                  cancelButton: 'btn btn-secondary',
+                  buttons: 'custom-buttons'
+                              },
                 buttonsStyling: false,
                 preConfirm: async () => {
                     const email = document.getElementById('email_login').value.trim();
