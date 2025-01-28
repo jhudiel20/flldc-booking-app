@@ -193,7 +193,7 @@ module.exports = async (req, res) => {
     // Perform the update
     const updateQuery = `
       UPDATE reservations
-      SET reserve_status = 'CANCELLED'
+      SET reserve_status = 'CANCELLED', reservation_id = 'CANCELLED'
       WHERE reservation_id = $1 OR booking_id = $1;
     `;
     await pool.query(updateQuery, [bookingId]);
