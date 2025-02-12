@@ -120,6 +120,7 @@ function includeHTML(file, elementID) {
       includeHTML('footer', 'footer')
     ]).then(() => {
       // Call loadRooms only after the header has been loaded
+      checkUserStatus();
       loadRooms();
       if (typeof loadAllRooms === 'function') {
         loadAllRooms();
@@ -424,9 +425,9 @@ function includeHTML(file, elementID) {
     }
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    checkUserStatus();
-});
+// document.addEventListener('DOMContentLoaded', function() {
+//     checkUserStatus();
+// });
 
 function checkUserStatus() {
     fetch('/api/validate-cookie') // API endpoint to validate the cookie
