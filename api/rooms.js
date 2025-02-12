@@ -261,7 +261,7 @@ module.exports = async (req, res) => {
 
                                     <!-- Button to cancel booking -->
                                     <p style="text-align:center; margin-top: 20px;">
-                                      <a href="https://flldc-booking-app.vercel.app/check" style="background-color:#4CAF50;color:white;padding:12px 24px;text-align:center;text-decoration:none;border-radius:4px;font-size:16px;display:inline-block">Cancel Booking</a>
+                                      <a href="https://flldc-booking-app.vercel.app/submits" style="background-color:#4CAF50;color:white;padding:12px 24px;text-align:center;text-decoration:none;border-radius:4px;font-size:16px;display:inline-block">Cancel Booking</a>
                                     </p>
                                   </div>
                                 </td>

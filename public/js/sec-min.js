@@ -149,14 +149,14 @@ function includeHTML(file, elementID) {
     dropdown.innerHTML = ''; 
 
     // Add the "Check Reservation" link and a horizontal rule
-    const checkReservationLink = document.createElement('a');
-    checkReservationLink.classList.add('dropdown-item');
-    checkReservationLink.href = 'submits';
-    checkReservationLink.textContent = 'Submitted Reservations';
-    dropdown.appendChild(checkReservationLink);
+    // const checkReservationLink = document.createElement('a');
+    // checkReservationLink.classList.add('dropdown-item');
+    // checkReservationLink.href = 'submits';
+    // checkReservationLink.textContent = 'Submitted Reservations';
+    // dropdown.appendChild(checkReservationLink);
 
-    // Add the horizontal rule
-    dropdown.appendChild(document.createElement('hr'));
+    // // Add the horizontal rule
+    // dropdown.appendChild(document.createElement('hr'));
 
     const allRoomsLink = document.createElement('a');
       allRoomsLink.classList.add('dropdown-item');
