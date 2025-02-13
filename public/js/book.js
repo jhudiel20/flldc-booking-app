@@ -414,14 +414,16 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
         <div id="proceedContainer" style="display: none; text-align: center; margin-top: 10px;">
           <button id="proceedBtn" class="btn btn-primary" style="cursor: pointer;">Proceed</button>
+          <button id="cancelBtn" class="btn btn-info" style="cursor: pointer;">Cancel</button>
         </div>
       `,
-      showCancelButton: true,
+      showCancelButton: false,
       showConfirmButton: false,
       didOpen: () => {
         let termsContent = document.getElementById("termsContent");
         let proceedContainer = document.getElementById("proceedContainer");
         let proceedBtn = document.getElementById("proceedBtn");
+        let cancelBtn = document.getElementById("cancelBtn");
 
         termsContent.addEventListener("scroll", function () {
           if (termsContent.scrollTop + termsContent.clientHeight >= termsContent.scrollHeight - 10) {
@@ -434,6 +436,11 @@ document.addEventListener("DOMContentLoaded", function () {
         proceedBtn.addEventListener("click", () => {
           Swal.close(); // Close modal
           submitBookingForm(); // Proceed with booking form submission
+        });
+
+        // Cancel button functionality
+        cancelBtn.addEventListener("click", () => {
+          Swal.close(); // Close modal
         });
       }
     });
