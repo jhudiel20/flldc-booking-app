@@ -11,11 +11,22 @@ module.exports = async (req, res) => {
   }
 
   // Extract form data from request body
-  const { fname, lname, email, password, confirmPassword, userType, sbu, branch } = req.body;
+  const { fname, lname, email, password, confirmPassword, userType, sbu, branch, recaptchaResponse } = req.body;
 
   // Input validation
-  if (!fname || !lname || !email || !password || !confirmPassword || !userType) {
-    return res.status(400).json({ error: 'All fields are required.' });
+  if (!fname || !lname || !email || !password || !confirmPassword || !userType || !recaptchaResponse) {
+    return res.status(400).json({ error: 'All fields are required, including reCAPTCHA.' });
+  }
+
+  // Verify reCAPTCHA response
+  const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY;
+  const recaptchaVerifyURL = `https://www.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${recaptchaResponse}`;
+  
+  const recaptchaRes = await fetch(recaptchaVerifyURL, { method: 'POST' });
+  const recaptchaData = await recaptchaRes.json();
+  
+  if (!recaptchaData.success) {
+    return res.status(403).json({ error: 'reCAPTCHA verification failed.' });
   }
 
   if (password !== confirmPassword) {

@@ -122,6 +122,7 @@ function includeHTML(file, elementID) {
       // Call loadRooms only after the header has been loaded
       checkUserStatus();
       loadRooms();
+      loadAllRooms();
       if (typeof loadAllRooms === 'function') {
         loadAllRooms();
       }
@@ -304,10 +305,10 @@ function includeHTML(file, elementID) {
                     confirmButtonText: 'Register',
                     cancelButtonText: 'Cancel',
                     didOpen: () => {
-                      grecaptcha.render('recaptcha-container', {
-                          sitekey: '6LcEwdUqAAAAAFnSG67vpecp_r_Ow1TWd25DDKCX'
-                      });
-                  },
+                        grecaptcha.render('recaptcha-container', {
+                            sitekey: '6LcEwdUqAAAAAFnSG67vpecp_r_Ow1TWd25DDKCX'
+                        });
+                    },
                     preConfirm: async () => {
                         const fname = document.getElementById('fname').value.trim();
                         const lname = document.getElementById('lname').value.trim();
