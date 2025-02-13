@@ -6,20 +6,29 @@ const pool = new Pool({
 });
 
 module.exports = async (req, res) => {
-  // Ensure method is POST before proceeding
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method Not Allowed' });
   }
 
-  // Extract form data from request body
-  const { email, password } = req.body;
+  const { email, password, recaptchaResponse } = req.body;
 
-  // Input validation
-  if (!email || !password) {
-    return res.status(400).json({ error: 'All fields are required.' });
+  if (!email || !password || !recaptchaResponse) {
+    return res.status(400).json({ error: 'All fields are required, including reCAPTCHA.' });
   }
 
   try {
+
+    // Verify reCAPTCHA response
+    const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY;
+    const recaptchaVerifyURL = `https://www.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${recaptchaResponse}`;
+    
+    const recaptchaRes = await fetch(recaptchaVerifyURL, { method: 'POST' });
+    const recaptchaData = await recaptchaRes.json();
+    
+    if (!recaptchaData.success) {
+      return res.status(403).json({ error: 'reCAPTCHA verification failed.' });
+    }
+    
     // Check if email exists in the database
     const result = await pool.query('SELECT * FROM user_reservation WHERE email = $1', [email]);
 

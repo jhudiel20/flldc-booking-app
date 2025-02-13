@@ -195,6 +195,7 @@ function includeHTML(file, elementID) {
                         <label for="password" class="form-label">Password</label>
                         <input type="password" id="password" class="form-control" placeholder="Enter your password">
                     </div>
+                    <div class="g-recaptcha mb-3" data-sitekey="6LfiutUqAAAAAL7zvl2XTJLLIPveLaoxrKZfHpJB"></div>
                     <div id="errorMessage" class="text-danger mt-3">${errorMessage}</div>
                     <div class="mt-3">
                         <button id="registerLink" class="btn btn-link p-0">Don't have an account? Register here</button>
@@ -206,6 +207,11 @@ function includeHTML(file, elementID) {
                 preConfirm: async () => {
                     const email = document.getElementById('email_login').value.trim();
                     const password = document.getElementById('password').value.trim();
+                    const recaptchaResponse = grecaptcha.getResponse();
+                    if (!recaptchaResponse) {
+                        document.getElementById('errorMessage').innerText = 'Please verify the reCAPTCHA.';
+                        return false;
+                    }
 
                     if (!email || !password) {
                         document.getElementById('errorMessage').innerText = 'Please fill in all fields.';
@@ -215,7 +221,8 @@ function includeHTML(file, elementID) {
                     try {
                       const loginData = {
                         email,
-                        password                      
+                        password,
+                        recaptchaResponse                   
                       };
 
                       const response = await fetch('/api/UserLogin', {
