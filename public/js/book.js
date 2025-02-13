@@ -267,83 +267,195 @@ function validateMinDate(input) {
 }
   
 // Handle form submission
-document.querySelector('#bookingForm').addEventListener('submit', function (e) {
-  e.preventDefault(); // Prevent default form submission
-  checkUserStatus();
+// document.querySelector('#bookingForm').addEventListener('submit', function (e) {
+//   e.preventDefault(); // Prevent default form submission
+//   checkUserStatus();
 
-  // Show the loader
-  document.getElementById('loader').classList.add('show');
+//   // Show the loader
+//   document.getElementById('loader').classList.add('show');
 
-  // Gather form data
-  const formData = {
-    user_id: document.getElementById('user_id').value,
-    fname: document.getElementById('fname').value,
-    lname: document.getElementById('lname').value,
-    reserve_date: document.getElementById('reserve_date').value,
-    time: document.getElementById('time').value,
-    setup: document.getElementById('setup').value,
-    businessunit: document.getElementById('businessunit').value,
-    branch: document.getElementById('branch').value,
-    roomID: document.getElementById('roomID').value,
-    roomPrices: document.getElementById('roomPrices').value,
-    roomName: document.getElementById('roomName').value,
-    guest: document.getElementById('guest').value,
-    contact: document.getElementById('contact').value,
-    email: document.getElementById('email').value,
-    table: document.getElementById('table').value, // Checkbox for table
-    chair: document.getElementById('chair').value,
-    hdmi: document.getElementById('hdmi').checked,  // Checkbox for HDMI
-    extension: document.getElementById('extension').checked, // Checkbox for extension
-    message: document.getElementById('message').value
-  };
+//   // Gather form data
+//   const formData = {
+//     user_id: document.getElementById('user_id').value,
+//     fname: document.getElementById('fname').value,
+//     lname: document.getElementById('lname').value,
+//     reserve_date: document.getElementById('reserve_date').value,
+//     time: document.getElementById('time').value,
+//     setup: document.getElementById('setup').value,
+//     businessunit: document.getElementById('businessunit').value,
+//     branch: document.getElementById('branch').value,
+//     roomID: document.getElementById('roomID').value,
+//     roomPrices: document.getElementById('roomPrices').value,
+//     roomName: document.getElementById('roomName').value,
+//     guest: document.getElementById('guest').value,
+//     contact: document.getElementById('contact').value,
+//     email: document.getElementById('email').value,
+//     table: document.getElementById('table').value, // Checkbox for table
+//     chair: document.getElementById('chair').value,
+//     hdmi: document.getElementById('hdmi').checked,  // Checkbox for HDMI
+//     extension: document.getElementById('extension').checked, // Checkbox for extension
+//     message: document.getElementById('message').value
+//   };
 
-  // Send form data to the backend via fetch
-  fetch('/api/rooms', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(formData)
-  })
-  .then(response => response.json())
-  .then(data => {
-    document.getElementById('loader').classList.remove('show'); // Hide loader
+//   // Send form data to the backend via fetch
+//   fetch('/api/rooms', {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify(formData)
+//   })
+//   .then(response => response.json())
+//   .then(data => {
+//     document.getElementById('loader').classList.remove('show'); // Hide loader
 
-    // Check if there's any error in the response
-    if (data.error || data.errors) {
-      // Display error notification
+//     // Check if there's any error in the response
+//     if (data.error || data.errors) {
+//       // Display error notification
+//       Swal.fire({
+//         icon: 'error',
+//         title: 'Error',
+//         text: data.errors,
+//       }).then(() => {
+//         window.location.reload(); // Optionally reload the page
+//       });
+//     } else {
+//       // On successful booking
+//       Swal.fire({
+//         icon: 'success',
+//         title: 'Booking Submitted',
+//         text: 'Please wait for the email confirmation of your booking.',
+//         timer: 1500,
+//       }).then(() => {
+//         window.location.reload(); // Optionally reload the page
+//       });
+//     }
+//   })
+//   .catch(err => {
+//     document.getElementById('loader').classList.remove('show'); // Hide loader
+
+//     // If there's a network error or other fetch issue
+//     Swal.fire({
+//       icon: 'error',
+//       title: 'Error',
+//       text: `An unexpected error occurred. Please try again. Error: ${err.message || err}`,
+//     }).then(() => {
+//       window.location.reload(); // Optionally reload the page
+//     });
+//   });
+// });
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelector('#bookingForm').addEventListener('submit', function (e) {
+    e.preventDefault(); // Prevent default form submission
+
+    // Show Terms and Agreement Modal
+    Swal.fire({
+      title: 'Terms and Agreement',
+      html: `
+        <div id="termsContent" style="height: 200px; overflow-y: auto; text-align: left; padding: 10px; border: 1px solid #ccc;">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+          <p>More terms and conditions here...</p>
+          <p style="margin-top: 1000px;">End of the agreement.</p>
+        </div>
+        <button id="proceedBtn" disabled style="margin-top: 10px; padding: 8px 15px; background: gray; color: white; border: none; cursor: not-allowed;">Proceed</button>
+      `,
+      showCancelButton: false,
+      showConfirmButton: false,
+      didOpen: () => {
+        let termsContent = document.getElementById("termsContent");
+        let proceedBtn = document.getElementById("proceedBtn");
+
+        termsContent.addEventListener("scroll", () => {
+          if (termsContent.scrollTop + termsContent.clientHeight >= termsContent.scrollHeight) {
+            proceedBtn.disabled = false;
+            proceedBtn.style.background = "#3085d6";
+            proceedBtn.style.cursor = "pointer";
+          }
+        });
+
+        proceedBtn.addEventListener("click", () => {
+          Swal.close(); // Close modal
+          submitBookingForm(); // Proceed with booking form submission
+        });
+      }
+    });
+  });
+
+  function submitBookingForm() {
+    // Show the loader
+    document.getElementById('loader').classList.add('show');
+
+    // Gather form data
+    const formData = {
+      user_id: document.getElementById('user_id').value,
+      fname: document.getElementById('fname').value,
+      lname: document.getElementById('lname').value,
+      reserve_date: document.getElementById('reserve_date').value,
+      time: document.getElementById('time').value,
+      setup: document.getElementById('setup').value,
+      businessunit: document.getElementById('businessunit').value,
+      branch: document.getElementById('branch').value,
+      roomID: document.getElementById('roomID').value,
+      roomPrices: document.getElementById('roomPrices').value,
+      roomName: document.getElementById('roomName').value,
+      guest: document.getElementById('guest').value,
+      contact: document.getElementById('contact').value,
+      email: document.getElementById('email').value,
+      table: document.getElementById('table').checked, // Checkbox
+      chair: document.getElementById('chair').checked, // Checkbox
+      hdmi: document.getElementById('hdmi').checked,  // Checkbox
+      extension: document.getElementById('extension').checked, // Checkbox
+      message: document.getElementById('message').value
+    };
+
+    // Send form data to the backend via fetch
+    fetch('/api/rooms', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    })
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('loader').classList.remove('show'); // Hide loader
+
+      if (data.error || data.errors) {
+        // Show error message
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: data.errors,
+        }).then(() => {
+          window.location.reload(); // Optionally reload the page
+        });
+      } else {
+        // Success message
+        Swal.fire({
+          icon: 'success',
+          title: 'Booking Submitted',
+          text: 'Please wait for the email confirmation of your booking.',
+          timer: 1500,
+        }).then(() => {
+          window.location.reload(); // Optionally reload the page
+        });
+      }
+    })
+    .catch(err => {
+      document.getElementById('loader').classList.remove('show'); // Hide loader
+
       Swal.fire({
         icon: 'error',
         title: 'Error',
-        text: data.errors,
+        text: `An unexpected error occurred. Please try again. Error: ${err.message || err}`,
       }).then(() => {
         window.location.reload(); // Optionally reload the page
       });
-    } else {
-      // On successful booking
-      Swal.fire({
-        icon: 'success',
-        title: 'Booking Submitted',
-        text: 'Please wait for the email confirmation of your booking.',
-        timer: 1500,
-      }).then(() => {
-        window.location.reload(); // Optionally reload the page
-      });
-    }
-  })
-  .catch(err => {
-    document.getElementById('loader').classList.remove('show'); // Hide loader
-
-    // If there's a network error or other fetch issue
-    Swal.fire({
-      icon: 'error',
-      title: 'Error',
-      text: `An unexpected error occurred. Please try again. Error: ${err.message || err}`,
-    }).then(() => {
-      window.location.reload(); // Optionally reload the page
     });
-  });
+  }
 });
+
 
 
   const selectElement = document.getElementById('setup');
