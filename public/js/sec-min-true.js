@@ -296,11 +296,18 @@ function includeHTML(file, elementID) {
                             </div>
                         </div>
                         <div id="errorMessage" class="text-danger mt-3">${errorMessage}</div>
+                        <div id="recaptcha-container" class="mt-3" style="display: flex; justify-content: center; align-items: center;"></div>
+
                     `,
                     icon: 'info',
                     showCancelButton: true,
                     confirmButtonText: 'Register',
                     cancelButtonText: 'Cancel',
+                    didOpen: () => {
+                      grecaptcha.render('recaptcha-container', {
+                          sitekey: '6LcEwdUqAAAAAFnSG67vpecp_r_Ow1TWd25DDKCX'
+                      });
+                  },
                     preConfirm: async () => {
                         const fname = document.getElementById('fname').value.trim();
                         const lname = document.getElementById('lname').value.trim();
@@ -310,7 +317,12 @@ function includeHTML(file, elementID) {
                         const userType = document.getElementById('usertype').value;
                         const sbu = document.getElementById('SBU') ? document.getElementById('SBU').value : null;
                         const branch = document.getElementById('branchSelect') ? document.getElementById('branchSelect').value : null;
-        
+                        const recaptchaResponse = grecaptcha.getResponse();
+                        if (!recaptchaResponse) {
+                            document.getElementById('errorMessage').innerText = 'Please verify the reCAPTCHA.';
+                            return false;
+                        }
+
                         // Enhanced validation
                         if (!fname || !lname || !email || !password || !confirmPassword) {
                             document.getElementById('errorMessage').innerText = 'All fields are required.';
@@ -337,7 +349,8 @@ function includeHTML(file, elementID) {
                                 confirmPassword,
                                 userType,
                                 sbu,
-                                branch
+                                branch,
+                                recaptchaResponse 
                             };
         
                             const response = await fetch('/api/UserRegistration', {
