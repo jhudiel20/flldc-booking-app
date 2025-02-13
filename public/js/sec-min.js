@@ -199,7 +199,7 @@ function includeHTML(file, elementID) {
                     <div class="mt-3">
                         <button id="registerLink" class="btn btn-link p-0">Don't have an account? Register here</button>
                     </div>
-                    <div id="recaptcha-container" class="mt-3" style="display: flex; justify-content: center; align-items: center; height: 100vh;"></div>
+                    <div id="recaptcha-container" class="mt-3" style="display: flex; justify-content: center; align-items: center;"></div>
                 `,
                 icon: 'info',
                 showCancelButton: true,
