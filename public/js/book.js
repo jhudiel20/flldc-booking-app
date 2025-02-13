@@ -352,14 +352,20 @@ document.addEventListener("DOMContentLoaded", function () {
     // Show Terms and Agreement Modal
     Swal.fire({
       title: 'Terms and Agreement',
+      width: '700px', // Increase the width
+      heightAuto: false, // Allow custom height
+      padding: '20px',
       html: `
-        <div id="termsContent" style="height: 200px; overflow-y: auto; text-align: left; padding: 10px; border: 1px solid #ccc;">
+        <div id="termsContent" style="height: 400px; width: 100%; overflow-y: auto; text-align: left; padding: 15px; border: 1px solid #ccc; background: #f9f9f9;">
+          <p><strong>Please read the following terms and conditions carefully:</strong></p>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+          <p>Aliquam erat volutpat. Nulla facilisi. Curabitur vel nisi odio...</p>
+          <p>Donec hendrerit, ipsum in volutpat tincidunt, risus magna pharetra velit...</p>
           <p>More terms and conditions here...</p>
-          <p style="margin-top: 1000px;">End of the agreement.</p>
+          <p style="margin-bottom: 50px;">End of the agreement.</p>
         </div>
-        <div id="proceedContainer" style="display: none; text-align: center; margin-top: 10px;">
-          <button id="proceedBtn" style="padding: 8px 15px; background: #3085d6; color: white; border: none; cursor: pointer;">Proceed</button>
+        <div id="proceedContainer" style="display: none; text-align: center; margin-top: 15px;">
+          <button id="proceedBtn" style="padding: 10px 20px; font-size: 16px; background: #3085d6; color: white; border: none; border-radius: 5px; cursor: pointer;">Proceed</button>
         </div>
       `,
       showCancelButton: false,
@@ -369,10 +375,9 @@ document.addEventListener("DOMContentLoaded", function () {
         let proceedContainer = document.getElementById("proceedContainer");
         let proceedBtn = document.getElementById("proceedBtn");
 
-        termsContent.addEventListener("scroll", () => {
-          if (termsContent.scrollTop + termsContent.clientHeight >= termsContent.scrollHeight) {
-            // Show the button with a fade-in effect
-            proceedContainer.style.display = "block";
+        termsContent.addEventListener("scroll", function () {
+          if (termsContent.scrollTop + termsContent.clientHeight >= termsContent.scrollHeight - 10) {
+            proceedContainer.style.display = "block"; // Show the button
             proceedContainer.style.opacity = 0;
             setTimeout(() => proceedContainer.style.opacity = 1, 300);
           }
