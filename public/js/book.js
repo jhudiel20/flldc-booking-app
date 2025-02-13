@@ -414,7 +414,7 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
         <div id="proceedContainer" style="display: none; text-align: center; margin-top: 10px;">
           <button id="proceedBtn" class="btn btn-primary" style="cursor: pointer;">Proceed</button>
-          <button id="cancelBtn" class="btn btn-info" style="cursor: pointer;">Cancel</button>
+          <button id="cancelBtn" class="btn btn-secondary" style="cursor: pointer;">Cancel</button>
         </div>
       `,
       showCancelButton: false,
