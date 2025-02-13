@@ -195,11 +195,11 @@ function includeHTML(file, elementID) {
                         <label for="password" class="form-label">Password</label>
                         <input type="password" id="password" class="form-control" placeholder="Enter your password">
                     </div>
-                    <div id="recaptcha-container" class="mb-3"></div>
                     <div id="errorMessage" class="text-danger mt-3">${errorMessage}</div>
                     <div class="mt-3">
                         <button id="registerLink" class="btn btn-link p-0">Don't have an account? Register here</button>
                     </div>
+                    <div id="recaptcha-container" class="mt-3" style="display: flex; justify-content: center; align-items: center; height: 100vh;"></div>
                 `,
                 icon: 'info',
                 showCancelButton: true,
