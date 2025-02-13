@@ -353,10 +353,11 @@ document.addEventListener("DOMContentLoaded", function () {
     Swal.fire({
       title: 'Terms and Agreement',
       width: '700px', // Increase the width
-      heightAuto: false, // Allow custom height
-      padding: '20px',
+      customClass: {
+        popup: 'custom-swal-popup' // Custom styling
+      },
       html: `
-        <div id="termsContent" style="height: 400px; width: 100%; overflow-y: auto; text-align: left; padding: 15px; border: 1px solid #ccc; background: #f9f9f9;">
+        <div id="termsContainer" style="max-height: 400px; overflow-y: auto; padding: 15px; border: 1px solid #ccc; background: #f9f9f9; text-align: left;">
           <p><strong>Please read the following terms and conditions carefully:</strong></p>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
           <p>Aliquam erat volutpat. Nulla facilisi. Curabitur vel nisi odio...</p>
@@ -365,25 +366,23 @@ document.addEventListener("DOMContentLoaded", function () {
           <p style="margin-bottom: 50px;">End of the agreement.</p>
         </div>
         <div id="proceedContainer" style="display: none; text-align: center; margin-top: 15px;">
-          <button id="proceedBtn" style="padding: 10px 20px; font-size: 16px; background: #3085d6; color: white; border: none; border-radius: 5px; cursor: pointer;">Proceed</button>
+          <button id="proceedBtn" style="padding: 12px 24px; font-size: 18px; background: #3085d6; color: white; border: none; border-radius: 5px; cursor: pointer;">Proceed</button>
         </div>
       `,
       showCancelButton: false,
       showConfirmButton: false,
       didOpen: () => {
-        let termsContent = document.getElementById("termsContent");
+        let termsContainer = document.getElementById("termsContainer");
         let proceedContainer = document.getElementById("proceedContainer");
         let proceedBtn = document.getElementById("proceedBtn");
 
-        termsContent.addEventListener("scroll", function () {
-          if (termsContent.scrollTop + termsContent.clientHeight >= termsContent.scrollHeight - 10) {
+        termsContainer.addEventListener("scroll", function () {
+          if (termsContainer.scrollTop + termsContainer.clientHeight >= termsContainer.scrollHeight - 5) {
             proceedContainer.style.display = "block"; // Show the button
-            proceedContainer.style.opacity = 0;
-            setTimeout(() => proceedContainer.style.opacity = 1, 300);
           }
         });
 
-        proceedBtn.addEventListener("click", () => {
+        proceedBtn.addEventListener("click", function () {
           Swal.close(); // Close modal
           submitBookingForm(); // Proceed with booking form submission
         });
