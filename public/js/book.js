@@ -353,6 +353,7 @@ document.addEventListener("DOMContentLoaded", function () {
     Swal.fire({
       title: 'Terms and Agreement',
       width: '700px',
+      height: '700px',
       html: `
         <div id="termsContent" style="height: 200px; overflow-y: auto; text-align: left; padding: 10px; border: 1px solid #ccc;">
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
