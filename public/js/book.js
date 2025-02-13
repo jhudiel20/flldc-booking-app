@@ -356,59 +356,84 @@ document.addEventListener("DOMContentLoaded", function () {
       html: `
         <div id="termsContent" style="height: 500px; overflow-y: auto; text-align: left; padding: 10px; border: 1px solid #ccc;">
          <p><strong>By reserving the Learning and Development Center (L&D Center), you agree to the following terms and conditions:</strong></p>
-          
-          <p><strong>1. Reservation Confirmation</strong><br>
-          All reservations are subject to approval and availability.<br>
-          A reservation is confirmed only upon receipt of full payment or a valid payment method.<br>
-          If an internal business unit is responsible for payment, confirmation will be provided via email, and costs will be charged accordingly.</p>
+          <p><strong>1. Reservation Confirmation</strong></p>
+          <ul>
+              <li>All reservations are subject to approval and availability.</li>
+              <li>A reservation is confirmed only upon receipt of full payment or a valid payment method.</li>
+              <li>If an internal business unit is responsible for payment, confirmation will be provided via email, and costs will be charged accordingly.</li>
+          </ul>
 
-          <p><strong>2. Cancellation and No-Show Policy</strong><br>
-          Cancellations made within 120 hours (5 days) of the scheduled booking are non-refundable, and the full booking cost will be charged.<br>
-          Failure to arrive at the scheduled time without prior cancellation (no-show) will result in the full cost being charged to the responsible party.</p>
+          <p><strong>2. Cancellation and No-Show Policy</strong></p>
+          <ul>
+              <li>Cancellations made within 120 hours (5 days) of the scheduled booking are non-refundable, and the full booking cost will be charged.</li>
+              <li>Failure to arrive at the scheduled time without prior cancellation (no-show) will result in the full cost being charged to the responsible party.</li>
+          </ul>
 
-          <p><strong>3. Reservation Modifications</strong><br>
-          Any changes to the reservation (date, time, or room adjustments) must be requested at least 120 hours before the scheduled booking.<br>
-          Modifications within this period will not be accepted unless exceptional circumstances arise, subject to L&D Center management approval.</p>
+          <p><strong>3. Reservation Modifications</strong></p>
+          <ul>
+              <li>Any changes to the reservation (date, time, or room adjustments) must be requested at least 120 hours before the scheduled booking.</li>
+              <li>Modifications within this period will not be accepted unless exceptional circumstances arise, subject to L&D Center management approval.</li>
+          </ul>
 
-          <p><strong>4. Payment Terms</strong><br>
-          Full payment is required upon reservation approval.<br>
-          Where applicable, costs will be directly charged to the responsible department or business unit/company.</p>
+          <p><strong>4. Payment Terms</strong></p>
+          <ul>
+              <li>Full payment is required upon reservation approval.</li>
+              <li>Where applicable, costs will be directly charged to the responsible department or business unit/company.</li>
+          </ul>
 
-          <p><strong>5. Usage Guidelines</strong><br>
-          The L&D Center must be used for its intended purpose, such as training, meetings, workshops, and corporate events.<br>
-          The use of the facility for personal events, non-work-related gatherings, or external commercial purposes is subject to prior approval.</p>
+          <p><strong>5. Usage Guidelines</strong></p>
+          <ul>
+              <li>The L&D Center must be used for its intended purpose, such as training, meetings, workshops, and corporate events.</li>
+              <li>The use of the facility for personal events, non-work-related gatherings, or external commercial purposes is subject to prior approval.</li>
+          </ul>
 
-          <p><strong>6. Facility Access and Security</strong><br>
-          Access to the L&D Center is granted only for the approved booking duration. Additional time beyond the reservation period requires prior approval and may incur additional charges.<br>
-          Security protocols must be followed at all times, and all visitors must register at the reception upon arrival.</p>
+          <p><strong>6. Facility Access and Security</strong></p>
+          <ul>
+              <li>Access to the L&D Center is granted only for the approved booking duration. Additional time beyond the reservation period requires prior approval and may incur additional charges.</li>
+              <li>Security protocols must be followed at all times, and all visitors must register at the reception upon arrival.</li>
+          </ul>
 
-          <p><strong>7. Property Damage and Liability</strong><br>
-          Any damage to property, furniture, or fixtures during the reservation period will be charged to the responsible individual or organization.<br>
-          The reserving party is fully liable for any damages or losses incurred.</p>
+          <p><strong>7. Property Damage and Liability</strong></p>
+          <ul>
+              <li>Any damage to property, furniture, or fixtures during the reservation period will be charged to the responsible individual or organization.</li>
+              <li>The reserving party is fully liable for any damages or losses incurred.</li>
+          </ul>
 
-          <p><strong>8. Personal Belongings</strong><br>
-          The L&D Center is not responsible for lost, stolen, or misplaced personal items. Attendees must secure their belongings.</p>
+          <p><strong>8. Personal Belongings</strong></p>
+          <ul>
+              <li>The L&D Center is not responsible for lost, stolen, or misplaced personal items. Attendees must secure their belongings.</li>
+          </ul>
 
-          <p><strong>9. Cleanliness and Maintenance</strong><br>
-          The L&D Center must be kept clean and orderly throughout and after the event.<br>
-          Any additional cleaning required due to improper use of the facility may result in extra charges.</p>
+          <p><strong>9. Cleanliness and Maintenance</strong></p>
+          <ul>
+              <li>The L&D Center must be kept clean and orderly throughout and after the event.</li>
+              <li>Any additional cleaning required due to improper use of the facility may result in extra charges.</li>
+          </ul>
 
-          <p><strong>10. Catering and Food Policy</strong><br>
-          Food and beverages are not included in the reservation fee.<br>
-          A canteen is available on the first floor where meals and snacks can be purchased.<br>
-          Outside catering may be allowed but requires prior approval.</p>
+          <p><strong>10. Catering and Food Policy</strong></p>
+          <ul>
+              <li>Food and beverages are not included in the reservation fee.</li>
+              <li>A canteen is available on the first floor where meals and snacks can be purchased.</li>
+              <li>Outside catering may be allowed but requires prior approval.</li>
+          </ul>
 
-          <p><strong>11. Wi-Fi and Technical Support</strong><br>
-          Complimentary Wi-Fi is available, with one access voucher per person. Vouchers can be collected from the security desk.<br>
-          Technical support (e.g., for projectors, sound systems, or video conferencing) must be requested in advance and may be subject to additional fees.</p>
+          <p><strong>11. Wi-Fi and Technical Support</strong></p>
+          <ul>
+              <li>Complimentary Wi-Fi is available, with one access voucher per person. Vouchers can be collected from the security desk.</li>
+              <li>Technical support (e.g., for projectors, sound systems, or video conferencing) must be requested in advance and may be subject to additional fees.</li>
+          </ul>
 
-          <p><strong>12. Compliance with Policies and Regulations</strong><br>
-          All users must comply with company policies, safety regulations, and emergency procedures while using the L&D Center.<br>
-          Any violations of these policies may result in additional penalties, cancellation of future bookings, or disciplinary action where applicable.</p>
+          <p><strong>12. Compliance with Policies and Regulations</strong></p>
+          <ul>
+              <li>All users must comply with company policies, safety regulations, and emergency procedures while using the L&D Center.</li>
+              <li>Any violations of these policies may result in additional penalties, cancellation of future bookings, or disciplinary action where applicable.</li>
+          </ul>
 
-          <p><strong>13. Liability Disclaimer</strong><br>
-          The L&D Center is not liable for any personal injuries, losses, or damages incurred during the reservation period.<br>
-          The reserving party assumes full responsibility for ensuring the safety and well-being of attendees.</p>
+          <p><strong>13. Liability Disclaimer</strong></p>
+          <ul>
+              <li>The L&D Center is not liable for any personal injuries, losses, or damages incurred during the reservation period.</li>
+              <li>The reserving party assumes full responsibility for ensuring the safety and well-being of attendees.</li>
+          </ul>
 
           <p><strong>By proceeding with your reservation, you acknowledge and agree to these terms and conditions.</strong></p>
         </div>
