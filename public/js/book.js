@@ -352,37 +352,33 @@ document.addEventListener("DOMContentLoaded", function () {
     // Show Terms and Agreement Modal
     Swal.fire({
       title: 'Terms and Agreement',
-      width: '700px', // Increase the width
-      customClass: {
-        popup: 'custom-swal-popup' // Custom styling
-      },
+      width: '700px',
       html: `
-        <div id="termsContainer" style="max-height: 400px; overflow-y: auto; padding: 15px; border: 1px solid #ccc; background: #f9f9f9; text-align: left;">
-          <p><strong>Please read the following terms and conditions carefully:</strong></p>
+        <div id="termsContent" style="height: 200px; overflow-y: auto; text-align: left; padding: 10px; border: 1px solid #ccc;">
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
-          <p>Aliquam erat volutpat. Nulla facilisi. Curabitur vel nisi odio...</p>
-          <p>Donec hendrerit, ipsum in volutpat tincidunt, risus magna pharetra velit...</p>
           <p>More terms and conditions here...</p>
-          <p style="margin-bottom: 50px;">End of the agreement.</p>
+          <p style="margin-top: 1000px;">End of the agreement.</p>
         </div>
-        <div id="proceedContainer" style="display: none; text-align: center; margin-top: 15px;">
-          <button id="proceedBtn" style="padding: 12px 24px; font-size: 18px; background: #3085d6; color: white; border: none; border-radius: 5px; cursor: pointer;">Proceed</button>
+        <div id="proceedContainer" style="display: none; text-align: center; margin-top: 10px;">
+          <button id="proceedBtn" style="padding: 8px 15px; background: #3085d6; color: white; border: none; cursor: pointer;">Proceed</button>
         </div>
       `,
       showCancelButton: false,
       showConfirmButton: false,
       didOpen: () => {
-        let termsContainer = document.getElementById("termsContainer");
+        let termsContent = document.getElementById("termsContent");
         let proceedContainer = document.getElementById("proceedContainer");
         let proceedBtn = document.getElementById("proceedBtn");
 
-        termsContainer.addEventListener("scroll", function () {
-          if (termsContainer.scrollTop + termsContainer.clientHeight >= termsContainer.scrollHeight - 5) {
+        termsContent.addEventListener("scroll", function () {
+          if (termsContent.scrollTop + termsContent.clientHeight >= termsContent.scrollHeight - 10) {
             proceedContainer.style.display = "block"; // Show the button
+            proceedContainer.style.opacity = 0;
+            setTimeout(() => proceedContainer.style.opacity = 1, 300);
           }
         });
 
-        proceedBtn.addEventListener("click", function () {
+        proceedBtn.addEventListener("click", () => {
           Swal.close(); // Close modal
           submitBookingForm(); // Proceed with booking form submission
         });
