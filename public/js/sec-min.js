@@ -206,7 +206,7 @@ function includeHTML(file, elementID) {
                 confirmButtonText: 'Login',
                 didOpen: () => {
                     grecaptcha.render('recaptcha-container', {
-                        sitekey: '6LfiutUqAAAAAL7zvl2XTJLLIPveLaoxrKZfHpJB'
+                        sitekey: '6LcEwdUqAAAAAFnSG67vpecp_r_Ow1TWd25DDKCX'
                     });
                 },
                 preConfirm: async () => {
