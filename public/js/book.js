@@ -360,7 +360,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <p style="margin-top: 1000px;">End of the agreement.</p>
         </div>
         <div id="proceedContainer" style="display: none; text-align: center; margin-top: 10px;">
-          <button id="proceedBtn" style="padding: 8px 15px; background: #3085d6; color: white; border: none; cursor: pointer;">Proceed</button>
+          <button id="proceedBtn" class="btn btn-primary" style="cursor: pointer;">Proceed</button>
         </div>
       `,
       showCancelButton: false,
