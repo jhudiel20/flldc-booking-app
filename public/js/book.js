@@ -358,19 +358,23 @@ document.addEventListener("DOMContentLoaded", function () {
           <p>More terms and conditions here...</p>
           <p style="margin-top: 1000px;">End of the agreement.</p>
         </div>
-        <button id="proceedBtn" disabled style="margin-top: 10px; padding: 8px 15px; background: gray; color: white; border: none; cursor: not-allowed;">Proceed</button>
+        <div id="proceedContainer" style="display: none; text-align: center; margin-top: 10px;">
+          <button id="proceedBtn" style="padding: 8px 15px; background: #3085d6; color: white; border: none; cursor: pointer;">Proceed</button>
+        </div>
       `,
       showCancelButton: false,
       showConfirmButton: false,
       didOpen: () => {
         let termsContent = document.getElementById("termsContent");
+        let proceedContainer = document.getElementById("proceedContainer");
         let proceedBtn = document.getElementById("proceedBtn");
 
         termsContent.addEventListener("scroll", () => {
           if (termsContent.scrollTop + termsContent.clientHeight >= termsContent.scrollHeight) {
-            proceedBtn.disabled = false;
-            proceedBtn.style.background = "#3085d6";
-            proceedBtn.style.cursor = "pointer";
+            // Show the button with a fade-in effect
+            proceedContainer.style.display = "block";
+            proceedContainer.style.opacity = 0;
+            setTimeout(() => proceedContainer.style.opacity = 1, 300);
           }
         });
 
