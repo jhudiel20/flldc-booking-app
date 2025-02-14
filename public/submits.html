@@ -121,7 +121,7 @@
                                 return `<button class="btn btn-danger btn-sm cancel-btn">Cancel</button>`;
                             }
 
-                            return ''; // Hide button otherwise
+                            return `<span class="text-muted">${rowData.reserve_status}</span>`; // Hide button otherwise
                         },
                         cellClick: function(e, cell) {
                             const booking_id = cell.getValue();
