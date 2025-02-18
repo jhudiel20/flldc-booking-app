@@ -83,7 +83,7 @@ module.exports = async (req, res) => {
         return res.status(400).json({ error: 'Invalid Room ID' });
       }
 
-      const roomPrices = roomResult.rows[0].price; 
+      const roomPrices = roomResult.rows[0].prices; 
 
       // Determine if the booking is whole day or half day
       let finalPrice = roomPrices; // Default price
