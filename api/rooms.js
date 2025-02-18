@@ -50,7 +50,7 @@ const validateInput = (data) => {
 module.exports = async (req, res) => {
   try {
     if (req.method === 'POST') {
-      const { user_id, fname, lname, roomPrices, reserve_date, time, businessunit, branch, roomID, roomName, setup, guest, contact, email, table, chair, hdmi, extension, message } = req.body;
+      const { user_id, fname, lname, reserve_date, time, businessunit, branch, roomID, roomName, setup, guest, contact, email, table, chair, hdmi, extension, message } = req.body;
 
           // Validate cookie
           const cookieHeader = req.headers.cookie || '';
@@ -74,6 +74,22 @@ module.exports = async (req, res) => {
       // Validate email before sending
       if (!/\S+@\S+\.\S+/.test(email)) {
         return res.status(400).json({ error: 'Invalid email address.' });
+      }
+
+      const roomQuery = 'SELECT prices FROM room_details WHERE room_id = $1';
+      const roomResult = await db.query(roomQuery, [roomID]);
+
+      if (roomResult.rows.length === 0) {
+        return res.status(400).json({ error: 'Invalid Room ID' });
+      }
+
+      const roomPrices = roomResult.rows[0].price; 
+
+      // Determine if the booking is whole day or half day
+      let finalPrice = roomPrices; // Default price
+      
+      if (time === "7:00AM-12:00PM" || time === "1:00PM-6:00PM") {
+          finalPrice = roomPrices / 2; // Divide by 2 for half-day bookings
       }
 
       const booking_id = generateBookingId();
@@ -141,7 +157,7 @@ module.exports = async (req, res) => {
                                     <p>A new booking has been submitted: </p>
                                     <p><b>Booking ID:</b> ${booking_id}<br>
                                     <b>Booking Date:</b> ${reserve_date}<br>
-                                    <b>Cost: ₱ </b> ${roomPrices}<br>
+                                    <b>Cost: ₱ </b> ${finalPrice}<br>
                                     <b>Business Unit:</b> ${businessunit}<br>
                                     <b>Branch:</b> ${branch}<br>
                                     <b>Room:</b> ${roomName}<br>
@@ -242,7 +258,7 @@ module.exports = async (req, res) => {
                                     <p>You submitted new booking: </p>
                                     <p><b>Booking ID:</b> ${booking_id}<br>
                                     <b>Booking Date:</b> ${reserve_date}<br>
-                                    <b>Cost: ₱ </b> ${roomPrices}<br>
+                                    <b>Cost: ₱ </b> ${finalPrice}<br>
                                     <b>Business Unit:</b> ${businessunit}<br>
                                     <b>Branch:</b> ${branch}<br>
                                     <b>Room:</b> ${roomName}<br>
@@ -312,20 +328,39 @@ module.exports = async (req, res) => {
         return res.status(500).json({ error: 'Error sending notification emails.' });
       }
 
-      try {
-        // SQL query to insert data into the reservations table
-        const result = await client.query(
-          `INSERT INTO reservations (user_id, fname, lname, prices, reserve_date, time, setup, business_unit, branch,  room, roomid, guest, contact, email, "table", chair, hdmi, extension, message, booking_id, date_created) 
-          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, NOW() AT TIME ZONE 'Asia/Manila')`,
-          [user_id, fname, lname, roomPrices, reserve_date, time, setup, businessunit, branch, roomName, roomID, guest, contact, email, table, chair, hdmi, extension, message, booking_id]
-        );
+      // try {
+      //   // SQL query to insert data into the reservations table
+      //   const result = await client.query(
+      //     `INSERT INTO reservations (user_id, fname, lname, prices, reserve_date, time, setup, business_unit, branch,  room, roomid, guest, contact, email, "table", chair, hdmi, extension, message, booking_id, date_created) 
+      //     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, NOW() AT TIME ZONE 'Asia/Manila')`,
+      //     [user_id, fname, lname, roomPrices, reserve_date, time, setup, businessunit, branch, roomName, roomID, guest, contact, email, table, chair, hdmi, extension, message, booking_id]
+      //   );
         
-        await pool.query(query, values);
-        return res.status(200).json({ success: 'Booking successfully created!' });
+      //   await pool.query(query, values);
+      //   return res.status(200).json({ success: 'Booking successfully created!' });
+      // } catch (dbError) {
+      //   console.error('Database error:', dbError);
+      //   return res.status(500).json({ error: 'Error inserting booking into database.' });
+      // }
+
+      try {
+      
+          // SQL query to insert data into the reservations table
+          const result = await client.query(
+              `INSERT INTO reservations (user_id, fname, lname, prices, reserve_date, time, setup, business_unit, branch, room, roomid, guest, contact, email, "table", chair, hdmi, extension, message, booking_id, date_created) 
+              VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, NOW() AT TIME ZONE 'Asia/Manila')`,
+              [user_id, fname, lname, finalPrice, reserve_date, time, setup, businessunit, branch, roomName, roomID, guest, contact, email, table, chair, hdmi, extension, message, booking_id]
+          );
+      
+          return res.status(200).json({ success: 'Booking successfully created!' });
+      
       } catch (dbError) {
-        console.error('Database error:', dbError);
-        return res.status(500).json({ error: 'Error inserting booking into database.' });
+          console.error('Database error:', dbError);
+          return res.status(500).json({ error: 'Error inserting booking into database.' });
       }
+    
+
+
     } else {
       return res.status(405).json({ error: 'Method Not Allowed' });
     }
