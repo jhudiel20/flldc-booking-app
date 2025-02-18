@@ -1,1 +1,497 @@
-const a0_0x539af2=a0_0x2137;(function(_0xb87ecd,_0x4f1c6d){const _0x460868=a0_0x2137,_0x5f58cd=_0xb87ecd();while(!![]){try{const _0x2705f4=-parseInt(_0x460868(0x1ac))/0x1+-parseInt(_0x460868(0x140))/0x2+parseInt(_0x460868(0x1f0))/0x3+parseInt(_0x460868(0x1b8))/0x4*(-parseInt(_0x460868(0xde))/0x5)+-parseInt(_0x460868(0x132))/0x6+parseInt(_0x460868(0x1fb))/0x7+-parseInt(_0x460868(0x108))/0x8*(-parseInt(_0x460868(0xd7))/0x9);if(_0x2705f4===_0x4f1c6d)break;else _0x5f58cd['push'](_0x5f58cd['shift']());}catch(_0x35b01c){_0x5f58cd['push'](_0x5f58cd['shift']());}}}(a0_0x4ace,0xbb80b));const branches=[a0_0x539af2(0x19a),a0_0x539af2(0x1fa),a0_0x539af2(0x171),a0_0x539af2(0x196),'BACOLOD','BACOLOD-NA',a0_0x539af2(0xe8),a0_0x539af2(0x20d),a0_0x539af2(0x1bb),'BASILAN',a0_0x539af2(0xcd),a0_0x539af2(0x10f),a0_0x539af2(0x258),'BATANGAS-HONDA','BATANGAS-NPI',a0_0x539af2(0x112),a0_0x539af2(0xbd),a0_0x539af2(0xb5),'BATANGAS-SAFI',a0_0x539af2(0xe5),'BATINO-NPI\x20EXTENSION',a0_0x539af2(0x1de),a0_0x539af2(0x11b),a0_0x539af2(0x199),a0_0x539af2(0x1ea),a0_0x539af2(0x1bc),a0_0x539af2(0x1c7),a0_0x539af2(0x220),a0_0x539af2(0x163),a0_0x539af2(0x1f8),a0_0x539af2(0x1c3),a0_0x539af2(0x1d2),a0_0x539af2(0x23f),'CABUYAO-ABBOTT',a0_0x539af2(0x25d),a0_0x539af2(0x211),a0_0x539af2(0xfb),a0_0x539af2(0x1ae),a0_0x539af2(0x239),a0_0x539af2(0xba),a0_0x539af2(0x1e6),a0_0x539af2(0x179),a0_0x539af2(0xf0),a0_0x539af2(0x1bf),a0_0x539af2(0x1e9),a0_0x539af2(0xf4),a0_0x539af2(0x1b6),'CABUYAO-NPI',a0_0x539af2(0x1a7),a0_0x539af2(0x105),a0_0x539af2(0x247),a0_0x539af2(0xee),a0_0x539af2(0x107),a0_0x539af2(0x206),a0_0x539af2(0x18f),a0_0x539af2(0x20f),a0_0x539af2(0x1a5),a0_0x539af2(0x1c9),'CABUYAO-PMFTC\x20OVERFLOW',a0_0x539af2(0xed),a0_0x539af2(0x18a),a0_0x539af2(0x1d1),a0_0x539af2(0x12e),'CABUYAO-UNILEVER',a0_0x539af2(0x141),a0_0x539af2(0x11e),a0_0x539af2(0x260),a0_0x539af2(0x14e),a0_0x539af2(0xc6),'CAGAYAN-DMPI\x20RETAIL',a0_0x539af2(0xdb),a0_0x539af2(0x201),a0_0x539af2(0x214),a0_0x539af2(0x1ad),a0_0x539af2(0xf7),a0_0x539af2(0x195),a0_0x539af2(0x14d),a0_0x539af2(0x212),a0_0x539af2(0x15b),a0_0x539af2(0xe6),a0_0x539af2(0x14b),'CAGAYAN-URC',a0_0x539af2(0x10e),a0_0x539af2(0x197),a0_0x539af2(0x123),'CALAMBA-DISTRIPHIL',a0_0x539af2(0x1ce),a0_0x539af2(0x246),a0_0x539af2(0x16f),a0_0x539af2(0x121),a0_0x539af2(0x1eb),a0_0x539af2(0x1f3),'CALAMBA-P&G',a0_0x539af2(0x25c),a0_0x539af2(0xb9),a0_0x539af2(0xe2),a0_0x539af2(0x193),'CALBAYOG',a0_0x539af2(0x213),a0_0x539af2(0x162),a0_0x539af2(0x184),'CANLUBANG-EDWARD\x20KELLER',a0_0x539af2(0x158),a0_0x539af2(0xb3),a0_0x539af2(0x191),a0_0x539af2(0x13b),a0_0x539af2(0xcb),'CARMONA-OVERFLOW\x202',a0_0x539af2(0xdf),a0_0x539af2(0x120),'CAUAYAN-ZUELLIG','CEBU',a0_0x539af2(0x21c),a0_0x539af2(0xb2),a0_0x539af2(0x14f),a0_0x539af2(0x18c),a0_0x539af2(0x19c),a0_0x539af2(0xbf),a0_0x539af2(0x231),a0_0x539af2(0x224),a0_0x539af2(0x188),a0_0x539af2(0x17d),a0_0x539af2(0x22a),a0_0x539af2(0x1c5),a0_0x539af2(0x11c),a0_0x539af2(0x1f9),'CEBU-MARIWASA',a0_0x539af2(0x22d),a0_0x539af2(0x1b4),'CEBU-NATIONAL\x20BOOKSTORE',a0_0x539af2(0x209),a0_0x539af2(0xfa),'CEBU-NPI\x20ICD',a0_0x539af2(0x18e),a0_0x539af2(0x160),a0_0x539af2(0x1db),a0_0x539af2(0x241),a0_0x539af2(0x198),a0_0x539af2(0x221),a0_0x539af2(0x13e),a0_0x539af2(0x228),'CEBU-RFM','CEBU-SHELL',a0_0x539af2(0x12c),a0_0x539af2(0x170),a0_0x539af2(0xb1),a0_0x539af2(0x200),a0_0x539af2(0x136),a0_0x539af2(0xbc),a0_0x539af2(0x253),a0_0x539af2(0x151),a0_0x539af2(0x118),a0_0x539af2(0x25e),a0_0x539af2(0x215),a0_0x539af2(0x167),a0_0x539af2(0xff),a0_0x539af2(0xfd),a0_0x539af2(0x144),a0_0x539af2(0xc3),a0_0x539af2(0x24f),'DAVAO-EPI',a0_0x539af2(0x181),a0_0x539af2(0xc9),a0_0x539af2(0xad),a0_0x539af2(0xec),a0_0x539af2(0x154),a0_0x539af2(0x245),a0_0x539af2(0xbb),a0_0x539af2(0x19d),a0_0x539af2(0x237),a0_0x539af2(0x106),'DAVAO-RFM',a0_0x539af2(0x10c),a0_0x539af2(0x1af),a0_0x539af2(0xd5),a0_0x539af2(0x16b),a0_0x539af2(0x173),a0_0x539af2(0x1bd),a0_0x539af2(0x1a8),a0_0x539af2(0x113),'DUMAGUETE-NA',a0_0x539af2(0x20c),a0_0x539af2(0x22b),a0_0x539af2(0x12d),a0_0x539af2(0xaf),a0_0x539af2(0x168),'FORTUNE-PMFTC2',a0_0x539af2(0x1cd),a0_0x539af2(0xeb),a0_0x539af2(0x1d6),'HOME\x20OFFICE-FMM',a0_0x539af2(0x1a0),a0_0x539af2(0x131),'ILOILO-COLPAL','ILOILO-JAPAN\x20TOBACCO\x20INT\x27L','ILOILO-JS\x20UNITRADE',a0_0x539af2(0x268),a0_0x539af2(0xcf),'ILOILO-NEXTRADE','ILOILO-PMFTC',a0_0x539af2(0x218),a0_0x539af2(0x257),'ILOILO-SM',a0_0x539af2(0x250),a0_0x539af2(0x23e),'IMUS-COLDCHAIN\x20RETAIL','IMUS-FOOD\x20PANDA',a0_0x539af2(0x21e),'JOLO',a0_0x539af2(0x24e),'KALIBO-NPI',a0_0x539af2(0x11f),a0_0x539af2(0x1ec),a0_0x539af2(0xce),'LAGUNA-MONDE\x20NISSIN',a0_0x539af2(0x1f5),a0_0x539af2(0xb6),a0_0x539af2(0x232),a0_0x539af2(0x11a),a0_0x539af2(0x1c0),a0_0x539af2(0x242),a0_0x539af2(0x15a),a0_0x539af2(0x146),a0_0x539af2(0xe4),a0_0x539af2(0xe7),a0_0x539af2(0x186),a0_0x539af2(0x1d9),'MAKATI-P&G',a0_0x539af2(0x110),a0_0x539af2(0x1fe),a0_0x539af2(0x25b),a0_0x539af2(0xf8),a0_0x539af2(0x159),a0_0x539af2(0xf9),a0_0x539af2(0x13f),a0_0x539af2(0x205),a0_0x539af2(0x125),a0_0x539af2(0xf5),a0_0x539af2(0x1b2),'NAGA-PMFTC',a0_0x539af2(0x1da),a0_0x539af2(0xbe),a0_0x539af2(0x249),'ODIONGAN','OLONGAPO',a0_0x539af2(0xfe),'OTTAWA',a0_0x539af2(0x1dc),'ORIENTAL\x20MINDORO-NA','ORIENTAL\x20MINDORO-NPI',a0_0x539af2(0x1e3),a0_0x539af2(0x102),a0_0x539af2(0x1fd),a0_0x539af2(0xc1),a0_0x539af2(0x202),a0_0x539af2(0x236),a0_0x539af2(0xef),a0_0x539af2(0x100),a0_0x539af2(0xf2),a0_0x539af2(0xb8),'PANGASINAN-PERSONAL\x20COLLECTION',a0_0x539af2(0x1ed),a0_0x539af2(0x155),a0_0x539af2(0x1e1),a0_0x539af2(0x16c),a0_0x539af2(0x150),a0_0x539af2(0x24a),a0_0x539af2(0x1dd),'SANTIAGO',a0_0x539af2(0xcc),a0_0x539af2(0xe1),a0_0x539af2(0x24b),a0_0x539af2(0x1ff),a0_0x539af2(0x1ef),a0_0x539af2(0xd2),a0_0x539af2(0x129),a0_0x539af2(0x109),a0_0x539af2(0x128),a0_0x539af2(0xd0),a0_0x539af2(0x139)];typeof AOS!=='undefined'&&AOS['init']({'duration':0x5dc,'once':![],'mirror':!![]});function toggleExtras(){const _0x298c8c=a0_0x539af2,_0x7a3072={'oqTWJ':_0x298c8c(0x174)},_0x113438=document[_0x298c8c(0xf1)](_0x7a3072[_0x298c8c(0x194)]);_0x113438['classList']['toggle'](_0x298c8c(0x127));}const currentPath=window[a0_0x539af2(0xd8)][a0_0x539af2(0xd1)][a0_0x539af2(0x126)]('/')[a0_0x539af2(0x1f7)]()||a0_0x539af2(0x262),navLinks=document[a0_0x539af2(0x208)](a0_0x539af2(0x1d7));navLinks[a0_0x539af2(0x169)](_0x142f5b=>{const _0x2e71de=a0_0x539af2,_0x23b7f7={'nMJGg':_0x2e71de(0x223),'jUHMU':function(_0x3fe17c,_0xab6a9c){return _0x3fe17c===_0xab6a9c;}},_0x374b68=_0x142f5b['getAttribute'](_0x23b7f7[_0x2e71de(0xfc)]);_0x23b7f7[_0x2e71de(0x10b)](_0x374b68,currentPath)&&_0x142f5b[_0x2e71de(0x265)][_0x2e71de(0x1ca)](_0x2e71de(0xe9));});function includeHTML(_0x53b8f7,_0x28598b){const _0xcd8198=a0_0x539af2;return fetch(_0xcd8198(0x264)+_0x53b8f7+_0xcd8198(0x11d))['then'](_0x58e6fe=>{const _0x314599=_0xcd8198;if(!_0x58e6fe['ok'])throw new Error(_0x314599(0x1d3));return _0x58e6fe[_0x314599(0x10a)]();})[_0xcd8198(0x17f)](_0x5b4377=>{const _0x1a7a5e=_0xcd8198;document[_0x1a7a5e(0xf1)](_0x28598b)[_0x1a7a5e(0x1e5)]=_0x5b4377;})[_0xcd8198(0x18b)](_0x1cf4be=>console['error'](_0xcd8198(0x23a),_0x1cf4be));}Promise[a0_0x539af2(0x12f)]([includeHTML(a0_0x539af2(0x235),'header'),includeHTML(a0_0x539af2(0x1d4),a0_0x539af2(0x1d4))])[a0_0x539af2(0x17f)](()=>{const _0x2d7d29=a0_0x539af2,_0xf955c2={'HKNpO':function(_0x2c9331){return _0x2c9331();},'OswEa':'function'};_0xf955c2[_0x2d7d29(0x1ee)](checkUserStatus),loadRooms(),typeof loadAllRooms===_0xf955c2[_0x2d7d29(0x1df)]&&_0xf955c2[_0x2d7d29(0x1ee)](loadAllRooms);});async function loadRooms(){const _0xe617a1=a0_0x539af2,_0x1c163a={'BBMJg':'dropdown-item','WwQSy':function(_0x4967eb,_0x3504f2){return _0x4967eb(_0x3504f2);},'wBgSz':_0xe617a1(0x119),'MqpLL':function(_0x28891b,_0x1336eb){return _0x28891b(_0x1336eb);},'WnFEK':_0xe617a1(0x255),'feZbD':function(_0x5b840b,_0xf95f13){return _0x5b840b===_0xf95f13;},'wCqdP':_0xe617a1(0x1f4),'ONdfk':'allrooms','HaaUq':'All\x20Rooms','rHmwL':'true'},_0x32953d=document[_0xe617a1(0x216)](_0x1c163a[_0xe617a1(0x238)]),_0xd8ff9c=await _0x1c163a['MqpLL'](fetch,_0x1c163a[_0xe617a1(0x19b)]);if(!_0xd8ff9c['ok']){console['error'](_0xe617a1(0x240)+_0xd8ff9c[_0xe617a1(0x1c4)]);return;}const _0x4d73af=await _0xd8ff9c[_0xe617a1(0xe0)]();if(_0x1c163a[_0xe617a1(0x256)](_0x4d73af['length'],0x0)){_0x32953d[_0xe617a1(0x1e5)]=_0x1c163a['wCqdP'];return;}_0x32953d[_0xe617a1(0x1e5)]='';const _0x28b99b=document['createElement']('a');_0x28b99b['classList'][_0xe617a1(0x1ca)]('dropdown-item'),_0x28b99b['href']=_0x1c163a[_0xe617a1(0x203)],_0x28b99b['textContent']=_0x1c163a[_0xe617a1(0xc4)],_0x32953d[_0xe617a1(0x1c2)](_0x28b99b),_0x4d73af[_0xe617a1(0x169)](_0x2825eb=>{const _0x1c04f1=_0xe617a1,_0x276f39=document[_0x1c04f1(0x1b9)]('a');_0x276f39[_0x1c04f1(0xe3)]=_0x1c163a[_0x1c04f1(0xc8)];const _0x451f6b=_0x1c163a[_0x1c04f1(0x10d)](encodeURIComponent,_0x2825eb[_0x1c04f1(0x122)]);_0x276f39[_0x1c04f1(0x223)]=_0x1c04f1(0x1e8)+_0x451f6b,_0x276f39['textContent']=_0x2825eb[_0x1c04f1(0x19e)],_0x32953d['appendChild'](_0x276f39);}),_0x32953d['dataset']['loaded']=_0x1c163a[_0xe617a1(0xea)];}includeHTML(a0_0x539af2(0x235),a0_0x539af2(0x235))[a0_0x539af2(0x17f)](()=>{const _0x312bf6=a0_0x539af2,_0x260d84={'QfyRr':'Sign\x20In','gjQOj':_0x312bf6(0x21f),'ttyXs':'Login','lHmoE':_0x312bf6(0x1cf),'dmwJv':_0x312bf6(0x12b),'lNdyI':_0x312bf6(0x1b5),'gLOHh':'password','VrSek':_0x312bf6(0x233),'HaCRj':function(_0x529e81,_0x11f563,_0x53a9e7){return _0x529e81(_0x11f563,_0x53a9e7);},'JimQc':_0x312bf6(0x148),'BFcwb':'application/json','XcnvI':_0x312bf6(0x20e),'PnPDE':_0x312bf6(0x1a3),'lmlKj':_0x312bf6(0x13c),'IXQZd':_0x312bf6(0x13d),'mqZCV':_0x312bf6(0x261),'CeUdj':_0x312bf6(0x116),'iyIZd':_0x312bf6(0x15f),'gCTko':_0x312bf6(0x15c),'iXHVQ':_0x312bf6(0x222),'qlukP':_0x312bf6(0x210),'qcmxq':_0x312bf6(0x23d),'LTZDD':_0x312bf6(0x190),'vFgAM':'FAST\x20Employee','hbPBZ':'block','VQtyC':'none','MhXgI':function(_0x1049f6){return _0x1049f6();},'Zyjfj':_0x312bf6(0x269),'BQyeQ':'click','YnPdc':_0x312bf6(0x133),'Akkhh':_0x312bf6(0xb4),'vfjAt':_0x312bf6(0x23c),'ZuzoS':function(_0x16bac8,_0x290e93,_0x1bc5dd){return _0x16bac8(_0x290e93,_0x1bc5dd);},'uuaGE':_0x312bf6(0x1a1),'ZTcUu':_0x312bf6(0x1b1),'GoCvQ':_0x312bf6(0x115),'hFWVC':'warning','BeNyC':_0x312bf6(0x114),'wIlPQ':_0x312bf6(0x149),'LsdPv':_0x312bf6(0x21d),'wGFUF':_0x312bf6(0x248)},_0x1c5ff9=document[_0x312bf6(0xf1)](_0x260d84['wIlPQ']);_0x1c5ff9?_0x1c5ff9[_0x312bf6(0x24c)](_0x260d84[_0x312bf6(0x21b)],function(_0x20e811){const _0x45b88b=_0x312bf6,_0x2be82a={'qiBuY':_0x260d84[_0x45b88b(0x1e0)],'QsPpo':_0x260d84[_0x45b88b(0x1be)],'tPesP':_0x260d84[_0x45b88b(0x14a)],'gZhBy':_0x260d84['gLOHh'],'wPKPk':_0x260d84[_0x45b88b(0x135)],'tWabs':_0x45b88b(0x180),'GWxIa':function(_0x5463a5,_0x220b89){return _0x5463a5||_0x220b89;},'PBfQK':function(_0x9d4e6d,_0x112b71,_0x2bb00f){const _0x4d8883=_0x45b88b;return _0x260d84[_0x4d8883(0x147)](_0x9d4e6d,_0x112b71,_0x2bb00f);},'yTLhp':_0x260d84[_0x45b88b(0xc2)],'wUTYr':_0x260d84[_0x45b88b(0x1aa)],'dvAIC':_0x260d84[_0x45b88b(0x166)],'RtcCI':_0x260d84['PnPDE'],'VuugR':_0x260d84[_0x45b88b(0x16d)],'lnJss':_0x45b88b(0x13a),'CvwsK':_0x260d84[_0x45b88b(0x21a)],'Shqpi':_0x45b88b(0x12a),'wCjxG':'change','gYpNL':_0x45b88b(0x176),'eagfv':_0x260d84['mqZCV'],'duLmG':_0x260d84['CeUdj'],'cUJfM':_0x260d84[_0x45b88b(0xdd)],'WWdHc':_0x260d84['gCTko'],'CIQCI':_0x260d84[_0x45b88b(0x22f)],'LXltD':_0x45b88b(0x153),'mTMeL':_0x260d84['qlukP'],'vRgxe':_0x260d84[_0x45b88b(0x117)],'yGBAy':_0x260d84[_0x45b88b(0x1ab)],'rPglp':function(_0x45137e,_0x521c58){return _0x45137e===_0x521c58;},'DxNeb':_0x260d84[_0x45b88b(0x189)],'qnbce':_0x260d84['hbPBZ'],'PzfIw':_0x260d84[_0x45b88b(0x1ba)]};_0x20e811['preventDefault']();const _0x420c98=(_0x12e870='')=>{const _0x26d596=_0x45b88b;Swal[_0x26d596(0x104)]({'title':_0x260d84[_0x26d596(0x266)],'html':_0x26d596(0x143)+_0x12e870+'</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22mt-3\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22registerLink\x22\x20class=\x22btn\x20btn-link\x20p-0\x22>Don\x27t\x20have\x20an\x20account?\x20Register\x20here</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22recaptcha-container\x22\x20class=\x22mt-3\x22\x20style=\x22display:\x20flex;\x20justify-content:\x20center;\x20align-items:\x20center;\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','icon':_0x260d84['gjQOj'],'showCancelButton':!![],'confirmButtonText':_0x260d84[_0x26d596(0x1a2)],'didOpen':()=>{const _0x26d682=_0x26d596;grecaptcha[_0x26d682(0x22e)](_0x2be82a['qiBuY'],{'sitekey':_0x2be82a[_0x26d682(0x252)]});},'preConfirm':async()=>{const _0x2392d4=_0x26d596,_0x1de4a4=document[_0x2392d4(0xf1)](_0x2be82a['tPesP'])[_0x2392d4(0x22c)][_0x2392d4(0x17a)](),_0x5e1a0b=document[_0x2392d4(0xf1)](_0x2be82a[_0x2392d4(0x1a9)])[_0x2392d4(0x22c)][_0x2392d4(0x17a)](),_0x3b694c=grecaptcha[_0x2392d4(0x1b7)]();if(!_0x3b694c)return document[_0x2392d4(0xf1)](_0x2be82a[_0x2392d4(0xd4)])[_0x2392d4(0x182)]=_0x2be82a['tWabs'],![];if(_0x2be82a[_0x2392d4(0x142)](!_0x1de4a4,!_0x5e1a0b))return document[_0x2392d4(0xf1)](_0x2392d4(0x233))['innerText']=_0x2392d4(0xae),![];try{const _0x1fde4d={'email':_0x1de4a4,'password':_0x5e1a0b,'recaptchaResponse':_0x3b694c},_0x424f3e=await _0x2be82a[_0x2392d4(0x145)](fetch,_0x2be82a[_0x2392d4(0x1cc)],{'method':'POST','headers':{'Content-Type':_0x2be82a['wUTYr']},'body':JSON['stringify'](_0x1fde4d)}),_0x3c9ae2=await _0x424f3e[_0x2392d4(0xe0)]();if(_0x3c9ae2[_0x2392d4(0x23c)])return document[_0x2392d4(0xf1)](_0x2be82a[_0x2392d4(0xd4)])[_0x2392d4(0x182)]=_0x3c9ae2[_0x2392d4(0x23c)],![];else Swal[_0x2392d4(0x104)](_0x2392d4(0x190),_0x2392d4(0x1d8),_0x2392d4(0x133))['then'](()=>{const _0x5f5c63=_0x2392d4;window['location'][_0x5f5c63(0x1f6)]();});}catch(_0x44a0){return document[_0x2392d4(0xf1)](_0x2be82a[_0x2392d4(0xd4)])[_0x2392d4(0x182)]=_0x2392d4(0x175),![];}}});};_0x260d84[_0x45b88b(0x1b3)](_0x420c98),document[_0x45b88b(0xf1)](_0x260d84[_0x45b88b(0x152)])[_0x45b88b(0x24c)](_0x260d84[_0x45b88b(0x21b)],function(){const _0x217471=_0x45b88b,_0x161ca8={'DfCOD':_0x2be82a[_0x217471(0x23b)],'cLTgi':_0x2be82a[_0x217471(0x1c8)],'VxkBI':_0x2be82a['duLmG'],'KYWqQ':_0x2be82a[_0x217471(0x1fc)],'jDCoW':'confirmPassword','jnBDp':_0x2be82a[_0x217471(0x15d)],'YAfXF':_0x2be82a[_0x217471(0x130)],'lizNL':_0x217471(0x233),'ASLGO':_0x2be82a[_0x217471(0xd6)],'jmbfu':function(_0x4a785d,_0x57e828){const _0x4a90c5=_0x217471;return _0x2be82a[_0x4a90c5(0x142)](_0x4a785d,_0x57e828);},'mfwHC':_0x2be82a[_0x217471(0x1b0)],'GpNbH':_0x2be82a[_0x217471(0x1f1)],'mziXd':_0x2be82a[_0x217471(0x18d)],'YUukd':function(_0x22606f,_0xbb995a,_0xbc99ea){const _0x4369cb=_0x217471;return _0x2be82a[_0x4369cb(0x145)](_0x22606f,_0xbb995a,_0xbc99ea);},'iUAHy':_0x2be82a[_0x217471(0x103)],'WAZpk':_0x2be82a[_0x217471(0x14c)],'kkFyz':_0x2be82a[_0x217471(0x156)],'NqlrH':'Registration\x20completed.','TrTWu':_0x217471(0x133),'pFZRC':_0x217471(0x1e7),'yxzoV':function(_0x5620a4,_0x5b3337){return _0x2be82a['rPglp'](_0x5620a4,_0x5b3337);},'skKgC':_0x2be82a['DxNeb'],'ryCDT':_0x2be82a[_0x217471(0x165)],'XCOMk':_0x2be82a[_0x217471(0x111)]},_0x2706d2=(_0x2b8cca='')=>{const _0x34241f=_0x217471,_0x4d64ab={'AsXPm':_0x34241f(0x1cf),'tBnxX':_0x2be82a[_0x34241f(0x252)]};Swal[_0x34241f(0x104)]({'title':_0x2be82a[_0x34241f(0x124)],'html':_0x34241f(0xd3)+_0x2b8cca+_0x34241f(0x1d5),'icon':'info','showCancelButton':!![],'confirmButtonText':_0x2be82a[_0x34241f(0x204)],'cancelButtonText':_0x2be82a[_0x34241f(0x1a6)],'didOpen':()=>{const _0x545da8=_0x34241f;grecaptcha[_0x545da8(0x22e)](_0x4d64ab[_0x545da8(0x24d)],{'sitekey':_0x4d64ab['tBnxX']});},'preConfirm':async()=>{const _0x354664=_0x34241f,_0x4fa14f=document[_0x354664(0xf1)](_0x161ca8[_0x354664(0xc5)])['value'][_0x354664(0x17a)](),_0x342478=document[_0x354664(0xf1)](_0x161ca8[_0x354664(0xb7)])[_0x354664(0x22c)][_0x354664(0x17a)](),_0x18805c=document[_0x354664(0xf1)](_0x161ca8[_0x354664(0xd9)])[_0x354664(0x22c)][_0x354664(0x17a)](),_0x306543=document[_0x354664(0xf1)](_0x161ca8[_0x354664(0xda)])[_0x354664(0x22c)][_0x354664(0x17a)](),_0x51c243=document['getElementById'](_0x161ca8[_0x354664(0xca)])['value'][_0x354664(0x17a)](),_0x434d8f=document[_0x354664(0xf1)]('usertype')['value'],_0x2c7a26=document[_0x354664(0xf1)](_0x161ca8[_0x354664(0x20a)])?document[_0x354664(0xf1)](_0x161ca8[_0x354664(0x20a)])[_0x354664(0x22c)]:null,_0x50c342=document[_0x354664(0xf1)](_0x161ca8['YAfXF'])?document[_0x354664(0xf1)](_0x161ca8[_0x354664(0x25f)])[_0x354664(0x22c)]:null,_0x48f385=grecaptcha[_0x354664(0x1b7)]();if(!_0x48f385)return document['getElementById'](_0x161ca8[_0x354664(0x1c1)])[_0x354664(0x182)]=_0x161ca8[_0x354664(0x25a)],![];if(_0x161ca8[_0x354664(0x137)](!_0x4fa14f,!_0x342478)||!_0x18805c||!_0x306543||!_0x51c243)return document[_0x354664(0xf1)]('errorMessage')[_0x354664(0x182)]=_0x161ca8['mfwHC'],![];if(_0x306543!==_0x51c243)return document['getElementById'](_0x161ca8['lizNL'])[_0x354664(0x182)]=_0x161ca8[_0x354664(0x164)],![];const _0x46006c=/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;if(!_0x46006c['test'](_0x18805c))return document[_0x354664(0xf1)](_0x161ca8[_0x354664(0x1c1)])[_0x354664(0x182)]=_0x161ca8[_0x354664(0x259)],![];try{const _0x537197={'fname':_0x4fa14f,'lname':_0x342478,'email':_0x18805c,'password':_0x306543,'confirmPassword':_0x51c243,'userType':_0x434d8f,'sbu':_0x2c7a26,'branch':_0x50c342,'recaptchaResponse':_0x48f385},_0x1fce47=await _0x161ca8[_0x354664(0x17c)](fetch,_0x354664(0x267),{'method':_0x161ca8[_0x354664(0x263)],'headers':{'Content-Type':_0x161ca8['WAZpk']},'body':JSON[_0x354664(0x15e)](_0x537197)}),_0x43343a=await _0x1fce47[_0x354664(0xe0)]();if(_0x43343a[_0x354664(0x23c)])return document[_0x354664(0xf1)](_0x161ca8[_0x354664(0x1c1)])[_0x354664(0x182)]=_0x43343a[_0x354664(0x23c)],![];else Swal[_0x354664(0x104)](_0x161ca8[_0x354664(0xc0)],_0x161ca8[_0x354664(0x207)],_0x161ca8['TrTWu']),window[_0x354664(0xd8)][_0x354664(0x1f6)]();}catch(_0x415f16){return document['getElementById'](_0x161ca8[_0x354664(0x1c1)])[_0x354664(0x182)]=_0x161ca8[_0x354664(0x1d0)],![];}}});const _0x15a95c=document[_0x34241f(0xf1)](_0x2be82a[_0x34241f(0x130)]);_0x15a95c[_0x34241f(0x1e5)]='',branches[_0x34241f(0x169)](_0x3f0fbe=>{const _0x1963eb=_0x34241f,_0x88f123=document[_0x1963eb(0x1b9)]('option');_0x88f123[_0x1963eb(0x22c)]=_0x3f0fbe,_0x88f123[_0x1963eb(0x17e)]=_0x3f0fbe,_0x15a95c[_0x1963eb(0x1c2)](_0x88f123);});const _0x43c08a=document[_0x34241f(0xf1)](_0x2be82a[_0x34241f(0xf6)]),_0x2612bc=document['getElementById'](_0x2be82a[_0x34241f(0xdc)]);_0x43c08a[_0x34241f(0x24c)](_0x2be82a['wCjxG'],function(){const _0x9ecf16=_0x34241f;_0x2612bc[_0x9ecf16(0x1e4)]['display']=_0x161ca8[_0x9ecf16(0x17b)](_0x43c08a[_0x9ecf16(0x22c)],_0x161ca8[_0x9ecf16(0x230)])?_0x161ca8[_0x9ecf16(0x226)]:_0x161ca8['XCOMk'];});};_0x2706d2();});}):console[_0x312bf6(0x23c)](_0x260d84['LsdPv']);const _0x1ef916=document[_0x312bf6(0xf1)](_0x312bf6(0xb0));_0x1ef916?_0x1ef916[_0x312bf6(0x24c)](_0x260d84[_0x312bf6(0x21b)],function(){const _0x5cd38a=_0x312bf6,_0x766f65={'MkNlz':_0x260d84['Akkhh'],'DfBzJ':_0x5cd38a(0x219),'MENEx':_0x260d84[_0x5cd38a(0x1c6)]};Swal['fire']({'title':_0x5cd38a(0x251),'text':_0x260d84[_0x5cd38a(0xf3)],'icon':_0x260d84['hFWVC'],'showCancelButton':!![],'confirmButtonText':_0x260d84[_0x5cd38a(0x1f2)],'cancelButtonText':_0x5cd38a(0x13c)})[_0x5cd38a(0x17f)](_0x2adfe2=>{const _0x59dfab=_0x5cd38a,_0x53c13c={'OVwgk':_0x260d84[_0x59dfab(0x101)],'pZYUV':_0x260d84[_0x59dfab(0x185)],'VnLoU':_0x59dfab(0x20b),'MpwRT':_0x260d84[_0x59dfab(0x225)]};_0x2adfe2[_0x59dfab(0x177)]&&_0x260d84[_0x59dfab(0x234)](fetch,_0x260d84[_0x59dfab(0xc7)],{'method':_0x59dfab(0x23d)})['then'](_0x4cb3fe=>{const _0x830749=_0x59dfab;_0x4cb3fe['ok']?Swal[_0x830749(0x104)](_0x830749(0x254),_0x830749(0x138),_0x53c13c[_0x830749(0x183)])[_0x830749(0x17f)](()=>{const _0xeb0b5f=_0x830749;window[_0xeb0b5f(0xd8)]['reload']();}):Swal['fire'](_0x53c13c[_0x830749(0x229)],_0x53c13c['VnLoU'],_0x53c13c[_0x830749(0x192)]);})[_0x59dfab(0x18b)](_0xcfb136=>{const _0x5d16bd=_0x59dfab;Swal[_0x5d16bd(0x104)](_0x766f65[_0x5d16bd(0x172)],_0x766f65[_0x5d16bd(0x161)],_0x5d16bd(0x23c)),console[_0x5d16bd(0x23c)](_0x766f65[_0x5d16bd(0x227)],_0xcfb136);});});}):console[_0x312bf6(0x16a)](_0x260d84[_0x312bf6(0x243)]);});function a0_0x2137(_0x442a90,_0x32421b){const _0x4ace96=a0_0x4ace();return a0_0x2137=function(_0x213796,_0x5c3661){_0x213796=_0x213796-0xad;let _0x72cdc7=_0x4ace96[_0x213796];return _0x72cdc7;},a0_0x2137(_0x442a90,_0x32421b);}function checkUserStatus(){const _0x3faaf6=a0_0x539af2,_0x2b662e={'yBAXK':_0x3faaf6(0x26a),'HtnFb':'none','VCnfm':_0x3faaf6(0x1a4),'mzzfx':_0x3faaf6(0x217),'zvWbq':_0x3faaf6(0x187),'VIWwl':_0x3faaf6(0x1e2)};fetch(_0x3faaf6(0x178))['then'](function(_0x430681){const _0x373df4=_0x3faaf6;if(_0x430681['ok'])return _0x430681[_0x373df4(0xe0)]();else console[_0x373df4(0x23c)](_0x373df4(0x134));})[_0x3faaf6(0x17f)](function(_0x5d0cd3){const _0x462f37=_0x3faaf6;if(_0x5d0cd3){const _0x17fc75=document[_0x462f37(0xf1)](_0x2b662e['yBAXK']);_0x17fc75&&(_0x17fc75[_0x462f37(0x1e4)][_0x462f37(0x1cb)]=_0x2b662e[_0x462f37(0x157)]);const _0x2b0455=document[_0x462f37(0xf1)](_0x2b662e[_0x462f37(0x244)]);_0x2b0455&&(_0x2b0455['style'][_0x462f37(0x1cb)]=_0x2b662e[_0x462f37(0x19f)]);const _0x4cecf8=document[_0x462f37(0xf1)](_0x2b662e['zvWbq']);_0x4cecf8&&(_0x4cecf8[_0x462f37(0x1e4)]['display']=_0x2b662e[_0x462f37(0x19f)]);}})[_0x3faaf6(0x18b)](function(_0x3add2a){const _0x3a86e0=_0x3faaf6;console[_0x3a86e0(0x23c)](_0x2b662e[_0x3a86e0(0x16e)],_0x3add2a);});}function a0_0x4ace(){const _0x1627a4=['Login\x20failed.\x20Please\x20try\x20again.','fname','isConfirmed','/api/validate-cookie','CABUYAO-J&J\x20RETAIL','trim','yxzoV','YUukd','CEBU-JJPI\x20RDC','textContent','then','Please\x20verify\x20the\x20reCAPTCHA.','DAVAO-FMM','innerText','OVwgk','CAMIGUIN','Akkhh','MAKATI-CDI','LogoutDropdown','CEBU-GREEN\x20CROSS','vFgAM','CABUYAO-PMFTC2','catch','CEBU-FACILITY','mTMeL','CEBU-NPI\x20PHARMA','CABUYAO-NUTRIASIA','Success!','CARMONA-LAFARGE','MpwRT','CALAMBA-WYETH','oqTWJ','CAGAYAN-NPI\x20RETAIL','AZUCENA-PMFTC\x20OVERFLOW','CALAMBA\x20OVERFLOW','CEBU-NPI\x20VDC\x20RETAIL','BATINO-NPI\x20SDC','ALABANG','WnFEK','CEBU-FACILITY\x202','DAVAO-PERSONAL\x20COLLECTION-2','room_name','mzzfx','ILIGAN','/api/logout','ttyXs','Register','BookNow','CABUYAO-P&G\x20RETAIL','VuugR','CABUYAO-NPI\x20DC','DIPOLOG-MONDE\x20NISSIN','gZhBy','BFcwb','LTZDD','965950IeMqRd','CAGAYAN-NPI','CABUYAO-EC\x20OVERFLOW','DAVAO-SHELL','CIQCI','Logout\x20error:','NAGA-PERSONAL\x20COLLECTION','MhXgI','CEBU-NA','email_login','CABUYAO-NA\x20RETAIL','getResponse','148NodtWR','createElement','VQtyC','BALITE-PMFTC\x20OVERFLOW','BATINO-TRUCKING','DIPOLOG','dmwJv','CABUYAO-L&D\x20CENTER','LAWA-OVERFLOW','lizNL','appendChild','BULACAN-NPI\x20NDC\x20CAW','status','CEBU-JOLLIBEE\x20CONSO-2','ZTcUu','BAYBAY','eagfv','CABUYAO-PERSONAL\x20COLLECTION','add','display','yTLhp','GENSAN','CALAMBA-GREEN\x20CROSS\x20INC.','recaptcha-container','pFZRC','CABUYAO-RENGO','BUTUAN','Network\x20response\x20was\x20not\x20ok','footer','</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22recaptcha-container\x22\x20class=\x22mt-3\x22\x20style=\x22display:\x20flex;\x20justify-content:\x20center;\x20align-items:\x20center;\x22></div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','HOME\x20OFFICE','.nav-link','Successfully\x20Login.','MAKATI-JOLLIBEE','NAGA-ROBINSONS','CEBU-NPI\x20VDC','ORIENTAL\x20MINDORO','ROXAS','BATINO-NPI\x20ICD','OswEa','lHmoE','PAMPANGA-CDI-RETAIL','Error\x20checking\x20user\x20status:','PANGASINAN','style','innerHTML','CABUYAO-J&J','Registration\x20failed.\x20Please\x20try\x20again.','rooms?ID=','CABUYAO-LAGUNA','BATINO-SDC\x20TRUCKING','CALAMBA-LAGUNA','LA\x20UNION-CDI','PAMPANGA','HKNpO','TALISAY','1356963xdXwpi','LXltD','BeNyC','CALAMBA-MMC\x20SDC','<a\x20class=\x22dropdown-item\x22\x20href=\x22#\x22>No\x20rooms\x20available</a>','LAGUNA-PRIFOOD','reload','pop','BULACAN-NPI\x20NDC','CEBU-KIMBERLY\x20CLARK\x20RETAIL','ALABANG-FMM','6555017YTpfle','cUJfM','PASAY-PMFTC','MAKATI-PG','TAGUIG','CEBU-URC\x20CONSO','CAGAYAN-FMM','PASIG-NA','ONdfk','RtcCI','MUNTINLUPA','CABUYAO-NPI\x20TRUCKING','NqlrH','querySelectorAll','CEBU-NEXTRADE','jnBDp','Logout\x20failed.\x20Please\x20try\x20again.','ELISCO-EPI\x20TRANSPORT','BACOLOD-SHELL','Sign\x20Up','CABUYAO-P&G','Please\x20enter\x20a\x20valid\x20email\x20address.','CABUYAO-ACTIMED\x20INC.','CAGAYAN-PMFTC','CALBAYOG-NA','CAGAYAN-GMC','DASMARIÑAS-GREEN\x20CROSS\x20INC','querySelector','block','ILOILO-RFM','An\x20unexpected\x20error\x20occurred.','IXQZd','BQyeQ','CEBU-CDI','Element\x20with\x20ID\x20\x27LoginModal\x27\x20not\x20found.','IMUS-SM','info','BORONGAN','CEBU-PERSONAL\x20COLLECTION','All\x20fields\x20are\x20required.','href','CEBU-GMC','vfjAt','ryCDT','MENEx','CEBU-PRIFOOD','pZYUV','CEBU-JOLLIBEE\x20CONSO','ELISCO-SHELL','value','CEBU-MONDE\x20NISSIN','render','iXHVQ','skKgC','CEBU-FMM','LAPULAPU-PMFTC\x20OVERFLOW','errorMessage','ZuzoS','header','PASIG-NPI','DAVAO-PMFTC','wBgSz','CABUYAO-FAPC','Error\x20loading\x20HTML:','gYpNL','error','POST','IMUS-COLDCHAIN','CABUYAO','HTTP\x20error!\x20status:\x20','CEBU-NPI\x20VDC\x20OVERFLOW','LIBIS\x20OVERFLOW','wGFUF','VCnfm','DAVAO-NPI\x20PHARMA','CALAMBA-JAPAN\x20TOBACCO\x20INT\x27L.','CABUYAO-NPI\x20MMC3','Logout\x20button\x20not\x20found','NORTH\x20COTABATO-RETAIL','PANGALAT','TACLOBAN','addEventListener','AsXPm','KALIBO','DAVAO-CITIHARDWARE','IMUS-ALFAMART','Are\x20you\x20sure?','QsPpo','CORPORATE','Logged\x20Out','/api/available_rooms.js','feZbD','ILOILO-SHELL','BATANGAS-CDO\x20FOODSPHERE\x20RETAIL','mziXd','ASLGO','MANDAUE','CALAMBA-RED\x20RIBBON\x20SITE','CABUYAO-ABBOTT-RETAIL','DAGUPAN','YAfXF','CAGAYAN','lname','index','iUAHy','includes/','classList','QfyRr','/api/UserRegistration','ILOILO-JS\x20UNITRADE\x20RETAIL','registerLink','loginItem','DAVAO-JS\x20UNITRADE\x20RETAIL','Please\x20fill\x20in\x20all\x20fields.','FLEX-TAGUIG','LogoutButton','CEBU-URC','CEBU-COLPAL','CARMONA-KALINISAN\x20CHEMICALS\x20CORP.','Error','BATANGAS-PMFTC\x20OVERFLOW','LAGUNA-RED\x20RIBBON','cLTgi','PANGASINAN-URC','CALAMBA-RFM','CABUYAO-GREEN\x20CROSS\x20INC.','DAVAO-PERSONAL\x20COLLECTION','CEBU-WYETH','BATANGAS-PMFTC','NORTH\x20COTABATO','CEBU-FDI','kkFyz','PASIG','JimQc','DAVAO-CDI','HaaUq','DfCOD','CAGAYAN-DMPI','uuaGE','BBMJg','DAVAO-JS\x20UNITRADE','jDCoW','CARMONA-OVERFLOW\x201','SANTA\x20ROSA','BATANGAS','LAGUNA-GMC','ILOILO-NA','TOLEDO','pathname','TALISAY-NA','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20for=\x22fname\x22\x20class=\x22form-label\x22>First\x20Name</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20id=\x22fname\x22\x20class=\x22form-control\x20mb-3\x22\x20required>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20for=\x22lname\x22\x20class=\x22form-label\x22>Last\x20Name</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20id=\x22lname\x22\x20class=\x22form-control\x20mb-3\x22\x20required>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20for=\x22email\x22\x20class=\x22form-label\x22>Email</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22email\x22\x20id=\x22email\x22\x20class=\x22form-control\x20mb-3\x22\x20required>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20for=\x22newPassword\x22\x20class=\x22form-label\x22>Password</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22password\x22\x20id=\x22newPassword\x22\x20class=\x22form-control\x20mb-3\x22\x20required>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20for=\x22confirmPassword\x22\x20class=\x22form-label\x22>Confirm\x20Password</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22password\x22\x20id=\x22confirmPassword\x22\x20class=\x22form-control\x20mb-3\x22\x20required>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20for=\x22usertype\x22\x20class=\x22form-label\x22>User\x20Type</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<select\x20id=\x22usertype\x22\x20class=\x22form-control\x20mb-3\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22Non-FAST\x20Employee\x22>Non-FAST\x20Employee</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22FAST\x20Employee\x22>FAST\x20Employee</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</select>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22SBUContainer\x22\x20style=\x22display:\x20none;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20for=\x22SBU\x22\x20class=\x22form-label\x22>SBU</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<select\x20id=\x22SBU\x22\x20class=\x22form-control\x20mb-3\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22FSC\x22>FSC</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22FLC\x22>FLC</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22FTMC\x22>FTMC</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22FCSI\x22>FCSI</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22FDC\x22>FDC</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22FUI\x22>FUI</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</select>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20for=\x22branch\x22\x20class=\x22form-label\x22>Branch</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<select\x20id=\x22branchSelect\x22\x20class=\x22form-control\x20mb-3\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</select>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22errorMessage\x22\x20class=\x22text-danger\x20mt-3\x22>','wPKPk','DAVAO-SILVER\x20SWAN','tWabs','3564QCYjOw','location','VxkBI','KYWqQ','CAGAYAN-FACILITY','Shqpi','iyIZd','56810Xmdruu','CATARMAN','json','SANTA\x20ROSA-RETAIL','CALAMBA-RFM\x20RETAIL','className','LIBIS-UNILEVER','BATANGAS-YAMAHA','CAGAYAN-SHELL','MAKATI-ALFAMART','BACOLOD-PERSONAL\x20COLLECTION','active','rHmwL','GENSAN-GMC','DAVAO-NA','CABUYAO-PMFTC1','CABUYAO-NPI\x20OVERFLOW','PASIG-NPI\x20RETAIL','CABUYAO-J&J\x20TRANSPORT','getElementById','PANGASINAN-PERSONAL\x20COLLECTION','GoCvQ','CABUYAO-MEGA\x20PACK','NAGA','CvwsK','CAGAYAN-NPI\x20PHARMA','MANDAUE-NA','MAYON','CEBU-NEXTRADE\x20RETAIL','CABUYAO-DMPI','nMJGg','DASMARIÑAS-PMFTC\x20OVERFLOW','OLONGAPO-NPI','DASMARIÑAS-OVERFLOW','PANGASINAN-NA','YnPdc','PASAY','vRgxe','fire','CABUYAO-NPI\x20LISP\x20FG','DAVAO-PRIFOOD','CABUYAO-NPI\x20RETAIL','36576SCEYbq','TAYTAY-NA','text','jUHMU','DAVAO-ROBINSONS','WwQSy','CAINTA-MONDELEZ','BATANGAS-CDI','MAKATI-PERSONAL\x20COLLECTION','PzfIw','BATANGAS-NPI\x20RETAIL','DUMAGUETE','Yes,\x20log\x20out','You\x20will\x20be\x20logged\x20out\x20of\x20your\x20account.','email','qcmxq','COTABATO-DOLE\x20RETAIL','#roomDropdown','LAS\x20PIÑAS-BOIE','BATINO-NPI\x20RETAIL','CEBU-KIMBERLY\x20CLARK','.html','CABUYAO-VMI\x20RETAIL','KORONADAL','CATBALOGAN-NPI','CALAMBA-JOLLIBEE','room_id','CALAMBA-ALFAMART','dvAIC','MUNTINLUPA-PMFTC','split','d-none','TAYTAY-PMFTC','TALISAY-PMFTC','SBUContainer','6LcEwdUqAAAAAFnSG67vpecp_r_Ow1TWd25DDKCX','CEBU-SYSU','FLEX-CALAMBA','CABUYAO-RFM','all','lnJss','ILOILO','142764CBhpoM','success','User\x20is\x20not\x20logged\x20in.','VrSek','CEBU-URC\x20SAN\x20FERNANDO','jmbfu','You\x20have\x20been\x20successfully\x20logged\x20out.','ZAMBOANGA','branchSelect','CARMONA-LAFARGE\x20RETAIL','Cancel','usertype','CEBU-PILMICO\x20CONSO','MINDANAO','2042230YSuKKX','CABUYAO-URC','GWxIa','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20for=\x22email_login\x22\x20class=\x22form-label\x22>Email</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22email\x22\x20id=\x22email_login\x22\x20class=\x22form-control\x20mb-3\x22\x20placeholder=\x22Enter\x20your\x20Email\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20for=\x22password\x22\x20class=\x22form-label\x22>Password</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22password\x22\x20id=\x22password\x22\x20class=\x22form-control\x22\x20placeholder=\x22Enter\x20your\x20password\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22errorMessage\x22\x20class=\x22text-danger\x20mt-3\x22>','DAVAO','PBfQK','LIBIS-PMFTC','HaCRj','/api/UserLogin','LoginModal','lNdyI','CAGAYAN-SILVERSWAN','wUTYr','CAGAYAN-PERSONAL\x20COLLECTION','CAGAYAN\x20-\x20NPI\x20CDC\x20RETAIL','CEBU-EPI','PAMPANGA-PERSONAL\x20COLLECTION','COTABATO','Zyjfj','Passwords\x20do\x20not\x20match.','DAVAO-NEXTRADE','PAMPANGA-CDI','yGBAy','HtnFb','CANLUBANG-ZUELLIG','MANDAUE-PMFTC\x20OVERFLOW','LIBIS-COLPAL','CAGAYAN-ROBINSONS','SBU','WWdHc','stringify','newPassword','CEBU-NPI\x20RETAIL','DfBzJ','CALBAYOG-NPI','BULACAN-NDC\x20TRUCKING','GpNbH','qnbce','XcnvI','DASMARIÑAS-GREEN\x20CROSS\x20INC.-2','FORTUNE-PMFTC1','forEach','warn','DAVAO-URC','PAMPANGA-NPI','lmlKj','VIWwl','CALAMBA-JAPAN\x20TOBACCO\x20INT\x27L.\x20OVERFLOW','CEBU-TRANSPORT','ALABANG-RETAIL','MkNlz','DAVAO-WYETH','extras'];a0_0x4ace=function(){return _0x1627a4;};return a0_0x4ace();}
+const branches = [
+    "ALABANG", "ALABANG-FMM", "ALABANG-RETAIL", "AZUCENA-PMFTC OVERFLOW", 
+    "BACOLOD", "BACOLOD-NA", "BACOLOD-PERSONAL COLLECTION", "BACOLOD-SHELL", 
+    "BALITE-PMFTC OVERFLOW", "BASILAN", "BATANGAS", "BATANGAS-CDI", 
+    "BATANGAS-CDO FOODSPHERE RETAIL", "BATANGAS-HONDA", "BATANGAS-NPI", 
+    "BATANGAS-NPI RETAIL", "BATANGAS-PMFTC", "BATANGAS-PMFTC OVERFLOW", 
+    "BATANGAS-SAFI", "BATANGAS-YAMAHA", "BATINO-NPI EXTENSION", 
+    "BATINO-NPI ICD", "BATINO-NPI RETAIL", "BATINO-NPI SDC", "BATINO-SDC TRUCKING", 
+    "BATINO-TRUCKING", "BAYBAY", "BORONGAN", "BULACAN-NDC TRUCKING", 
+    "BULACAN-NPI NDC", "BULACAN-NPI NDC CAW", "BUTUAN", "CABUYAO", 
+    "CABUYAO-ABBOTT", "CABUYAO-ABBOTT-RETAIL", "CABUYAO-ACTIMED INC.", 
+    "CABUYAO-DMPI", "CABUYAO-EC OVERFLOW", "CABUYAO-FAPC", "CABUYAO-GREEN CROSS INC.", 
+    "CABUYAO-J&J", "CABUYAO-J&J RETAIL", "CABUYAO-J&J TRANSPORT", "CABUYAO-L&D CENTER", 
+    "CABUYAO-LAGUNA", "CABUYAO-MEGA PACK", "CABUYAO-NA RETAIL", "CABUYAO-NPI", 
+    "CABUYAO-NPI DC", "CABUYAO-NPI LISP FG", "CABUYAO-NPI MMC3", "CABUYAO-NPI OVERFLOW", 
+    "CABUYAO-NPI RETAIL", "CABUYAO-NPI TRUCKING", "CABUYAO-NUTRIASIA", 
+    "CABUYAO-P&G", "CABUYAO-P&G RETAIL", "CABUYAO-PERSONAL COLLECTION", 
+    "CABUYAO-PMFTC OVERFLOW", "CABUYAO-PMFTC1", "CABUYAO-PMFTC2", "CABUYAO-RENGO", 
+    "CABUYAO-RFM", "CABUYAO-UNILEVER", "CABUYAO-URC", "CABUYAO-VMI RETAIL", 
+    "CAGAYAN", "CAGAYAN - NPI CDC RETAIL", "CAGAYAN-DMPI", "CAGAYAN-DMPI RETAIL", 
+    "CAGAYAN-FACILITY", "CAGAYAN-FMM", "CAGAYAN-GMC", "CAGAYAN-NPI", 
+    "CAGAYAN-NPI PHARMA", "CAGAYAN-NPI RETAIL", "CAGAYAN-PERSONAL COLLECTION", 
+    "CAGAYAN-PMFTC", "CAGAYAN-ROBINSONS", "CAGAYAN-SHELL", "CAGAYAN-SILVERSWAN", 
+    "CAGAYAN-URC", "CAINTA-MONDELEZ", "CALAMBA OVERFLOW", "CALAMBA-ALFAMART", 
+    "CALAMBA-DISTRIPHIL", "CALAMBA-GREEN CROSS INC.", "CALAMBA-JAPAN TOBACCO INT'L.", 
+    "CALAMBA-JAPAN TOBACCO INT'L. OVERFLOW", "CALAMBA-JOLLIBEE", "CALAMBA-LAGUNA", 
+    "CALAMBA-MMC SDC", "CALAMBA-P&G", "CALAMBA-RED RIBBON SITE", "CALAMBA-RFM", 
+    "CALAMBA-RFM RETAIL", "CALAMBA-WYETH", "CALBAYOG", "CALBAYOG-NA", 
+    "CALBAYOG-NPI", "CAMIGUIN", "CANLUBANG-EDWARD KELLER", "CANLUBANG-ZUELLIG", 
+    "CARMONA-KALINISAN CHEMICALS CORP.", "CARMONA-LAFARGE", "CARMONA-LAFARGE RETAIL", 
+    "CARMONA-OVERFLOW 1", "CARMONA-OVERFLOW 2", "CATARMAN", "CATBALOGAN-NPI", 
+    "CAUAYAN-ZUELLIG", "CEBU", "CEBU-CDI", "CEBU-COLPAL", "CEBU-EPI", "CEBU-FACILITY", 
+    "CEBU-FACILITY 2", "CEBU-FDI", "CEBU-FMM", "CEBU-GMC", "CEBU-GREEN CROSS", 
+    "CEBU-JJPI RDC", "CEBU-JOLLIBEE CONSO", "CEBU-JOLLIBEE CONSO-2", "CEBU-KIMBERLY CLARK", 
+    "CEBU-KIMBERLY CLARK RETAIL", "CEBU-MARIWASA", "CEBU-MONDE NISSIN", "CEBU-NA", 
+    "CEBU-NATIONAL BOOKSTORE", "CEBU-NEXTRADE", "CEBU-NEXTRADE RETAIL", "CEBU-NPI ICD", 
+    "CEBU-NPI PHARMA", "CEBU-NPI RETAIL", "CEBU-NPI VDC", "CEBU-NPI VDC OVERFLOW", 
+    "CEBU-NPI VDC RETAIL", "CEBU-PERSONAL COLLECTION", "CEBU-PILMICO CONSO", 
+    "CEBU-PRIFOOD", "CEBU-RFM", "CEBU-SHELL", "CEBU-SYSU", "CEBU-TRANSPORT", 
+    "CEBU-URC", "CEBU-URC CONSO", "CEBU-URC SAN FERNANDO", "CEBU-WYETH", "CORPORATE", 
+    "COTABATO", "COTABATO-DOLE RETAIL", "DAGUPAN", "DASMARIÑAS-GREEN CROSS INC", 
+    "DASMARIÑAS-GREEN CROSS INC.-2", "DASMARIÑAS-OVERFLOW", "DASMARIÑAS-PMFTC OVERFLOW", 
+    "DAVAO", "DAVAO-CDI", "DAVAO-CITIHARDWARE", "DAVAO-EPI", "DAVAO-FMM", 
+    "DAVAO-JS UNITRADE", "DAVAO-JS UNITRADE RETAIL", "DAVAO-NA", "DAVAO-NEXTRADE", 
+    "DAVAO-NPI PHARMA", "DAVAO-PERSONAL COLLECTION", "DAVAO-PERSONAL COLLECTION-2", 
+    "DAVAO-PMFTC", "DAVAO-PRIFOOD", "DAVAO-RFM", "DAVAO-ROBINSONS", "DAVAO-SHELL", 
+    "DAVAO-SILVER SWAN", "DAVAO-URC", "DAVAO-WYETH", "DIPOLOG", "DIPOLOG-MONDE NISSIN", 
+    "DUMAGUETE", "DUMAGUETE-NA", "ELISCO-EPI TRANSPORT", "ELISCO-SHELL", "FLEX-CALAMBA", 
+    "FLEX-TAGUIG", "FORTUNE-PMFTC1", "FORTUNE-PMFTC2", "GENSAN", "GENSAN-GMC", "HOME OFFICE", 
+    "HOME OFFICE-FMM", "ILIGAN", "ILOILO", "ILOILO-COLPAL", "ILOILO-JAPAN TOBACCO INT'L", 
+    "ILOILO-JS UNITRADE", "ILOILO-JS UNITRADE RETAIL", "ILOILO-NA", "ILOILO-NEXTRADE", 
+    "ILOILO-PMFTC", "ILOILO-RFM", "ILOILO-SHELL", "ILOILO-SM", "IMUS-ALFAMART", 
+    "IMUS-COLDCHAIN", "IMUS-COLDCHAIN RETAIL", "IMUS-FOOD PANDA", "IMUS-SM", "JOLO", 
+    "KALIBO", "KALIBO-NPI", "KORONADAL", "LA UNION-CDI", "LAGUNA-GMC", "LAGUNA-MONDE NISSIN", 
+    "LAGUNA-PRIFOOD", "LAGUNA-RED RIBBON", "LAPULAPU-PMFTC OVERFLOW", "LAS PIÑAS-BOIE", 
+    "LAWA-OVERFLOW", "LIBIS OVERFLOW", "LIBIS-COLPAL", "LIBIS-PMFTC", "LIBIS-UNILEVER", 
+    "MAKATI-ALFAMART", "MAKATI-CDI", "MAKATI-JOLLIBEE", "MAKATI-P&G", "MAKATI-PERSONAL COLLECTION", 
+    "MAKATI-PG", "MANDAUE", "MANDAUE-NA", "MANDAUE-PMFTC OVERFLOW", "MAYON", "MINDANAO", 
+    "MUNTINLUPA", "MUNTINLUPA-PMFTC", "NAGA", "NAGA-PERSONAL COLLECTION", "NAGA-PMFTC", 
+    "NAGA-ROBINSONS", "NORTH COTABATO", "NORTH COTABATO-RETAIL", "ODIONGAN", "OLONGAPO", 
+    "OLONGAPO-NPI", "OTTAWA", "ORIENTAL MINDORO", "ORIENTAL MINDORO-NA", "ORIENTAL MINDORO-NPI", 
+    "PANGASINAN", "PASAY", "PASAY-PMFTC", "PASIG", "PASIG-NA", "PASIG-NPI", "PASIG-NPI RETAIL", 
+    "PANGASINAN-NA", "PANGASINAN-PERSONAL COLLECTION", "PANGASINAN-URC", "PANGASINAN-PERSONAL COLLECTION", 
+    "PAMPANGA", "PAMPANGA-CDI", "PAMPANGA-CDI-RETAIL", "PAMPANGA-NPI", "PAMPANGA-PERSONAL COLLECTION", 
+    "PANGALAT", "ROXAS", "SANTIAGO", "SANTA ROSA", "SANTA ROSA-RETAIL", "TACLOBAN", "TAGUIG", 
+    "TALISAY", "TALISAY-NA", "TALISAY-PMFTC", "TAYTAY-NA", "TAYTAY-PMFTC", "TOLEDO", "ZAMBOANGA"
+  ];
+
+
+
+if (typeof AOS !== 'undefined') {
+  AOS.init({
+    duration: 1500, // Animation duration
+    once: false,    // Allows animations to happen every time you scroll past
+    mirror: true    // Repeat animations on scroll-up
+  });
+}
+
+function toggleExtras() {
+  const extrasDiv = document.getElementById('extras');
+  extrasDiv.classList.toggle('d-none');  // Toggle the d-none class
+}
+
+// Get the current URL path (without domain and query parameters)
+ const currentPath = window.location.pathname.split('/').pop() || 'index';
+
+ // Get all nav-link elments
+ const navLinks = document.querySelectorAll('.nav-link');
+
+ // Iterate through each nav-link and compare its href with the current path
+ navLinks.forEach(link => {
+   // Extract the relative path from the href attribute
+   const linkPath = link.getAttribute('href');
+
+   // If the href matches the current path, add the 'active' class
+   if (linkPath === currentPath) {
+     link.classList.add('active');
+   }
+ });
+
+// Function to load HTML files from the 'includes' folder into a specified element
+function includeHTML(file, elementID) {
+  return fetch(`includes/${file}.html`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.text();
+    })
+    .then(data => {
+      document.getElementById(elementID).innerHTML = data;
+    })
+    .catch(error => console.error('Error loading HTML:', error));
+}
+
+// Ensure scripts run after DOM is fully loaded
+    // Load navigation and footer after DOM is loaded
+    Promise.all([
+      includeHTML('header', 'header'),
+      includeHTML('footer', 'footer')
+    ]).then(() => {
+      // Call loadRooms only after the header has been loaded
+      checkUserStatus();
+      loadRooms();
+      if (typeof loadAllRooms === 'function') {
+        loadAllRooms();
+      }
+    });
+  
+  async function loadRooms() {
+    const dropdown = document.querySelector('#roomDropdown');
+   
+    // Fetch rooms from the API
+    const response = await fetch('/api/available_rooms.js');
+  
+    // If the response is not OK, log an error and return
+    if (!response.ok) {
+      console.error(`HTTP error! status: ${response.status}`);
+      return; // Exit if the response is not OK
+    }
+
+    const rooms = await response.json();
+
+    // Check if there are any rooms
+    if (rooms.length === 0) {
+      dropdown.innerHTML = '<a class="dropdown-item" href="#">No rooms available</a>'; // Message if no rooms
+      return;
+    }
+
+    dropdown.innerHTML = ''; 
+
+    const allRoomsLink = document.createElement('a');
+      allRoomsLink.classList.add('dropdown-item');
+      allRoomsLink.href = 'allrooms';
+      allRoomsLink.textContent = 'All Rooms';
+      dropdown.appendChild(allRoomsLink);
+  
+      rooms.forEach(room => {
+        const roomLink = document.createElement('a');
+        roomLink.className = 'dropdown-item';
+        const encodedRoomId = encodeURIComponent(room.room_id);
+        roomLink.href = `rooms?ID=${encodedRoomId}`;
+        roomLink.textContent = room.room_name;
+        dropdown.appendChild(roomLink);
+      });
+    
+      dropdown.dataset.loaded = 'true';
+  }
+
+  includeHTML('header', 'header').then(() => {
+    const loginModal = document.getElementById('LoginModal');
+    if (loginModal) {
+        loginModal.addEventListener('click', function (event) {
+          event.preventDefault(); // Prevent default anchor link behavior
+    
+        const showLoginModal = (errorMessage = '') => {
+            Swal.fire({
+                title: 'Sign In',
+                html: `
+                    <div>
+                        <label for="email_login" class="form-label">Email</label>
+                        <input type="email" id="email_login" class="form-control mb-3" placeholder="Enter your Email">
+                    </div>
+                    <div>
+                        <div class="d-flex justify-content-between">
+                                <label class="form-label label-shadow" for="password">Password</label>
+                                <a id="forgotPasswordLink" 
+                                    data-bs-toggle="tooltip" 
+                                    data-bs-offset="0,4"
+                                    data-bs-placement="top"
+                                    data-bs-html="true"
+                                    title="<span>To reset your password, please click this link to process your reset.</span>">
+                                    <small>Forgot Password?</small>
+                                </a>
+                            </div>
+                        <input type="password" id="password" class="form-control" placeholder="Enter your password">
+                    </div>
+                    <div id="errorMessage" class="text-danger mt-3">${errorMessage}</div>
+                    <div class="mt-3">
+                        <button id="registerLink" class="btn btn-link p-0">Don't have an account? Register here</button>
+                    </div>
+                    <div id="recaptcha-container" class="mt-3" style="display: flex; justify-content: center; align-items: center;"></div>
+                `,
+                icon: 'info',
+                showCancelButton: true,
+                confirmButtonText: 'Login',
+                didOpen: () => {
+                    grecaptcha.render('recaptcha-container', {
+                        sitekey: '6LcEwdUqAAAAAFnSG67vpecp_r_Ow1TWd25DDKCX'
+                    });
+                },
+                preConfirm: async () => {
+                    const email = document.getElementById('email_login').value.trim();
+                    const password = document.getElementById('password').value.trim();
+                    const recaptchaResponse = grecaptcha.getResponse();
+                    if (!recaptchaResponse) {
+                        document.getElementById('errorMessage').innerText = 'Please verify the reCAPTCHA.';
+                        return false;
+                    }
+
+                    if (!email || !password) {
+                        document.getElementById('errorMessage').innerText = 'Please fill in all fields.';
+                            return false;
+                    }
+
+                    try {
+                      const loginData = {
+                        email,
+                        password,
+                        recaptchaResponse                   
+                      };
+
+                      const response = await fetch('/api/UserLogin', {
+                          method: 'POST',
+                          headers: { 'Content-Type': 'application/json' },
+                          body: JSON.stringify(loginData)
+                      });
+
+                      const result = await response.json();
+
+                      if (result.error) {
+                        document.getElementById('errorMessage').innerText = result.error;
+                        return false; 
+                      } else {
+                          Swal.fire('Success!', 'Successfully Login.', 'success').then(() => {
+                            window.location.reload();
+                        });
+                      }
+                    } catch (error) {
+                        document.getElementById('errorMessage').innerText = 'Login failed. Please try again.';
+                        return false; 
+                    }
+                }
+            });
+        };
+        showLoginModal();
+
+        document.getElementById('registerLink').addEventListener('click', function () {
+            const showSignUpModal = (errorMessage = '') => {
+                Swal.fire({
+                    title: 'Sign Up',
+                    html: `
+                        <div>
+                            <label for="fname" class="form-label">First Name</label>
+                            <input type="text" id="fname" class="form-control mb-3" required>
+                        </div>
+                        <div>
+                            <label for="lname" class="form-label">Last Name</label>
+                            <input type="text" id="lname" class="form-control mb-3" required>
+                        </div>
+                        <div>
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" class="form-control mb-3" required>
+                        </div>
+                        <div>
+                            <label for="newPassword" class="form-label">Password</label>
+                            <input type="password" id="newPassword" class="form-control mb-3" required>
+                        </div>
+                        <div>
+                            <label for="confirmPassword" class="form-label">Confirm Password</label>
+                            <input type="password" id="confirmPassword" class="form-control mb-3" required>
+                        </div>
+                        <div>
+                            <label for="usertype" class="form-label">User Type</label>
+                            <select id="usertype" class="form-control mb-3">
+                                <option value="Non-FAST Employee">Non-FAST Employee</option>
+                                <option value="FAST Employee">FAST Employee</option>
+                            </select>
+                        </div>
+                        <div id="SBUContainer" style="display: none;">
+                            <div>
+                                <label for="SBU" class="form-label">SBU</label>
+                                <select id="SBU" class="form-control mb-3">
+                                    <option value="FSC">FSC</option>
+                                    <option value="FLC">FLC</option>
+                                    <option value="FTMC">FTMC</option>
+                                    <option value="FCSI">FCSI</option>
+                                    <option value="FDC">FDC</option>
+                                    <option value="FUI">FUI</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="branch" class="form-label">Branch</label>
+                                <select id="branchSelect" class="form-control mb-3">
+                                </select>
+                            </div>
+                        </div>
+                        <div id="errorMessage" class="text-danger mt-3">${errorMessage}</div>
+                        <div id="recaptcha-container" class="mt-3" style="display: flex; justify-content: center; align-items: center;"></div>
+
+                    `,
+                    icon: 'info',
+                    showCancelButton: true,
+                    confirmButtonText: 'Register',
+                    cancelButtonText: 'Cancel',
+                    didOpen: () => {
+                        grecaptcha.render('recaptcha-container', {
+                            sitekey: '6LcEwdUqAAAAAFnSG67vpecp_r_Ow1TWd25DDKCX'
+                        });
+                    },
+                    preConfirm: async () => {
+                        const fname = document.getElementById('fname').value.trim();
+                        const lname = document.getElementById('lname').value.trim();
+                        const email = document.getElementById('email').value.trim();
+                        const password = document.getElementById('newPassword').value.trim();
+                        const confirmPassword = document.getElementById('confirmPassword').value.trim();
+                        const userType = document.getElementById('usertype').value;
+                        const sbu = document.getElementById('SBU') ? document.getElementById('SBU').value : null;
+                        const branch = document.getElementById('branchSelect') ? document.getElementById('branchSelect').value : null;
+                        const recaptchaResponse = grecaptcha.getResponse();
+                        if (!recaptchaResponse) {
+                            document.getElementById('errorMessage').innerText = 'Please verify the reCAPTCHA.';
+                            return false;
+                        }
+
+                        // Enhanced validation
+                        if (!fname || !lname || !email || !password || !confirmPassword) {
+                            document.getElementById('errorMessage').innerText = 'All fields are required.';
+                            return false;
+                        }
+        
+                        if (password !== confirmPassword) {
+                            document.getElementById('errorMessage').innerText = 'Passwords do not match.';
+                            return false;
+                        }
+        
+                        const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+                        if (!emailRegex.test(email)) {
+                            document.getElementById('errorMessage').innerText = 'Please enter a valid email address.';
+                            return false;
+                        }
+        
+                        try {
+                            const registrationData = {
+                                fname,
+                                lname,
+                                email,
+                                password,
+                                confirmPassword,
+                                userType,
+                                sbu,
+                                branch,
+                                recaptchaResponse 
+                            };
+        
+                            const response = await fetch('/api/UserRegistration', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify(registrationData)
+                            });
+        
+                            const result = await response.json();
+        
+                            if (result.error) {
+                                document.getElementById('errorMessage').innerText = result.error;
+                                return false;
+                            } else {
+                                Swal.fire('Success!', 'Registration completed.', 'success');
+                                window.location.reload();
+                            }
+                        } catch (error) {
+                            document.getElementById('errorMessage').innerText = 'Registration failed. Please try again.';
+                            return false;
+                        }
+                    }
+                });
+                
+                    const branchSelect = document.getElementById('branchSelect');
+                    branchSelect.innerHTML = ''; // Clear previous options
+                    branches.forEach((branch) => {
+                        const option = document.createElement('option');
+                        option.value = branch;
+                        option.textContent = branch;
+                        branchSelect.appendChild(option);
+                    });
+        
+                    // Show/Hide SBU Based on User Type
+                    const userTypeSelect = document.getElementById('usertype');
+                    const sbuContainer = document.getElementById('SBUContainer');
+                    userTypeSelect.addEventListener('change', function () {
+                        sbuContainer.style.display = userTypeSelect.value === 'FAST Employee' ? 'block' : 'none';
+                    });
+                
+            };
+        
+            showSignUpModal();
+        });
+        
+
+        });
+    } else {
+        console.error("Element with ID 'LoginModal' not found.");
+    }
+    const logoutButton = document.getElementById('LogoutButton');
+    
+    if (logoutButton) {
+      logoutButton.addEventListener('click', function () {
+        // Confirm the logout action with the user
+        Swal.fire({
+          title: 'Are you sure?',
+          text: 'You will be logged out of your account.',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonText: 'Yes, log out',
+          cancelButtonText: 'Cancel',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            // Perform the logout action (e.g., API call, session clear)
+            fetch('/api/logout', {
+              method: 'POST',
+            })
+              .then((response) => {
+                if (response.ok) {
+                  Swal.fire('Logged Out', 'You have been successfully logged out.', 'success').then(() => {
+                    window.location.reload(); // Redirect to login page
+                  });
+                } else {
+                  Swal.fire('Error', 'Logout failed. Please try again.', 'error');
+                }
+              })
+              .catch((error) => {
+                Swal.fire('Error', 'An unexpected error occurred.', 'error');
+                console.error('Logout error:', error);
+              });
+          }
+        });
+      });
+    } else {
+      console.warn('Logout button not found');
+    }
+});
+
+function checkUserStatus() {
+    fetch('/api/validate-cookie') // API endpoint to validate the cookie
+        .then(function(response) {
+            if (response.ok) {
+                return response.json();
+            } else {
+                console.error('User is not logged in.');
+            }
+        })
+        .then(function(userData) {
+            if (userData) {
+
+                // Hide the "Login" link
+                const loginItem = document.getElementById('loginItem');
+                if (loginItem) {
+                    loginItem.style.display = 'none';
+                }
+
+                const BookNow = document.getElementById('BookNow');
+                if (BookNow) {
+                    BookNow.style.display = 'block';
+                }
+
+                const LogoutDropdown = document.getElementById('LogoutDropdown');
+                if (LogoutDropdown) {
+                    LogoutDropdown.style.display = 'block';
+                }
+            }
+        })
+        .catch(function(error) {
+            console.error('Error checking user status:', error);
+        });
+}
+
+  
+  
+
+
+
+
+
+
+  
+
+
