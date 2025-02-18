@@ -184,14 +184,14 @@ function includeHTML(file, elementID) {
                     <div>
                         <div class="d-flex justify-content-between">
                                 <label class="form-label label-shadow" for="password">Password</label>
-                                <a id="forgotPasswordLink" 
+                                <button id="forgotPasswordLink" class="btn btn-link p-0"
                                     data-bs-toggle="tooltip" 
                                     data-bs-offset="0,4"
                                     data-bs-placement="top"
                                     data-bs-html="true"
                                     title="<span>To reset your password, please click this link to process your reset.</span>">
                                     <small>Forgot Password?</small>
-                                </a>
+                                </button>
                             </div>
                         <input type="password" id="password" class="form-control" placeholder="Enter your password">
                     </div>
