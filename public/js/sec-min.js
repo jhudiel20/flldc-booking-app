@@ -541,6 +541,47 @@ function checkUserStatus() {
         });
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("reset") === "true") {
+    Swal.fire({
+      title: "Password Reset",
+      text: "Enter your new password",
+      icon: "info",
+      input: "password",
+      inputPlaceholder: "New password",
+      confirmButtonText: "Reset Password",
+      showCancelButton: true,
+      preConfirm: (newPassword) => {
+        if (!newPassword) {
+          Swal.showValidationMessage("Password cannot be empty");
+        }
+        return newPassword;
+      },
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const token = params.get("token");
+        const email = params.get("email");
+
+        // Send the new password to the server
+        fetch("/api/reset-password", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, token, newPassword: result.value }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            Swal.fire("Success!", data.message, "success").then(() => {
+              window.location.href = "/";
+            });
+          })
+          .catch(() => {
+            Swal.fire("Error", "Something went wrong!", "error");
+          });
+      }
+    });
+  }
+});
   
   
 
