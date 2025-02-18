@@ -182,7 +182,17 @@ function includeHTML(file, elementID) {
                         <input type="email" id="email_login" class="form-control mb-3" placeholder="Enter your Email">
                     </div>
                     <div>
-                        <label for="password" class="form-label">Password</label>
+                        <div class="d-flex justify-content-between">
+                                <label class="form-label label-shadow" for="password">Password</label>
+                                <a id="forgotPasswordLink" 
+                                    data-bs-toggle="tooltip" 
+                                    data-bs-offset="0,4"
+                                    data-bs-placement="top"
+                                    data-bs-html="true"
+                                    title="<span>To reset your password, please click this link to process your reset.</span>">
+                                    <small>Forgot Password?</small>
+                                </a>
+                            </div>
                         <input type="password" id="password" class="form-control" placeholder="Enter your password">
                     </div>
                     <div id="errorMessage" class="text-danger mt-3">${errorMessage}</div>
