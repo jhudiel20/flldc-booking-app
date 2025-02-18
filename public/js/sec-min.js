@@ -189,7 +189,7 @@ function includeHTML(file, elementID) {
                                     data-bs-offset="0,4"
                                     data-bs-placement="top"
                                     data-bs-html="true"
-                                    title="<span>To reset your password, please click this link to process your reset.</span>">
+                                    title="To reset your password, please click this link to process your reset.">
                                     <small>Forgot Password?</small>
                                 </button>
                             </div>
