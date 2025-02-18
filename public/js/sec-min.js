@@ -255,6 +255,63 @@ function includeHTML(file, elementID) {
         };
         showLoginModal();
 
+        document.getElementById('forgotPasswordLink').addEventListener('click', function () {
+          Swal.fire({
+              title: 'Forgot Password',
+              html: `
+                  <div>
+                      <label for="forgot_email" class="form-label">Enter your email</label>
+                      <input type="email" id="forgot_email" class="form-control mb-3" placeholder="Enter your registered email">
+                  </div>
+                  <div id="forgotErrorMessage" class="text-danger mt-3"></div>
+                  <div id="recaptcha-container-forgot" class="mt-3" style="display: flex; justify-content: center; align-items: center;"></div>
+              `,
+              icon: 'info',
+              showCancelButton: true,
+              confirmButtonText: 'Reset Password',
+              didOpen: () => {
+                  grecaptcha.render('recaptcha-container-forgot', {
+                      sitekey: '6LcEwdUqAAAAAFnSG67vpecp_r_Ow1TWd25DDKCX'
+                  });
+              },
+              preConfirm: async () => {
+                  const email = document.getElementById('forgot_email').value.trim();
+                  const recaptchaResponse = grecaptcha.getResponse();
+
+                  if (!recaptchaResponse) {
+                      document.getElementById('forgotErrorMessage').innerText = 'Please verify the reCAPTCHA.';
+                      return false;
+                  }
+
+                  const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+                  if (!emailRegex.test(email)) {
+                      document.getElementById('forgotErrorMessage').innerText = 'Please enter a valid email address.';
+                      return false;
+                  }
+
+                  try {
+                      const forgotPasswordData = { email, recaptchaResponse };
+                      const response = await fetch('/api/ForgotPassword', {
+                          method: 'POST',
+                          headers: { 'Content-Type': 'application/json' },
+                          body: JSON.stringify(forgotPasswordData)
+                      });
+
+                      const result = await response.json();
+                      if (result.error) {
+                          document.getElementById('forgotErrorMessage').innerText = result.error;
+                          return false;
+                      } else {
+                          Swal.fire('Success!', 'Password reset instructions sent to your email.', 'success');
+                      }
+                  } catch (error) {
+                      document.getElementById('forgotErrorMessage').innerText = 'Request failed. Please try again.';
+                      return false;
+                  }
+              }
+          });
+        });
+
         document.getElementById('registerLink').addEventListener('click', function () {
             const showSignUpModal = (errorMessage = '') => {
                 Swal.fire({
