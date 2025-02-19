@@ -564,7 +564,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const email = params.get("email");
 
         // Send the new password to the server
-        fetch("/api/reset-password", {
+        fetch("/api/ForgotPassword", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ email, token, newPassword: result.value }),
