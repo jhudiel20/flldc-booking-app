@@ -232,7 +232,7 @@ function includeHTML(file, elementID) {
                           eyeIcon.classList.remove("fa-eye-slash");
                           eyeIcon.classList.add("fa-eye");
                       }
-                  });
+                    });
                 },
                 preConfirm: async () => {
                     const email = document.getElementById('email_login').value.trim();
@@ -289,7 +289,8 @@ function includeHTML(file, elementID) {
                       <div class="input-group">
                           <span class="input-group-text"><i class="fa fa-envelope"></i></span>
                           <input type="email" id="forgot_email" class="form-control mb-3" placeholder="Enter your registered email">
-                      </div>                  </div>
+                      </div>                  
+                  </div>
                   <div id="forgotErrorMessage" class="text-danger mt-3"></div>
                   <div id="recaptcha-container-forgot" class="mt-3" style="display: flex; justify-content: center; align-items: center;"></div>
               `,
@@ -581,13 +582,36 @@ document.addEventListener("DOMContentLoaded", function () {
           <div>
             <p style="font-size: 16px;">Reset password for: <strong>${email}</strong></p>
             <label for="newPassword" class="form-label">New Password</label>
-            <input type="password" id="newPassword" class="form-control mb-3" placeholder="Enter your new password">
+            <div class="input-group">
+              <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                <input type="password" id="newPassword" class="form-control mb-3" placeholder="Enter your new password">
+                <span class="input-group-text" id="togglePassword" style="cursor: pointer;">
+                <i class="fa fa-eye"></i>
+              </span>
+            </div>
           </div>
           <div id="errorMessage" class="text-danger mt-3">${errorMessage}</div>
         `,
         icon: "info",
         showCancelButton: true,
         confirmButtonText: "Change Password",
+        didOpen: () => {
+            // Password toggle logic
+            document.getElementById('togglePassword').addEventListener('click', function () {
+              const passwordField = document.getElementById('password');
+              const eyeIcon = this.querySelector('i');
+
+              if (passwordField.type === "password") {
+                  passwordField.type = "text";
+                  eyeIcon.classList.remove("fa-eye");
+                  eyeIcon.classList.add("fa-eye-slash");
+              } else {
+                  passwordField.type = "password";
+                  eyeIcon.classList.remove("fa-eye-slash");
+                  eyeIcon.classList.add("fa-eye");
+              }
+            });
+        },
         preConfirm: async () => {
           const newPassword = document.getElementById("newPassword").value.trim();
 
