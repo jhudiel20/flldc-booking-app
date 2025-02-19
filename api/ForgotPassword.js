@@ -211,7 +211,7 @@ async function handleChangePassword(req, res) {
     return res.status(400).json({ error: "Token has expired" });
   }
 
-  if (user.reset_token_expiry === null) {
+  if (user.reset_token_expiry === NULL) {
     return res.status(400).json({ error: "Token has already been used!" });
   }
 
