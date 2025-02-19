@@ -23,9 +23,29 @@ const transporter = nodemailer.createTransport({
 
 module.exports = async (req, res) => {
   try {
-    if (req.method !== 'POST') {
-      return res.status(405).json({ error: 'Method Not Allowed' });
+    if (req.method === "POST") {
+      const { email, token, newPassword } = req.body;
+
+      if (email && token && newPassword) {
+        // **Change Password Flow**
+        return await handleChangePassword(req, res);
+      } else if (email) {
+        // **Forgot Password Flow**
+        return await handleForgotPassword(req, res);
+      } else {
+        return res.status(400).json({ error: "Invalid request" });
+      }
+    } else {
+      return res.status(405).json({ error: "Method Not Allowed" });
     }
+  } catch (error) {
+    console.error("Error handling forgot/reset password:", error);
+    return res.status(500).json({ error: "Server error", details: error.message });
+  }
+};
+
+
+async function handleForgotPassword(req, res) {
 
     const { email } = req.body;
 
@@ -152,10 +172,40 @@ module.exports = async (req, res) => {
     
 
     await transporter.sendMail(PasswordResetEmail);
-
     return res.status(200).json({ message: 'Password reset link sent to your email.' });
-  } catch (error) {
-    console.error('Error handling forgot password:', error);
-    return res.status(500).json({ error: 'Server error', details: error.message });
-  }
 };
+
+// **Change Password Handler**
+async function handleChangePassword(req, res) {
+  const { email, token, newPassword } = req.body;
+
+  // Find the user
+  const userQuery = "SELECT id, reset_token, reset_token_expiry FROM user_reservation WHERE email = $1";
+  const userResult = await pool.query(userQuery, [email]);
+
+  if (userResult.rows.length === 0) {
+    return res.status(404).json({ error: "Invalid or expired token" });
+  }
+
+  const user = userResult.rows[0];
+
+  // Check if token has expired
+  if (new Date() > new Date(user.reset_token_expiry)) {
+    return res.status(400).json({ error: "Token has expired" });
+  }
+
+  // Verify the reset token
+  const tokenIsValid = await bcrypt.compare(token, user.reset_token);
+  if (!tokenIsValid) {
+    return res.status(400).json({ error: "Invalid token" });
+  }
+
+  // Hash the new password
+  const hashedPassword = await bcrypt.hash(newPassword, 10);
+
+  // Update password and clear the reset token
+  const updateQuery = "UPDATE user_reservation SET password = $1, reset_token = NULL, reset_token_expiry = NULL WHERE id = $2";
+  await pool.query(updateQuery, [hashedPassword, user.id]);
+
+  return res.status(200).json({ message: "Password changed successfully." });
+}
