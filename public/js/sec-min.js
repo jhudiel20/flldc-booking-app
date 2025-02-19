@@ -582,7 +582,11 @@ document.addEventListener("DOMContentLoaded", function () {
               document.getElementById("errorMessage").innerText = result.error;
               return false;
             } else {
-              Swal.fire("Success!", "Your password has been changed.", "success").then(() => {
+              Swal.fire({
+                title: "Success!",
+                text: "Your password has been changed.",
+                icon: "success"
+              }).then(() => {
                 window.location.reload();
               });
             }
