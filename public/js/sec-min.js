@@ -552,6 +552,7 @@ document.addEventListener("DOMContentLoaded", function () {
         title: "Reset Password",
         html: `
           <div>
+            <p style="font-size: 16px;">Reset password for: <strong>${email}</strong></p>
             <label for="newPassword" class="form-label">New Password</label>
             <input type="password" id="newPassword" class="form-control mb-3" placeholder="Enter your new password">
           </div>
