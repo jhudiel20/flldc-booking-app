@@ -192,8 +192,13 @@ function includeHTML(file, elementID) {
                                     title="To reset your password, please click this link to process your reset.">
                                     <small>Forgot Password?</small>
                                 </button>
-                            </div>
-                        <input type="password" id="password" class="form-control" placeholder="Enter your password">
+                        </div>
+                        <div class="input-group">
+                            <input type="password" id="password" class="form-control" placeholder="Enter your password">
+                            <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                <i class="fa fa-eye"></i>
+                            </button>
+                        </div>
                     </div>
                     <div id="errorMessage" class="text-danger mt-3">${errorMessage}</div>
                     <div class="mt-3">
@@ -208,6 +213,22 @@ function includeHTML(file, elementID) {
                     grecaptcha.render('recaptcha-container', {
                         sitekey: '6LcEwdUqAAAAAFnSG67vpecp_r_Ow1TWd25DDKCX'
                     });
+
+                    // Password toggle logic
+                    document.getElementById('togglePassword').addEventListener('click', function () {
+                      const passwordField = document.getElementById('password');
+                      const eyeIcon = this.querySelector('i');
+
+                      if (passwordField.type === "password") {
+                          passwordField.type = "text";
+                          eyeIcon.classList.remove("fa-eye");
+                          eyeIcon.classList.add("fa-eye-slash");
+                      } else {
+                          passwordField.type = "password";
+                          eyeIcon.classList.remove("fa-eye-slash");
+                          eyeIcon.classList.add("fa-eye");
+                      }
+                  });
                 },
                 preConfirm: async () => {
                     const email = document.getElementById('email_login').value.trim();
