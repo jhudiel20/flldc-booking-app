@@ -179,6 +179,12 @@ async function handleForgotPassword(req, res) {
 async function handleChangePassword(req, res) {
   const { email, token, newPassword } = req.body;
 
+  // Validate new password
+  const passwordError = validatePassword(newPassword);
+  if (passwordError) {
+    return res.status(400).json({ error: passwordError });
+  }
+
   // Find the user
   const userQuery = "SELECT id, reset_token, reset_token_expiry FROM user_reservation WHERE email = $1";
   const userResult = await pool.query(userQuery, [email]);
@@ -200,6 +206,12 @@ async function handleChangePassword(req, res) {
     return res.status(400).json({ error: "Invalid token" });
   }
 
+  // Validate new password before hashing
+  const passwordValidationError = validatePassword(newPassword);
+  if (passwordValidationError) {
+    return res.status(400).json({ error: passwordValidationError });
+  }
+
   // Hash the new password
   const hashedPassword = await bcrypt.hash(newPassword, 10);
 
@@ -209,3 +221,23 @@ async function handleChangePassword(req, res) {
 
   return res.status(200).json({ message: "Password changed successfully." });
 }
+
+const validatePassword = (password) => {
+  if (password.length < 8) {
+      return 'Password must be at least 8 characters long.';
+  }
+  if (!/[A-Z]/.test(password)) {
+      return 'Password must include at least one uppercase letter.';
+  }
+  if (!/[a-z]/.test(password)) {
+      return 'Password must include at least one lowercase letter.';
+  }
+  if (!/\d/.test(password)) {
+      return 'Password must include at least one number.';
+  }
+  if (!/[@$!%*?&]/.test(password)) {
+      return 'Password must include at least one special character (@$!%*?&).';
+  }
+  return null; // No errors
+};
+
