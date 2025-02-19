@@ -546,7 +546,10 @@ document.addEventListener("DOMContentLoaded", function () {
   if (params.get("reset") === "true") {
     Swal.fire({
       title: "Password Reset",
-      text: "Enter your new password",
+      html: `
+      <p style="font-size: 16px;">Reset password for: <strong>${email}</strong></p>
+      <input type="password" id="newPassword" class="swal2-input" placeholder="New password">
+    `,
       icon: "info",
       input: "password",
       inputPlaceholder: "New password",

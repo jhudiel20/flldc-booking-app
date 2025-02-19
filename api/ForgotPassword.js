@@ -200,6 +200,10 @@ async function handleChangePassword(req, res) {
     return res.status(400).json({ error: "Token has expired" });
   }
 
+  if (user.reset_token_expiry === null) {
+    return res.status(400).json({ error: "Token has already been used!" });
+  }
+
   // Verify the reset token
   const tokenIsValid = await bcrypt.compare(token, user.reset_token);
   if (!tokenIsValid) {
