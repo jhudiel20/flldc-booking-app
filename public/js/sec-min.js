@@ -587,7 +587,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 text: "Your password has been changed.",
                 icon: "success"
               }).then(() => {
-                window.location.reload();
+                window.location.href = "/";
               });
             }
           } catch (error) {
