@@ -177,38 +177,39 @@ function includeHTML(file, elementID) {
             Swal.fire({
                 title: 'Sign In',
                 html: `
-                    <div class="mb-3">
+                  <div class="mb-3">
                       <label for="email_login" class="form-label">Email</label>
                       <div class="input-group">
                           <span class="input-group-text"><i class="fa fa-envelope"></i></span>
                           <input type="email" id="email_login" class="form-control" placeholder="Enter your Email">
                       </div>
-                    </div>
-                    <div>
-                        <div class="d-flex justify-content-between">
-                                <label class="form-label label-shadow" for="password">Password</label>
-                                <button id="forgotPasswordLink" class="btn btn-link p-0"
-                                    data-bs-toggle="tooltip" 
-                                    data-bs-offset="0,4"
-                                    data-bs-placement="top"
-                                    data-bs-html="true"
-                                    title="To reset your password, please click this link to process your reset.">
-                                    <small>Forgot Password?</small>
-                                </button>
-                        </div>
-                        <div class="input-group">
-                            <input type="password" id="password" class="form-control" placeholder="Enter your password">
-                            <button class="btn btn-outline-secondary" type="button" id="togglePassword">
-                                <i class="fa fa-eye"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div id="errorMessage" class="text-danger mt-3">${errorMessage}</div>
-                    <div class="mt-3">
-                        <button id="registerLink" class="btn btn-link p-0">Don't have an account? Register here</button>
-                    </div>
-                    <div id="recaptcha-container" class="mt-3" style="display: flex; justify-content: center; align-items: center;"></div>
-                `,
+                  </div>
+                  <div class="mb-3">
+                      <div class="d-flex justify-content-between">
+                          <label class="form-label" for="password">Password</label>
+                          <button id="forgotPasswordLink" class="btn btn-link p-0"
+                              data-bs-toggle="tooltip" 
+                              data-bs-offset="0,4"
+                              data-bs-placement="top"
+                              data-bs-html="true"
+                              title="To reset your password, please click this link to process your reset.">
+                              <small>Forgot Password?</small>
+                          </button>
+                      </div>
+                      <div class="input-group">
+                          <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                          <input type="password" id="password" class="form-control" placeholder="Enter your password">
+                          <span class="input-group-text" id="togglePassword" style="cursor: pointer;">
+                              <i class="fa fa-eye"></i>
+                          </span>
+                      </div>
+                  </div>
+                  <div id="errorMessage" class="text-danger mt-3">${errorMessage}</div>
+                  <div class="mt-3">
+                      <button id="registerLink" class="btn btn-link p-0">Don't have an account? Register here</button>
+                  </div>
+                  <div id="recaptcha-container" class="mt-3" style="display: flex; justify-content: center; align-items: center;"></div>
+              `,
                 icon: 'info',
                 showCancelButton: true,
                 confirmButtonText: 'Login',
