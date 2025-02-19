@@ -175,6 +175,25 @@ async function handleForgotPassword(req, res) {
     return res.status(200).json({ message: 'Password reset link sent to your email.' });
 };
 
+const validatePassword = (password) => {
+  if (password.length < 8) {
+      return 'Password must be at least 8 characters long.';
+  }
+  if (!/[A-Z]/.test(password)) {
+      return 'Password must include at least one uppercase letter.';
+  }
+  if (!/[a-z]/.test(password)) {
+      return 'Password must include at least one lowercase letter.';
+  }
+  if (!/\d/.test(password)) {
+      return 'Password must include at least one number.';
+  }
+  if (!/[@$!%*?&]/.test(password)) {
+      return 'Password must include at least one special character (@$!%*?&).';
+  }
+  return null; // No errors
+};
+
 // **Change Password Handler**
 async function handleChangePassword(req, res) {
   const { email, token, newPassword } = req.body;
@@ -226,22 +245,5 @@ async function handleChangePassword(req, res) {
   return res.status(200).json({ message: "Password changed successfully." });
 }
 
-const validatePassword = (password) => {
-  if (password.length < 8) {
-      return 'Password must be at least 8 characters long.';
-  }
-  if (!/[A-Z]/.test(password)) {
-      return 'Password must include at least one uppercase letter.';
-  }
-  if (!/[a-z]/.test(password)) {
-      return 'Password must include at least one lowercase letter.';
-  }
-  if (!/\d/.test(password)) {
-      return 'Password must include at least one number.';
-  }
-  if (!/[@$!%*?&]/.test(password)) {
-      return 'Password must include at least one special character (@$!%*?&).';
-  }
-  return null; // No errors
-};
+
 

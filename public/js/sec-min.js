@@ -542,49 +542,66 @@ function checkUserStatus() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  const params = new URLSearchParams(window.location.search);
-  const email = params.get("email"); // Get email from URL
-  if (params.get("reset") === "true") {
+  const urlParams = new URLSearchParams(window.location.search);
+  const email = urlParams.get("email"); // Get email from URL
+  const token = urlParams.get("token"); // Get token from URL
+
+  if (urlParams.get("reset") === "true" && email) {
     Swal.fire({
       title: "Password Reset",
       html: `
-      <p style="font-size: 16px;">Reset password for: <strong>${email}</strong></p>
-    `,
+        <p style="font-size: 16px;">Reset password for: <strong>${email}</strong></p>
+        <input type="password" id="newPassword" class="swal2-input" placeholder="New password">
+        <div id="errorMessage" class="text-danger mt-3" style="display:none;"></div>
+      `,
       icon: "info",
-      input: "password",
-      inputPlaceholder: "New password",
       confirmButtonText: "Change Password",
       showCancelButton: true,
-      preConfirm: (newPassword) => {
+      preConfirm: () => {
+        const newPassword = document.getElementById("newPassword").value;
+        const errorMessage = document.getElementById("errorMessage");
+
         if (!newPassword) {
-          Swal.showValidationMessage("Password cannot be empty");
+          errorMessage.innerText = "Password cannot be empty.";
+          errorMessage.style.display = "block";
+          return false;
         }
+
+        // Hide error message when validation passes
+        errorMessage.style.display = "none";
         return newPassword;
       },
     }).then((result) => {
       if (result.isConfirmed) {
-        const token = params.get("token");
-        const email = params.get("email");
+        const newPassword = result.value;
 
-        // Send the new password to the server
         fetch("/api/ForgotPassword", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email, token, newPassword: result.value }),
+          body: JSON.stringify({ email, token, newPassword }),
         })
           .then((res) => res.json())
           .then((data) => {
+            if (data.error) {
+              // Display backend validation errors inside Swal
+              document.getElementById("errorMessage").innerText = data.error;
+              document.getElementById("errorMessage").style.display = "block";
+              return false; // Keep Swal open
+            }
+
             Swal.fire("Success!", data.message, "success").then(() => {
               window.location.href = "/";
             });
           })
           .catch(() => {
-            Swal.fire("Error", "Something went wrong!", "error");
+            document.getElementById("errorMessage").innerText = "Something went wrong!";
+            document.getElementById("errorMessage").style.display = "block";
           });
       }
     });
   }
 });
+
   
   
 
