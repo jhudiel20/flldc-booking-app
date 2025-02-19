@@ -177,9 +177,12 @@ function includeHTML(file, elementID) {
             Swal.fire({
                 title: 'Sign In',
                 html: `
-                    <div>
-                        <label for="email_login" class="form-label">Email</label>
-                        <input type="email" id="email_login" class="form-control mb-3" placeholder="Enter your Email">
+                    <div class="mb-3">
+                      <label for="email_login" class="form-label">Email</label>
+                      <div class="input-group">
+                          <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                          <input type="email" id="email_login" class="form-control" placeholder="Enter your Email">
+                      </div>
                     </div>
                     <div>
                         <div class="d-flex justify-content-between">
