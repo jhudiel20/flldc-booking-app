@@ -7,6 +7,8 @@ const pool = new Pool({
   connectionString: process.env.POSTGRES_URL,
 });
 
+const logoPath = path.join(__dirname, '../public/images/LOGO.png');
+
 // Transporter for sending emails
 const transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
