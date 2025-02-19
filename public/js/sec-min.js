@@ -582,13 +582,15 @@ document.addEventListener("DOMContentLoaded", function () {
         html: `
           <div>
             <p style="font-size: 16px;">Reset password for: <strong>${email}</strong></p>
-            <label for="newPassword" class="form-label">New Password</label>
-            <div class="input-group">
-              <span class="input-group-text"><i class="fa fa-lock"></i></span>
-                <input type="password" id="newPassword" class="form-control mb-3" placeholder="Enter your new password">
-                <span class="input-group-text" id="togglePassword" style="cursor: pointer;">
-                <i class="fa fa-eye"></i>
-              </span>
+            <div style="text-align:left">
+              <label for="newPassword" class="form-label">New Password</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                  <input type="password" id="newPassword" class="form-control" placeholder="Enter your new password">
+                  <span class="input-group-text" id="togglePassword" style="cursor: pointer;">
+                    <i class="fa fa-eye"></i>
+                  </span>
+              </div>
             </div>
           </div>
           <div id="errorMessage" class="text-danger mt-3">${errorMessage}</div>
