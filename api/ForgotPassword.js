@@ -175,33 +175,25 @@ async function handleForgotPassword(req, res) {
     return res.status(200).json({ message: 'Password reset link sent to your email.' });
 };
 
-const validatePassword = (password) => {
-  if (password.length < 8) {
-      return 'Password must be at least 8 characters long.';
-  }
-  if (!/[A-Z]/.test(password)) {
-      return 'Password must include at least one uppercase letter.';
-  }
-  if (!/[a-z]/.test(password)) {
-      return 'Password must include at least one lowercase letter.';
-  }
-  if (!/\d/.test(password)) {
-      return 'Password must include at least one number.';
-  }
-  if (!/[@$!%*?&]/.test(password)) {
-      return 'Password must include at least one special character (@$!%*?&).';
-  }
-  return null; // No errors
-};
-
 // **Change Password Handler**
 async function handleChangePassword(req, res) {
   const { email, token, newPassword } = req.body;
 
-  // Validate new password
-  const passwordError = validatePassword(newPassword);
-  if (passwordError) {
-    return res.status(400).json({ error: passwordError });
+   // ✅ Validate new password inside the function
+   if (newPassword.length < 8) {
+    return res.status(400).json({ error: "Password must be at least 8 characters long." });
+  }
+  if (!/[A-Z]/.test(newPassword)) {
+    return res.status(400).json({ error: "Password must include at least one uppercase letter." });
+  }
+  if (!/[a-z]/.test(newPassword)) {
+    return res.status(400).json({ error: "Password must include at least one lowercase letter." });
+  }
+  if (!/\d/.test(newPassword)) {
+    return res.status(400).json({ error: "Password must include at least one number." });
+  }
+  if (!/[@$!%*?&]/.test(newPassword)) {
+    return res.status(400).json({ error: "Password must include at least one special character (@$!%*?&)." });
   }
 
   // Find the user
@@ -227,12 +219,6 @@ async function handleChangePassword(req, res) {
   const tokenIsValid = await bcrypt.compare(token, user.reset_token);
   if (!tokenIsValid) {
     return res.status(400).json({ error: "Invalid token" });
-  }
-
-  // Validate new password before hashing
-  const passwordValidationError = validatePassword(newPassword);
-  if (passwordValidationError) {
-    return res.status(400).json({ error: passwordValidationError });
   }
 
   // Hash the new password
