@@ -48,7 +48,7 @@ module.exports = async (req, res) => {
     // const expiryTime = new Date(Date.now() + 3600000); // 1 hour from now
     const expiryTime = new Date(Date.now() + 24 * 60 * 60 * 1000); // 1 day from now
     const updateQuery = `
-      UPDATE users SET reset_token = $1, reset_token_expiry = $2 WHERE id = $3
+      UPDATE user_reservation SET reset_token = $1, reset_token_expiry = $2 WHERE id = $3
     `;
     await pool.query(updateQuery, [hashedToken, expiryTime, user.id]);
 
@@ -74,6 +74,6 @@ module.exports = async (req, res) => {
     return res.status(200).json({ message: 'Password reset link sent to your email.' });
   } catch (error) {
     console.error('Error handling forgot password:', error);
-    return res.status(500).json({ error: 'Server error' });
+    return res.status(500).json({ error: 'Server error', details: error.message });
   }
 };
