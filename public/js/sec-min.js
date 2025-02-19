@@ -543,7 +543,7 @@ function checkUserStatus() {
 
 document.addEventListener("DOMContentLoaded", function () {
   const params = new URLSearchParams(window.location.search);
-  const email = urlParams.get("email"); // Get email from URL
+  const email = params.get("email"); // Get email from URL
   if (params.get("reset") === "true") {
     Swal.fire({
       title: "Password Reset",
