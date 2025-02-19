@@ -2,6 +2,7 @@ const { Pool } = require('pg');
 const crypto = require('crypto');
 const bcrypt = require('bcryptjs');
 const nodemailer = require('nodemailer');
+const path = require('path');
 
 const pool = new Pool({
   connectionString: process.env.POSTGRES_URL,
