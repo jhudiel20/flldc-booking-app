@@ -178,7 +178,7 @@ function includeHTML(file, elementID) {
                 title: 'Sign In',
                 html: `
                   <div class="mb-3">
-                      <label for="email_login" class="form-label text-start">Email</label>
+                      <label for="email_login" class="form-label text-start w-100">Email</label>
                       <div class="input-group">
                           <span class="input-group-text"><i class="fa fa-envelope"></i></span>
                           <input type="email" id="email_login" class="form-control" placeholder="Enter your Email">
