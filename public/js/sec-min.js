@@ -283,11 +283,13 @@ function includeHTML(file, elementID) {
         document.getElementById('forgotPasswordLink').addEventListener('click', function () {
           Swal.fire({
               title: 'Forgot Password',
-              html: `
+              html: `  
                   <div>
                       <label for="forgot_email" class="form-label">Enter your email</label>
-                      <input type="email" id="forgot_email" class="form-control mb-3" placeholder="Enter your registered email">
-                  </div>
+                      <div class="input-group">
+                          <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                          <input type="email" id="forgot_email" class="form-control mb-3" placeholder="Enter your registered email">
+                      </div>                  </div>
                   <div id="forgotErrorMessage" class="text-danger mt-3"></div>
                   <div id="recaptcha-container-forgot" class="mt-3" style="display: flex; justify-content: center; align-items: center;"></div>
               `,
