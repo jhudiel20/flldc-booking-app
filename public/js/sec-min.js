@@ -543,64 +543,60 @@ function checkUserStatus() {
 
 document.addEventListener("DOMContentLoaded", function () {
   const urlParams = new URLSearchParams(window.location.search);
-  const email = urlParams.get("email"); // Get email from URL
-  const token = urlParams.get("token"); // Get token from URL
+  const email = urlParams.get("email");
+  const token = urlParams.get("token");
 
   if (urlParams.get("reset") === "true" && email) {
-    Swal.fire({
-      title: "Password Reset",
-      html: `
-        <p style="font-size: 16px;">Reset password for: <strong>${email}</strong></p>
-        <input type="password" id="newPassword" class="swal2-input" placeholder="New password">
-        <div id="errorMessage" class="text-danger mt-3" style="display:none;"></div>
-      `,
-      icon: "info",
-      confirmButtonText: "Change Password",
-      showCancelButton: true,
-      preConfirm: () => {
-        const newPassword = document.getElementById("newPassword").value;
-        const errorMessage = document.getElementById("errorMessage");
+    const showChangePasswordModal = (errorMessage = '') => {
+      Swal.fire({
+        title: "Reset Password",
+        html: `
+          <div>
+            <label for="newPassword" class="form-label">New Password</label>
+            <input type="password" id="newPassword" class="form-control mb-3" placeholder="Enter your new password">
+          </div>
+          <div id="errorMessage" class="text-danger mt-3">${errorMessage}</div>
+        `,
+        icon: "info",
+        showCancelButton: true,
+        confirmButtonText: "Change Password",
+        preConfirm: async () => {
+          const newPassword = document.getElementById("newPassword").value.trim();
 
-        if (!newPassword) {
-          errorMessage.innerText = "Password cannot be empty.";
-          errorMessage.style.display = "block";
-          return false;
-        }
+          if (!newPassword) {
+            document.getElementById("errorMessage").innerText = "Password cannot be empty.";
+            return false;
+          }
 
-        // Hide error message when validation passes
-        errorMessage.style.display = "none";
-        return newPassword;
-      },
-    }).then((result) => {
-      if (result.isConfirmed) {
-        const newPassword = result.value;
-
-        fetch("/api/ForgotPassword", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email, token, newPassword }),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.error) {
-              // Display backend validation errors inside Swal
-              document.getElementById("errorMessage").innerText = data.error;
-              document.getElementById("errorMessage").style.display = "block";
-              return false; // Keep Swal open
-            }
-
-            Swal.fire("Success!", data.message, "success").then(() => {
-              window.location.href = "/";
+          try {
+            const response = await fetch("/api/ForgotPassword", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ email, token, newPassword }),
             });
-          })
-          .catch(() => {
-            document.getElementById("errorMessage").innerText = "Something went wrong!";
-            document.getElementById("errorMessage").style.display = "block";
-          });
-      }
-    });
+
+            const result = await response.json();
+
+            if (result.error) {
+              document.getElementById("errorMessage").innerText = result.error;
+              return false;
+            } else {
+              Swal.fire("Success!", "Your password has been changed.", "success").then(() => {
+                window.location.href = "/";
+              });
+            }
+          } catch (error) {
+            document.getElementById("errorMessage").innerText = "Something went wrong. Please try again.";
+            return false;
+          }
+        },
+      });
+    };
+
+    showChangePasswordModal();
   }
 });
+
 
   
   
