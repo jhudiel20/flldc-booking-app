@@ -48,7 +48,7 @@ module.exports = async (req, res) => {
     // const expiryTime = new Date(Date.now() + 3600000); // 1 hour from now
     const expiryTime = new Date(Date.now() + 24 * 60 * 60 * 1000); // 1 day from now
     const updateQuery = `
-      UPDATE user_reservation SET ResetToken = $1, ResetTime = $2 WHERE id = $3
+      UPDATE user_reservation SET reset_token = $1, reset_token_expiry = $2 WHERE id = $3
     `;
     await pool.query(updateQuery, [hashedToken, expiryTime, user.id]);
 
