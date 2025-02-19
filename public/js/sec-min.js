@@ -583,7 +583,7 @@ document.addEventListener("DOMContentLoaded", function () {
               return false;
             } else {
               Swal.fire("Success!", "Your password has been changed.", "success").then(() => {
-                window.location.href = "/";
+                window.location.reload();
               });
             }
           } catch (error) {
