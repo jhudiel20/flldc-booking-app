@@ -550,7 +550,7 @@ document.addEventListener("DOMContentLoaded", function () {
       icon: "info",
       input: "password",
       inputPlaceholder: "New password",
-      confirmButtonText: "Reset Password",
+      confirmButtonText: "Change Password",
       showCancelButton: true,
       preConfirm: (newPassword) => {
         if (!newPassword) {
