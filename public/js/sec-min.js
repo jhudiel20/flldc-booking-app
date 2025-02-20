@@ -176,6 +176,9 @@ function includeHTML(file, elementID) {
         const showLoginModal = (errorMessage = '') => {
             Swal.fire({
                 title: 'Sign In',
+                imageUrl: '/images/LOGO.png', // Replace with your logo path
+                imageWidth: 140, // Adjust as needed
+                imageHeight: 100, // Adjust as needed
                 html: `
                   <div class="mb-3 text-start" style="text-align:left">
                       <label for="email_login" class="form-label">Email</label>
@@ -209,8 +212,7 @@ function includeHTML(file, elementID) {
                       <button id="registerLink" class="btn btn-link p-0">Don't have an account? Register here</button>
                   </div>
                   <div id="recaptcha-container" class="mt-3" style="display: flex; justify-content: center; align-items: center;"></div>
-              `,
-                icon: 'info',
+                `,
                 showCancelButton: true,
                 confirmButtonText: 'Login',
                 didOpen: () => {
@@ -284,7 +286,7 @@ function includeHTML(file, elementID) {
           Swal.fire({
               title: 'Forgot Password',
               imageUrl: '/images/LOGO.png', // Replace with your logo path
-              imageWidth: 100, // Adjust as needed
+              imageWidth: 140, // Adjust as needed
               imageHeight: 100, // Adjust as needed
               html: `  
                   <div class="mb-3 text-start" style="text-align:left">
@@ -347,6 +349,9 @@ function includeHTML(file, elementID) {
             const showSignUpModal = (errorMessage = '') => {
                 Swal.fire({
                     title: 'Sign Up',
+                    imageUrl: '/images/LOGO.png', // Replace with your logo path
+                    imageWidth: 140, // Adjust as needed
+                    imageHeight: 100, // Adjust as needed
                     html: `
                         <div>
                             <label for="fname" class="form-label">First Name</label>
@@ -397,7 +402,6 @@ function includeHTML(file, elementID) {
                         <div id="recaptcha-container" class="mt-3" style="display: flex; justify-content: center; align-items: center;"></div>
 
                     `,
-                    icon: 'info',
                     showCancelButton: true,
                     confirmButtonText: 'Register',
                     cancelButtonText: 'Cancel',
@@ -581,6 +585,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const showChangePasswordModal = (errorMessage = '') => {
       Swal.fire({
         title: "Reset Password",
+        imageUrl: '/images/LOGO.png', // Replace with your logo path
+        imageWidth: 140, // Adjust as needed
+        imageHeight: 100, // Adjust as needed
         html: `
           <div>
             <p style="font-size: 16px;">Reset password for: <strong>${email}</strong></p>
@@ -597,7 +604,6 @@ document.addEventListener("DOMContentLoaded", function () {
           </div>
           <div id="errorMessage" class="text-danger mt-3">${errorMessage}</div>
         `,
-        icon: "info",
         showCancelButton: true,
         confirmButtonText: "Change Password",
         didOpen: () => {
