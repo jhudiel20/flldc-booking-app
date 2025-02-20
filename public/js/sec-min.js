@@ -283,7 +283,7 @@ function includeHTML(file, elementID) {
         document.getElementById('forgotPasswordLink').addEventListener('click', function () {
           Swal.fire({
               title: 'Forgot Password',
-              imageUrl: '/public/images/LOGO.png', // Replace with your logo path
+              imageUrl: '/images/LOGO.png', // Replace with your logo path
               imageWidth: 100, // Adjust as needed
               imageHeight: 100, // Adjust as needed
               html: `  
