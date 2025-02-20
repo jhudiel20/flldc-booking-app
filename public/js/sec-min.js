@@ -283,6 +283,9 @@ function includeHTML(file, elementID) {
         document.getElementById('forgotPasswordLink').addEventListener('click', function () {
           Swal.fire({
               title: 'Forgot Password',
+              imageUrl: '/public/images/LOGO.png', // Replace with your logo path
+              imageWidth: 100, // Adjust as needed
+              imageHeight: 100, // Adjust as needed
               html: `  
                   <div class="mb-3 text-start" style="text-align:left">
                       <label for="forgot_email" class="form-label">Enter your email</label>
@@ -295,7 +298,6 @@ function includeHTML(file, elementID) {
                   <div id="forgotErrorMessage" class="text-danger mt-3"></div>
                   <div id="recaptcha-container-forgot" class="mt-3" style="display: flex; justify-content: center; align-items: center;"></div>
               `,
-              icon: 'info',
               showCancelButton: true,
               confirmButtonText: 'Reset Password',
               didOpen: () => {
