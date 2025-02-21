@@ -300,7 +300,8 @@ function includeHTML(file, elementID) {
                   <div id="forgotErrorMessage" class="text-danger mt-3"></div>
                   <div id="recaptcha-container-forgot" class="mt-3" style="display: flex; justify-content: center; align-items: center;"></div>
               `,
-              showCancelButton: true,
+              showDenyButton: true, // Use Deny button for Back
+              denyButtonText: 'Back',
               confirmButtonText: 'Reset Password',
               didOpen: () => {
                   grecaptcha.render('recaptcha-container-forgot', {
@@ -342,7 +343,12 @@ function includeHTML(file, elementID) {
                       return false;
                   }
               }
-          });
+          }).then((result) => {
+            if (result.isDenied) {
+                // Go back to Login Modal
+                showLoginModal();
+            }
+        });
         });
 
         document.getElementById('registerLink').addEventListener('click', function () {
