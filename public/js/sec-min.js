@@ -366,12 +366,13 @@ function includeHTML(file, elementID) {
                         </div>
                         <div class="row">
                             <div class="col-6">
-                                <label for="email" class="form-label">Email</label>
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class="fa fa-envelope"></i></span>
-                                    <input type="email" id="email" name="email" class="form-control mb-3" placeholder="Enter your Email" required>
-                                </div>
+                              <label for="email" class="form-label">Email</label>
+                              <div class="input-group mb-3">
+                                <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                                <input type="email" id="email" class="form-control" placeholder="Enter your Email" required>
+                              </div>
                             </div>
+
                             <div class="col-6">
                                 <label for="usertype" class="form-label">User Type</label>
                                 <select id="usertype" name="usertype" class="form-control mb-3">
