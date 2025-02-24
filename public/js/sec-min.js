@@ -366,47 +366,42 @@ function includeHTML(file, elementID) {
                         </div>
                         <div class="row">
                             <div class="col-6">
-                              <label for="newPassword" class="form-label">Password</label>
-                              <div class="input-group mb-3">
-                                <span class="input-group-text"><i class="fa fa-lock"></i></span>
-                                <input type="password" id="newPassword" class="form-control" placeholder="Enter your password" required>
-                                <span class="input-group-text" id="togglePasswordNew" style="cursor: pointer;">
-                                  <i class="fa fa-eye"></i>
-                                </span>
-                              </div>
+                                <label for="email" class="form-label">Email</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                                    <input type="email" id="email" name="email" class="form-control mb-3" placeholder="Enter your Email" required>
+                                </div>
                             </div>
                             <div class="col-6">
-                              <label for="confirmPassword" class="form-label">Confirm Password</label>
-                              <div class="input-group mb-3">
-                                <span class="input-group-text"><i class="fa fa-lock"></i></span>
-                                <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm your password" required>
-                                <span class="input-group-text" id="togglePasswordConfirm" style="cursor: pointer;">
-                                  <i class="fa fa-eye"></i>
-                                </span>
-                              </div>
+                                <label for="usertype" class="form-label">User Type</label>
+                                <select id="usertype" name="usertype" class="form-control mb-3">
+                                    <option value="Non-FAST Employee">Non-FAST Employee</option>
+                                    <option value="FAST Employee">FAST Employee</option>
+                                </select>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-6">
-                                <label for="newPassword" class="form-label">Password</label>
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class="fa fa-lock"></i></span>
-                                    <input type="password" id="newPassword" name="newPassword" class="form-control mb-3" placeholder="Enter your password" required>
-                                    <span class="input-group-text" id="togglePasswordNew" style="cursor: pointer;">
-                                        <i class="fa fa-eye"></i>
-                                    </span>
-                                </div>
+                          <div class="col-6">
+                            <label for="newPassword" class="form-label">Password</label>
+                            <div class="input-group mb-3">
+                              <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                              <input type="password" id="newPassword" class="form-control" placeholder="Enter your password" required>
+                              <span class="input-group-text" id="togglePasswordNew" style="cursor: pointer;">
+                                <i class="fa fa-eye"></i>
+                              </span>
                             </div>
-                            <div class="col-6">
-                                <label for="confirmPassword" class="form-label">Confirm Password</label>
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class="fa fa-lock"></i></span>
-                                    <input type="password" id="confirmPassword" name="confirmPassword" class="form-control mb-3" placeholder="Confirm your password" required>
-                                    <span class="input-group-text" id="togglePasswordConfirm" style="cursor: pointer;">
-                                        <i class="fa fa-eye"></i>
-                                    </span>
-                                </div>
+                          </div>
+
+                          <div class="col-6">
+                            <label for="confirmPassword" class="form-label">Confirm Password</label>
+                            <div class="input-group mb-3">
+                              <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                              <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm your password" required>
+                              <span class="input-group-text" id="togglePasswordConfirm" style="cursor: pointer;">
+                                <i class="fa fa-eye"></i>
+                              </span>
                             </div>
+                          </div>
                         </div>
                         <div id="SBUContainer" style="display: none;">
                           <div class="row">
