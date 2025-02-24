@@ -355,17 +355,17 @@ function includeHTML(file, elementID) {
                     imageHeight: 100, // Adjust as needed
                     html: `
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-12 col-md-6">
                                 <label for="fname" class="form-label">First Name</label>
                                 <input type="text" id="fname" name="fname" class="form-control mb-3" required>
                             </div>
-                            <div class="col-6">
+                            <div class="col-12 col-md-6">
                                 <label for="lname" class="form-label">Last Name</label>
                                 <input type="text" id="lname" name="lname" class="form-control mb-3" required>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-12 col-md-6">
                               <label for="email" class="form-label">Email</label>
                               <div class="input-group mb-3">
                                 <span class="input-group-text"><i class="fa fa-envelope"></i></span>
@@ -373,7 +373,7 @@ function includeHTML(file, elementID) {
                               </div>
                             </div>
 
-                            <div class="col-6">
+                            <div class="col-12 col-md-6">
                                 <label for="usertype" class="form-label">User Type</label>
                                 <select id="usertype" name="usertype" class="form-control mb-3">
                                     <option value="Non-FAST Employee">Non-FAST Employee</option>
@@ -382,7 +382,7 @@ function includeHTML(file, elementID) {
                             </div>
                         </div>
                         <div class="row">
-                          <div class="col-6">
+                          <div class="col-12 col-md-6">
                             <label for="newPassword" class="form-label">Password</label>
                             <div class="input-group mb-3">
                               <span class="input-group-text"><i class="fa fa-lock"></i></span>
@@ -393,7 +393,7 @@ function includeHTML(file, elementID) {
                             </div>
                           </div>
 
-                          <div class="col-6">
+                          <div class="col-12 col-md-6">
                             <label for="confirmPassword" class="form-label">Confirm Password</label>
                             <div class="input-group mb-3">
                               <span class="input-group-text"><i class="fa fa-lock"></i></span>
@@ -406,7 +406,7 @@ function includeHTML(file, elementID) {
                         </div>
                         <div id="SBUContainer" style="display: none;">
                           <div class="row">
-                              <div class="col-6">
+                              <div class="col-12 col-md-6">
                                   <label for="SBU" class="form-label">SBU</label>
                                   <select id="SBU" class="form-control mb-3">
                                       <option value="FSC">FSC</option>
@@ -417,7 +417,7 @@ function includeHTML(file, elementID) {
                                       <option value="FUI">FUI</option>
                                   </select>
                               </div>
-                              <div class="col-6">
+                              <div class="col-12 col-md-6">
                                   <label for="branch" class="form-label">Branch</label>
                                   <select id="branchSelect" class="form-control mb-3">
                                   </select>
