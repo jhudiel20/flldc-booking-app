@@ -183,8 +183,10 @@ function includeHTML(file, elementID) {
                   <div class="mb-3 text-start floating-label" style="text-align:left; position: relative;">
                       <div class="input-group">
                           <span class="input-group-text"><i class="fa fa-envelope"></i></span>
-                          <input type="email" id="email_login" class="form-control" placeholder=" ">
-                          <label for="email_login" class="form-label">Email</label>
+                          <div class="form-floating">
+                              <input type="email" id="email_login" class="form-control" placeholder=" " required>
+                              <label for="email_login">Email</label>
+                          </div>
                       </div>
                   </div>
                   <div class="mb-3">
