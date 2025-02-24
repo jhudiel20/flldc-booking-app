@@ -25,7 +25,7 @@
 /* Focused State or Filled Input */
 .form-control:focus + .floating-label,
 .form-control:not(:placeholder-shown) + .floating-label {
-  top: -10px;
+  top: -5px;
   left: 45px;
   font-size: 12px;
   color: #007bff;
