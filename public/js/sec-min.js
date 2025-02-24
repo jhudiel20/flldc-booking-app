@@ -365,8 +365,11 @@ function includeHTML(file, elementID) {
                         </div>
                         <div class="row">
                             <div class="col-6">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="email" id="email" class="form-control mb-3" required>
+                              <label for="email" class="form-label">Email</label>
+                              <div class="input-group">
+                                  <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                                  <input type="email" id="email" class="form-control mb-3" placeholder="Enter your Email" required>
+                              </div>
                             </div>
                             <div class="col-6">
                                 <label for="usertype" class="form-label">User Type</label>
@@ -379,11 +382,23 @@ function includeHTML(file, elementID) {
                         <div class="row">
                             <div class="col-6">
                                 <label for="newPassword" class="form-label">Password</label>
-                                <input type="password" id="newPassword" class="form-control mb-3" required>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                                    <input type="password" id="newPassword" class="form-control mb-3" placeholder="Enter your password" required>
+                                    <span class="input-group-text" id="togglePasswordNew" style="cursor: pointer;">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                </div>
                             </div>
                             <div class="col-6">
                                 <label for="confirmPassword" class="form-label">Confirm Password</label>
-                                <input type="password" id="confirmPassword" class="form-control mb-3" required>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                                    <input type="password" id="confirmPassword" class="form-control mb-3" placeholder="Enter your password" required>
+                                    <span class="input-group-text" id="togglePasswordConfirm" style="cursor: pointer;">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                </div>
                             </div>
                         </div>
 
@@ -415,6 +430,35 @@ function includeHTML(file, elementID) {
                     didOpen: () => {
                         grecaptcha.render('recaptcha-container', {
                             sitekey: '6LcEwdUqAAAAAFnSG67vpecp_r_Ow1TWd25DDKCX'
+                        });
+
+                        document.getElementById('togglePasswordNew').addEventListener('click', function () {
+                          const passwordField = document.getElementById('newPassword');
+                          const eyeIcon = this.querySelector('i');
+    
+                          if (passwordField.type === "password") {
+                              passwordField.type = "text";
+                              eyeIcon.classList.remove("fa-eye");
+                              eyeIcon.classList.add("fa-eye-slash");
+                          } else {
+                              passwordField.type = "password";
+                              eyeIcon.classList.remove("fa-eye-slash");
+                              eyeIcon.classList.add("fa-eye");
+                          }
+                        });
+                        document.getElementById('togglePasswordConfirm').addEventListener('click', function () {
+                          const passwordField = document.getElementById('confirmPassword');
+                          const eyeIcon = this.querySelector('i');
+    
+                          if (passwordField.type === "password") {
+                              passwordField.type = "text";
+                              eyeIcon.classList.remove("fa-eye");
+                              eyeIcon.classList.add("fa-eye-slash");
+                          } else {
+                              passwordField.type = "password";
+                              eyeIcon.classList.remove("fa-eye-slash");
+                              eyeIcon.classList.add("fa-eye");
+                          }
                         });
                     },
                     preConfirm: async () => {
