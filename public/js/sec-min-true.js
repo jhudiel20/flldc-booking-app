@@ -354,7 +354,7 @@ function includeHTML(file, elementID) {
                     imageWidth: 140, // Adjust as needed
                     imageHeight: 100, // Adjust as needed
                     html: `
-                        <div class="row">
+                        <div class="row" style="text-align:left">
                             <div class="col-12 col-md-6">
                                 <label for="fname" class="form-label">First Name</label>
                                 <input type="text" id="fname" name="fname" class="form-control mb-3" required autocomplete="off">
@@ -364,7 +364,7 @@ function includeHTML(file, elementID) {
                                 <input type="text" id="lname" name="lname" class="form-control mb-3" required autocomplete="off">
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row" style="text-align:left">
                             <div class="col-12 col-md-6">
                               <label for="email" class="form-label">Email</label>
                               <div class="input-group mb-3">
@@ -381,7 +381,7 @@ function includeHTML(file, elementID) {
                                 </select>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row" style="text-align:left">
                           <div class="col-12 col-md-6">
                             <label for="newPassword" class="form-label">Password</label>
                             <div class="input-group mb-3">
@@ -404,7 +404,7 @@ function includeHTML(file, elementID) {
                             </div>
                           </div>
                         </div>
-                        <div id="SBUContainer" style="display: none;">
+                        <div id="SBUContainer" style="display: none;" style="text-align:left">
                           <div class="row">
                               <div class="col-12 col-md-6">
                                   <label for="SBU" class="form-label">SBU</label>
