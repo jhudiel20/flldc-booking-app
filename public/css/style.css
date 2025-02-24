@@ -15,7 +15,7 @@
 .floating-label label {
   position: absolute;
   top: 50%;
-  left: 45px; /* Adjust to align with the input text */
+  left: 50px; /* Adjust to align after the icon */
   transform: translateY(-50%);
   background-color: white;
   padding: 0 5px;
@@ -27,8 +27,7 @@
 /* Focused State & Filled Input */
 .floating-label .form-control:focus + label,
 .floating-label .form-control:not(:placeholder-shown) + label {
-  top: 0;
-  left: 45px; /* Align with input text */
+  top: -10px;
   font-size: 0.75rem;
   color: #007bff; /* Highlight color */
 }
@@ -38,6 +37,16 @@
   border-color: #007bff;
   outline: none;
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Adjust Input Group */
+.input-group-text {
+  background-color: #f8f9fa;
+  border-right: none;
+}
+
+.form-control {
+  border-left: none;
 }
 
 /* ######################################################### */

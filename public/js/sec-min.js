@@ -181,10 +181,10 @@ function includeHTML(file, elementID) {
                 imageHeight: 100, // Adjust as needed
                 html: `
                   <div class="mb-3 text-start floating-label" style="text-align:left; position: relative;">
-                      <label for="email_login" class="form-label">Email</label>
                       <div class="input-group">
                           <span class="input-group-text"><i class="fa fa-envelope"></i></span>
                           <input type="email" id="email_login" class="form-control" placeholder=" ">
+                          <label for="email_login" class="form-label">Email</label>
                       </div>
                   </div>
                   <div class="mb-3">
