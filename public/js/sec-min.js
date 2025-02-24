@@ -365,10 +365,12 @@ function includeHTML(file, elementID) {
                         </div>
                         <div class="row">
                             <div class="col-6">
-                              <label for="email" class="form-label">Email</label>
-                              <div class="input-group">
-                                  <span class="input-group-text"><i class="fa fa-envelope"></i></span>
-                                  <input type="email" id="email" class="form-control mb-3" placeholder="Enter your Email" required>
+                              <div>
+                                <label for="email" class="form-label">Email</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                                    <input type="email" id="email" class="form-control mb-3" placeholder="Enter your Email" required>
+                                </div>
                               </div>
                             </div>
                             <div class="col-6">
@@ -381,23 +383,27 @@ function includeHTML(file, elementID) {
                         </div>
                         <div class="row">
                             <div class="col-6">
-                                <label for="newPassword" class="form-label">Password</label>
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class="fa fa-lock"></i></span>
-                                    <input type="password" id="newPassword" class="form-control mb-3" placeholder="Enter your password" required>
-                                    <span class="input-group-text" id="togglePasswordNew" style="cursor: pointer;">
-                                        <i class="fa fa-eye"></i>
-                                    </span>
+                                <div>
+                                  <label for="newPassword" class="form-label">Password</label>
+                                  <div class="input-group">
+                                      <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                                      <input type="password" id="newPassword" class="form-control mb-3" placeholder="Enter your password" required>
+                                      <span class="input-group-text" id="togglePasswordNew" style="cursor: pointer;">
+                                          <i class="fa fa-eye"></i>
+                                      </span>
+                                  </div>
                                 </div>
                             </div>
                             <div class="col-6">
-                                <label for="confirmPassword" class="form-label">Confirm Password</label>
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class="fa fa-lock"></i></span>
-                                    <input type="password" id="confirmPassword" class="form-control mb-3" placeholder="Enter your password" required>
-                                    <span class="input-group-text" id="togglePasswordConfirm" style="cursor: pointer;">
-                                        <i class="fa fa-eye"></i>
-                                    </span>
+                                <div>
+                                  <label for="confirmPassword" class="form-label">Confirm Password</label>
+                                  <div class="input-group">
+                                      <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                                      <input type="password" id="confirmPassword" class="form-control mb-3" placeholder="Enter your password" required>
+                                      <span class="input-group-text" id="togglePasswordConfirm" style="cursor: pointer;">
+                                          <i class="fa fa-eye"></i>
+                                      </span>
+                                  </div>
                                 </div>
                             </div>
                         </div>
