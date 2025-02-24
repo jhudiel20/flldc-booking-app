@@ -349,6 +349,7 @@ function includeHTML(file, elementID) {
             const showSignUpModal = (errorMessage = '') => {
                 Swal.fire({
                     title: 'Sign Up',
+                    width: '700px',
                     imageUrl: '/images/LOGO.png', // Replace with your logo path
                     imageWidth: 140, // Adjust as needed
                     imageHeight: 100, // Adjust as needed
@@ -356,26 +357,24 @@ function includeHTML(file, elementID) {
                         <div class="row">
                             <div class="col-6">
                                 <label for="fname" class="form-label">First Name</label>
-                                <input type="text" id="fname" class="form-control mb-3" required>
+                                <input type="text" id="fname" name="fname" class="form-control mb-3" required>
                             </div>
                             <div class="col-6">
                                 <label for="lname" class="form-label">Last Name</label>
-                                <input type="text" id="lname" class="form-control mb-3" required>
+                                <input type="text" id="lname" name="lname" class="form-control mb-3" required>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-6">
-                              <div>
                                 <label for="email" class="form-label">Email</label>
                                 <div class="input-group">
                                     <span class="input-group-text"><i class="fa fa-envelope"></i></span>
-                                    <input type="email" id="email" class="form-control mb-3" placeholder="Enter your Email" required>
+                                    <input type="email" id="email" name="email" class="form-control mb-3" placeholder="Enter your Email" required>
                                 </div>
-                              </div>
                             </div>
                             <div class="col-6">
                                 <label for="usertype" class="form-label">User Type</label>
-                                <select id="usertype" class="form-control mb-3">
+                                <select id="usertype" name="usertype" class="form-control mb-3">
                                     <option value="Non-FAST Employee">Non-FAST Employee</option>
                                     <option value="FAST Employee">FAST Employee</option>
                                 </select>
@@ -383,53 +382,44 @@ function includeHTML(file, elementID) {
                         </div>
                         <div class="row">
                             <div class="col-6">
-                                <div>
-                                  <label for="newPassword" class="form-label">Password</label>
-                                  <div class="input-group">
-                                      <span class="input-group-text"><i class="fa fa-lock"></i></span>
-                                      <input type="password" id="newPassword" class="form-control mb-3" placeholder="Enter your password" required>
-                                      <span class="input-group-text" id="togglePasswordNew" style="cursor: pointer;">
-                                          <i class="fa fa-eye"></i>
-                                      </span>
-                                  </div>
+                                <label for="newPassword" class="form-label">Password</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                                    <input type="password" id="newPassword" name="newPassword" class="form-control mb-3" placeholder="Enter your password" required>
+                                    <span class="input-group-text" id="togglePasswordNew" style="cursor: pointer;">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
                                 </div>
                             </div>
                             <div class="col-6">
-                                <div>
-                                  <label for="confirmPassword" class="form-label">Confirm Password</label>
-                                  <div class="input-group">
-                                      <span class="input-group-text"><i class="fa fa-lock"></i></span>
-                                      <input type="password" id="confirmPassword" class="form-control mb-3" placeholder="Enter your password" required>
-                                      <span class="input-group-text" id="togglePasswordConfirm" style="cursor: pointer;">
-                                          <i class="fa fa-eye"></i>
-                                      </span>
-                                  </div>
+                                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                                    <input type="password" id="confirmPassword" name="confirmPassword" class="form-control mb-3" placeholder="Confirm your password" required>
+                                    <span class="input-group-text" id="togglePasswordConfirm" style="cursor: pointer;">
+                                        <i class="fa fa-eye"></i>
+                                    </span>
                                 </div>
                             </div>
                         </div>
-
                         <div id="SBUContainer" style="display: none;">
-                            <div>
-                                <label for="SBU" class="form-label">SBU</label>
-                                <select id="SBU" class="form-control mb-3">
-                                    <option value="FSC">FSC</option>
-                                    <option value="FLC">FLC</option>
-                                    <option value="FTMC">FTMC</option>
-                                    <option value="FCSI">FCSI</option>
-                                    <option value="FDC">FDC</option>
-                                    <option value="FUI">FUI</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label for="branch" class="form-label">Branch</label>
-                                <select id="branchSelect" class="form-control mb-3">
-                                </select>
-                            </div>
+                            <label for="SBU" class="form-label">SBU</label>
+                            <select id="SBU" name="SBU" class="form-control mb-3">
+                                <option value="FSC">FSC</option>
+                                <option value="FLC">FLC</option>
+                                <option value="FTMC">FTMC</option>
+                                <option value="FCSI">FCSI</option>
+                                <option value="FDC">FDC</option>
+                                <option value="FUI">FUI</option>
+                            </select>
+                            <label for="branch" class="form-label">Branch</label>
+                            <select id="branchSelect" name="branch" class="form-control mb-3">
+                            </select>
                         </div>
                         <div id="errorMessage" class="text-danger mt-3">${errorMessage}</div>
                         <div id="recaptcha-container" class="mt-3" style="display: flex; justify-content: center; align-items: center;"></div>
-
                     `,
+
                     showCancelButton: true,
                     confirmButtonText: 'Register',
                     cancelButtonText: 'Cancel',
