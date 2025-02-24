@@ -22,6 +22,8 @@
   border: 1px solid #ccc;
   border-radius: 0 4px 4px 0;
   height: 40px;
+  z-index: 2; /* Input is beneath the label */
+  background-color: transparent;
 }
 
 /* Focused State or Filled Input */
