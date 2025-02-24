@@ -357,11 +357,11 @@ function includeHTML(file, elementID) {
                         <div class="row">
                             <div class="col-12 col-md-6">
                                 <label for="fname" class="form-label">First Name</label>
-                                <input type="text" id="fname" name="fname" class="form-control mb-3" required>
+                                <input type="text" id="fname" name="fname" class="form-control mb-3" required autocomplete="off">
                             </div>
                             <div class="col-12 col-md-6">
                                 <label for="lname" class="form-label">Last Name</label>
-                                <input type="text" id="lname" name="lname" class="form-control mb-3" required>
+                                <input type="text" id="lname" name="lname" class="form-control mb-3" required autocomplete="off">
                             </div>
                         </div>
                         <div class="row">
@@ -369,7 +369,7 @@ function includeHTML(file, elementID) {
                               <label for="email" class="form-label">Email</label>
                               <div class="input-group mb-3">
                                 <span class="input-group-text"><i class="fa fa-envelope"></i></span>
-                                <input type="email" id="email" class="form-control" placeholder="Enter your Email" required>
+                                <input type="email" id="email" class="form-control" placeholder="Enter your Email" required autocomplete="off">
                               </div>
                             </div>
 
