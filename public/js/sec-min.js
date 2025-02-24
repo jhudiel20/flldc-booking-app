@@ -366,18 +366,24 @@ function includeHTML(file, elementID) {
                         </div>
                         <div class="row">
                             <div class="col-6">
-                                <label for="email" class="form-label">Email</label>
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class="fa fa-envelope"></i></span>
-                                    <input type="email" id="email" name="email" class="form-control mb-3" placeholder="Enter your Email" required>
-                                </div>
+                              <label for="newPassword" class="form-label">Password</label>
+                              <div class="input-group mb-3">
+                                <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                                <input type="password" id="newPassword" class="form-control" placeholder="Enter your password" required>
+                                <span class="input-group-text" id="togglePasswordNew" style="cursor: pointer;">
+                                  <i class="fa fa-eye"></i>
+                                </span>
+                              </div>
                             </div>
                             <div class="col-6">
-                                <label for="usertype" class="form-label">User Type</label>
-                                <select id="usertype" name="usertype" class="form-control mb-3">
-                                    <option value="Non-FAST Employee">Non-FAST Employee</option>
-                                    <option value="FAST Employee">FAST Employee</option>
-                                </select>
+                              <label for="confirmPassword" class="form-label">Confirm Password</label>
+                              <div class="input-group mb-3">
+                                <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                                <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm your password" required>
+                                <span class="input-group-text" id="togglePasswordConfirm" style="cursor: pointer;">
+                                  <i class="fa fa-eye"></i>
+                                </span>
+                              </div>
                             </div>
                         </div>
                         <div class="row">
@@ -403,18 +409,24 @@ function includeHTML(file, elementID) {
                             </div>
                         </div>
                         <div id="SBUContainer" style="display: none;">
-                            <label for="SBU" class="form-label">SBU</label>
-                            <select id="SBU" name="SBU" class="form-control mb-3">
-                                <option value="FSC">FSC</option>
-                                <option value="FLC">FLC</option>
-                                <option value="FTMC">FTMC</option>
-                                <option value="FCSI">FCSI</option>
-                                <option value="FDC">FDC</option>
-                                <option value="FUI">FUI</option>
-                            </select>
-                            <label for="branch" class="form-label">Branch</label>
-                            <select id="branchSelect" name="branch" class="form-control mb-3">
-                            </select>
+                          <div class="row">
+                              <div class="col-6">
+                                  <label for="SBU" class="form-label">SBU</label>
+                                  <select id="SBU" class="form-control mb-3">
+                                      <option value="FSC">FSC</option>
+                                      <option value="FLC">FLC</option>
+                                      <option value="FTMC">FTMC</option>
+                                      <option value="FCSI">FCSI</option>
+                                      <option value="FDC">FDC</option>
+                                      <option value="FUI">FUI</option>
+                                  </select>
+                              </div>
+                              <div class="col-6">
+                                  <label for="branch" class="form-label">Branch</label>
+                                  <select id="branchSelect" class="form-control mb-3">
+                                  </select>
+                              </div>
+                          </div>
                         </div>
                         <div id="errorMessage" class="text-danger mt-3">${errorMessage}</div>
                         <div id="recaptcha-container" class="mt-3" style="display: flex; justify-content: center; align-items: center;"></div>
