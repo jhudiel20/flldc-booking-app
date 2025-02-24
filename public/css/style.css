@@ -1,3 +1,48 @@
+/* Floating Label Container */
+.floating-label {
+  position: relative;
+}
+
+/* Input Field */
+.floating-label .form-control {
+  padding-top: 1.25rem;
+  padding-bottom: 0.25rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Label Styling */
+.floating-label label {
+  position: absolute;
+  top: 50%;
+  left: 45px; /* Adjust to align with the input text */
+  transform: translateY(-50%);
+  background-color: white;
+  padding: 0 5px;
+  transition: all 0.2s ease-in-out;
+  color: #999;
+  pointer-events: none;
+}
+
+/* Focused State & Filled Input */
+.floating-label .form-control:focus + label,
+.floating-label .form-control:not(:placeholder-shown) + label {
+  top: 0;
+  left: 45px; /* Align with input text */
+  font-size: 0.75rem;
+  color: #007bff; /* Highlight color */
+}
+
+/* Input Focus Outline */
+.floating-label .form-control:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* ######################################################### */
+
+
 /* Add margin between buttons */
 .custom-buttons {
   display: flex;
