@@ -1,1 +1,733 @@
-const a0_0x58fb52=a0_0x3d64;(function(_0x37e1c5,_0x230c01){const _0xdfc074=a0_0x3d64,_0x28d5c9=_0x37e1c5();while(!![]){try{const _0xd89895=parseInt(_0xdfc074(0x3e4))/0x1+-parseInt(_0xdfc074(0x25d))/0x2+-parseInt(_0xdfc074(0x2f6))/0x3+-parseInt(_0xdfc074(0x3e6))/0x4*(parseInt(_0xdfc074(0x2db))/0x5)+parseInt(_0xdfc074(0x3dc))/0x6*(-parseInt(_0xdfc074(0x275))/0x7)+parseInt(_0xdfc074(0x391))/0x8*(parseInt(_0xdfc074(0x27b))/0x9)+parseInt(_0xdfc074(0x234))/0xa;if(_0xd89895===_0x230c01)break;else _0x28d5c9['push'](_0x28d5c9['shift']());}catch(_0x3fc927){_0x28d5c9['push'](_0x28d5c9['shift']());}}}(a0_0x385b,0x1e8ae));const branches=[a0_0x58fb52(0x245),a0_0x58fb52(0x3dd),'ALABANG-RETAIL','AZUCENA-PMFTC\x20OVERFLOW',a0_0x58fb52(0x281),a0_0x58fb52(0x2f2),'BACOLOD-PERSONAL\x20COLLECTION',a0_0x58fb52(0x364),a0_0x58fb52(0x3aa),'BASILAN','BATANGAS',a0_0x58fb52(0x22b),a0_0x58fb52(0x305),a0_0x58fb52(0x33e),a0_0x58fb52(0x3c0),a0_0x58fb52(0x316),a0_0x58fb52(0x1f9),a0_0x58fb52(0x258),a0_0x58fb52(0x3bb),'BATANGAS-YAMAHA',a0_0x58fb52(0x3d0),'BATINO-NPI\x20ICD',a0_0x58fb52(0x331),'BATINO-NPI\x20SDC',a0_0x58fb52(0x31e),a0_0x58fb52(0x2c9),'BAYBAY',a0_0x58fb52(0x377),a0_0x58fb52(0x2dd),a0_0x58fb52(0x3b0),'BULACAN-NPI\x20NDC\x20CAW',a0_0x58fb52(0x32f),a0_0x58fb52(0x25a),a0_0x58fb52(0x2b8),a0_0x58fb52(0x2a4),'CABUYAO-ACTIMED\x20INC.',a0_0x58fb52(0x321),a0_0x58fb52(0x21b),a0_0x58fb52(0x375),a0_0x58fb52(0x357),a0_0x58fb52(0x2e0),a0_0x58fb52(0x334),a0_0x58fb52(0x22d),a0_0x58fb52(0x27c),a0_0x58fb52(0x28e),a0_0x58fb52(0x29a),a0_0x58fb52(0x3e0),a0_0x58fb52(0x3b6),'CABUYAO-NPI\x20DC','CABUYAO-NPI\x20LISP\x20FG',a0_0x58fb52(0x2ef),a0_0x58fb52(0x327),a0_0x58fb52(0x21c),a0_0x58fb52(0x310),'CABUYAO-NUTRIASIA',a0_0x58fb52(0x3bc),a0_0x58fb52(0x2aa),'CABUYAO-PERSONAL\x20COLLECTION',a0_0x58fb52(0x3a5),'CABUYAO-PMFTC1',a0_0x58fb52(0x2fd),a0_0x58fb52(0x2d4),a0_0x58fb52(0x2eb),'CABUYAO-UNILEVER',a0_0x58fb52(0x2fe),'CABUYAO-VMI\x20RETAIL',a0_0x58fb52(0x30c),a0_0x58fb52(0x2ba),a0_0x58fb52(0x2c2),a0_0x58fb52(0x23c),a0_0x58fb52(0x2a9),a0_0x58fb52(0x390),'CAGAYAN-GMC',a0_0x58fb52(0x360),a0_0x58fb52(0x2b2),a0_0x58fb52(0x2d2),a0_0x58fb52(0x24c),a0_0x58fb52(0x243),'CAGAYAN-ROBINSONS',a0_0x58fb52(0x252),a0_0x58fb52(0x34a),a0_0x58fb52(0x25b),a0_0x58fb52(0x38c),a0_0x58fb52(0x268),a0_0x58fb52(0x28a),a0_0x58fb52(0x271),a0_0x58fb52(0x220),a0_0x58fb52(0x2e2),a0_0x58fb52(0x251),a0_0x58fb52(0x233),'CALAMBA-LAGUNA',a0_0x58fb52(0x266),a0_0x58fb52(0x3db),'CALAMBA-RED\x20RIBBON\x20SITE',a0_0x58fb52(0x318),'CALAMBA-RFM\x20RETAIL','CALAMBA-WYETH',a0_0x58fb52(0x39f),a0_0x58fb52(0x215),a0_0x58fb52(0x3b8),a0_0x58fb52(0x218),a0_0x58fb52(0x255),a0_0x58fb52(0x248),a0_0x58fb52(0x3a6),a0_0x58fb52(0x205),a0_0x58fb52(0x33b),a0_0x58fb52(0x3de),a0_0x58fb52(0x2ed),a0_0x58fb52(0x35b),a0_0x58fb52(0x227),'CAUAYAN-ZUELLIG','CEBU','CEBU-CDI',a0_0x58fb52(0x2f0),a0_0x58fb52(0x38b),a0_0x58fb52(0x265),a0_0x58fb52(0x206),a0_0x58fb52(0x339),a0_0x58fb52(0x3d7),a0_0x58fb52(0x216),a0_0x58fb52(0x3a9),a0_0x58fb52(0x3d9),a0_0x58fb52(0x3b9),a0_0x58fb52(0x2b4),a0_0x58fb52(0x373),a0_0x58fb52(0x239),a0_0x58fb52(0x27f),'CEBU-MONDE\x20NISSIN',a0_0x58fb52(0x353),a0_0x58fb52(0x2d8),'CEBU-NEXTRADE',a0_0x58fb52(0x287),a0_0x58fb52(0x2b3),a0_0x58fb52(0x352),a0_0x58fb52(0x21e),a0_0x58fb52(0x2d0),'CEBU-NPI\x20VDC\x20OVERFLOW',a0_0x58fb52(0x33f),a0_0x58fb52(0x30a),a0_0x58fb52(0x2a7),a0_0x58fb52(0x32e),a0_0x58fb52(0x342),'CEBU-SHELL','CEBU-SYSU','CEBU-TRANSPORT','CEBU-URC',a0_0x58fb52(0x3b2),a0_0x58fb52(0x3a0),a0_0x58fb52(0x249),a0_0x58fb52(0x3d1),a0_0x58fb52(0x2a6),a0_0x58fb52(0x254),a0_0x58fb52(0x228),a0_0x58fb52(0x3cf),'DASMARIÑAS-GREEN\x20CROSS\x20INC.-2',a0_0x58fb52(0x2d6),a0_0x58fb52(0x2a2),a0_0x58fb52(0x340),a0_0x58fb52(0x29c),'DAVAO-CITIHARDWARE',a0_0x58fb52(0x22e),'DAVAO-FMM',a0_0x58fb52(0x212),'DAVAO-JS\x20UNITRADE\x20RETAIL',a0_0x58fb52(0x3ab),a0_0x58fb52(0x32c),a0_0x58fb52(0x273),'DAVAO-PERSONAL\x20COLLECTION',a0_0x58fb52(0x39b),a0_0x58fb52(0x337),a0_0x58fb52(0x3d6),a0_0x58fb52(0x2bd),a0_0x58fb52(0x2ca),a0_0x58fb52(0x36f),'DAVAO-SILVER\x20SWAN',a0_0x58fb52(0x359),a0_0x58fb52(0x203),a0_0x58fb52(0x282),a0_0x58fb52(0x2ac),'DUMAGUETE',a0_0x58fb52(0x308),a0_0x58fb52(0x246),a0_0x58fb52(0x3a3),'FLEX-CALAMBA','FLEX-TAGUIG',a0_0x58fb52(0x39e),a0_0x58fb52(0x1f6),a0_0x58fb52(0x314),'GENSAN-GMC',a0_0x58fb52(0x221),'HOME\x20OFFICE-FMM',a0_0x58fb52(0x204),'ILOILO','ILOILO-COLPAL',a0_0x58fb52(0x3c9),a0_0x58fb52(0x2ce),a0_0x58fb52(0x376),a0_0x58fb52(0x2ee),'ILOILO-NEXTRADE',a0_0x58fb52(0x236),a0_0x58fb52(0x29b),a0_0x58fb52(0x324),a0_0x58fb52(0x3cb),a0_0x58fb52(0x361),'IMUS-COLDCHAIN',a0_0x58fb52(0x34b),a0_0x58fb52(0x32d),a0_0x58fb52(0x20d),'JOLO',a0_0x58fb52(0x3b1),a0_0x58fb52(0x292),a0_0x58fb52(0x232),a0_0x58fb52(0x398),'LAGUNA-GMC',a0_0x58fb52(0x348),a0_0x58fb52(0x3c5),a0_0x58fb52(0x2c3),a0_0x58fb52(0x36b),a0_0x58fb52(0x2a3),a0_0x58fb52(0x309),a0_0x58fb52(0x2d5),a0_0x58fb52(0x1f3),a0_0x58fb52(0x23b),a0_0x58fb52(0x30f),'MAKATI-ALFAMART','MAKATI-CDI',a0_0x58fb52(0x1f8),a0_0x58fb52(0x2cb),a0_0x58fb52(0x38a),a0_0x58fb52(0x261),'MANDAUE','MANDAUE-NA','MANDAUE-PMFTC\x20OVERFLOW',a0_0x58fb52(0x3a2),a0_0x58fb52(0x291),'MUNTINLUPA',a0_0x58fb52(0x29e),a0_0x58fb52(0x2e7),'NAGA-PERSONAL\x20COLLECTION','NAGA-PMFTC',a0_0x58fb52(0x29f),a0_0x58fb52(0x2d1),a0_0x58fb52(0x2e1),a0_0x58fb52(0x1f1),a0_0x58fb52(0x24d),a0_0x58fb52(0x3b3),a0_0x58fb52(0x299),a0_0x58fb52(0x2ea),a0_0x58fb52(0x277),a0_0x58fb52(0x3da),'PANGASINAN',a0_0x58fb52(0x200),a0_0x58fb52(0x3b5),a0_0x58fb52(0x2f3),a0_0x58fb52(0x3e2),a0_0x58fb52(0x3ba),a0_0x58fb52(0x363),'PANGASINAN-NA',a0_0x58fb52(0x3be),a0_0x58fb52(0x295),a0_0x58fb52(0x3be),a0_0x58fb52(0x20e),a0_0x58fb52(0x2c8),a0_0x58fb52(0x24e),a0_0x58fb52(0x2c5),a0_0x58fb52(0x1f2),'PANGALAT',a0_0x58fb52(0x222),'SANTIAGO',a0_0x58fb52(0x365),a0_0x58fb52(0x328),a0_0x58fb52(0x35f),a0_0x58fb52(0x201),a0_0x58fb52(0x2a0),a0_0x58fb52(0x315),'TALISAY-PMFTC',a0_0x58fb52(0x3ad),a0_0x58fb52(0x338),a0_0x58fb52(0x34d),a0_0x58fb52(0x2ab)];typeof AOS!=='undefined'&&AOS[a0_0x58fb52(0x35a)]({'duration':0x5dc,'once':![],'mirror':!![]});function toggleExtras(){const _0x18ccb1=a0_0x58fb52,_0x401bcb={'WLBJe':_0x18ccb1(0x21a),'VoEmL':_0x18ccb1(0x272)},_0x369b2b=document[_0x18ccb1(0x279)](_0x401bcb[_0x18ccb1(0x2fb)]);_0x369b2b['classList'][_0x18ccb1(0x1fe)](_0x401bcb[_0x18ccb1(0x3af)]);}function a0_0x3d64(_0x52a5bb,_0x42a954){const _0x385be9=a0_0x385b();return a0_0x3d64=function(_0x3d6492,_0x3e5698){_0x3d6492=_0x3d6492-0x1ef;let _0x3cad72=_0x385be9[_0x3d6492];return _0x3cad72;},a0_0x3d64(_0x52a5bb,_0x42a954);}const currentPath=window[a0_0x58fb52(0x319)]['pathname'][a0_0x58fb52(0x276)]('/')[a0_0x58fb52(0x372)]()||a0_0x58fb52(0x2a8),navLinks=document[a0_0x58fb52(0x336)](a0_0x58fb52(0x37b));navLinks[a0_0x58fb52(0x25f)](_0x4b940b=>{const _0x40b86c=a0_0x58fb52,_0xe7959f={'dsVxz':'href','IicAT':function(_0x16cb11,_0x1ecc20){return _0x16cb11===_0x1ecc20;},'RpWcr':'active'},_0x29c5b7=_0x4b940b[_0x40b86c(0x2d7)](_0xe7959f['dsVxz']);_0xe7959f[_0x40b86c(0x2f5)](_0x29c5b7,currentPath)&&_0x4b940b['classList'][_0x40b86c(0x1ef)](_0xe7959f['RpWcr']);});function includeHTML(_0x50555f,_0x4136f0){const _0x29f98b=a0_0x58fb52,_0x5708e7={'CoUhN':function(_0x5a8d9c,_0x5db60c){return _0x5a8d9c(_0x5db60c);}};return _0x5708e7[_0x29f98b(0x26f)](fetch,'includes/'+_0x50555f+_0x29f98b(0x1fc))['then'](_0x1ed7ee=>{const _0x532350=_0x29f98b;if(!_0x1ed7ee['ok'])throw new Error(_0x532350(0x2e9));return _0x1ed7ee[_0x532350(0x223)]();})[_0x29f98b(0x1fd)](_0x39fb03=>{const _0x2b4b6d=_0x29f98b;document[_0x2b4b6d(0x279)](_0x4136f0)[_0x2b4b6d(0x347)]=_0x39fb03;})[_0x29f98b(0x399)](_0x2c8dc1=>console[_0x29f98b(0x2f8)](_0x29f98b(0x24a),_0x2c8dc1));}function a0_0x385b(){const _0x30b808=['/api/available_rooms.js','CAGAYAN-PMFTC','OOUVW','ALABANG','ELISCO-EPI\x20TRANSPORT','fa-eye-slash','CANLUBANG-ZUELLIG','CEBU-WYETH','Error\x20loading\x20HTML:','classList','CAGAYAN-PERSONAL\x20COLLECTION','OLONGAPO','PAMPANGA-CDI-RETAIL','JuLCG','TxqwD','CALAMBA-JAPAN\x20TOBACCO\x20INT\x27L.\x20OVERFLOW','CAGAYAN-SHELL','fire','COTABATO-DOLE\x20RETAIL','CANLUBANG-EDWARD\x20KELLER','MMkZP','arTzF','BATANGAS-PMFTC\x20OVERFLOW','tMInB','CABUYAO','CAGAYAN-URC','type','138410iSFXqg','Your\x20password\x20has\x20been\x20changed.','forEach','Login\x20failed.\x20Please\x20try\x20again.','MAKATI-PG','DXNqu','branchSelect','mQkVO','CEBU-FACILITY','CALAMBA-MMC\x20SDC','Reset\x20Password','CALAMBA\x20OVERFLOW','cuWIk','bDBPK','Forgot\x20Password','FAST\x20Employee','shuuE','click','CoUhN','tOhHU','CALAMBA-DISTRIPHIL','d-none','DAVAO-NPI\x20PHARMA','cbVYB','229082cnKxNV','split','ORIENTAL\x20MINDORO-NA','bchZf','getElementById','dINsl','9zCfxof','CABUYAO-L&D\x20CENTER','value','mdbLD','CEBU-MARIWASA','rooms?ID=','BACOLOD','DIPOLOG','nGYrR','loaded','oFEkY','HdzYB','CEBU-NEXTRADE\x20RETAIL','togglePasswordConfirm','trim','CALAMBA-ALFAMART','hznuA','kowjK','header','CABUYAO-LAGUNA','textContent','tvJjT','MINDANAO','KALIBO-NPI','Login','newPassword','PANGASINAN-URC','AQcIE','WpVNy','stziJ','OTTAWA','CABUYAO-MEGA\x20PACK','ILOILO-RFM','DAVAO-CDI','success','MUNTINLUPA-PMFTC','NAGA-ROBINSONS','TALISAY','search','DASMARIÑAS-PMFTC\x20OVERFLOW','LAS\x20PIÑAS-BOIE','CABUYAO-ABBOTT-RETAIL','jGlJy','COTABATO','CEBU-PILMICO\x20CONSO','index','CAGAYAN-FACILITY','CABUYAO-P&G\x20RETAIL','ZAMBOANGA','DIPOLOG-MONDE\x20NISSIN','mrHrm','fa-eye','Logout\x20button\x20not\x20found','forgotPasswordLink','jUDYQ','CAGAYAN-NPI\x20PHARMA','CEBU-NPI\x20ICD','CEBU-JOLLIBEE\x20CONSO-2','OgNBW','OQMBu','ASgSJ','CABUYAO-ABBOTT','errorMessage','CAGAYAN\x20-\x20NPI\x20CDC\x20RETAIL','render','test','DAVAO-RFM','You\x20have\x20been\x20successfully\x20logged\x20out.','NWCGr','Register','email','CAGAYAN-DMPI','LAGUNA-RED\x20RIBBON','</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22mt-3\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22registerLink\x22\x20class=\x22btn\x20btn-link\x20p-0\x22>Don\x27t\x20have\x20an\x20account?\x20Register\x20here</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22recaptcha-container\x22\x20class=\x22mt-3\x22\x20style=\x22display:\x20flex;\x20justify-content:\x20center;\x20align-items:\x20center;\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','PAMPANGA-NPI','none','Logout\x20failed.\x20Please\x20try\x20again.','PAMPANGA-CDI','BATINO-TRUCKING','DAVAO-ROBINSONS','MAKATI-P&G','aQJRL','6LcEwdUqAAAAAFnSG67vpecp_r_Ow1TWd25DDKCX','ILOILO-JS\x20UNITRADE','eQelw','CEBU-NPI\x20VDC','NORTH\x20COTABATO','CAGAYAN-NPI\x20RETAIL','mVVCl','CABUYAO-RENGO','LIBIS\x20OVERFLOW','DASMARIÑAS-OVERFLOW','getAttribute','CEBU-NATIONAL\x20BOOKSTORE','#roomDropdown','stringify','140GwEgpf','togglePassword','BULACAN-NDC\x20TRUCKING','xDDKm','PaJdj','CABUYAO-J&J','NORTH\x20COTABATO-RETAIL','CALAMBA-JAPAN\x20TOBACCO\x20INT\x27L.','room_name','pYPyB','qBIhB','Password\x20cannot\x20be\x20empty.','NAGA','Passwords\x20do\x20not\x20match.','Network\x20response\x20was\x20not\x20ok','ORIENTAL\x20MINDORO','CABUYAO-RFM','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22row\x22\x20style=\x22text-align:left\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col-12\x20col-md-6\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20for=\x22fname\x22\x20class=\x22form-label\x22>First\x20Name</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20id=\x22fname\x22\x20name=\x22fname\x22\x20class=\x22form-control\x20mb-3\x22\x20required\x20autocomplete=\x22off\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col-12\x20col-md-6\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20for=\x22lname\x22\x20class=\x22form-label\x22>Last\x20Name</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20id=\x22lname\x22\x20name=\x22lname\x22\x20class=\x22form-control\x20mb-3\x22\x20required\x20autocomplete=\x22off\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22row\x22\x20style=\x22text-align:left\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col-12\x20col-md-6\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20for=\x22email\x22\x20class=\x22form-label\x22>Email</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22input-group\x20mb-3\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22input-group-text\x22><i\x20class=\x22fa\x20fa-envelope\x22></i></span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22email\x22\x20id=\x22email\x22\x20class=\x22form-control\x22\x20placeholder=\x22Enter\x20your\x20Email\x22\x20required\x20autocomplete=\x22off\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col-12\x20col-md-6\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20for=\x22usertype\x22\x20class=\x22form-label\x22>User\x20Type</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<select\x20id=\x22usertype\x22\x20name=\x22usertype\x22\x20class=\x22form-control\x20mb-3\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22Non-FAST\x20Employee\x22>Non-FAST\x20Employee</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22FAST\x20Employee\x22>FAST\x20Employee</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</select>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22row\x22\x20style=\x22text-align:left\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col-12\x20col-md-6\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20for=\x22newPassword\x22\x20class=\x22form-label\x22>Password</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22input-group\x20mb-3\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22input-group-text\x22><i\x20class=\x22fa\x20fa-lock\x22></i></span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22password\x22\x20id=\x22newPassword\x22\x20class=\x22form-control\x22\x20placeholder=\x22Enter\x20your\x20password\x22\x20required>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22input-group-text\x22\x20id=\x22togglePasswordNew\x22\x20style=\x22cursor:\x20pointer;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22fa\x20fa-eye\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col-12\x20col-md-6\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20for=\x22confirmPassword\x22\x20class=\x22form-label\x22>Confirm\x20Password</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22input-group\x20mb-3\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22input-group-text\x22><i\x20class=\x22fa\x20fa-lock\x22></i></span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22password\x22\x20id=\x22confirmPassword\x22\x20class=\x22form-control\x22\x20placeholder=\x22Confirm\x20your\x20password\x22\x20required>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22input-group-text\x22\x20id=\x22togglePasswordConfirm\x22\x20style=\x22cursor:\x20pointer;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22fa\x20fa-eye\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22SBUContainer\x22\x20style=\x22display:\x20none;\x22\x20style=\x22text-align:left\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22row\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col-12\x20col-md-6\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20for=\x22SBU\x22\x20class=\x22form-label\x22>SBU</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<select\x20id=\x22SBU\x22\x20class=\x22form-control\x20mb-3\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22FSC\x22>FSC</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22FLC\x22>FLC</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22FTMC\x22>FTMC</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22FCSI\x22>FCSI</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22FDC\x22>FDC</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22FUI\x22>FUI</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</select>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col-12\x20col-md-6\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20for=\x22branch\x22\x20class=\x22form-label\x22>Branch</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<select\x20id=\x22branchSelect\x22\x20class=\x22form-control\x20mb-3\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</select>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22errorMessage\x22\x20class=\x22text-danger\x20mt-3\x22>','CARMONA-OVERFLOW\x202','ILOILO-NA','CABUYAO-NPI\x20MMC3','CEBU-COLPAL','pgGVS','BACOLOD-NA','PASIG','Please\x20enter\x20a\x20valid\x20email\x20address.','IicAT','153783uDcFUD','application/json','error','option','LbZgz','WLBJe','DvBwN','CABUYAO-PMFTC2','CABUYAO-URC','function','RBIbO','QUJjm','ZrrdN','WimgN','User\x20is\x20not\x20logged\x20in.','BATANGAS-CDO\x20FOODSPHERE\x20RETAIL','BookNow','dfObH','DUMAGUETE-NA','LAWA-OVERFLOW','CEBU-PERSONAL\x20COLLECTION','iyoDi','CAGAYAN','WYibc','status','LIBIS-UNILEVER','CABUYAO-NPI\x20TRUCKING','Error\x20checking\x20user\x20status:','allrooms','json','GENSAN','TALISAY-NA','BATANGAS-NPI\x20RETAIL','honNr','CALAMBA-RFM','location','block','NEzab','BLgND','OrRbV','BATINO-SDC\x20TRUCKING','ndOpC','SaMnF','CABUYAO-DMPI','POST','jWGLX','ILOILO-SHELL','RjobZ','Jmhdt','CABUYAO-NPI\x20OVERFLOW','SANTA\x20ROSA-RETAIL','LogoutButton','PTVUX','recaptcha-container','DAVAO-NEXTRADE','IMUS-FOOD\x20PANDA','CEBU-PRIFOOD','BUTUAN','PuTKO','BATINO-NPI\x20RETAIL','dataset','dMBgP','CABUYAO-J&J\x20RETAIL','preventDefault','querySelectorAll','DAVAO-PMFTC','TAYTAY-PMFTC','CEBU-FDI','eciOb','CARMONA-LAFARGE\x20RETAIL','registerLink','IaNEY','BATANGAS-HONDA','CEBU-NPI\x20VDC\x20RETAIL','DAVAO','rjFuU','CEBU-RFM','ZdxrX','forgot_email','LogoutDropdown','You\x20will\x20be\x20logged\x20out\x20of\x20your\x20account.','innerHTML','LAGUNA-MONDE\x20NISSIN','EZHoV','CAGAYAN-SILVERSWAN','IMUS-COLDCHAIN\x20RETAIL','Idpuh','TOLEDO','LGIIY','lWlNl','style','jhqaR','CEBU-NPI\x20PHARMA','CEBU-NA','qmaNi','isConfirmed','SvyiR','CABUYAO-GREEN\x20CROSS\x20INC.','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22font-size:\x2016px;\x22>Reset\x20password\x20for:\x20<strong>','DAVAO-URC','init','CATARMAN','keuWR','yCecw','ELtjM','TACLOBAN','CAGAYAN-NPI','IMUS-ALFAMART','email_login','PASIG-NPI\x20RETAIL','BACOLOD-SHELL','SANTA\x20ROSA','/api/UserLogin','kLLEg','VHmOX','YVUIR','AVKXi','LAPULAPU-PMFTC\x20OVERFLOW','usertype','appendChild','LiluT','DAVAO-SHELL','cNsYb','all','pop','CEBU-KIMBERLY\x20CLARK','ZPGWs','CABUYAO-FAPC','ILOILO-JS\x20UNITRADE\x20RETAIL','BORONGAN','An\x20unexpected\x20error\x20occurred.','KIPZv','confirmPassword','.nav-link','remove','agpCC','addEventListener','display','MhFUn','znlpK','dropdown-item','fitWR','Please\x20verify\x20the\x20reCAPTCHA.','get','href','Cancel','jJkQV','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22mb-3\x20text-start\x22\x20style=\x22text-align:left\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20for=\x22email_login\x22\x20class=\x22form-label\x22>Email</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22input-group\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22input-group-text\x22><i\x20class=\x22fa\x20fa-envelope\x22></i></span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22email\x22\x20id=\x22email_login\x22\x20class=\x22form-control\x22\x20placeholder=\x22Enter\x20your\x20Email\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22mb-3\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22d-flex\x20justify-content-between\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20class=\x22form-label\x22\x20for=\x22password\x22>Password</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22forgotPasswordLink\x22\x20class=\x22btn\x20btn-link\x20p-0\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20data-bs-toggle=\x22tooltip\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20data-bs-offset=\x220,4\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20data-bs-placement=\x22top\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20data-bs-html=\x22true\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20title=\x22To\x20reset\x20your\x20password,\x20please\x20click\x20this\x20link\x20to\x20process\x20your\x20reset.\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<small>Forgot\x20Password?</small>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22input-group\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22input-group-text\x22><i\x20class=\x22fa\x20fa-lock\x22></i></span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22password\x22\x20id=\x22password\x22\x20class=\x22form-control\x22\x20placeholder=\x22Enter\x20your\x20password\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22input-group-text\x22\x20id=\x22togglePassword\x22\x20style=\x22cursor:\x20pointer;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22fa\x20fa-eye\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22errorMessage\x22\x20class=\x22text-danger\x20mt-3\x22>','MAKATI-PERSONAL\x20COLLECTION','CEBU-EPI','CAINTA-MONDELEZ','room_id','cShmC','MNbaw','CAGAYAN-FMM','265816ANhvQE','AdkgZ','bWSyx','querySelector','yEhNd','BxNpB','GUfxI','LA\x20UNION-CDI','catch','warning','DAVAO-PERSONAL\x20COLLECTION-2','true','pusMZ','FORTUNE-PMFTC1','CALBAYOG','CEBU-URC\x20SAN\x20FERNANDO','jinRk','MAYON','ELISCO-SHELL','GEsZd','CABUYAO-PMFTC\x20OVERFLOW','CARMONA-KALINISAN\x20CHEMICALS\x20CORP.','MDxpu','WRfXz','CEBU-GREEN\x20CROSS','BALITE-PMFTC\x20OVERFLOW','DAVAO-NA','fname','TAYTAY-NA','FYPft','VoEmL','BULACAN-NPI\x20NDC','KALIBO','CEBU-URC\x20CONSO','OLONGAPO-NPI','Yzxpu','PASAY-PMFTC','CABUYAO-NPI','nlBIj','CALBAYOG-NPI','CEBU-JOLLIBEE\x20CONSO','PASIG-NPI','BATANGAS-SAFI','CABUYAO-P&G','DOMContentLoaded','PANGASINAN-PERSONAL\x20COLLECTION','footer','BATANGAS-NPI','TaKsb','nxgtc','CmipM','dhcBd','LAGUNA-PRIFOOD','diyWZ','AGYaC','sjUYl','ILOILO-JAPAN\x20TOBACCO\x20INT\x27L','ghrco','ILOILO-SM','innerText','DCyVj','password','DASMARIÑAS-GREEN\x20CROSS\x20INC','BATINO-NPI\x20EXTENSION','CORPORATE','reload','All\x20fields\x20are\x20required.','apyec','lname','DAVAO-PRIFOOD','CEBU-FMM','</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22recaptcha-container\x22\x20class=\x22mt-3\x22\x20style=\x22display:\x20flex;\x20justify-content:\x20center;\x20align-items:\x20center;\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','CEBU-JJPI\x20RDC','ORIENTAL\x20MINDORO-NPI','CALAMBA-P&G','12MEwSHU','ALABANG-FMM','CARMONA-OVERFLOW\x201','VzyRK','CABUYAO-NA\x20RETAIL','fJyCr','PASIG-NA','CYwtH','5166ODWAIG','EiKdl','30228pEfWnn','Change\x20Password','DolQU','add','FIeNe','ODIONGAN','PAMPANGA-PERSONAL\x20COLLECTION','LIBIS-COLPAL','getResponse','Error','FORTUNE-PMFTC2','mmBlq','MAKATI-JOLLIBEE','BATANGAS-PMFTC','GUNJV','XiyxB','.html','then','toggle','/api/UserRegistration','PASAY','TAGUIG','UOGZq','DAVAO-WYETH','ILIGAN','CARMONA-LAFARGE','CEBU-FACILITY\x202','AIjQG','/images/LOGO.png','SCVii','zKgDp','AZhdU','ZFKyi','IMUS-SM','PAMPANGA','sPyMm','HhZVE','/api/logout','DAVAO-JS\x20UNITRADE','Success!','igPNs','CALBAYOG-NA','CEBU-GMC','Element\x20with\x20ID\x20\x27LoginModal\x27\x20not\x20found.','CAMIGUIN','Vbnvm','extras','CABUYAO-EC\x20OVERFLOW','CABUYAO-NPI\x20RETAIL','atiLY','CEBU-NPI\x20RETAIL','mbkvQ','CALAMBA-GREEN\x20CROSS\x20INC.','HOME\x20OFFICE','ROXAS','text','zzaud','Jeypw','rGHLf','CATBALOGAN-NPI','DAGUPAN','rtTSh','forgotErrorMessage','BATANGAS-CDI','fpXAz','CABUYAO-J&J\x20TRANSPORT','DAVAO-EPI','/api/validate-cookie','LqlVV','GXobs','KORONADAL','CALAMBA-JOLLIBEE','4842230zeVMgV','TmWep','ILOILO-PMFTC','ypprG','loginItem','CEBU-KIMBERLY\x20CLARK\x20RETAIL','hOMqj','LIBIS-PMFTC','CAGAYAN-DMPI\x20RETAIL','RfDcM','Successfully\x20Login.','kHShX','createElement','esSQW'];a0_0x385b=function(){return _0x30b808;};return a0_0x385b();}Promise[a0_0x58fb52(0x371)]([includeHTML(a0_0x58fb52(0x28d),a0_0x58fb52(0x28d)),includeHTML('footer',a0_0x58fb52(0x3bf))])[a0_0x58fb52(0x1fd)](()=>{const _0x2a9b23=a0_0x58fb52,_0x1cccf0={'kLLEg':function(_0x2b46f7){return _0x2b46f7();},'dlkxR':function(_0x2de82f,_0x49c155){return _0x2de82f===_0x49c155;},'dINsl':_0x2a9b23(0x2ff)};_0x1cccf0[_0x2a9b23(0x367)](checkUserStatus),_0x1cccf0[_0x2a9b23(0x367)](loadRooms),_0x1cccf0['dlkxR'](typeof loadAllRooms,_0x1cccf0[_0x2a9b23(0x27a)])&&_0x1cccf0[_0x2a9b23(0x367)](loadAllRooms);});async function loadRooms(){const _0x2d433d=a0_0x58fb52,_0x458406={'kHShX':function(_0x352274,_0x236c48){return _0x352274(_0x236c48);},'aQJRL':_0x2d433d(0x2d9),'rbcwF':_0x2d433d(0x242),'YVUIR':'<a\x20class=\x22dropdown-item\x22\x20href=\x22#\x22>No\x20rooms\x20available</a>','OIZKL':_0x2d433d(0x382),'TmWep':_0x2d433d(0x312),'MDxpu':'All\x20Rooms','vNUkY':_0x2d433d(0x39c)},_0x457ac4=document[_0x2d433d(0x394)](_0x458406[_0x2d433d(0x2cc)]),_0x22ddb0=await fetch(_0x458406['rbcwF']);if(!_0x22ddb0['ok']){console[_0x2d433d(0x2f8)]('HTTP\x20error!\x20status:\x20'+_0x22ddb0[_0x2d433d(0x30e)]);return;}const _0x127f5b=await _0x22ddb0[_0x2d433d(0x313)]();if(_0x127f5b['length']===0x0){_0x457ac4[_0x2d433d(0x347)]=_0x458406[_0x2d433d(0x369)];return;}_0x457ac4[_0x2d433d(0x347)]='';const _0x21ea4c=document[_0x2d433d(0x240)]('a');_0x21ea4c[_0x2d433d(0x24b)][_0x2d433d(0x1ef)](_0x458406['OIZKL']),_0x21ea4c['href']=_0x458406[_0x2d433d(0x235)],_0x21ea4c[_0x2d433d(0x28f)]=_0x458406[_0x2d433d(0x3a7)],_0x457ac4['appendChild'](_0x21ea4c),_0x127f5b[_0x2d433d(0x25f)](_0x4df7ac=>{const _0x28f7c1=_0x2d433d,_0x21d60b=document[_0x28f7c1(0x240)]('a');_0x21d60b['className']='dropdown-item';const _0x58ec09=_0x458406[_0x28f7c1(0x23f)](encodeURIComponent,_0x4df7ac[_0x28f7c1(0x38d)]);_0x21d60b[_0x28f7c1(0x386)]=_0x28f7c1(0x280)+_0x58ec09,_0x21d60b[_0x28f7c1(0x28f)]=_0x4df7ac[_0x28f7c1(0x2e3)],_0x457ac4[_0x28f7c1(0x36d)](_0x21d60b);}),_0x457ac4[_0x2d433d(0x332)][_0x2d433d(0x284)]=_0x458406['vNUkY'];}includeHTML('header','header')[a0_0x58fb52(0x1fd)](()=>{const _0x417892=a0_0x58fb52,_0x260390={'MhFUn':_0x417892(0x3ce),'BrnTN':_0x417892(0x223),'sPyMm':_0x417892(0x2ae),'yEhNd':_0x417892(0x247),'kowjK':'Sign\x20In','xwZrW':_0x417892(0x208),'TaKsb':_0x417892(0x26b),'puuOo':function(_0x59bdda,_0x176529){return _0x59bdda===_0x176529;},'bWSyx':'block','fitWR':'none','AdkgZ':_0x417892(0x294),'PaJdj':_0x417892(0x26e),'bchZf':'SBU','WpVNy':_0x417892(0x2b9),'jGlJy':_0x417892(0x384),'CYwtH':_0x417892(0x3d3),'mVVCl':_0x417892(0x2e8),'iyoDi':'Registration\x20completed.','znlpK':_0x417892(0x29d),'keuWR':'Registration\x20failed.\x20Please\x20try\x20again.','dhcBd':'Sign\x20Up','LuftW':'700px','RfDcM':_0x417892(0x2c0),'xHTWY':_0x417892(0x36c),'tLOCO':'change','DolQU':_0x417892(0x32b),'jUDYQ':_0x417892(0x2dc),'xDDKm':_0x417892(0x362),'bRgfV':function(_0x2b41fb,_0x17b28b){return _0x2b41fb||_0x17b28b;},'MMkZP':'Please\x20fill\x20in\x20all\x20fields.','wovyV':_0x417892(0x2f7),'LqlVV':_0x417892(0x23e),'tMInB':_0x417892(0x260),'arTzF':'recaptcha-container-forgot','Jeypw':_0x417892(0x2cd),'cNsYb':_0x417892(0x344),'UOGZq':_0x417892(0x22a),'mrHrm':'Please\x20enter\x20a\x20valid\x20email\x20address.','GAjHD':function(_0xac3e4f,_0x2da5c3,_0x54fef2){return _0xac3e4f(_0x2da5c3,_0x54fef2);},'fpXAz':'/api/ForgotPassword','honNr':_0x417892(0x322),'hOMqj':'Request\x20failed.\x20Please\x20try\x20again.','jWGLX':function(_0x3c3a1e){return _0x3c3a1e();},'aLrdu':_0x417892(0x33c),'PTVUX':_0x417892(0x2be),'eciOb':_0x417892(0x2c7),'VHmOX':_0x417892(0x2f8),'bsFPi':function(_0x3497c2,_0x353ad0,_0x2d638a){return _0x3497c2(_0x353ad0,_0x2d638a);},'ZPGWs':_0x417892(0x211),'GUfxI':_0x417892(0x1f5),'XJNKs':'Logout\x20error:','ghrco':'Are\x20you\x20sure?','nasBb':'Yes,\x20log\x20out','EiKdl':'Cancel','Pcxwh':'LoginModal','uqPty':_0x417892(0x217),'OgNBW':_0x417892(0x329),'AGxZu':_0x417892(0x2af)},_0x5cbb4f=document['getElementById'](_0x260390['Pcxwh']);_0x5cbb4f?_0x5cbb4f[_0x417892(0x37e)](_0x260390['PaJdj'],function(_0x9817c1){const _0x378fc9=_0x417892,_0x34b205={'pYPyB':_0x260390[_0x378fc9(0x3e8)],'GXobs':_0x260390[_0x378fc9(0x2b1)],'igPNs':_0x260390['PaJdj'],'HhZVE':_0x260390[_0x378fc9(0x2de)],'dfObH':'password','ASgSJ':_0x378fc9(0x384),'ZFKyi':function(_0x4e36bb,_0x8792d9){return _0x260390['bRgfV'](_0x4e36bb,_0x8792d9);},'HdzYB':_0x260390['WpVNy'],'tOhHU':_0x260390[_0x378fc9(0x256)],'shuuE':_0x260390['wovyV'],'JuLCG':'Success!','ELtjM':_0x260390[_0x378fc9(0x230)],'qmaNi':_0x260390[_0x378fc9(0x381)],'pgGVS':_0x260390[_0x378fc9(0x259)],'plfWt':_0x260390[_0x378fc9(0x257)],'lWlNl':_0x260390[_0x378fc9(0x225)],'mdbLD':_0x260390[_0x378fc9(0x370)],'fJyCr':_0x260390[_0x378fc9(0x202)],'yCecw':_0x260390[_0x378fc9(0x2ad)],'ubBcy':function(_0x3b763f,_0x35316c,_0x5b4809){return _0x260390['GAjHD'](_0x3b763f,_0x35316c,_0x5b4809);},'mmBlq':_0x260390[_0x378fc9(0x22c)],'nHXqg':_0x260390[_0x378fc9(0x317)],'RjobZ':'Password\x20reset\x20instructions\x20sent\x20to\x20your\x20email.','rjFuU':_0x260390[_0x378fc9(0x23a)]};_0x9817c1[_0x378fc9(0x335)]();const _0x59da5a=(_0x56d74d='')=>{const _0x3854b0=_0x378fc9,_0x697213={'LbZgz':_0x260390[_0x3854b0(0x380)],'ZrrdN':_0x260390['BrnTN'],'zKgDp':_0x260390['sPyMm'],'PuTKO':_0x260390[_0x3854b0(0x395)]};Swal[_0x3854b0(0x253)]({'title':_0x260390[_0x3854b0(0x28c)],'imageUrl':_0x260390['xwZrW'],'imageWidth':0x8c,'imageHeight':0x64,'html':_0x3854b0(0x389)+_0x56d74d+_0x3854b0(0x2c4),'showCancelButton':!![],'confirmButtonText':_0x3854b0(0x293),'didOpen':()=>{const _0x2ac7dd=_0x3854b0;grecaptcha[_0x2ac7dd(0x2bb)](_0x34b205[_0x2ac7dd(0x2e4)],{'sitekey':_0x2ac7dd(0x2cd)}),document[_0x2ac7dd(0x279)](_0x34b205[_0x2ac7dd(0x231)])[_0x2ac7dd(0x37e)](_0x34b205[_0x2ac7dd(0x214)],function(){const _0x37f22f=_0x2ac7dd,_0x2ee633=document[_0x37f22f(0x279)](_0x697213[_0x37f22f(0x2fa)]),_0x299b18=this[_0x37f22f(0x394)]('i');_0x2ee633[_0x37f22f(0x25c)]===_0x37f22f(0x3ce)?(_0x2ee633[_0x37f22f(0x25c)]=_0x697213[_0x37f22f(0x302)],_0x299b18[_0x37f22f(0x24b)][_0x37f22f(0x37c)](_0x697213[_0x37f22f(0x20a)]),_0x299b18[_0x37f22f(0x24b)]['add']('fa-eye-slash')):(_0x2ee633['type']=_0x697213[_0x37f22f(0x2fa)],_0x299b18[_0x37f22f(0x24b)][_0x37f22f(0x37c)](_0x697213[_0x37f22f(0x330)]),_0x299b18[_0x37f22f(0x24b)]['add'](_0x697213[_0x37f22f(0x20a)]));});},'preConfirm':async()=>{const _0x5b359f=_0x3854b0,_0x481241=document['getElementById'](_0x34b205[_0x5b359f(0x210)])[_0x5b359f(0x27d)][_0x5b359f(0x289)](),_0x580043=document['getElementById'](_0x34b205[_0x5b359f(0x307)])[_0x5b359f(0x27d)][_0x5b359f(0x289)](),_0x3464c9=grecaptcha[_0x5b359f(0x1f4)]();if(!_0x3464c9)return document[_0x5b359f(0x279)](_0x5b359f(0x2b9))[_0x5b359f(0x3cc)]=_0x34b205[_0x5b359f(0x2b7)],![];if(_0x34b205[_0x5b359f(0x20c)](!_0x481241,!_0x580043))return document[_0x5b359f(0x279)](_0x34b205['HdzYB'])[_0x5b359f(0x3cc)]=_0x34b205[_0x5b359f(0x270)],![];try{const _0x1a90fe={'email':_0x481241,'password':_0x580043,'recaptchaResponse':_0x3464c9},_0x482978=await fetch(_0x5b359f(0x366),{'method':'POST','headers':{'Content-Type':_0x34b205[_0x5b359f(0x26d)]},'body':JSON[_0x5b359f(0x2da)](_0x1a90fe)}),_0x4a2f64=await _0x482978[_0x5b359f(0x313)]();if(_0x4a2f64[_0x5b359f(0x2f8)])return document[_0x5b359f(0x279)](_0x34b205[_0x5b359f(0x286)])[_0x5b359f(0x3cc)]=_0x4a2f64['error'],![];else Swal[_0x5b359f(0x253)](_0x34b205[_0x5b359f(0x24f)],_0x34b205[_0x5b359f(0x35e)],_0x34b205[_0x5b359f(0x354)])[_0x5b359f(0x1fd)](()=>{const _0x334e83=_0x5b359f;window[_0x334e83(0x319)][_0x334e83(0x3d2)]();});}catch(_0x2caf0a){return document[_0x5b359f(0x279)](_0x34b205[_0x5b359f(0x286)])['innerText']=_0x34b205[_0x5b359f(0x2f1)],![];}}});};_0x260390[_0x378fc9(0x323)](_0x59da5a),document[_0x378fc9(0x279)](_0x378fc9(0x2b0))[_0x378fc9(0x37e)](_0x260390[_0x378fc9(0x2df)],function(){const _0x33cd19=_0x378fc9;Swal[_0x33cd19(0x253)]({'title':_0x260390[_0x33cd19(0x3c1)],'imageUrl':_0x260390['xwZrW'],'imageWidth':0x8c,'imageHeight':0x64,'html':'\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22mb-3\x20text-start\x22\x20style=\x22text-align:left\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20for=\x22forgot_email\x22\x20class=\x22form-label\x22>Enter\x20your\x20email</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22input-group\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22input-group-text\x22><i\x20class=\x22fa\x20fa-envelope\x22></i></span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22email\x22\x20id=\x22forgot_email\x22\x20class=\x22form-control\x22\x20placeholder=\x22Enter\x20your\x20registered\x20email\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22forgotErrorMessage\x22\x20class=\x22text-danger\x20mt-3\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22recaptcha-container-forgot\x22\x20class=\x22mt-3\x22\x20style=\x22display:\x20flex;\x20justify-content:\x20center;\x20align-items:\x20center;\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','showCancelButton':!![],'confirmButtonText':_0x33cd19(0x267),'didOpen':()=>{const _0x283b2f=_0x33cd19;grecaptcha[_0x283b2f(0x2bb)](_0x34b205['plfWt'],{'sitekey':_0x34b205[_0x283b2f(0x34f)]});},'preConfirm':async()=>{const _0x50f201=_0x33cd19,_0x7a38d5=document['getElementById'](_0x34b205[_0x50f201(0x27e)])[_0x50f201(0x27d)][_0x50f201(0x289)](),_0x326c41=grecaptcha[_0x50f201(0x1f4)]();if(!_0x326c41)return document['getElementById'](_0x34b205[_0x50f201(0x3e1)])['innerText']=_0x50f201(0x384),![];const _0x59f60c=/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;if(!_0x59f60c[_0x50f201(0x2bc)](_0x7a38d5))return document['getElementById']('forgotErrorMessage')[_0x50f201(0x3cc)]=_0x34b205[_0x50f201(0x35d)],![];try{const _0x3902b0={'email':_0x7a38d5,'recaptchaResponse':_0x326c41},_0x2fd205=await _0x34b205['ubBcy'](fetch,_0x34b205[_0x50f201(0x1f7)],{'method':_0x34b205['nHXqg'],'headers':{'Content-Type':_0x34b205['shuuE']},'body':JSON[_0x50f201(0x2da)](_0x3902b0)}),_0x408367=await _0x2fd205[_0x50f201(0x313)]();if(_0x408367[_0x50f201(0x2f8)])return document['getElementById'](_0x34b205[_0x50f201(0x3e1)])['innerText']=_0x408367['error'],![];else Swal[_0x50f201(0x253)](_0x34b205[_0x50f201(0x24f)],_0x34b205[_0x50f201(0x325)],_0x34b205['qmaNi']);}catch(_0x45a05b){return document[_0x50f201(0x279)](_0x50f201(0x22a))[_0x50f201(0x3cc)]=_0x34b205[_0x50f201(0x341)],![];}}});}),document[_0x378fc9(0x279)](_0x260390['aLrdu'])[_0x378fc9(0x37e)](_0x260390[_0x378fc9(0x2df)],function(){const _0x3c7156=_0x378fc9,_0x528d90={'jhqaR':function(_0x45f1b6,_0x6cb54e){return _0x260390['puuOo'](_0x45f1b6,_0x6cb54e);},'rGHLf':_0x260390[_0x3c7156(0x393)],'cbVYB':_0x260390[_0x3c7156(0x383)],'Jmhdt':_0x260390[_0x3c7156(0x392)],'mQkVO':_0x260390['BrnTN'],'XiyxB':_0x260390[_0x3c7156(0x20f)],'ypprG':_0x3c7156(0x32b),'lExVy':_0x260390['PaJdj'],'TxqwD':_0x3c7156(0x37a),'diyWZ':_0x260390[_0x3c7156(0x278)],'WimgN':_0x3c7156(0x263),'cShmC':_0x260390[_0x3c7156(0x297)],'HAmtT':_0x260390[_0x3c7156(0x2a5)],'DCyVj':_0x260390[_0x3c7156(0x3e3)],'VzyRK':_0x260390[_0x3c7156(0x2d3)],'AQcIE':function(_0x594de6,_0x5d5c73,_0x34e894){return _0x594de6(_0x5d5c73,_0x34e894);},'rtTSh':_0x260390[_0x3c7156(0x30b)],'qfbqy':_0x260390[_0x3c7156(0x381)],'DvBwN':_0x260390[_0x3c7156(0x35c)],'dMBgP':_0x3c7156(0x2f9),'nGYrR':_0x260390[_0x3c7156(0x3c4)],'esSQW':_0x260390['LuftW'],'AZhdU':_0x260390[_0x3c7156(0x23d)],'eppkZ':_0x3c7156(0x387),'zzaud':_0x260390['xHTWY'],'DDQLA':'SBUContainer','SvyiR':_0x260390['tLOCO']},_0x254b55=(_0x5c76bd='')=>{const _0x409862=_0x3c7156,_0x404548={'RBIbO':_0x528d90[_0x409862(0x326)],'CmipM':function(_0x2ef591,_0x53980b){const _0x3abd02=_0x409862;return _0x528d90[_0x3abd02(0x351)](_0x2ef591,_0x53980b);},'nlBIj':_0x409862(0x3ce),'oFEkY':_0x528d90[_0x409862(0x264)],'sjUYl':_0x528d90[_0x409862(0x1fb)],'KIPZv':'fa-eye-slash','NWCGr':_0x528d90[_0x409862(0x237)],'eQelw':_0x409862(0x2cd),'OQMBu':'togglePasswordNew','WwaOL':_0x528d90['lExVy'],'apyec':_0x409862(0x288),'WYibc':_0x409862(0x3d5),'snwQo':_0x528d90[_0x409862(0x250)],'Idpuh':_0x528d90[_0x409862(0x3c6)],'GUNJV':_0x528d90[_0x409862(0x303)],'tvJjT':_0x528d90[_0x409862(0x38e)],'agpCC':_0x528d90['HAmtT'],'NEzab':function(_0x57d2b1,_0x17d84b){return _0x57d2b1||_0x17d84b;},'MJhUf':_0x528d90[_0x409862(0x3cd)],'afGnr':function(_0x267a92,_0x5dc01d){return _0x267a92!==_0x5dc01d;},'ZdxrX':_0x528d90[_0x409862(0x3df)],'pusMZ':function(_0x5748e9,_0x2de818,_0x41cb9e){const _0x57a182=_0x409862;return _0x528d90[_0x57a182(0x296)](_0x5748e9,_0x2de818,_0x41cb9e);},'jinRk':_0x409862(0x322),'GEsZd':_0x409862(0x2f7),'tfXUQ':_0x528d90[_0x409862(0x229)],'EZHoV':_0x528d90['qfbqy'],'BLgND':_0x528d90[_0x409862(0x2fc)],'MNbaw':_0x528d90[_0x409862(0x333)]};Swal[_0x409862(0x253)]({'title':_0x528d90[_0x409862(0x283)],'width':_0x528d90[_0x409862(0x241)],'imageUrl':_0x409862(0x208),'imageWidth':0x8c,'imageHeight':0x64,'html':_0x409862(0x2ec)+_0x5c76bd+_0x409862(0x3d8),'showCancelButton':!![],'confirmButtonText':_0x528d90[_0x409862(0x20b)],'cancelButtonText':_0x528d90['eppkZ'],'didOpen':()=>{const _0x5e096b=_0x409862;grecaptcha[_0x5e096b(0x2bb)](_0x404548[_0x5e096b(0x2bf)],{'sitekey':_0x404548[_0x5e096b(0x2cf)]}),document['getElementById'](_0x404548[_0x5e096b(0x2b6)])[_0x5e096b(0x37e)](_0x404548['WwaOL'],function(){const _0x230a12=_0x5e096b,_0x598152=document[_0x230a12(0x279)](_0x404548[_0x230a12(0x300)]),_0x4b172c=this[_0x230a12(0x394)]('i');_0x404548[_0x230a12(0x3c3)](_0x598152[_0x230a12(0x25c)],_0x404548[_0x230a12(0x3b7)])?(_0x598152['type']=_0x404548['oFEkY'],_0x4b172c['classList'][_0x230a12(0x37c)](_0x404548[_0x230a12(0x3c8)]),_0x4b172c[_0x230a12(0x24b)][_0x230a12(0x1ef)](_0x404548[_0x230a12(0x379)])):(_0x598152[_0x230a12(0x25c)]='password',_0x4b172c[_0x230a12(0x24b)][_0x230a12(0x37c)](_0x404548[_0x230a12(0x379)]),_0x4b172c['classList'][_0x230a12(0x1ef)](_0x230a12(0x2ae)));}),document[_0x5e096b(0x279)](_0x404548[_0x5e096b(0x3d4)])[_0x5e096b(0x37e)](_0x404548['WwaOL'],function(){const _0x3bba2e=_0x5e096b,_0x25d8dc=document[_0x3bba2e(0x279)](_0x3bba2e(0x37a)),_0x310048=this[_0x3bba2e(0x394)]('i');_0x404548[_0x3bba2e(0x3c3)](_0x25d8dc['type'],_0x404548[_0x3bba2e(0x3b7)])?(_0x25d8dc[_0x3bba2e(0x25c)]=_0x404548[_0x3bba2e(0x285)],_0x310048['classList']['remove'](_0x3bba2e(0x2ae)),_0x310048[_0x3bba2e(0x24b)]['add'](_0x404548['KIPZv'])):(_0x25d8dc[_0x3bba2e(0x25c)]=_0x404548[_0x3bba2e(0x3b7)],_0x310048[_0x3bba2e(0x24b)][_0x3bba2e(0x37c)](_0x404548[_0x3bba2e(0x379)]),_0x310048[_0x3bba2e(0x24b)]['add'](_0x404548[_0x3bba2e(0x3c8)]));});},'preConfirm':async()=>{const _0x12f5c8=_0x409862,_0x546141=document[_0x12f5c8(0x279)](_0x12f5c8(0x3ac))[_0x12f5c8(0x27d)][_0x12f5c8(0x289)](),_0x14ce87=document['getElementById'](_0x404548[_0x12f5c8(0x30d)])['value'][_0x12f5c8(0x289)](),_0x2a3951=document[_0x12f5c8(0x279)](_0x12f5c8(0x2c1))[_0x12f5c8(0x27d)]['trim'](),_0x1aeab6=document['getElementById'](_0x404548['RBIbO'])[_0x12f5c8(0x27d)]['trim'](),_0x54eeba=document[_0x12f5c8(0x279)](_0x404548['snwQo'])[_0x12f5c8(0x27d)][_0x12f5c8(0x289)](),_0x15f4b6=document[_0x12f5c8(0x279)](_0x12f5c8(0x36c))[_0x12f5c8(0x27d)],_0x38e4c7=document[_0x12f5c8(0x279)](_0x404548[_0x12f5c8(0x34c)])?document['getElementById'](_0x404548[_0x12f5c8(0x34c)])[_0x12f5c8(0x27d)]:null,_0x26afc0=document[_0x12f5c8(0x279)](_0x404548[_0x12f5c8(0x1fa)])?document[_0x12f5c8(0x279)](_0x404548[_0x12f5c8(0x1fa)])['value']:null,_0x30d67b=grecaptcha[_0x12f5c8(0x1f4)]();if(!_0x30d67b)return document[_0x12f5c8(0x279)](_0x404548[_0x12f5c8(0x290)])['innerText']=_0x404548[_0x12f5c8(0x37d)],![];if(_0x404548[_0x12f5c8(0x31b)](!_0x546141,!_0x14ce87)||!_0x2a3951||!_0x1aeab6||!_0x54eeba)return document[_0x12f5c8(0x279)](_0x404548[_0x12f5c8(0x290)])[_0x12f5c8(0x3cc)]=_0x404548['MJhUf'],![];if(_0x404548['afGnr'](_0x1aeab6,_0x54eeba))return document[_0x12f5c8(0x279)](_0x404548[_0x12f5c8(0x290)])[_0x12f5c8(0x3cc)]=_0x404548[_0x12f5c8(0x343)],![];const _0xaa8b27=/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;if(!_0xaa8b27[_0x12f5c8(0x2bc)](_0x2a3951))return document['getElementById'](_0x404548[_0x12f5c8(0x290)])[_0x12f5c8(0x3cc)]=_0x12f5c8(0x2f4),![];try{const _0x431265={'fname':_0x546141,'lname':_0x14ce87,'email':_0x2a3951,'password':_0x1aeab6,'confirmPassword':_0x54eeba,'userType':_0x15f4b6,'sbu':_0x38e4c7,'branch':_0x26afc0,'recaptchaResponse':_0x30d67b},_0x1b2a75=await _0x404548[_0x12f5c8(0x39d)](fetch,_0x12f5c8(0x1ff),{'method':_0x404548[_0x12f5c8(0x3a1)],'headers':{'Content-Type':_0x404548[_0x12f5c8(0x3a4)]},'body':JSON['stringify'](_0x431265)}),_0x2781a2=await _0x1b2a75[_0x12f5c8(0x313)]();if(_0x2781a2[_0x12f5c8(0x2f8)])return document[_0x12f5c8(0x279)](_0x404548['tvJjT'])[_0x12f5c8(0x3cc)]=_0x2781a2[_0x12f5c8(0x2f8)],![];else Swal[_0x12f5c8(0x253)](_0x12f5c8(0x213),_0x404548['tfXUQ'],_0x404548[_0x12f5c8(0x349)]),window[_0x12f5c8(0x319)]['reload']();}catch(_0x296099){return document[_0x12f5c8(0x279)](_0x404548[_0x12f5c8(0x290)])[_0x12f5c8(0x3cc)]=_0x404548[_0x12f5c8(0x31c)],![];}}});const _0x407081=document['getElementById'](_0x528d90[_0x409862(0x303)]);_0x407081[_0x409862(0x347)]='',branches[_0x409862(0x25f)](_0xd32c62=>{const _0x12535a=_0x409862,_0x5bb14d=document[_0x12535a(0x240)](_0x404548[_0x12535a(0x38f)]);_0x5bb14d[_0x12535a(0x27d)]=_0xd32c62,_0x5bb14d['textContent']=_0xd32c62,_0x407081[_0x12535a(0x36d)](_0x5bb14d);});const _0xc5aa87=document[_0x409862(0x279)](_0x528d90[_0x409862(0x224)]),_0x3a45be=document[_0x409862(0x279)](_0x528d90['DDQLA']);_0xc5aa87[_0x409862(0x37e)](_0x528d90[_0x409862(0x356)],function(){const _0x445147=_0x409862;_0x3a45be[_0x445147(0x350)]['display']=_0x528d90[_0x445147(0x351)](_0xc5aa87[_0x445147(0x27d)],_0x445147(0x26c))?_0x528d90[_0x445147(0x226)]:_0x528d90[_0x445147(0x274)];});};_0x254b55();});}):console[_0x417892(0x2f8)](_0x260390['uqPty']);const _0x5ea415=document[_0x417892(0x279)](_0x260390[_0x417892(0x2b5)]);_0x5ea415?_0x5ea415[_0x417892(0x37e)](_0x260390[_0x417892(0x2df)],function(){const _0x3ec265=_0x417892,_0x5cc8bf={'QUJjm':_0x260390[_0x3ec265(0x397)],'Yxylb':_0x260390[_0x3ec265(0x368)],'IaNEY':_0x260390['XJNKs']};Swal[_0x3ec265(0x253)]({'title':_0x260390[_0x3ec265(0x3ca)],'text':_0x3ec265(0x346),'icon':_0x3ec265(0x39a),'showCancelButton':!![],'confirmButtonText':_0x260390['nasBb'],'cancelButtonText':_0x260390[_0x3ec265(0x3e5)]})[_0x3ec265(0x1fd)](_0x33f2ef=>{const _0x3d56a7=_0x3ec265,_0x5bea51={'ukmai':_0x260390[_0x3d56a7(0x32a)],'ndOpC':_0x3d56a7(0x29d),'qBIhB':_0x260390[_0x3d56a7(0x33a)],'cuWIk':_0x260390['VHmOX']};_0x33f2ef[_0x3d56a7(0x355)]&&_0x260390['bsFPi'](fetch,_0x260390[_0x3d56a7(0x374)],{'method':_0x3d56a7(0x322)})[_0x3d56a7(0x1fd)](_0x3e2fdc=>{const _0x3c078c=_0x3d56a7;_0x3e2fdc['ok']?Swal[_0x3c078c(0x253)]('Logged\x20Out',_0x5bea51['ukmai'],_0x5bea51[_0x3c078c(0x31f)])[_0x3c078c(0x1fd)](()=>{const _0x319d7e=_0x3c078c;window[_0x319d7e(0x319)][_0x319d7e(0x3d2)]();}):Swal[_0x3c078c(0x253)](_0x3c078c(0x1f5),_0x5bea51[_0x3c078c(0x2e5)],_0x5bea51[_0x3c078c(0x269)]);})[_0x3d56a7(0x399)](_0x2993fd=>{const _0xbdcede=_0x3d56a7;Swal[_0xbdcede(0x253)](_0x5cc8bf[_0xbdcede(0x301)],_0xbdcede(0x378),_0x5cc8bf['Yxylb']),console[_0xbdcede(0x2f8)](_0x5cc8bf[_0xbdcede(0x33d)],_0x2993fd);});});}):console['warn'](_0x260390['AGxZu']);});function checkUserStatus(){const _0x5b348a=a0_0x58fb52,_0x129981={'FIeNe':_0x5b348a(0x304),'AGYaC':_0x5b348a(0x238),'FYPft':_0x5b348a(0x306),'bCHIn':_0x5b348a(0x345),'vJfAy':_0x5b348a(0x31a),'DXNqu':_0x5b348a(0x311),'OrRbV':function(_0x7621a6,_0x2236e2){return _0x7621a6(_0x2236e2);}};_0x129981[_0x5b348a(0x31d)](fetch,_0x5b348a(0x22f))[_0x5b348a(0x1fd)](function(_0x406f2a){const _0xc735a4=_0x5b348a;if(_0x406f2a['ok'])return _0x406f2a[_0xc735a4(0x313)]();else console['error'](_0x129981[_0xc735a4(0x1f0)]);})['then'](function(_0x48b208){const _0x5a52fd=_0x5b348a;if(_0x48b208){const _0x1417a9=document[_0x5a52fd(0x279)](_0x129981[_0x5a52fd(0x3c7)]);_0x1417a9&&(_0x1417a9[_0x5a52fd(0x350)][_0x5a52fd(0x37f)]=_0x5a52fd(0x2c6));const _0x56b705=document[_0x5a52fd(0x279)](_0x129981[_0x5a52fd(0x3ae)]);_0x56b705&&(_0x56b705[_0x5a52fd(0x350)][_0x5a52fd(0x37f)]=_0x5a52fd(0x31a));const _0x47582b=document[_0x5a52fd(0x279)](_0x129981['bCHIn']);_0x47582b&&(_0x47582b['style'][_0x5a52fd(0x37f)]=_0x129981['vJfAy']);}})[_0x5b348a(0x399)](function(_0x3ce8b5){const _0x26e48d=_0x5b348a;console[_0x26e48d(0x2f8)](_0x129981[_0x26e48d(0x262)],_0x3ce8b5);});}document[a0_0x58fb52(0x37e)](a0_0x58fb52(0x3bd),function(){const _0x4ca23f=a0_0x58fb52,_0x429986={'SCVii':'newPassword','BxNpB':_0x4ca23f(0x2b9),'AVKXi':_0x4ca23f(0x2e6),'Yzxpu':'POST','jJkQV':_0x4ca23f(0x2f7),'nxgtc':_0x4ca23f(0x213),'HxUAY':_0x4ca23f(0x25e),'Vbnvm':'Something\x20went\x20wrong.\x20Please\x20try\x20again.','bDBPK':'text','stziJ':_0x4ca23f(0x247),'MXgHh':_0x4ca23f(0x2dc),'LGIIY':_0x4ca23f(0x267),'OOUVW':_0x4ca23f(0x3e7),'LiluT':_0x4ca23f(0x2c1),'WRfXz':function(_0x3921e3,_0x543546){return _0x3921e3===_0x543546;},'Byewm':'reset','QktjM':_0x4ca23f(0x39c)},_0x1f87c9=new URLSearchParams(window['location'][_0x4ca23f(0x2a1)]),_0x50e87b=_0x1f87c9[_0x4ca23f(0x385)](_0x429986[_0x4ca23f(0x36e)]),_0x5f514a=_0x1f87c9['get']('token');if(_0x429986[_0x4ca23f(0x3a8)](_0x1f87c9['get'](_0x429986['Byewm']),_0x429986['QktjM'])&&_0x50e87b){const _0x562fee=(_0x1087da='')=>{const _0x38d87b=_0x4ca23f,_0x580851={'QrHps':_0x429986[_0x38d87b(0x26a)],'HofOK':_0x38d87b(0x2ae),'eEQhH':_0x429986[_0x38d87b(0x298)],'mbkvQ':_0x429986['MXgHh'],'atiLY':'click'};Swal['fire']({'title':_0x429986[_0x38d87b(0x34e)],'imageUrl':'/images/LOGO.png','imageWidth':0x8c,'imageHeight':0x64,'html':_0x38d87b(0x358)+_0x50e87b+'</strong></p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22text-align:left\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20for=\x22newPassword\x22\x20class=\x22form-label\x22>New\x20Password</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22input-group\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22input-group-text\x22><i\x20class=\x22fa\x20fa-lock\x22></i></span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22password\x22\x20id=\x22newPassword\x22\x20class=\x22form-control\x22\x20placeholder=\x22Enter\x20your\x20new\x20password\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22input-group-text\x22\x20id=\x22togglePassword\x22\x20style=\x22cursor:\x20pointer;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22fa\x20fa-eye\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22errorMessage\x22\x20class=\x22text-danger\x20mt-3\x22>'+_0x1087da+'</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','showCancelButton':!![],'confirmButtonText':_0x429986[_0x38d87b(0x244)],'didOpen':()=>{const _0x493408=_0x38d87b,_0x3dbb12={'AIjQG':_0x493408(0x294),'hznuA':_0x493408(0x3ce),'hdllN':_0x580851['QrHps'],'SaMnF':_0x580851['HofOK'],'KVeMp':_0x580851['eEQhH']};document[_0x493408(0x279)](_0x580851[_0x493408(0x21f)])[_0x493408(0x37e)](_0x580851[_0x493408(0x21d)],function(){const _0x7c4bd2=_0x493408,_0x2b59cc=document[_0x7c4bd2(0x279)](_0x3dbb12[_0x7c4bd2(0x207)]),_0x449be5=this['querySelector']('i');_0x2b59cc['type']===_0x3dbb12['hznuA']?(_0x2b59cc['type']=_0x3dbb12['hdllN'],_0x449be5[_0x7c4bd2(0x24b)][_0x7c4bd2(0x37c)](_0x3dbb12[_0x7c4bd2(0x320)]),_0x449be5[_0x7c4bd2(0x24b)][_0x7c4bd2(0x1ef)](_0x3dbb12['KVeMp'])):(_0x2b59cc[_0x7c4bd2(0x25c)]=_0x3dbb12[_0x7c4bd2(0x28b)],_0x449be5[_0x7c4bd2(0x24b)][_0x7c4bd2(0x37c)](_0x3dbb12['KVeMp']),_0x449be5[_0x7c4bd2(0x24b)][_0x7c4bd2(0x1ef)](_0x3dbb12[_0x7c4bd2(0x320)]));});},'preConfirm':async()=>{const _0x341c9e=_0x38d87b,_0x2bb2f8=document[_0x341c9e(0x279)](_0x429986[_0x341c9e(0x209)])[_0x341c9e(0x27d)][_0x341c9e(0x289)]();if(!_0x2bb2f8)return document['getElementById'](_0x429986['BxNpB'])['innerText']=_0x429986[_0x341c9e(0x36a)],![];try{const _0x1094f2=await fetch('/api/ForgotPassword',{'method':_0x429986[_0x341c9e(0x3b4)],'headers':{'Content-Type':_0x429986[_0x341c9e(0x388)]},'body':JSON[_0x341c9e(0x2da)]({'email':_0x50e87b,'token':_0x5f514a,'newPassword':_0x2bb2f8})}),_0x5e965d=await _0x1094f2['json']();if(_0x5e965d[_0x341c9e(0x2f8)])return document[_0x341c9e(0x279)](_0x429986[_0x341c9e(0x396)])[_0x341c9e(0x3cc)]=_0x5e965d[_0x341c9e(0x2f8)],![];else Swal[_0x341c9e(0x253)]({'title':_0x429986[_0x341c9e(0x3c2)],'text':_0x429986['HxUAY'],'icon':_0x341c9e(0x29d)})[_0x341c9e(0x1fd)](()=>{const _0x4fda21=_0x341c9e;window[_0x4fda21(0x319)][_0x4fda21(0x386)]='/';});}catch(_0x49c662){return document[_0x341c9e(0x279)](_0x429986[_0x341c9e(0x396)])['innerText']=_0x429986[_0x341c9e(0x219)],![];}}});};_0x562fee();}});
+const branches = [
+    "ALABANG", "ALABANG-FMM", "ALABANG-RETAIL", "AZUCENA-PMFTC OVERFLOW", 
+    "BACOLOD", "BACOLOD-NA", "BACOLOD-PERSONAL COLLECTION", "BACOLOD-SHELL", 
+    "BALITE-PMFTC OVERFLOW", "BASILAN", "BATANGAS", "BATANGAS-CDI", 
+    "BATANGAS-CDO FOODSPHERE RETAIL", "BATANGAS-HONDA", "BATANGAS-NPI", 
+    "BATANGAS-NPI RETAIL", "BATANGAS-PMFTC", "BATANGAS-PMFTC OVERFLOW", 
+    "BATANGAS-SAFI", "BATANGAS-YAMAHA", "BATINO-NPI EXTENSION", 
+    "BATINO-NPI ICD", "BATINO-NPI RETAIL", "BATINO-NPI SDC", "BATINO-SDC TRUCKING", 
+    "BATINO-TRUCKING", "BAYBAY", "BORONGAN", "BULACAN-NDC TRUCKING", 
+    "BULACAN-NPI NDC", "BULACAN-NPI NDC CAW", "BUTUAN", "CABUYAO", 
+    "CABUYAO-ABBOTT", "CABUYAO-ABBOTT-RETAIL", "CABUYAO-ACTIMED INC.", 
+    "CABUYAO-DMPI", "CABUYAO-EC OVERFLOW", "CABUYAO-FAPC", "CABUYAO-GREEN CROSS INC.", 
+    "CABUYAO-J&J", "CABUYAO-J&J RETAIL", "CABUYAO-J&J TRANSPORT", "CABUYAO-L&D CENTER", 
+    "CABUYAO-LAGUNA", "CABUYAO-MEGA PACK", "CABUYAO-NA RETAIL", "CABUYAO-NPI", 
+    "CABUYAO-NPI DC", "CABUYAO-NPI LISP FG", "CABUYAO-NPI MMC3", "CABUYAO-NPI OVERFLOW", 
+    "CABUYAO-NPI RETAIL", "CABUYAO-NPI TRUCKING", "CABUYAO-NUTRIASIA", 
+    "CABUYAO-P&G", "CABUYAO-P&G RETAIL", "CABUYAO-PERSONAL COLLECTION", 
+    "CABUYAO-PMFTC OVERFLOW", "CABUYAO-PMFTC1", "CABUYAO-PMFTC2", "CABUYAO-RENGO", 
+    "CABUYAO-RFM", "CABUYAO-UNILEVER", "CABUYAO-URC", "CABUYAO-VMI RETAIL", 
+    "CAGAYAN", "CAGAYAN - NPI CDC RETAIL", "CAGAYAN-DMPI", "CAGAYAN-DMPI RETAIL", 
+    "CAGAYAN-FACILITY", "CAGAYAN-FMM", "CAGAYAN-GMC", "CAGAYAN-NPI", 
+    "CAGAYAN-NPI PHARMA", "CAGAYAN-NPI RETAIL", "CAGAYAN-PERSONAL COLLECTION", 
+    "CAGAYAN-PMFTC", "CAGAYAN-ROBINSONS", "CAGAYAN-SHELL", "CAGAYAN-SILVERSWAN", 
+    "CAGAYAN-URC", "CAINTA-MONDELEZ", "CALAMBA OVERFLOW", "CALAMBA-ALFAMART", 
+    "CALAMBA-DISTRIPHIL", "CALAMBA-GREEN CROSS INC.", "CALAMBA-JAPAN TOBACCO INT'L.", 
+    "CALAMBA-JAPAN TOBACCO INT'L. OVERFLOW", "CALAMBA-JOLLIBEE", "CALAMBA-LAGUNA", 
+    "CALAMBA-MMC SDC", "CALAMBA-P&G", "CALAMBA-RED RIBBON SITE", "CALAMBA-RFM", 
+    "CALAMBA-RFM RETAIL", "CALAMBA-WYETH", "CALBAYOG", "CALBAYOG-NA", 
+    "CALBAYOG-NPI", "CAMIGUIN", "CANLUBANG-EDWARD KELLER", "CANLUBANG-ZUELLIG", 
+    "CARMONA-KALINISAN CHEMICALS CORP.", "CARMONA-LAFARGE", "CARMONA-LAFARGE RETAIL", 
+    "CARMONA-OVERFLOW 1", "CARMONA-OVERFLOW 2", "CATARMAN", "CATBALOGAN-NPI", 
+    "CAUAYAN-ZUELLIG", "CEBU", "CEBU-CDI", "CEBU-COLPAL", "CEBU-EPI", "CEBU-FACILITY", 
+    "CEBU-FACILITY 2", "CEBU-FDI", "CEBU-FMM", "CEBU-GMC", "CEBU-GREEN CROSS", 
+    "CEBU-JJPI RDC", "CEBU-JOLLIBEE CONSO", "CEBU-JOLLIBEE CONSO-2", "CEBU-KIMBERLY CLARK", 
+    "CEBU-KIMBERLY CLARK RETAIL", "CEBU-MARIWASA", "CEBU-MONDE NISSIN", "CEBU-NA", 
+    "CEBU-NATIONAL BOOKSTORE", "CEBU-NEXTRADE", "CEBU-NEXTRADE RETAIL", "CEBU-NPI ICD", 
+    "CEBU-NPI PHARMA", "CEBU-NPI RETAIL", "CEBU-NPI VDC", "CEBU-NPI VDC OVERFLOW", 
+    "CEBU-NPI VDC RETAIL", "CEBU-PERSONAL COLLECTION", "CEBU-PILMICO CONSO", 
+    "CEBU-PRIFOOD", "CEBU-RFM", "CEBU-SHELL", "CEBU-SYSU", "CEBU-TRANSPORT", 
+    "CEBU-URC", "CEBU-URC CONSO", "CEBU-URC SAN FERNANDO", "CEBU-WYETH", "CORPORATE", 
+    "COTABATO", "COTABATO-DOLE RETAIL", "DAGUPAN", "DASMARIÑAS-GREEN CROSS INC", 
+    "DASMARIÑAS-GREEN CROSS INC.-2", "DASMARIÑAS-OVERFLOW", "DASMARIÑAS-PMFTC OVERFLOW", 
+    "DAVAO", "DAVAO-CDI", "DAVAO-CITIHARDWARE", "DAVAO-EPI", "DAVAO-FMM", 
+    "DAVAO-JS UNITRADE", "DAVAO-JS UNITRADE RETAIL", "DAVAO-NA", "DAVAO-NEXTRADE", 
+    "DAVAO-NPI PHARMA", "DAVAO-PERSONAL COLLECTION", "DAVAO-PERSONAL COLLECTION-2", 
+    "DAVAO-PMFTC", "DAVAO-PRIFOOD", "DAVAO-RFM", "DAVAO-ROBINSONS", "DAVAO-SHELL", 
+    "DAVAO-SILVER SWAN", "DAVAO-URC", "DAVAO-WYETH", "DIPOLOG", "DIPOLOG-MONDE NISSIN", 
+    "DUMAGUETE", "DUMAGUETE-NA", "ELISCO-EPI TRANSPORT", "ELISCO-SHELL", "FLEX-CALAMBA", 
+    "FLEX-TAGUIG", "FORTUNE-PMFTC1", "FORTUNE-PMFTC2", "GENSAN", "GENSAN-GMC", "HOME OFFICE", 
+    "HOME OFFICE-FMM", "ILIGAN", "ILOILO", "ILOILO-COLPAL", "ILOILO-JAPAN TOBACCO INT'L", 
+    "ILOILO-JS UNITRADE", "ILOILO-JS UNITRADE RETAIL", "ILOILO-NA", "ILOILO-NEXTRADE", 
+    "ILOILO-PMFTC", "ILOILO-RFM", "ILOILO-SHELL", "ILOILO-SM", "IMUS-ALFAMART", 
+    "IMUS-COLDCHAIN", "IMUS-COLDCHAIN RETAIL", "IMUS-FOOD PANDA", "IMUS-SM", "JOLO", 
+    "KALIBO", "KALIBO-NPI", "KORONADAL", "LA UNION-CDI", "LAGUNA-GMC", "LAGUNA-MONDE NISSIN", 
+    "LAGUNA-PRIFOOD", "LAGUNA-RED RIBBON", "LAPULAPU-PMFTC OVERFLOW", "LAS PIÑAS-BOIE", 
+    "LAWA-OVERFLOW", "LIBIS OVERFLOW", "LIBIS-COLPAL", "LIBIS-PMFTC", "LIBIS-UNILEVER", 
+    "MAKATI-ALFAMART", "MAKATI-CDI", "MAKATI-JOLLIBEE", "MAKATI-P&G", "MAKATI-PERSONAL COLLECTION", 
+    "MAKATI-PG", "MANDAUE", "MANDAUE-NA", "MANDAUE-PMFTC OVERFLOW", "MAYON", "MINDANAO", 
+    "MUNTINLUPA", "MUNTINLUPA-PMFTC", "NAGA", "NAGA-PERSONAL COLLECTION", "NAGA-PMFTC", 
+    "NAGA-ROBINSONS", "NORTH COTABATO", "NORTH COTABATO-RETAIL", "ODIONGAN", "OLONGAPO", 
+    "OLONGAPO-NPI", "OTTAWA", "ORIENTAL MINDORO", "ORIENTAL MINDORO-NA", "ORIENTAL MINDORO-NPI", 
+    "PANGASINAN", "PASAY", "PASAY-PMFTC", "PASIG", "PASIG-NA", "PASIG-NPI", "PASIG-NPI RETAIL", 
+    "PANGASINAN-NA", "PANGASINAN-PERSONAL COLLECTION", "PANGASINAN-URC", "PANGASINAN-PERSONAL COLLECTION", 
+    "PAMPANGA", "PAMPANGA-CDI", "PAMPANGA-CDI-RETAIL", "PAMPANGA-NPI", "PAMPANGA-PERSONAL COLLECTION", 
+    "PANGALAT", "ROXAS", "SANTIAGO", "SANTA ROSA", "SANTA ROSA-RETAIL", "TACLOBAN", "TAGUIG", 
+    "TALISAY", "TALISAY-NA", "TALISAY-PMFTC", "TAYTAY-NA", "TAYTAY-PMFTC", "TOLEDO", "ZAMBOANGA"
+  ];
+
+
+
+if (typeof AOS !== 'undefined') {
+  AOS.init({
+    duration: 1500, // Animation duration
+    once: false,    // Allows animations to happen every time you scroll past
+    mirror: true    // Repeat animations on scroll-up
+  });
+}
+
+function toggleExtras() {
+  const extrasDiv = document.getElementById('extras');
+  extrasDiv.classList.toggle('d-none');  // Toggle the d-none class
+}
+
+// Get the current URL path (without domain and query parameters)
+ const currentPath = window.location.pathname.split('/').pop() || 'index';
+
+ // Get all nav-link elments
+ const navLinks = document.querySelectorAll('.nav-link');
+
+ // Iterate through each nav-link and compare its href with the current path
+ navLinks.forEach(link => {
+   // Extract the relative path from the href attribute
+   const linkPath = link.getAttribute('href');
+
+   // If the href matches the current path, add the 'active' class
+   if (linkPath === currentPath) {
+     link.classList.add('active');
+   }
+ });
+
+// Function to load HTML files from the 'includes' folder into a specified element
+function includeHTML(file, elementID) {
+  return fetch(`includes/${file}.html`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.text();
+    })
+    .then(data => {
+      document.getElementById(elementID).innerHTML = data;
+    })
+    .catch(error => console.error('Error loading HTML:', error));
+}
+
+// Ensure scripts run after DOM is fully loaded
+    // Load navigation and footer after DOM is loaded
+    Promise.all([
+      includeHTML('header', 'header'),
+      includeHTML('footer', 'footer')
+    ]).then(() => {
+      // Call loadRooms only after the header has been loaded
+      checkUserStatus();
+      loadRooms();
+      if (typeof loadAllRooms === 'function') {
+        loadAllRooms();
+      }
+    });
+  
+  async function loadRooms() {
+    const dropdown = document.querySelector('#roomDropdown');
+   
+    // Fetch rooms from the API
+    const response = await fetch('/api/available_rooms.js');
+  
+    // If the response is not OK, log an error and return
+    if (!response.ok) {
+      console.error(`HTTP error! status: ${response.status}`);
+      return; // Exit if the response is not OK
+    }
+
+    const rooms = await response.json();
+
+    // Check if there are any rooms
+    if (rooms.length === 0) {
+      dropdown.innerHTML = '<a class="dropdown-item" href="#">No rooms available</a>'; // Message if no rooms
+      return;
+    }
+
+    dropdown.innerHTML = ''; 
+
+    const allRoomsLink = document.createElement('a');
+      allRoomsLink.classList.add('dropdown-item');
+      allRoomsLink.href = 'allrooms';
+      allRoomsLink.textContent = 'All Rooms';
+      dropdown.appendChild(allRoomsLink);
+  
+      rooms.forEach(room => {
+        const roomLink = document.createElement('a');
+        roomLink.className = 'dropdown-item';
+        const encodedRoomId = encodeURIComponent(room.room_id);
+        roomLink.href = `rooms?ID=${encodedRoomId}`;
+        roomLink.textContent = room.room_name;
+        dropdown.appendChild(roomLink);
+      });
+    
+      dropdown.dataset.loaded = 'true';
+  }
+
+  includeHTML('header', 'header').then(() => {
+    const loginModal = document.getElementById('LoginModal');
+    if (loginModal) {
+        loginModal.addEventListener('click', function (event) {
+          event.preventDefault(); // Prevent default anchor link behavior
+    
+        const showLoginModal = (errorMessage = '') => {
+            Swal.fire({
+                title: 'Sign In',
+                imageUrl: '/images/LOGO.png', // Replace with your logo path
+                imageWidth: 140, // Adjust as needed
+                imageHeight: 100, // Adjust as needed
+                html: `
+                  <div class="mb-3 text-start" style="text-align:left; position: relative;">
+                      <label for="email_login" class="form-label">Email</label>
+                      <div class="input-group">
+                          <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                          <input type="email" id="email_login" class="form-control" placeholder=" ">
+                      </div>
+                  </div>
+                  <div class="mb-3">
+                      <div class="d-flex justify-content-between">
+                          <label class="form-label" for="password">Password</label>
+                          <button id="forgotPasswordLink" class="btn btn-link p-0"
+                              data-bs-toggle="tooltip" 
+                              data-bs-offset="0,4"
+                              data-bs-placement="top"
+                              data-bs-html="true"
+                              title="To reset your password, please click this link to process your reset.">
+                              <small>Forgot Password?</small>
+                          </button>
+                      </div>
+                      <div class="input-group">
+                          <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                          <input type="password" id="password" class="form-control" placeholder="Enter your password">
+                          <span class="input-group-text" id="togglePassword" style="cursor: pointer;">
+                              <i class="fa fa-eye"></i>
+                          </span>
+                      </div>
+                  </div>
+                  <div id="errorMessage" class="text-danger mt-3">${errorMessage}</div>
+                  <div class="mt-3">
+                      <button id="registerLink" class="btn btn-link p-0">Don't have an account? Register here</button>
+                  </div>
+                  <div id="recaptcha-container" class="mt-3" style="display: flex; justify-content: center; align-items: center;"></div>
+                `,
+                showCancelButton: true,
+                confirmButtonText: 'Login',
+                didOpen: () => {
+                    grecaptcha.render('recaptcha-container', {
+                        sitekey: '6LcEwdUqAAAAAFnSG67vpecp_r_Ow1TWd25DDKCX'
+                    });
+
+                    // Password toggle logic
+                    document.getElementById('togglePassword').addEventListener('click', function () {
+                      const passwordField = document.getElementById('password');
+                      const eyeIcon = this.querySelector('i');
+
+                      if (passwordField.type === "password") {
+                          passwordField.type = "text";
+                          eyeIcon.classList.remove("fa-eye");
+                          eyeIcon.classList.add("fa-eye-slash");
+                      } else {
+                          passwordField.type = "password";
+                          eyeIcon.classList.remove("fa-eye-slash");
+                          eyeIcon.classList.add("fa-eye");
+                      }
+                    });
+                },
+                preConfirm: async () => {
+                    const email = document.getElementById('email_login').value.trim();
+                    const password = document.getElementById('password').value.trim();
+                    const recaptchaResponse = grecaptcha.getResponse();
+                    if (!recaptchaResponse) {
+                        document.getElementById('errorMessage').innerText = 'Please verify the reCAPTCHA.';
+                        return false;
+                    }
+
+                    if (!email || !password) {
+                        document.getElementById('errorMessage').innerText = 'Please fill in all fields.';
+                            return false;
+                    }
+
+                    try {
+                      const loginData = {
+                        email,
+                        password,
+                        recaptchaResponse                   
+                      };
+
+                      const response = await fetch('/api/UserLogin', {
+                          method: 'POST',
+                          headers: { 'Content-Type': 'application/json' },
+                          body: JSON.stringify(loginData)
+                      });
+
+                      const result = await response.json();
+
+                      if (result.error) {
+                        document.getElementById('errorMessage').innerText = result.error;
+                        return false; 
+                      } else {
+                          Swal.fire('Success!', 'Successfully Login.', 'success').then(() => {
+                            window.location.reload();
+                        });
+                      }
+                    } catch (error) {
+                        document.getElementById('errorMessage').innerText = 'Login failed. Please try again.';
+                        return false; 
+                    }
+                }
+            });
+        };
+        showLoginModal();
+
+        document.getElementById('forgotPasswordLink').addEventListener('click', function () {
+          Swal.fire({
+              title: 'Forgot Password',
+              imageUrl: '/images/LOGO.png', // Replace with your logo path
+              imageWidth: 140, // Adjust as needed
+              imageHeight: 100, // Adjust as needed
+              html: `  
+                  <div class="mb-3 text-start" style="text-align:left">
+                      <label for="forgot_email" class="form-label">Enter your email</label>
+                      <div class="input-group">
+                          <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                          <input type="email" id="forgot_email" class="form-control" placeholder="Enter your registered email">
+                      </div>
+                  </div>
+
+                  <div id="forgotErrorMessage" class="text-danger mt-3"></div>
+                  <div id="recaptcha-container-forgot" class="mt-3" style="display: flex; justify-content: center; align-items: center;"></div>
+              `,
+              showCancelButton: true,
+              confirmButtonText: 'Reset Password',
+              didOpen: () => {
+                  grecaptcha.render('recaptcha-container-forgot', {
+                      sitekey: '6LcEwdUqAAAAAFnSG67vpecp_r_Ow1TWd25DDKCX'
+                  });
+              },
+              preConfirm: async () => {
+                  const email = document.getElementById('forgot_email').value.trim();
+                  const recaptchaResponse = grecaptcha.getResponse();
+
+                  if (!recaptchaResponse) {
+                      document.getElementById('forgotErrorMessage').innerText = 'Please verify the reCAPTCHA.';
+                      return false;
+                  }
+
+                  const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+                  if (!emailRegex.test(email)) {
+                      document.getElementById('forgotErrorMessage').innerText = 'Please enter a valid email address.';
+                      return false;
+                  }
+
+                  try {
+                      const forgotPasswordData = { email, recaptchaResponse };
+                      const response = await fetch('/api/ForgotPassword', {
+                          method: 'POST',
+                          headers: { 'Content-Type': 'application/json' },
+                          body: JSON.stringify(forgotPasswordData)
+                      });
+
+                      const result = await response.json();
+                      if (result.error) {
+                          document.getElementById('forgotErrorMessage').innerText = result.error;
+                          return false;
+                      } else {
+                          Swal.fire('Success!', 'Password reset instructions sent to your email.', 'success');
+                      }
+                  } catch (error) {
+                      document.getElementById('forgotErrorMessage').innerText = 'Request failed. Please try again.';
+                      return false;
+                  }
+              }
+          });
+        });
+
+        document.getElementById('registerLink').addEventListener('click', function () {
+            const showSignUpModal = (errorMessage = '') => {
+                Swal.fire({
+                    title: 'Sign Up',
+                    width: '700px',
+                    imageUrl: '/images/LOGO.png', // Replace with your logo path
+                    imageWidth: 140, // Adjust as needed
+                    imageHeight: 100, // Adjust as needed
+                    html: `
+                        <div class="row" style="text-align:left">
+                            <div class="col-12 col-md-6">
+                                <label for="fname" class="form-label">First Name</label>
+                                <input type="text" id="fname" name="fname" class="form-control mb-3" required autocomplete="off">
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label for="lname" class="form-label">Last Name</label>
+                                <input type="text" id="lname" name="lname" class="form-control mb-3" required autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="row" style="text-align:left">
+                            <div class="col-12 col-md-6">
+                              <label for="email" class="form-label">Email</label>
+                              <div class="input-group mb-3">
+                                <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                                <input type="email" id="email" class="form-control" placeholder="Enter your Email" required autocomplete="off">
+                              </div>
+                            </div>
+
+                            <div class="col-12 col-md-6">
+                                <label for="usertype" class="form-label">User Type</label>
+                                <select id="usertype" name="usertype" class="form-control mb-3">
+                                    <option value="Non-FAST Employee">Non-FAST Employee</option>
+                                    <option value="FAST Employee">FAST Employee</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row" style="text-align:left">
+                          <div class="col-12 col-md-6">
+                            <label for="newPassword" class="form-label">Password</label>
+                            <div class="input-group mb-3">
+                              <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                              <input type="password" id="newPassword" class="form-control" placeholder="Enter your password" required>
+                              <span class="input-group-text" id="togglePasswordNew" style="cursor: pointer;">
+                                <i class="fa fa-eye"></i>
+                              </span>
+                            </div>
+                          </div>
+
+                          <div class="col-12 col-md-6">
+                            <label for="confirmPassword" class="form-label">Confirm Password</label>
+                            <div class="input-group mb-3">
+                              <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                              <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm your password" required>
+                              <span class="input-group-text" id="togglePasswordConfirm" style="cursor: pointer;">
+                                <i class="fa fa-eye"></i>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <div id="SBUContainer" style="display: none;" style="text-align:left">
+                          <div class="row">
+                              <div class="col-12 col-md-6">
+                                  <label for="SBU" class="form-label">SBU</label>
+                                  <select id="SBU" class="form-control mb-3">
+                                      <option value="FSC">FSC</option>
+                                      <option value="FLC">FLC</option>
+                                      <option value="FTMC">FTMC</option>
+                                      <option value="FCSI">FCSI</option>
+                                      <option value="FDC">FDC</option>
+                                      <option value="FUI">FUI</option>
+                                  </select>
+                              </div>
+                              <div class="col-12 col-md-6">
+                                  <label for="branch" class="form-label">Branch</label>
+                                  <select id="branchSelect" class="form-control mb-3">
+                                  </select>
+                              </div>
+                          </div>
+                        </div>
+                        <div id="errorMessage" class="text-danger mt-3">${errorMessage}</div>
+                        <div id="recaptcha-container" class="mt-3" style="display: flex; justify-content: center; align-items: center;"></div>
+                    `,
+
+                    showCancelButton: true,
+                    confirmButtonText: 'Register',
+                    cancelButtonText: 'Cancel',
+                    didOpen: () => {
+                        grecaptcha.render('recaptcha-container', {
+                            sitekey: '6LcEwdUqAAAAAFnSG67vpecp_r_Ow1TWd25DDKCX'
+                        });
+
+                        document.getElementById('togglePasswordNew').addEventListener('click', function () {
+                          const passwordField = document.getElementById('newPassword');
+                          const eyeIcon = this.querySelector('i');
+    
+                          if (passwordField.type === "password") {
+                              passwordField.type = "text";
+                              eyeIcon.classList.remove("fa-eye");
+                              eyeIcon.classList.add("fa-eye-slash");
+                          } else {
+                              passwordField.type = "password";
+                              eyeIcon.classList.remove("fa-eye-slash");
+                              eyeIcon.classList.add("fa-eye");
+                          }
+                        });
+                        document.getElementById('togglePasswordConfirm').addEventListener('click', function () {
+                          const passwordField = document.getElementById('confirmPassword');
+                          const eyeIcon = this.querySelector('i');
+    
+                          if (passwordField.type === "password") {
+                              passwordField.type = "text";
+                              eyeIcon.classList.remove("fa-eye");
+                              eyeIcon.classList.add("fa-eye-slash");
+                          } else {
+                              passwordField.type = "password";
+                              eyeIcon.classList.remove("fa-eye-slash");
+                              eyeIcon.classList.add("fa-eye");
+                          }
+                        });
+                    },
+                    preConfirm: async () => {
+                        const fname = document.getElementById('fname').value.trim();
+                        const lname = document.getElementById('lname').value.trim();
+                        const email = document.getElementById('email').value.trim();
+                        const password = document.getElementById('newPassword').value.trim();
+                        const confirmPassword = document.getElementById('confirmPassword').value.trim();
+                        const userType = document.getElementById('usertype').value;
+                        const sbu = document.getElementById('SBU') ? document.getElementById('SBU').value : null;
+                        const branch = document.getElementById('branchSelect') ? document.getElementById('branchSelect').value : null;
+                        const recaptchaResponse = grecaptcha.getResponse();
+                        if (!recaptchaResponse) {
+                            document.getElementById('errorMessage').innerText = 'Please verify the reCAPTCHA.';
+                            return false;
+                        }
+
+                        // Enhanced validation
+                        if (!fname || !lname || !email || !password || !confirmPassword) {
+                            document.getElementById('errorMessage').innerText = 'All fields are required.';
+                            return false;
+                        }
+        
+                        if (password !== confirmPassword) {
+                            document.getElementById('errorMessage').innerText = 'Passwords do not match.';
+                            return false;
+                        }
+        
+                        const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+                        if (!emailRegex.test(email)) {
+                            document.getElementById('errorMessage').innerText = 'Please enter a valid email address.';
+                            return false;
+                        }
+        
+                        try {
+                            const registrationData = {
+                                fname,
+                                lname,
+                                email,
+                                password,
+                                confirmPassword,
+                                userType,
+                                sbu,
+                                branch,
+                                recaptchaResponse 
+                            };
+        
+                            const response = await fetch('/api/UserRegistration', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify(registrationData)
+                            });
+        
+                            const result = await response.json();
+        
+                            if (result.error) {
+                                document.getElementById('errorMessage').innerText = result.error;
+                                return false;
+                            } else {
+                                Swal.fire('Success!', 'Registration completed.', 'success');
+                                window.location.reload();
+                            }
+                        } catch (error) {
+                            document.getElementById('errorMessage').innerText = 'Registration failed. Please try again.';
+                            return false;
+                        }
+                    }
+                });
+                
+                    const branchSelect = document.getElementById('branchSelect');
+                    branchSelect.innerHTML = ''; // Clear previous options
+                    branches.forEach((branch) => {
+                        const option = document.createElement('option');
+                        option.value = branch;
+                        option.textContent = branch;
+                        branchSelect.appendChild(option);
+                    });
+        
+                    // Show/Hide SBU Based on User Type
+                    const userTypeSelect = document.getElementById('usertype');
+                    const sbuContainer = document.getElementById('SBUContainer');
+                    userTypeSelect.addEventListener('change', function () {
+                        sbuContainer.style.display = userTypeSelect.value === 'FAST Employee' ? 'block' : 'none';
+                    });
+                
+            };
+        
+            showSignUpModal();
+        });
+        
+
+        });
+    } else {
+        console.error("Element with ID 'LoginModal' not found.");
+    }
+    const logoutButton = document.getElementById('LogoutButton');
+    
+    if (logoutButton) {
+      logoutButton.addEventListener('click', function () {
+        // Confirm the logout action with the user
+        Swal.fire({
+          title: 'Are you sure?',
+          text: 'You will be logged out of your account.',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonText: 'Yes, log out',
+          cancelButtonText: 'Cancel',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            // Perform the logout action (e.g., API call, session clear)
+            fetch('/api/logout', {
+              method: 'POST',
+            })
+              .then((response) => {
+                if (response.ok) {
+                  Swal.fire('Logged Out', 'You have been successfully logged out.', 'success').then(() => {
+                    window.location.reload(); // Redirect to login page
+                  });
+                } else {
+                  Swal.fire('Error', 'Logout failed. Please try again.', 'error');
+                }
+              })
+              .catch((error) => {
+                Swal.fire('Error', 'An unexpected error occurred.', 'error');
+                console.error('Logout error:', error);
+              });
+          }
+        });
+      });
+    } else {
+      console.warn('Logout button not found');
+    }
+});
+
+function checkUserStatus() {
+    fetch('/api/validate-cookie') // API endpoint to validate the cookie
+        .then(function(response) {
+            if (response.ok) {
+                return response.json();
+            } else {
+                console.error('User is not logged in.');
+            }
+        })
+        .then(function(userData) {
+            if (userData) {
+
+                // Hide the "Login" link
+                const loginItem = document.getElementById('loginItem');
+                if (loginItem) {
+                    loginItem.style.display = 'none';
+                }
+
+                const BookNow = document.getElementById('BookNow');
+                if (BookNow) {
+                    BookNow.style.display = 'block';
+                }
+
+                const LogoutDropdown = document.getElementById('LogoutDropdown');
+                if (LogoutDropdown) {
+                    LogoutDropdown.style.display = 'block';
+                }
+            }
+        })
+        .catch(function(error) {
+            console.error('Error checking user status:', error);
+        });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const urlParams = new URLSearchParams(window.location.search);
+  const email = urlParams.get("email");
+  const token = urlParams.get("token");
+
+  if (urlParams.get("reset") === "true" && email) {
+    const showChangePasswordModal = (errorMessage = '') => {
+      Swal.fire({
+        title: "Reset Password",
+        imageUrl: '/images/LOGO.png', // Replace with your logo path
+        imageWidth: 140, // Adjust as needed
+        imageHeight: 100, // Adjust as needed
+        html: `
+          <div>
+            <p style="font-size: 16px;">Reset password for: <strong>${email}</strong></p>
+            <div style="text-align:left">
+              <label for="newPassword" class="form-label">New Password</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                  <input type="password" id="newPassword" class="form-control" placeholder="Enter your new password">
+                  <span class="input-group-text" id="togglePassword" style="cursor: pointer;">
+                    <i class="fa fa-eye"></i>
+                  </span>
+              </div>
+            </div>
+          </div>
+          <div id="errorMessage" class="text-danger mt-3">${errorMessage}</div>
+        `,
+        showCancelButton: true,
+        confirmButtonText: "Change Password",
+        didOpen: () => {
+            // Password toggle logic
+            document.getElementById('togglePassword').addEventListener('click', function () {
+              const passwordField = document.getElementById('newPassword');
+              const eyeIcon = this.querySelector('i');
+
+              if (passwordField.type === "password") {
+                  passwordField.type = "text";
+                  eyeIcon.classList.remove("fa-eye");
+                  eyeIcon.classList.add("fa-eye-slash");
+              } else {
+                  passwordField.type = "password";
+                  eyeIcon.classList.remove("fa-eye-slash");
+                  eyeIcon.classList.add("fa-eye");
+              }
+            });
+        },
+        preConfirm: async () => {
+          const newPassword = document.getElementById("newPassword").value.trim();
+
+          if (!newPassword) {
+            document.getElementById("errorMessage").innerText = "Password cannot be empty.";
+            return false;
+          }
+
+          try {
+            const response = await fetch("/api/ForgotPassword", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ email, token, newPassword }),
+            });
+
+            const result = await response.json();
+
+            if (result.error) {
+              document.getElementById("errorMessage").innerText = result.error;
+              return false;
+            } else {
+              Swal.fire({
+                title: "Success!",
+                text: "Your password has been changed.",
+                icon: "success"
+              }).then(() => {
+                window.location.href = "/";
+              });
+            }
+          } catch (error) {
+            document.getElementById("errorMessage").innerText = "Something went wrong. Please try again.";
+            return false;
+          }
+        },
+      });
+    };
+
+    showChangePasswordModal();
+  }
+});
+
+
+  
+  
+
+
+
+
+
+
+  
+
+
