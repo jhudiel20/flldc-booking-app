@@ -367,7 +367,7 @@ function includeHTML(file, elementID) {
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="input-group mb-3">
-                                    <span class="input-group-text"><i class="fa fa-user-tag"></i></span>
+                                    <span class="input-group-text"><i class="fa fa-user"></i></span>
                                     <input type="text" id="lname" name="lname" class="form-control" required autocomplete="off" placeholder="">
                                     <label for="lname" class="floating-label">Last Name</label>
                                 </div>
@@ -382,12 +382,15 @@ function includeHTML(file, elementID) {
                               </div>
                             </div>
 
-                            <div class="col-12 col-md-6">
-                                <label for="usertype" class="form-label">User Type</label>
-                                <select id="usertype" name="usertype" class="form-control mb-3">
-                                    <option value="Non-FAST Employee">Non-FAST Employee</option>
-                                    <option value="FAST Employee">FAST Employee</option>
-                                </select>
+                            <div class="col-12 col-md-6 position-relative">
+                                <div class="input-group mb-3">
+                                    <select id="usertype" name="usertype" class="form-control" required>
+                                        <option value="" disabled selected hidden></option>
+                                        <option value="Non-FAST Employee">Non-FAST Employee</option>
+                                        <option value="FAST Employee">FAST Employee</option>
+                                    </select>
+                                    <label for="usertype" class="floating-label">User Type</label>
+                                </div>
                             </div>
                         </div>
                         <div class="row" style="text-align:left">
