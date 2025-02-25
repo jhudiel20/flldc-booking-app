@@ -289,7 +289,7 @@ function includeHTML(file, elementID) {
           Swal.fire({
               title: 'Forgot Password',
               imageUrl: '/images/LOGO.png', // Replace with your logo path
-              imageWidth: 140, // Adjust as needed
+              imageWidth: 160, // Adjust as needed
               imageHeight: 100, // Adjust as needed
               html: `  
                   <div class="mb-3 text-start" style="text-align:left">
@@ -354,7 +354,7 @@ function includeHTML(file, elementID) {
                     title: 'Sign Up',
                     width: '700px',
                     imageUrl: '/images/LOGO.png', // Replace with your logo path
-                    imageWidth: 140, // Adjust as needed
+                    imageWidth: 160, // Adjust as needed
                     imageHeight: 100, // Adjust as needed
                     html: `
                         <div class="row" style="text-align:left">
@@ -653,7 +653,7 @@ document.addEventListener("DOMContentLoaded", function () {
       Swal.fire({
         title: "Reset Password",
         imageUrl: '/images/LOGO.png', // Replace with your logo path
-        imageWidth: 140, // Adjust as needed
+        imageWidth: 160, // Adjust as needed
         imageHeight: 100, // Adjust as needed
         html: `
           <div>
