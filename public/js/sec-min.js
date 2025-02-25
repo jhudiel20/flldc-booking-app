@@ -293,10 +293,10 @@ function includeHTML(file, elementID) {
               imageHeight: 100, // Adjust as needed
               html: `  
                   <div class="mb-3 text-start" style="text-align:left">
-                      <label for="forgot_email" class="form-label">Enter your email</label>
                       <div class="input-group">
                           <span class="input-group-text"><i class="fa fa-envelope"></i></span>
-                          <input type="email" id="forgot_email" class="form-control" placeholder="Enter your registered email">
+                          <input type="email" id="forgot_email" class="form-control" placeholder=" ">
+                          <label for="forgot_email" class="floating-label">Email</label>
                       </div>
                   </div>
 
@@ -359,20 +359,20 @@ function includeHTML(file, elementID) {
                     html: `
                         <div class="row" style="text-align:left">
                             <div class="col-12 col-md-6">
-                                <label for="fname" class="form-label">First Name</label>
-                                <input type="text" id="fname" name="fname" class="form-control mb-3" required autocomplete="off">
+                                <input type="text" id="fname" name="fname" class="form-control mb-3" required autocomplete="off" placeholder="">
+                                <label for="fname" class="floating-label">First Name</label>
                             </div>
                             <div class="col-12 col-md-6">
-                                <label for="lname" class="form-label">Last Name</label>
-                                <input type="text" id="lname" name="lname" class="form-control mb-3" required autocomplete="off">
+                                <input type="text" id="lname" name="lname" class="form-control mb-3" required autocomplete="off" placeholder="">
+                                <label for="lname" class="floating-label">Last Name</label>
                             </div>
                         </div>
                         <div class="row" style="text-align:left">
                             <div class="col-12 col-md-6">
-                              <label for="email" class="form-label">Email</label>
                               <div class="input-group mb-3">
                                 <span class="input-group-text"><i class="fa fa-envelope"></i></span>
-                                <input type="email" id="email" class="form-control" placeholder="Enter your Email" required autocomplete="off">
+                                <input type="email" id="email" class="form-control" placeholder=" " required autocomplete="off">
+                                <label for="email" class="floating-label">Email</label>
                               </div>
                             </div>
 
@@ -386,24 +386,24 @@ function includeHTML(file, elementID) {
                         </div>
                         <div class="row" style="text-align:left">
                           <div class="col-12 col-md-6">
-                            <label for="newPassword" class="form-label">Password</label>
                             <div class="input-group mb-3">
                               <span class="input-group-text"><i class="fa fa-lock"></i></span>
-                              <input type="password" id="newPassword" class="form-control" placeholder="Enter your password" required>
+                              <input type="password" id="newPassword" class="form-control" placeholder=" " required>
                               <span class="input-group-text" id="togglePasswordNew" style="cursor: pointer;">
                                 <i class="fa fa-eye"></i>
                               </span>
+                              <label for="newPassword" class="floating-label">Password</label>
                             </div>
                           </div>
 
                           <div class="col-12 col-md-6">
-                            <label for="confirmPassword" class="form-label">Confirm Password</label>
                             <div class="input-group mb-3">
                               <span class="input-group-text"><i class="fa fa-lock"></i></span>
-                              <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm your password" required>
+                              <input type="password" id="confirmPassword" class="form-control" placeholder=" " required>
                               <span class="input-group-text" id="togglePasswordConfirm" style="cursor: pointer;">
                                 <i class="fa fa-eye"></i>
                               </span>
+                              <label for="confirmPassword" class="floating-label">Confirm Password</label>
                             </div>
                           </div>
                         </div>
