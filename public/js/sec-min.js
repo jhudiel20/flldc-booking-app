@@ -371,9 +371,8 @@ function includeHTML(file, elementID) {
                               </div>
                               <div class="col-12 col-md-6">
                                 <div class="input-group mb-3">
-                                 <span class="input-group-text"><i class="fas fa-code-branch"></i></span>
+                                  <span class="input-group-text"><i class="fas fa-code-branch"></i></span>
                                   <select id="branchSelect" class="form-control mb-3">
-                                  <option value="" disabled selected hidden>Branch</option>
                                   </select>
                                   <label for="branch" class="floating-label">Branch</label>
                                 </div>
@@ -488,14 +487,26 @@ function includeHTML(file, elementID) {
                     }
                 });
                 
-                    const branchSelect = document.getElementById('branchSelect');
-                    branchSelect.innerHTML = ''; // Clear previous options
-                    branches.forEach((branch) => {
-                        const option = document.createElement('option');
-                        option.value = branch;
-                        option.textContent = branch;
-                        branchSelect.appendChild(option);
-                    });
+                  const branchSelect = document.getElementById('branchSelect');
+                  branchSelect.innerHTML = ''; // Clear previous options
+                  
+                  // Add default placeholder option
+                  const defaultOption = document.createElement('option');
+                  defaultOption.value = '';
+                  defaultOption.disabled = true;
+                  defaultOption.selected = true;
+                  defaultOption.hidden = true;
+                  defaultOption.textContent = 'Branch';
+                  branchSelect.appendChild(defaultOption);
+                  
+                  // Append dynamic branch options
+                  branches.forEach((branch) => {
+                      const option = document.createElement('option');
+                      option.value = branch;
+                      option.textContent = branch;
+                      branchSelect.appendChild(option);
+                  });
+                  
         
                     const userTypeSelect = document.getElementById('usertype');
                     const sbuContainer = document.getElementById('SBUContainer');
