@@ -498,6 +498,11 @@ function includeHTML(file, elementID) {
                     // Show/Hide SBU Based on User Type
                     const userTypeSelect = document.getElementById('usertype');
                     const sbuContainer = document.getElementById('SBUContainer');
+                    // Initial styles for transition
+                    sbuContainer.style.transition = 'opacity 0.5s ease, max-height 0.5s ease';
+                    sbuContainer.style.overflow = 'hidden';
+                    sbuContainer.style.maxHeight = '0';
+                    sbuContainer.style.opacity = '0';
                     userTypeSelect.addEventListener('change', function () {
                         sbuContainer.style.display = userTypeSelect.value === 'FAST Employee' ? 'block' : 'none';
                     });
