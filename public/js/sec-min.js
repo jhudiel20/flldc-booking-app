@@ -497,17 +497,30 @@ function includeHTML(file, elementID) {
                         branchSelect.appendChild(option);
                     });
         
-                    // Show/Hide SBU Based on User Type
                     const userTypeSelect = document.getElementById('usertype');
                     const sbuContainer = document.getElementById('SBUContainer');
-                    // Initial styles for transition
-                    sbuContainer.style.transition = 'opacity 0.5s ease, max-height 0.5s ease';
-                    sbuContainer.style.overflow = 'hidden';
-                    sbuContainer.style.maxHeight = '0';
+
+                    // Initial styles
                     sbuContainer.style.opacity = '0';
+                    sbuContainer.style.transition = 'opacity 0.5s ease';
+                    sbuContainer.style.display = 'none';
+
                     userTypeSelect.addEventListener('change', function () {
-                        sbuContainer.style.display = userTypeSelect.value === 'FAST Employee' ? 'block' : 'none';
+                        if (userTypeSelect.value === 'FAST Employee') {
+                            sbuContainer.style.display = 'block';
+                            // Small delay to trigger transition after display is set to block
+                            requestAnimationFrame(() => {
+                                sbuContainer.style.opacity = '1';
+                            });
+                        } else {
+                            sbuContainer.style.opacity = '0';
+                            // Wait for opacity transition to complete before setting display to none
+                            setTimeout(() => {
+                                sbuContainer.style.display = 'none';
+                            }, 500); // Match the transition duration
+                        }
                     });
+
                 
             };
         
