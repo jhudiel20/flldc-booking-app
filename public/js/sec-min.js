@@ -356,6 +356,7 @@ function includeHTML(file, elementID) {
                           <div class="row">
                               <div class="col-12 col-md-6">
                                   <div class="input-group mb-3">
+                                  <span class="input-group-text"><i class="fas fa-sitemap"></i></span>
                                     <select id="SBU" name="SBU" class="form-control" required>
                                       <option value="" disabled selected hidden>SBU</option>
                                       <option value="FSC">FSC</option>
@@ -370,6 +371,7 @@ function includeHTML(file, elementID) {
                               </div>
                               <div class="col-12 col-md-6">
                                 <div class="input-group mb-3">
+                                 <span class="input-group-text"><i class="fas fa-code-branch"></i></span>
                                   <select id="branchSelect" class="form-control mb-3">
                                   <option value="" disabled selected hidden>Branch</option>
                                   </select>
