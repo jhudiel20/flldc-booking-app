@@ -191,7 +191,7 @@ function includeHTML(file, elementID) {
                       </div>
                   </div>
                   <div class="mb-3">
-                      <div class="text-end">
+                      <div style="text-align:right">
                           <button id="forgotPasswordLink" class="btn btn-link p-0"
                               data-bs-toggle="tooltip" 
                               data-bs-offset="0,4"
