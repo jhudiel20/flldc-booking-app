@@ -321,9 +321,9 @@ function includeHTML(file, elementID) {
                             <div class="col-12 col-md-6 position-relative">
                                 <div class="input-group mb-3">
                                     <select id="usertype" name="usertype" class="form-control" required>
-                                        <option value="" disabled seleted hidden>Select User Type</option>
-                                        <option value="Non-FAST Employee">Non-FAST Employee</option>
+                                        <option value="" disabled selected hidden>Select User Type</option>
                                         <option value="FAST Employee">FAST Employee</option>
+                                        <option value="Guest">Guest</option>
                                     </select>
                                     <label for="usertype" class="floating-label">User Type</label>
                                 </div>
@@ -357,7 +357,7 @@ function includeHTML(file, elementID) {
                               <div class="col-12 col-md-6">
                                   <div class="input-group mb-3">
                                     <select id="SBU" name="SBU" class="form-control" required>
-                                      <option value="" disabled seleted hidden>SBU</option>
+                                      <option value="" disabled selected hidden>SBU</option>
                                       <option value="FSC">FSC</option>
                                       <option value="FLC">FLC</option>
                                       <option value="FTMC">FTMC</option>
@@ -371,7 +371,7 @@ function includeHTML(file, elementID) {
                               <div class="col-12 col-md-6">
                                 <div class="input-group mb-3">
                                   <select id="branchSelect" class="form-control mb-3">
-                                  <option value="" disabled seleted hidden>Branch</option>
+                                  <option value="" disabled selected hidden>Branch</option>
                                   </select>
                                   <label for="branch" class="floating-label">Branch</label>
                                 </div>
