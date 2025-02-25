@@ -167,6 +167,19 @@ function includeHTML(file, elementID) {
       dropdown.dataset.loaded = 'true';
   }
 
+
+  // <div class="d-flex justify-content-between">
+                          
+  //                         <button id="forgotPasswordLink" class="btn btn-link p-0"
+  //                             data-bs-toggle="tooltip" 
+  //                             data-bs-offset="0,4"
+  //                             data-bs-placement="top"
+  //                             data-bs-html="true"
+  //                             title="To reset your password, please click this link to process your reset.">
+  //                             <small>Forgot Password?</small>
+  //                         </button>
+  //                     </div>
+
   includeHTML('header', 'header').then(() => {
     const loginModal = document.getElementById('LoginModal');
     if (loginModal) {
@@ -188,23 +201,14 @@ function includeHTML(file, elementID) {
                       </div>
                   </div>
                   <div class="mb-3">
-                      <div class="d-flex justify-content-between">
-                          <label class="form-label" for="password">Password</label>
-                          <button id="forgotPasswordLink" class="btn btn-link p-0"
-                              data-bs-toggle="tooltip" 
-                              data-bs-offset="0,4"
-                              data-bs-placement="top"
-                              data-bs-html="true"
-                              title="To reset your password, please click this link to process your reset.">
-                              <small>Forgot Password?</small>
-                          </button>
-                      </div>
+                      
                       <div class="input-group">
                           <span class="input-group-text"><i class="fa fa-lock"></i></span>
                           <input type="password" id="password" class="form-control" placeholder="Enter your password">
                           <span class="input-group-text" id="togglePassword" style="cursor: pointer;">
                               <i class="fa fa-eye"></i>
                           </span>
+                          <label class="floating-label" for="password">Password</label>
                       </div>
                   </div>
                   <div id="errorMessage" class="text-danger mt-3">${errorMessage}</div>
