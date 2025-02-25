@@ -385,7 +385,7 @@ function includeHTML(file, elementID) {
                             <div class="col-12 col-md-6 position-relative">
                                 <div class="input-group mb-3">
                                     <select id="usertype" name="usertype" class="form-control" required>
-                                        <option value="" disabled selected hidden></option>
+                                        <option value="" disabled selected hidden>Select User Type</option>
                                         <option value="Non-FAST Employee">Non-FAST Employee</option>
                                         <option value="FAST Employee">FAST Employee</option>
                                     </select>
