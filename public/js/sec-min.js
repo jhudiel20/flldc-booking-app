@@ -204,7 +204,7 @@ function includeHTML(file, elementID) {
                       
                       <div class="input-group">
                           <span class="input-group-text"><i class="fa fa-lock"></i></span>
-                          <input type="password" id="password" class="form-control" placeholder="Enter your password">
+                          <input type="password" id="password" class="form-control" placeholder="" required>
                           <span class="input-group-text" id="togglePassword" style="cursor: pointer;">
                               <i class="fa fa-eye"></i>
                           </span>
