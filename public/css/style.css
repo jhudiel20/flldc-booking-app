@@ -29,9 +29,7 @@
 
 /* Focused State or Filled Input */
 .form-control:focus ~ .floating-label,
-.form-control:not(:placeholder-shown) ~ .floating-label,
-select:focus + .floating-label,
-select:not([value=""]) + .floating-label  {
+.form-control:not(:placeholder-shown) ~ .floating-label {
   top: -2px;
   left: 45px;
   font-size: 12px;
@@ -46,6 +44,27 @@ select:not([value=""]) + .floating-label  {
   outline: none;
   border-color: #007bff;
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Floating label on focus or valid selection */
+select:focus + .floating-label,
+select:valid + .floating-label {
+  top: -2px;
+  left: 45px;
+  font-size: 12px;
+  color: #007bff;
+  background-color: white;
+  padding: 0 5px;
+  z-index: 3;
+}
+
+/* Initial State - Keep label inside when no selection */
+select:invalid + .floating-label {
+  top: 12px;
+  left: 15px;
+  font-size: 16px;
+  color: #aaa;
+  background-color: transparent;
 }
 
 /* Input Group Icon */
