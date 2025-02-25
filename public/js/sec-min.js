@@ -359,12 +359,18 @@ function includeHTML(file, elementID) {
                     html: `
                         <div class="row" style="text-align:left">
                             <div class="col-12 col-md-6">
-                                <input type="text" id="fname" name="fname" class="form-control mb-3" required autocomplete="off" placeholder="">
-                                <label for="fname" class="floating-label">First Name</label>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                    <input type="text" id="fname" name="fname" class="form-control" required autocomplete="off" placeholder="">
+                                    <label for="fname" class="floating-label">First Name</label>
+                                </div>
                             </div>
                             <div class="col-12 col-md-6">
-                                <input type="text" id="lname" name="lname" class="form-control mb-3" required autocomplete="off" placeholder="">
-                                <label for="lname" class="floating-label">Last Name</label>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text"><i class="fa fa-user-tag"></i></span>
+                                    <input type="text" id="lname" name="lname" class="form-control" required autocomplete="off" placeholder="">
+                                    <label for="lname" class="floating-label">Last Name</label>
+                                </div>
                             </div>
                         </div>
                         <div class="row" style="text-align:left">
