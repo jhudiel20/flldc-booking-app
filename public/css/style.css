@@ -59,14 +59,9 @@ select:valid + .floating-label {
   transition: all 0.2s ease-in-out;
 }
 
-/* Initial State - Keep label inside when no selection */
-select:invalid + .floating-label {
-  top: 12px;
-  left: 15px;
-  font-size: 16px;
-  color: #aaa;
-  background-color: transparent;
-  transition: all 0.2s ease-in-out;
+/* Style for invalid state */
+select:invalid {
+  color: gray; /* Makes the placeholder option gray */
 }
 
 /* General select styling */
