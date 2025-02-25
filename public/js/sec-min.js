@@ -542,7 +542,7 @@ function includeHTML(file, elementID) {
 
                   try {
                       const forgotPasswordData = { email, recaptchaResponse };
-                      const response = await fetch('/api/ForgotPassword', {
+                      const response = await fetch('/api/UserAuth', {
                           method: 'POST',
                           headers: { 'Content-Type': 'application/json' },
                           body: JSON.stringify(forgotPasswordData)
@@ -697,7 +697,7 @@ document.addEventListener("DOMContentLoaded", function () {
           }
 
           try {
-            const response = await fetch("/api/ForgotPassword", {
+            const response = await fetch("/api/UserAuth", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({ email, token, newPassword }),
