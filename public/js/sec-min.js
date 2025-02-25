@@ -321,7 +321,7 @@ function includeHTML(file, elementID) {
                             <div class="col-12 col-md-6 position-relative">
                                 <div class="input-group mb-3">
                                     <select id="usertype" name="usertype" class="form-control" required>
-                                        <option value="" disabled hidden>Select User Type</option>
+                                        <option value="" disabled seleted hidden>Select User Type</option>
                                         <option value="Non-FAST Employee">Non-FAST Employee</option>
                                         <option value="FAST Employee">FAST Employee</option>
                                     </select>
@@ -355,20 +355,26 @@ function includeHTML(file, elementID) {
                         <div id="SBUContainer" style="display: none;" style="text-align:left">
                           <div class="row">
                               <div class="col-12 col-md-6">
-                                  <label for="SBU" class="form-label">SBU</label>
-                                  <select id="SBU" class="form-control mb-3">
+                                  <div class="input-group mb-3">
+                                    <select id="SBU" name="SBU" class="form-control" required>
+                                      <option value="" disabled seleted hidden>SBU</option>
                                       <option value="FSC">FSC</option>
                                       <option value="FLC">FLC</option>
                                       <option value="FTMC">FTMC</option>
                                       <option value="FCSI">FCSI</option>
                                       <option value="FDC">FDC</option>
                                       <option value="FUI">FUI</option>
-                                  </select>
+                                    </select>
+                                    <label for="SBU" class="floating-label">SBU</label>
+                                  </div>
                               </div>
                               <div class="col-12 col-md-6">
-                                  <label for="branch" class="form-label">Branch</label>
+                                <div class="input-group mb-3">
                                   <select id="branchSelect" class="form-control mb-3">
+                                  <option value="" disabled seleted hidden>Branch</option>
                                   </select>
+                                  <label for="branch" class="floating-label">Branch</label>
+                                </div>
                               </div>
                           </div>
                         </div>
