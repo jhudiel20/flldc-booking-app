@@ -168,17 +168,7 @@ function includeHTML(file, elementID) {
   }
 
 
-  // <div class="d-flex justify-content-between">
-                          
-  //                         <button id="forgotPasswordLink" class="btn btn-link p-0"
-  //                             data-bs-toggle="tooltip" 
-  //                             data-bs-offset="0,4"
-  //                             data-bs-placement="top"
-  //                             data-bs-html="true"
-  //                             title="To reset your password, please click this link to process your reset.">
-  //                             <small>Forgot Password?</small>
-  //                         </button>
-  //                     </div>
+  
 
   includeHTML('header', 'header').then(() => {
     const loginModal = document.getElementById('LoginModal');
@@ -201,7 +191,16 @@ function includeHTML(file, elementID) {
                       </div>
                   </div>
                   <div class="mb-3">
-                      
+                      <div class="text-end">
+                          <button id="forgotPasswordLink" class="btn btn-link p-0"
+                              data-bs-toggle="tooltip" 
+                              data-bs-offset="0,4"
+                              data-bs-placement="top"
+                              data-bs-html="true"
+                              title="To reset your password, please click this link to process your reset.">
+                              <small>Forgot Password?</small>
+                          </button>
+                      </div>
                       <div class="input-group">
                           <span class="input-group-text"><i class="fa fa-lock"></i></span>
                           <input type="password" id="password" class="form-control" placeholder="" required>
