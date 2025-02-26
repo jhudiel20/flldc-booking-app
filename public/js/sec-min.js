@@ -330,29 +330,6 @@ function includeHTML(file, elementID) {
                                 </div>
                             </div>
                         </div>
-                        <div class="row" style="text-align:left">
-                          <div class="col-12 col-md-6">
-                            <div class="input-group mb-3">
-                              <span class="input-group-text"><i class="fa fa-lock"></i></span>
-                              <input type="password" id="newPassword" class="form-control" placeholder=" " required>
-                              <span class="input-group-text" id="togglePasswordNew" style="cursor: pointer;">
-                                <i class="fa fa-eye"></i>
-                              </span>
-                              <label for="newPassword" class="floating-label">Password</label>
-                            </div>
-                          </div>
-
-                          <div class="col-12 col-md-6">
-                            <div class="input-group mb-3">
-                              <span class="input-group-text"><i class="fa fa-lock"></i></span>
-                              <input type="password" id="confirmPassword" class="form-control" placeholder=" " required>
-                              <span class="input-group-text" id="togglePasswordConfirm" style="cursor: pointer;">
-                                <i class="fa fa-eye"></i>
-                              </span>
-                              <label for="confirmPassword" class="floating-label">Confirm Password</label>
-                            </div>
-                          </div>
-                        </div>
                         <div id="SBUContainer" style="display: none;" style="text-align:left">
                           <div class="row">
                               <div class="col-12 col-md-6">
@@ -381,6 +358,30 @@ function includeHTML(file, elementID) {
                             </div>
                           </div>
                         </div>
+                        <div class="row" style="text-align:left">
+                          <div class="col-12 col-md-6">
+                            <div class="input-group mb-3">
+                              <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                              <input type="password" id="newPassword" class="form-control" placeholder=" " required>
+                              <span class="input-group-text" id="togglePasswordNew" style="cursor: pointer;">
+                                <i class="fa fa-eye"></i>
+                              </span>
+                              <label for="newPassword" class="floating-label">Password</label>
+                            </div>
+                          </div>
+
+                          <div class="col-12 col-md-6">
+                            <div class="input-group mb-3">
+                              <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                              <input type="password" id="confirmPassword" class="form-control" placeholder=" " required>
+                              <span class="input-group-text" id="togglePasswordConfirm" style="cursor: pointer;">
+                                <i class="fa fa-eye"></i>
+                              </span>
+                              <label for="confirmPassword" class="floating-label">Confirm Password</label>
+                            </div>
+                          </div>
+                        </div>
+                        
                         <div id="errorMessage" class="text-danger mt-3">${errorMessage}</div>
                         <div id="recaptcha-container" class="mt-3" style="display: flex; justify-content: center; align-items: center;"></div>
                     `,
