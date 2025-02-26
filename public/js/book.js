@@ -18,7 +18,8 @@ fetch('/api/validate-cookie') // API endpoint to validate the cookie
             // document.getElementById('branch').textContent = userData.branch;
             // Hide FASTContainer if usertype is "Guest"
             if (userData.usertype === "Guest") {
-              document.getElementById('FASTContainer').style.display = "none";
+              document.getElementById('div-SBU').style.display = "none";
+              document.getElementById('div-Branch').style.display = "none";
             }
             let businessUnitSelect = document.getElementById('businessunit');
             let sbuValue = userData.sbu;
