@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Fetch reservations from the backend
     function fetchReservations(room, date) {
-        fetch(`/api/reservations?room=${room}&date=${date}`)
+        fetch(`/api/reservation?room=${room}&date=${date}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
