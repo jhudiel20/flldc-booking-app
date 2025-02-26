@@ -143,7 +143,7 @@
                             }).then((result) => {
                                 if (result.isConfirmed) {
                                     // Call API to cancel the reservation
-                                    fetch(`/api/cancelReservation`, {
+                                    fetch(`/api/reservation`, {
                                         method: 'POST',
                                         headers: {
                                             'Content-Type': 'application/json',
