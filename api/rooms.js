@@ -63,6 +63,16 @@ module.exports = async (req, res) => {
             // If no cookie is found, return unauthorized response
             return res.status(401).json({ errors: 'You must be logged in to make a reservation.' });
           }
+
+          try {
+            // Decode and parse user data
+            const userData = JSON.parse(decodeURIComponent(userCookie));
+            const userType = userData.usertype; // Extract usertype
+
+          } catch (error) {
+            console.error('Failed to parse user_data cookie:', error);
+            return res.status(400).json({ errors: 'Invalid user session.' });
+          }
           
       // Validate input
       const errors = validateInput(req.body);
@@ -158,6 +168,7 @@ module.exports = async (req, res) => {
                                     <p><b>Booking ID:</b> ${booking_id}<br>
                                     <b>Booking Date:</b> ${reserve_date}<br>
                                     <b>Cost: ₱ </b> ${finalPrice}<br>
+                                    ${userType !== 'Guest' ? `<b>Business Unit:</b> ${businessunit}<br> <b>Branch:</b> ${branch}<br>` : ''}
                                     <b>Business Unit:</b> ${businessunit}<br>
                                     <b>Branch:</b> ${branch}<br>
                                     <b>Room:</b> ${roomName}<br>
@@ -259,8 +270,7 @@ module.exports = async (req, res) => {
                                     <p><b>Booking ID:</b> ${booking_id}<br>
                                     <b>Booking Date:</b> ${reserve_date}<br>
                                     <b>Cost: ₱ </b> ${finalPrice}<br>
-                                    <b>Business Unit:</b> ${businessunit}<br>
-                                    <b>Branch:</b> ${branch}<br>
+                                    ${userType !== 'Guest' ? `<b>Business Unit:</b> ${businessunit}<br> <b>Branch:</b> ${branch}<br>` : ''}
                                     <b>Room:</b> ${roomName}<br>
                                     <b>Contact:</b> ${contact}<br>
                                     <b>Email:</b> ${email}<br>
