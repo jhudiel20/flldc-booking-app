@@ -14,7 +14,6 @@ fetch('/api/validate-cookie') // API endpoint to validate the cookie
             document.getElementById('email').value = userData.email;
             document.getElementById('fname').value = userData.firstName;
             document.getElementById('lname').value = userData.lastName;
-            document.getElementById('usertype').value = userData.usertype;
             // document.getElementById('branch').textContent = userData.branch;
             // Hide FASTContainer if usertype is "Guest"
             console.log(userData.usertype);
