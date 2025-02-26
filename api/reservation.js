@@ -126,11 +126,9 @@ const handlefetchReservations = async (req, res) => {
 };
 
 const handleReserveRoom = async (req, res) => {
+    const { user_id, fname, lname, reserve_date, time, businessunit, branch, roomID, roomName, setup, guest, contact, email, table, chair, hdmi, extension, message } = req.body;
 
     try {
-        if (req.method === 'POST') {
-          const { user_id, fname, lname, reserve_date, time, businessunit, branch, roomID, roomName, setup, guest, contact, email, table, chair, hdmi, extension, message } = req.body;
-    
               // Validate cookie
               const cookieHeader = req.headers.cookie || '';
               const userCookie = cookieHeader
@@ -425,9 +423,7 @@ const handleReserveRoom = async (req, res) => {
         
     
     
-        } else {
-          return res.status(405).json({ error: 'Method Not Allowed' });
-        }
+        
       } catch (error) {
         console.error('Unexpected error:', error);
         return res.status(500).json({ error: 'An unexpected error occurred.' });

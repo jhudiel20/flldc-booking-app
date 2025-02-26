@@ -506,8 +506,13 @@ document.addEventListener("DOMContentLoaded", function () {
       },
       body: JSON.stringify(formData)
     })
-    .then(response => response.json())
+    .then(response => response.text())
+    .then(text => {
+      console.log("Server Response:", text); // Debugging
+      return JSON.parse(text); // Convert manually to JSON
+    })
     .then(data => {
+      console.log("Parsed Data:", data);
       document.getElementById('loader').classList.remove('show'); // Hide loader
 
       if (data.error || data.errors) {
@@ -532,6 +537,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     })
     .catch(err => {
+      console.error("Parsing Error:", err);
       document.getElementById('loader').classList.remove('show'); // Hide loader
 
       Swal.fire({
