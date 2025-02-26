@@ -499,7 +499,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     // Send form data to the backend via fetch
-    fetch('/api/rooms', {
+    fetch('/api/reservation', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
