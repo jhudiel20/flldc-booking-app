@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     if (roomId) {
       try {
-        const response = await fetch(`/api/rooms?room_id=${roomId}`);
+        const response = await fetch(`/api/reservation?room_id=${roomId}`);
         if (!response.ok) throw new Error('Room not found');
 
         const data = await response.json();
