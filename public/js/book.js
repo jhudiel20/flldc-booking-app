@@ -14,10 +14,14 @@ fetch('/api/validate-cookie') // API endpoint to validate the cookie
             document.getElementById('email').value = userData.email;
             document.getElementById('fname').value = userData.firstName;
             document.getElementById('lname').value = userData.lastName;
+            document.getElementById('usertype').value = userData.usertype;
             // document.getElementById('branch').textContent = userData.branch;
+            // Hide FASTContainer if usertype is "Guest"
+            if (userData.usertype === "Guest") {
+              document.getElementById('FASTContainer').style.display = "none";
+            }
             let businessUnitSelect = document.getElementById('businessunit');
             let sbuValue = userData.sbu;
-
             for (let i = 0; i < businessUnitSelect.options.length; i++) {
                 if (businessUnitSelect.options[i].value === sbuValue) {
                     businessUnitSelect.selectedIndex = i;
@@ -265,85 +269,6 @@ function validateMinDate(input) {
       input.value = today;  // Reset the value to today if it's earlier
   }
 }
-  
-// Handle form submission
-// document.querySelector('#bookingForm').addEventListener('submit', function (e) {
-//   e.preventDefault(); // Prevent default form submission
-//   checkUserStatus();
-
-//   // Show the loader
-//   document.getElementById('loader').classList.add('show');
-
-//   // Gather form data
-//   const formData = {
-//     user_id: document.getElementById('user_id').value,
-//     fname: document.getElementById('fname').value,
-//     lname: document.getElementById('lname').value,
-//     reserve_date: document.getElementById('reserve_date').value,
-//     time: document.getElementById('time').value,
-//     setup: document.getElementById('setup').value,
-//     businessunit: document.getElementById('businessunit').value,
-//     branch: document.getElementById('branch').value,
-//     roomID: document.getElementById('roomID').value,
-//     roomPrices: document.getElementById('roomPrices').value,
-//     roomName: document.getElementById('roomName').value,
-//     guest: document.getElementById('guest').value,
-//     contact: document.getElementById('contact').value,
-//     email: document.getElementById('email').value,
-//     table: document.getElementById('table').value, // Checkbox for table
-//     chair: document.getElementById('chair').value,
-//     hdmi: document.getElementById('hdmi').checked,  // Checkbox for HDMI
-//     extension: document.getElementById('extension').checked, // Checkbox for extension
-//     message: document.getElementById('message').value
-//   };
-
-//   // Send form data to the backend via fetch
-//   fetch('/api/rooms', {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify(formData)
-//   })
-//   .then(response => response.json())
-//   .then(data => {
-//     document.getElementById('loader').classList.remove('show'); // Hide loader
-
-//     // Check if there's any error in the response
-//     if (data.error || data.errors) {
-//       // Display error notification
-//       Swal.fire({
-//         icon: 'error',
-//         title: 'Error',
-//         text: data.errors,
-//       }).then(() => {
-//         window.location.reload(); // Optionally reload the page
-//       });
-//     } else {
-//       // On successful booking
-//       Swal.fire({
-//         icon: 'success',
-//         title: 'Booking Submitted',
-//         text: 'Please wait for the email confirmation of your booking.',
-//         timer: 1500,
-//       }).then(() => {
-//         window.location.reload(); // Optionally reload the page
-//       });
-//     }
-//   })
-//   .catch(err => {
-//     document.getElementById('loader').classList.remove('show'); // Hide loader
-
-//     // If there's a network error or other fetch issue
-//     Swal.fire({
-//       icon: 'error',
-//       title: 'Error',
-//       text: `An unexpected error occurred. Please try again. Error: ${err.message || err}`,
-//     }).then(() => {
-//       window.location.reload(); // Optionally reload the page
-//     });
-//   });
-// });
 
 document.addEventListener("DOMContentLoaded", function () {
   document.querySelector('#bookingForm').addEventListener('submit', function (e) {
