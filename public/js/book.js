@@ -499,20 +499,15 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     // Send form data to the backend via fetch
-    fetch('/api/reservation', {
+    fetch('/api/rooms', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(formData)
     })
-    .then(response => response.text())
-    .then(text => {
-      console.log("Server Response:", text); // Debugging
-      return JSON.parse(text); // Convert manually to JSON
-    })
+    .then(response => response.json())
     .then(data => {
-      console.log("Parsed Data:", data);
       document.getElementById('loader').classList.remove('show'); // Hide loader
 
       if (data.error || data.errors) {
@@ -537,7 +532,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     })
     .catch(err => {
-      console.error("Parsing Error:", err);
       document.getElementById('loader').classList.remove('show'); // Hide loader
 
       Swal.fire({
