@@ -7,8 +7,8 @@ const pool = new Pool({
 
 module.exports = async (req, res) => {
     try {
-      if (req.method === "POST") {
-        const { room_id, room, date } = req.body;
+      if (req.method === "GET") {
+        const { room_id, room, date } = req.query;
   
         if (room_id) {
           return await handleRoomDetails(req, res);
@@ -27,7 +27,7 @@ module.exports = async (req, res) => {
 };
 
 const handleRoomDetails = async (req, res) => {
-    const { room_id } = req.body;
+    const { room_id } = req.query; 
 
   // Validate the input
   if (!room_id) {
@@ -55,7 +55,7 @@ const handleRoomDetails = async (req, res) => {
 };
 
 const handlefetchReservations = async (req, res) => {
-    const { room, date } = req.body;
+    const { room, date } = req.query;
 
   try {
     // Query to get reserved slots based on room and date
