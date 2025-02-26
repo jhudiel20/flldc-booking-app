@@ -125,7 +125,7 @@ const handlefetchReservations = async (req, res) => {
   }
 };
 
-const handleReserveRoom = async (req, res) => {
+async function handleReserveRoom = async (req, res) => {
     const { user_id, fname, lname, reserve_date, time, businessunit, branch, roomID, roomName, setup, guest, contact, email, table, chair, hdmi, extension, message } = req.body;
 
     try {
