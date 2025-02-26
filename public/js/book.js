@@ -506,7 +506,7 @@ document.addEventListener("DOMContentLoaded", function () {
       },
       body: JSON.stringify(formData)
     })
-    .then(response => response.text()) 
+    .then(response => response.json())
     .then(data => {
       document.getElementById('loader').classList.remove('show'); // Hide loader
 
