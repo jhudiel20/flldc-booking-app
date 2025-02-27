@@ -36,96 +36,106 @@
         <h4 id="section-title" class="py-3 mb-4"><span class="text-muted fw-light">Account Settings /</span> Account</h4>
             <div class="row">
                 <div class="col-md-12">
+                    <div class="nav-align-top mb-2">
 
-                        <div class="row" style="text-align:left">
-                            <div class="col-12 col-md-6">
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text"><i class="fa fa-user"></i></span>
-                                    <input type="text" id="fname" name="fname" class="form-control" required autocomplete="off" placeholder="">
-                                    <label for="fname" class="floating-label">First Name</label>
+                                <div class="card-body mb-4">
+                                    <h5 class="card-header">Profile Details</h5>
+                                    <!-- Account -->
+                                    <div class="card-body">
+                                        <form id="formAccountSettings" method="" onsubmit="return false">
+                                            <div class="row" style="text-align:left">
+                                                <div class="col-12 col-md-6">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                                        <input type="text" id="fname" name="fname" class="form-control" required autocomplete="off" placeholder="">
+                                                        <label for="fname" class="floating-label">First Name</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-md-6">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                                        <input type="text" id="lname" name="lname" class="form-control" required autocomplete="off" placeholder="">
+                                                        <label for="lname" class="floating-label">Last Name</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="text-align:left">
+                                                <div class="col-12 col-md-6">
+                                                  <div class="input-group mb-3">
+                                                    <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                                                    <input type="email" id="email" class="form-control" placeholder=" " required autocomplete="off">
+                                                    <label for="email" class="floating-label">Email</label>
+                                                  </div>
+                                                </div>
+                    
+                                                <div class="col-12 col-md-6 position-relative">
+                                                    <div class="input-group mb-3">
+                                                      <span class="input-group-text"><i class="fas fa-user-tag"></i></span>
+                                                        <select id="usertype" name="usertype" class="form-control" required>
+                                                            <option value="" disabled selected hidden>Select User Type</option>
+                                                            <option value="FAST Employee">FAST Employee</option>
+                                                            <option value="Guest">Guest</option>
+                                                        </select>
+                                                        <label for="usertype" class="floating-label">User Type</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="SBUContainer" style="display: none;" style="text-align:left">
+                                              <div class="row">
+                                                  <div class="col-12 col-md-6">
+                                                      <div class="input-group mb-3">
+                                                        <span class="input-group-text"><i class="fas fa-sitemap"></i></span>
+                                                        <select id="SBU" name="SBU" class="form-control" required>
+                                                          <option value="" disabled selected hidden>SBU</option>
+                                                          <option value="FSC">FSC</option>
+                                                          <option value="FLC">FLC</option>
+                                                          <option value="FTMC">FTMC</option>
+                                                          <option value="FCSI">FCSI</option>
+                                                          <option value="FDC">FDC</option>
+                                                          <option value="FUI">FUI</option>
+                                                        </select>
+                                                        <label for="SBU" class="floating-label">SBU</label>
+                                                      </div>
+                                                  </div>
+                                                <div class="col-12 col-md-6">
+                                                  <div class="input-group mb-3">
+                                                    <span class="input-group-text"><i class="fas fa-code-branch"></i></span>
+                                                    <select id="branchSelect" class="form-control">
+                                                      <option value="" disabled selected hidden>Branch</option>
+                                                    </select>
+                                                    <label for="branch" class="floating-label">Branch</label>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="row" style="text-align:left">
+                                              <div class="col-12 col-md-6">
+                                                <div class="input-group mb-3">
+                                                  <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                                                  <input type="password" id="newPassword" class="form-control" placeholder=" " required>
+                                                  <span class="input-group-text" id="togglePasswordNew" style="cursor: pointer;">
+                                                    <i class="fa fa-eye"></i>
+                                                  </span>
+                                                  <label for="newPassword" class="floating-label">Password</label>
+                                                </div>
+                                              </div>
+                    
+                                              <div class="col-12 col-md-6">
+                                                <div class="input-group mb-3">
+                                                  <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                                                  <input type="password" id="confirmPassword" class="form-control" placeholder=" " required>
+                                                  <span class="input-group-text" id="togglePasswordConfirm" style="cursor: pointer;">
+                                                    <i class="fa fa-eye"></i>
+                                                  </span>
+                                                  <label for="confirmPassword" class="floating-label">Confirm Password</label>
+                                                </div>
+                                              </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <!-- /Account -->
                                 </div>
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text"><i class="fa fa-user"></i></span>
-                                    <input type="text" id="lname" name="lname" class="form-control" required autocomplete="off" placeholder="">
-                                    <label for="lname" class="floating-label">Last Name</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row" style="text-align:left">
-                            <div class="col-12 col-md-6">
-                              <div class="input-group mb-3">
-                                <span class="input-group-text"><i class="fa fa-envelope"></i></span>
-                                <input type="email" id="email" class="form-control" placeholder=" " required autocomplete="off">
-                                <label for="email" class="floating-label">Email</label>
-                              </div>
-                            </div>
-
-                            <div class="col-12 col-md-6 position-relative">
-                                <div class="input-group mb-3">
-                                  <span class="input-group-text"><i class="fas fa-user-tag"></i></span>
-                                    <select id="usertype" name="usertype" class="form-control" required>
-                                        <option value="" disabled selected hidden>Select User Type</option>
-                                        <option value="FAST Employee">FAST Employee</option>
-                                        <option value="Guest">Guest</option>
-                                    </select>
-                                    <label for="usertype" class="floating-label">User Type</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="SBUContainer" style="display: none;" style="text-align:left">
-                          <div class="row">
-                              <div class="col-12 col-md-6">
-                                  <div class="input-group mb-3">
-                                    <span class="input-group-text"><i class="fas fa-sitemap"></i></span>
-                                    <select id="SBU" name="SBU" class="form-control" required>
-                                      <option value="" disabled selected hidden>SBU</option>
-                                      <option value="FSC">FSC</option>
-                                      <option value="FLC">FLC</option>
-                                      <option value="FTMC">FTMC</option>
-                                      <option value="FCSI">FCSI</option>
-                                      <option value="FDC">FDC</option>
-                                      <option value="FUI">FUI</option>
-                                    </select>
-                                    <label for="SBU" class="floating-label">SBU</label>
-                                  </div>
-                              </div>
-                            <div class="col-12 col-md-6">
-                              <div class="input-group mb-3">
-                                <span class="input-group-text"><i class="fas fa-code-branch"></i></span>
-                                <select id="branchSelect" class="form-control">
-                                  <option value="" disabled selected hidden>Branch</option>
-                                </select>
-                                <label for="branch" class="floating-label">Branch</label>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row" style="text-align:left">
-                          <div class="col-12 col-md-6">
-                            <div class="input-group mb-3">
-                              <span class="input-group-text"><i class="fa fa-lock"></i></span>
-                              <input type="password" id="newPassword" class="form-control" placeholder=" " required>
-                              <span class="input-group-text" id="togglePasswordNew" style="cursor: pointer;">
-                                <i class="fa fa-eye"></i>
-                              </span>
-                              <label for="newPassword" class="floating-label">Password</label>
-                            </div>
-                          </div>
-
-                          <div class="col-12 col-md-6">
-                            <div class="input-group mb-3">
-                              <span class="input-group-text"><i class="fa fa-lock"></i></span>
-                              <input type="password" id="confirmPassword" class="form-control" placeholder=" " required>
-                              <span class="input-group-text" id="togglePasswordConfirm" style="cursor: pointer;">
-                                <i class="fa fa-eye"></i>
-                              </span>
-                              <label for="confirmPassword" class="floating-label">Confirm Password</label>
-                            </div>
-                          </div>
-                        </div>
-
+                    </div>
                 </div>
             </div>
     </div>
