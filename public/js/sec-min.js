@@ -480,8 +480,10 @@ function includeHTML(file, elementID) {
                                 document.getElementById('errorMessage').innerText = result.error;
                                 return false;
                             } else {
-                                Swal.fire('Success!', 'Registration completed.', 'success');
-                                window.location.reload();
+                              Swal.fire('Success!', 'Registration completed.', 'success')
+                              .then(() => {
+                                  window.location.reload();
+                              });
                             }
                         } catch (error) {
                             document.getElementById('errorMessage').innerText = 'Registration failed. Please try again.';
