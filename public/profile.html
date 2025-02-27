@@ -354,29 +354,29 @@
         branchSelect.appendChild(option);
       });
 
-      const userTypeSelect = document.getElementById("usertype");
-      const sbuContainer = document.getElementById("SBUContainer");
+    //   const userTypeSelect = document.getElementById("usertype");
+    //   const sbuContainer = document.getElementById("SBUContainer");
 
-      // Initial styles
-      sbuContainer.style.opacity = "0";
-      sbuContainer.style.transition = "opacity 0.5s ease";
-      sbuContainer.style.display = "none";
+    //   // Initial styles
+    //   sbuContainer.style.opacity = "0";
+    //   sbuContainer.style.transition = "opacity 0.5s ease";
+    //   sbuContainer.style.display = "none";
 
-      userTypeSelect.addEventListener("change", function () {
-        if (userTypeSelect.value === "FAST Employee") {
-          sbuContainer.style.display = "block";
-          // Small delay to trigger transition after display is set to block
-          requestAnimationFrame(() => {
-            sbuContainer.style.opacity = "1";
-          });
-        } else {
-          sbuContainer.style.opacity = "0";
-          // Wait for opacity transition to complete before setting display to none
-          setTimeout(() => {
-            sbuContainer.style.display = "none";
-          }, 500); // Match the transition duration
-        }
-      });
+    //   userTypeSelect.addEventListener("change", function () {
+    //     if (userTypeSelect.value === "FAST Employee") {
+    //       sbuContainer.style.display = "block";
+    //       // Small delay to trigger transition after display is set to block
+    //       requestAnimationFrame(() => {
+    //         sbuContainer.style.opacity = "1";
+    //       });
+    //     } else {
+    //       sbuContainer.style.opacity = "0";
+    //       // Wait for opacity transition to complete before setting display to none
+    //       setTimeout(() => {
+    //         sbuContainer.style.display = "none";
+    //       }, 500); // Match the transition duration
+    //     }
+    //   });
 
       fetch("/api/validate-cookie") // API endpoint to validate the cookie
         .then(function (response) {
