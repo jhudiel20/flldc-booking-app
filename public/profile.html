@@ -139,13 +139,8 @@
                         </div>
                       </div>
                     </div>
-                    <div
-                      id="SBUContainer"
-                      style="display: none"
-                      style="text-align: left"
-                    >
                       <div class="row">
-                        <div class="col-12 col-md-6">
+                        <div class="col-12 col-md-6" id="div-SBU"> 
                           <div class="input-group mb-3">
                             <span class="input-group-text"
                               ><i class="fas fa-sitemap"></i
@@ -169,7 +164,7 @@
                             <label for="SBU" class="floating-label">SBU</label>
                           </div>
                         </div>
-                        <div class="col-12 col-md-6">
+                        <div class="col-12 col-md-6" id="div-Branch">
                           <div class="input-group mb-3">
                             <span class="input-group-text"
                               ><i class="fas fa-code-branch"></i
@@ -185,7 +180,6 @@
                           </div>
                         </div>
                       </div>
-                    </div>
                     <span id="update_UserDetails">Update Profile Details</span>
                     <hr class="my-0 mb-3 mt-2" />
                     <div class="row" style="text-align: left">
@@ -383,6 +377,52 @@
           }, 500); // Match the transition duration
         }
       });
+
+      fetch("/api/validate-cookie") // API endpoint to validate the cookie
+        .then(function (response) {
+          if (response.ok) {
+            return response.json(); // Parse the response as JSON
+          } else {
+            console.error("User is not logged in.");
+          }
+        })
+        .then(function (userData) {
+          if (userData) {
+            // DOM manipulation: Populating the input fields with user data
+            document.getElementById("user_id").value = userData.userId;
+            document.getElementById("email").value = userData.email;
+            document.getElementById("fname").value = userData.firstName;
+            document.getElementById("lname").value = userData.lastName;
+            document.getElementById("usertype").value = userData.usertype;
+            // document.getElementById('branch').textContent = userData.branch;
+            // Hide FASTContainer if usertype is "Guest"
+            if (userData.usertype === "Guest") {
+              document.getElementById("div-SBU").style.display = "none";
+              document.getElementById("div-Branch").style.display = "none";
+            }
+            let businessUnitSelect = document.getElementById("businessunit");
+            let sbuValue = userData.sbu;
+            for (let i = 0; i < businessUnitSelect.options.length; i++) {
+              if (businessUnitSelect.options[i].value === sbuValue) {
+                businessUnitSelect.selectedIndex = i;
+                break;
+              }
+            }
+
+            // Set branch
+            let branchSelect = document.getElementById("branch");
+            let branchValue = userData.branch;
+            for (let i = 0; i < branchSelect.options.length; i++) {
+              if (branchSelect.options[i].value === branchValue) {
+                branchSelect.selectedIndex = i;
+                break;
+              }
+            }
+          }
+        })
+        .catch(function (error) {
+          console.error("Error fetching user data:", error);
+        });
     </script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="sneat/assets/vendor/libs/swiper/swiper.js"></script>
