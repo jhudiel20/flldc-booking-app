@@ -1,169 +1,385 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <title>FAST Learning and Development Center</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <!-- Favicon -->
-    <link href="/images/LOGO.png" rel="icon" style="border-radius:10%">
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900|Rubik:300,400,700" rel="stylesheet">
-    
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Favicon -->
+    <link href="/images/LOGO.png" rel="icon" style="border-radius: 10%" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900|Rubik:300,400,700"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" href="css/owl.carousel.min.css" />
 
     <link rel="stylesheet" href="sneat/assets/vendor/fonts/boxicons.css" />
     <link rel="stylesheet" href="sneat/assets/vendor/fonts/fontawesome.css" />
     <link rel="stylesheet" href="sneat/assets/vendor/fonts/flag-icons.css" />
-    
-    <link rel="stylesheet" href="fonts/ionicons/css/ionicons.min.css">
-    <link rel="stylesheet" href="fonts/fontawesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    
-    <!-- Theme Style -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="sneat/assets/vendor/libs/swiper/swiper.css" />
-    <link rel="stylesheet" href="sneat/assets/vendor/css/pages/ui-carousel.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
-    
 
+    <link rel="stylesheet" href="fonts/ionicons/css/ionicons.min.css" />
+    <link rel="stylesheet" href="fonts/fontawesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/magnific-popup.css" />
+
+    <!-- Theme Style -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="sneat/assets/vendor/libs/swiper/swiper.css" />
+    <link
+      rel="stylesheet"
+      href="sneat/assets/vendor/css/pages/ui-carousel.css"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   </head>
   <body>
     <div class="bg-light" id="header"></div>
     <!-- END header -->
 
     <section class="site-section">
-        <div class="container flex-grow-1 container-p-y">
-            <h4 id="section-title" class="py-3 mb-4"><span class="text-muted fw-light">Account Settings /</span> Account</h4>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="nav-align-top mb-2">
-
-                                    <div class="card-body mb-4">
-                                        <h5 class="card-header">Profile Details</h5>
-                                        <!-- Account -->
-                                        <div class="card-body">
-                                            <form id="formAccountSettings" method="" onsubmit="return false">
-                                                <div class="row" style="text-align:left">
-                                                    <div class="col-12 col-md-6">
-                                                        <div class="input-group mb-3">
-                                                            <span class="input-group-text"><i class="fa fa-user"></i></span>
-                                                            <input type="text" id="fname" name="fname" class="form-control" required autocomplete="off" placeholder="">
-                                                            <label for="fname" class="floating-label">First Name</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12 col-md-6">
-                                                        <div class="input-group mb-3">
-                                                            <span class="input-group-text"><i class="fa fa-user"></i></span>
-                                                            <input type="text" id="lname" name="lname" class="form-control" required autocomplete="off" placeholder="">
-                                                            <label for="lname" class="floating-label">Last Name</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row" style="text-align:left">
-                                                    <div class="col-12 col-md-6">
-                                                    <div class="input-group mb-3">
-                                                        <span class="input-group-text"><i class="fa fa-envelope"></i></span>
-                                                        <input type="email" id="email" class="form-control" placeholder=" " required autocomplete="off">
-                                                        <label for="email" class="floating-label">Email</label>
-                                                    </div>
-                                                    </div>
-                        
-                                                    <div class="col-12 col-md-6 position-relative">
-                                                        <div class="input-group mb-3">
-                                                        <span class="input-group-text"><i class="fas fa-user-tag"></i></span>
-                                                            <select id="usertype" name="usertype" class="form-control" required>
-                                                                <option value="" disabled selected hidden>Select User Type</option>
-                                                                <option value="FAST Employee">FAST Employee</option>
-                                                                <option value="Guest">Guest</option>
-                                                            </select>
-                                                            <label for="usertype" class="floating-label">User Type</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div id="SBUContainer" style="display: none;" style="text-align:left">
-                                                <div class="row">
-                                                    <div class="col-12 col-md-6">
-                                                        <div class="input-group mb-3">
-                                                            <span class="input-group-text"><i class="fas fa-sitemap"></i></span>
-                                                            <select id="SBU" name="SBU" class="form-control" required>
-                                                            <option value="" disabled selected hidden>SBU</option>
-                                                            <option value="FSC">FSC</option>
-                                                            <option value="FLC">FLC</option>
-                                                            <option value="FTMC">FTMC</option>
-                                                            <option value="FCSI">FCSI</option>
-                                                            <option value="FDC">FDC</option>
-                                                            <option value="FUI">FUI</option>
-                                                            </select>
-                                                            <label for="SBU" class="floating-label">SBU</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12 col-md-6">
-                                                    <div class="input-group mb-3">
-                                                        <span class="input-group-text"><i class="fas fa-code-branch"></i></span>
-                                                        <select id="branchSelect" class="form-control">
-                                                        <option value="" disabled selected hidden>Branch</option>
-                                                        </select>
-                                                        <label for="branch" class="floating-label">Branch</label>
-                                                    </div>
-                                                    </div>
-                                                </div>
-                                                </div>
-                                                <div class="row" style="text-align:left">
-                                                <div class="col-12 col-md-6">
-                                                    <div class="input-group mb-3">
-                                                    <span class="input-group-text"><i class="fa fa-lock"></i></span>
-                                                    <input type="password" id="newPassword" class="form-control" placeholder=" " required>
-                                                    <span class="input-group-text" id="togglePasswordNew" style="cursor: pointer;">
-                                                        <i class="fa fa-eye"></i>
-                                                    </span>
-                                                    <label for="newPassword" class="floating-label">Password</label>
-                                                    </div>
-                                                </div>
-                        
-                                                <div class="col-12 col-md-6">
-                                                    <div class="input-group mb-3">
-                                                    <span class="input-group-text"><i class="fa fa-lock"></i></span>
-                                                    <input type="password" id="confirmPassword" class="form-control" placeholder=" " required>
-                                                    <span class="input-group-text" id="togglePasswordConfirm" style="cursor: pointer;">
-                                                        <i class="fa fa-eye"></i>
-                                                    </span>
-                                                    <label for="confirmPassword" class="floating-label">Confirm Password</label>
-                                                    </div>
-                                                </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <!-- /Account -->
-                                    </div>
+      <div class="container flex-grow-1 container-p-y">
+        <h4 id="section-title" class="py-3 mb-4">
+          <span class="text-muted fw-light">Account Settings /</span> Account
+        </h4>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="nav-align-top mb-2">
+              <div class="card-body mb-4">
+                <h5 class="card-header">Profile Details</h5>
+                <!-- Account -->
+                <div class="card-body">
+                  <form
+                    id="formAccountSettings"
+                    method=""
+                    onsubmit="return false"
+                  >
+                    <div class="row" style="text-align: left">
+                      <div class="col-12 col-md-6">
+                        <div class="input-group mb-3">
+                          <span class="input-group-text"
+                            ><i class="fa fa-user"></i
+                          ></span>
+                          <input
+                            type="text"
+                            id="fname"
+                            name="fname"
+                            class="form-control"
+                            required
+                            autocomplete="off"
+                            placeholder=""
+                          />
+                          <label for="fname" class="floating-label"
+                            >First Name</label
+                          >
                         </div>
+                      </div>
+                      <div class="col-12 col-md-6">
+                        <div class="input-group mb-3">
+                          <span class="input-group-text"
+                            ><i class="fa fa-user"></i
+                          ></span>
+                          <input
+                            type="text"
+                            id="lname"
+                            name="lname"
+                            class="form-control"
+                            required
+                            autocomplete="off"
+                            placeholder=""
+                          />
+                          <label for="lname" class="floating-label"
+                            >Last Name</label
+                          >
+                        </div>
+                      </div>
                     </div>
-                </div>
-        </div>
-    </section>
+                    <div class="row" style="text-align: left">
+                      <div class="col-12 col-md-6">
+                        <div class="input-group mb-3">
+                          <span class="input-group-text"
+                            ><i class="fa fa-envelope"></i
+                          ></span>
+                          <input
+                            type="email"
+                            id="email"
+                            class="form-control"
+                            placeholder=" "
+                            required
+                            autocomplete="off"
+                          />
+                          <label for="email" class="floating-label"
+                            >Email</label
+                          >
+                        </div>
+                      </div>
 
-    <section class="section-cover" data-stellar-background-ratio="0.5" style="background-image: url(images/bg_picture.jpg);">
-        <div class="container">
-          <div class="row justify-content-center align-items-center intro">
-            <div class="col-md-9 text-center element-animate">
-              <h2>Book Your Conference and Training Room with Ease</h2>
-              <p class="lead mb-5">Experience a smooth and convenient booking process for your next conference or training session. Reserve your space quickly and effortlessly, anytime, anywhere!</p>
-                          <div class="btn-play-wrap">
-                            <a href="https://www.youtube.com/watch?v=ZueTIFrRH4k" class="btn-play popup-vimeo ">
-                              <span class="ion-ios-play"></span>
-                            </a>
+                      <div class="col-12 col-md-6 position-relative">
+                        <div class="input-group mb-3">
+                          <span class="input-group-text"
+                            ><i class="fas fa-user-tag"></i
+                          ></span>
+                          <select
+                            id="usertype"
+                            name="usertype"
+                            class="form-control"
+                            required
+                          >
+                            <option value="" disabled selected hidden>
+                              Select User Type
+                            </option>
+                            <option value="FAST Employee">FAST Employee</option>
+                            <option value="Guest">Guest</option>
+                          </select>
+                          <label for="usertype" class="floating-label"
+                            >User Type</label
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      id="SBUContainer"
+                      style="display: none"
+                      style="text-align: left"
+                    >
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <div class="input-group mb-3">
+                            <span class="input-group-text"
+                              ><i class="fas fa-sitemap"></i
+                            ></span>
+                            <select
+                              id="SBU"
+                              name="SBU"
+                              class="form-control"
+                              required
+                            >
+                              <option value="" disabled selected hidden>
+                                SBU
+                              </option>
+                              <option value="FSC">FSC</option>
+                              <option value="FLC">FLC</option>
+                              <option value="FTMC">FTMC</option>
+                              <option value="FCSI">FCSI</option>
+                              <option value="FDC">FDC</option>
+                              <option value="FUI">FUI</option>
+                            </select>
+                            <label for="SBU" class="floating-label">SBU</label>
                           </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <div class="input-group mb-3">
+                            <span class="input-group-text"
+                              ><i class="fas fa-code-branch"></i
+                            ></span>
+                            <select id="branchSelect" class="form-control">
+                              <option value="" disabled selected hidden>
+                                Branch
+                              </option>
+                            </select>
+                            <label for="branch" class="floating-label"
+                              >Branch</label
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row" style="text-align: left">
+                      <div class="col-12 col-md-6">
+                        <div class="input-group mb-3">
+                          <span class="input-group-text"
+                            ><i class="fa fa-lock"></i
+                          ></span>
+                          <input
+                            type="password"
+                            id="newPassword"
+                            class="form-control"
+                            placeholder=" "
+                            required
+                          />
+                          <span
+                            class="input-group-text"
+                            id="togglePasswordNew"
+                            style="cursor: pointer"
+                          >
+                            <i class="fa fa-eye"></i>
+                          </span>
+                          <label for="newPassword" class="floating-label"
+                            >Password</label
+                          >
+                        </div>
+                      </div>
+
+                      <div class="col-12 col-md-6">
+                        <div class="input-group mb-3">
+                          <span class="input-group-text"
+                            ><i class="fa fa-lock"></i
+                          ></span>
+                          <input
+                            type="password"
+                            id="confirmPassword"
+                            class="form-control"
+                            placeholder=" "
+                            required
+                          />
+                          <span
+                            class="input-group-text"
+                            id="togglePasswordConfirm"
+                            style="cursor: pointer"
+                          >
+                            <i class="fa fa-eye"></i>
+                          </span>
+                          <label for="confirmPassword" class="floating-label"
+                            >Confirm Password</label
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <!-- /Account -->
+              </div>
             </div>
           </div>
         </div>
+      </div>
     </section>
-      <!-- END section -->
+
+    <section
+      class="section-cover"
+      data-stellar-background-ratio="0.5"
+      style="background-image: url(images/bg_picture.jpg)"
+    >
+      <div class="container">
+        <div class="row justify-content-center align-items-center intro">
+          <div class="col-md-9 text-center element-animate">
+            <h2>Book Your Conference and Training Room with Ease</h2>
+            <p class="lead mb-5">
+              Experience a smooth and convenient booking process for your next
+              conference or training session. Reserve your space quickly and
+              effortlessly, anytime, anywhere!
+            </p>
+            <div class="btn-play-wrap">
+              <a
+                href="https://www.youtube.com/watch?v=ZueTIFrRH4k"
+                class="btn-play popup-vimeo"
+              >
+                <span class="ion-ios-play"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END section -->
 
     <div id="footer"></div>
     <!-- END footer -->
-    
+
     <!-- loader -->
-    <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
+    <div id="loader" class="show fullscreen">
+      <svg class="circular" width="48px" height="48px">
+        <circle
+          class="path-bg"
+          cx="24"
+          cy="24"
+          r="22"
+          fill="none"
+          stroke-width="4"
+          stroke="#eeeeee"
+        />
+        <circle
+          class="path"
+          cx="24"
+          cy="24"
+          r="22"
+          fill="none"
+          stroke-width="4"
+          stroke-miterlimit="10"
+          stroke="#f4b214"
+        />
+      </svg>
+    </div>
+    <script>
+      document
+        .getElementById("togglePasswordNew")
+        .addEventListener("click", function () {
+          const passwordField = document.getElementById("newPassword");
+          const eyeIcon = this.querySelector("i");
+
+          if (passwordField.type === "password") {
+            passwordField.type = "text";
+            eyeIcon.classList.remove("fa-eye");
+            eyeIcon.classList.add("fa-eye-slash");
+          } else {
+            passwordField.type = "password";
+            eyeIcon.classList.remove("fa-eye-slash");
+            eyeIcon.classList.add("fa-eye");
+          }
+        });
+      document
+        .getElementById("togglePasswordConfirm")
+        .addEventListener("click", function () {
+          const passwordField = document.getElementById("confirmPassword");
+          const eyeIcon = this.querySelector("i");
+
+          if (passwordField.type === "password") {
+            passwordField.type = "text";
+            eyeIcon.classList.remove("fa-eye");
+            eyeIcon.classList.add("fa-eye-slash");
+          } else {
+            passwordField.type = "password";
+            eyeIcon.classList.remove("fa-eye-slash");
+            eyeIcon.classList.add("fa-eye");
+          }
+        });
+
+      const branchSelect = document.getElementById("branchSelect");
+      branchSelect.innerHTML = ""; // Clear previous options
+
+      // Add default placeholder option
+      const defaultOption = document.createElement("option");
+      defaultOption.value = "";
+      defaultOption.disabled = true;
+      defaultOption.selected = true;
+      defaultOption.hidden = true;
+      defaultOption.textContent = "Branch";
+      branchSelect.appendChild(defaultOption);
+
+      // Append dynamic branch options
+      branches.forEach((branch) => {
+        const option = document.createElement("option");
+        option.value = branch;
+        option.textContent = branch;
+        branchSelect.appendChild(option);
+      });
+
+      const userTypeSelect = document.getElementById("usertype");
+      const sbuContainer = document.getElementById("SBUContainer");
+
+      // Initial styles
+      sbuContainer.style.opacity = "0";
+      sbuContainer.style.transition = "opacity 0.5s ease";
+      sbuContainer.style.display = "none";
+
+      userTypeSelect.addEventListener("change", function () {
+        if (userTypeSelect.value === "FAST Employee") {
+          sbuContainer.style.display = "block";
+          // Small delay to trigger transition after display is set to block
+          requestAnimationFrame(() => {
+            sbuContainer.style.opacity = "1";
+          });
+        } else {
+          sbuContainer.style.opacity = "0";
+          // Wait for opacity transition to complete before setting display to none
+          setTimeout(() => {
+            sbuContainer.style.display = "none";
+          }, 500); // Match the transition duration
+        }
+      });
+    </script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="sneat/assets/vendor/libs/swiper/swiper.js"></script>
     <script src="sneat/assets/js/ui-carousel.js"></script>
@@ -181,10 +397,10 @@
 
     <script src="js/jquery.magnific-popup.min.js"></script>
     <script src="js/magnific-popup-options.js"></script>
-    <script type="module"> import { inject } from "https://cdn.jsdelivr.net/npm/@vercel/analytics/dist/index.mjs";
+    <script type="module">
+      import { inject } from "https://cdn.jsdelivr.net/npm/@vercel/analytics/dist/index.mjs";
       inject();
     </script>
     <script src="js/main.js"></script>
-    
   </body>
 </html>
