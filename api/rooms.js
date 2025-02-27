@@ -63,11 +63,11 @@ module.exports = async (req, res) => {
             // If no cookie is found, return unauthorized response
             return res.status(401).json({ errors: 'You must be logged in to make a reservation.' });
           }
-
+          let userType;
           try {
             // Decode and parse user data
             const userData = JSON.parse(decodeURIComponent(userCookie));
-            const userType = userData.usertype; // Extract usertype
+            userType = userData.usertype; // Extract usertype
 
           } catch (error) {
             console.error('Failed to parse user_data cookie:', error);
