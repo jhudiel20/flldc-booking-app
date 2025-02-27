@@ -51,190 +51,182 @@
                 <h5 class="card-header">Profile Details</h5>
                 <!-- Account -->
                 <div class="card-body">
-                  <form
-                    id="formAccountSettings"
-                    method=""
-                    onsubmit="return false"
-                  >
-                    <div class="row" style="text-align: left">
-                      <div class="col-12 col-md-6">
-                        <div class="input-group mb-3">
-                          <span class="input-group-text"
-                            ><i class="fa fa-user"></i
-                          ></span>
-                          <input
-                            type="text"
-                            id="fname"
-                            name="fname"
-                            class="form-control"
-                            required
-                            autocomplete="off"
-                            placeholder=""
-                          />
-                          <label for="fname" class="floating-label"
-                            >First Name</label
-                          >
-                        </div>
-                      </div>
-                      <div class="col-12 col-md-6">
-                        <div class="input-group mb-3">
-                          <span class="input-group-text"
-                            ><i class="fa fa-user"></i
-                          ></span>
-                          <input
-                            type="text"
-                            id="lname"
-                            name="lname"
-                            class="form-control"
-                            required
-                            autocomplete="off"
-                            placeholder=""
-                          />
-                          <label for="lname" class="floating-label"
-                            >Last Name</label
-                          >
-                        </div>
+                  <div class="row" style="text-align: left">
+                    <input type="hidden" id="user_id" />
+                    <div class="col-12 col-md-6">
+                      <div class="input-group mb-3">
+                        <span class="input-group-text"
+                          ><i class="fa fa-user"></i
+                        ></span>
+                        <input
+                          type="text"
+                          id="fname"
+                          name="fname"
+                          class="form-control"
+                          required
+                          autocomplete="off"
+                          placeholder=" "
+                        />
+                        <label for="fname" class="floating-label"
+                          >First Name</label
+                        >
                       </div>
                     </div>
-                    <div class="row" style="text-align: left">
-                      <div class="col-12 col-md-6">
-                        <div class="input-group mb-3">
-                          <span class="input-group-text"
-                            ><i class="fa fa-envelope"></i
-                          ></span>
-                          <input
-                            type="email"
-                            id="email"
-                            class="form-control"
-                            placeholder=" "
-                            required
-                            autocomplete="off"
-                          />
-                          <label for="email" class="floating-label"
-                            >Email</label
-                          >
-                        </div>
+                    <div class="col-12 col-md-6">
+                      <div class="input-group mb-3">
+                        <span class="input-group-text"
+                          ><i class="fa fa-user"></i
+                        ></span>
+                        <input
+                          type="text"
+                          id="lname"
+                          name="lname"
+                          class="form-control"
+                          required
+                          autocomplete="off"
+                          placeholder=" "
+                        />
+                        <label for="lname" class="floating-label"
+                          >Last Name</label
+                        >
                       </div>
+                    </div>
+                  </div>
+                  <div class="row" style="text-align: left">
+                    <div class="col-12 col-md-6">
+                      <div class="input-group mb-3">
+                        <span class="input-group-text"
+                          ><i class="fa fa-envelope"></i
+                        ></span>
+                        <input
+                          type="email"
+                          id="email"
+                          class="form-control"
+                          placeholder=" "
+                          required
+                          autocomplete="off"
+                        />
+                        <label for="email" class="floating-label">Email</label>
+                      </div>
+                    </div>
 
-                      <div class="col-12 col-md-6 position-relative">
-                        <div class="input-group mb-3">
-                          <span class="input-group-text"
-                            ><i class="fas fa-user-tag"></i
-                          ></span>
-                          <select
-                            id="usertype"
-                            name="usertype"
-                            class="form-control"
-                            required
-                          >
-                            <option value="" disabled selected hidden>
-                              Select User Type
-                            </option>
-                            <option value="FAST Employee">FAST Employee</option>
-                            <option value="Guest">Guest</option>
-                          </select>
-                          <label for="usertype" class="floating-label"
-                            >User Type</label
-                          >
-                        </div>
+                    <div class="col-12 col-md-6 position-relative">
+                      <div class="input-group mb-3">
+                        <span class="input-group-text"
+                          ><i class="fas fa-user-tag"></i
+                        ></span>
+                        <select
+                          id="usertype"
+                          name="usertype"
+                          class="form-control"
+                          required
+                          onchange="toggleUserTypeFields()"
+                        >
+                          <option value="" disabled selected hidden>
+                            Select User Type
+                          </option>
+                          <option value="FAST Employee">FAST Employee</option>
+                          <option value="Guest">Guest</option>
+                        </select>
+                        <label for="usertype" class="floating-label"
+                          >User Type</label
+                        >
                       </div>
                     </div>
-                      <div class="row">
-                        <div class="col-12 col-md-6" id="div-SBU"> 
-                          <div class="input-group mb-3">
-                            <span class="input-group-text"
-                              ><i class="fas fa-sitemap"></i
-                            ></span>
-                            <select
-                              id="SBU"
-                              name="SBU"
-                              class="form-control"
-                              required
-                            >
-                              <option value="" disabled selected hidden>
-                                SBU
-                              </option>
-                              <option value="FSC">FSC</option>
-                              <option value="FLC">FLC</option>
-                              <option value="FTMC">FTMC</option>
-                              <option value="FCSI">FCSI</option>
-                              <option value="FDC">FDC</option>
-                              <option value="FUI">FUI</option>
-                            </select>
-                            <label for="SBU" class="floating-label">SBU</label>
-                          </div>
-                        </div>
-                        <div class="col-12 col-md-6" id="div-Branch">
-                          <div class="input-group mb-3">
-                            <span class="input-group-text"
-                              ><i class="fas fa-code-branch"></i
-                            ></span>
-                            <select id="branchSelect" class="form-control">
-                              <option value="" disabled selected hidden>
-                                Branch
-                              </option>
-                            </select>
-                            <label for="branch" class="floating-label"
-                              >Branch</label
-                            >
-                          </div>
-                        </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-md-6" id="div-SBU">
+                      <div class="input-group mb-3">
+                        <span class="input-group-text"
+                          ><i class="fas fa-sitemap"></i
+                        ></span>
+                        <select
+                          id="SBU"
+                          name="SBU"
+                          class="form-control"
+                          required
+                        >
+                          <option value="" disabled selected hidden>SBU</option>
+                          <option value="FSC">FSC</option>
+                          <option value="FLC">FLC</option>
+                          <option value="FTMC">FTMC</option>
+                          <option value="FCSI">FCSI</option>
+                          <option value="FDC">FDC</option>
+                          <option value="FUI">FUI</option>
+                        </select>
+                        <label for="SBU" class="floating-label">SBU</label>
                       </div>
-                    <span id="update_UserDetails">Update Profile Details</span>
-                    <hr class="my-0 mb-3 mt-2" />
-                    <div class="row" style="text-align: left">
-                      <div class="col-12 col-md-6">
-                        <div class="input-group mb-3">
-                          <span class="input-group-text"
-                            ><i class="fa fa-lock"></i
-                          ></span>
-                          <input
-                            type="password"
-                            id="newPassword"
-                            class="form-control"
-                            placeholder=" "
-                            required
-                          />
-                          <span
-                            class="input-group-text"
-                            id="togglePasswordNew"
-                            style="cursor: pointer"
-                          >
-                            <i class="fa fa-eye"></i>
-                          </span>
-                          <label for="newPassword" class="floating-label"
-                            >Password</label
-                          >
-                        </div>
+                    </div>
+                    <div class="col-12 col-md-6" id="div-Branch">
+                      <div class="input-group mb-3">
+                        <span class="input-group-text"
+                          ><i class="fas fa-code-branch"></i
+                        ></span>
+                        <select id="branchSelect" class="form-control">
+                          <option value="" disabled selected hidden>
+                            Branch
+                          </option>
+                        </select>
+                        <label for="branch" class="floating-label"
+                          >Branch</label
+                        >
                       </div>
+                    </div>
+                  </div>
+                  <span id="update_UserDetails">Update Profile Details</span>
+                  <hr class="my-0 mb-3 mt-2" />
+                  <div class="row" style="text-align: left">
+                    <div class="col-12 col-md-6">
+                      <div class="input-group mb-3">
+                        <span class="input-group-text"
+                          ><i class="fa fa-lock"></i
+                        ></span>
+                        <input
+                          type="password"
+                          id="newPassword"
+                          class="form-control"
+                          placeholder=" "
+                          required
+                        />
+                        <span
+                          class="input-group-text"
+                          id="togglePasswordNew"
+                          style="cursor: pointer"
+                        >
+                          <i class="fa fa-eye"></i>
+                        </span>
+                        <label for="newPassword" class="floating-label"
+                          >Password</label
+                        >
+                      </div>
+                    </div>
 
-                      <div class="col-12 col-md-6">
-                        <div class="input-group mb-3">
-                          <span class="input-group-text"
-                            ><i class="fa fa-lock"></i
-                          ></span>
-                          <input
-                            type="password"
-                            id="confirmPassword"
-                            class="form-control"
-                            placeholder=" "
-                            required
-                          />
-                          <span
-                            class="input-group-text"
-                            id="togglePasswordConfirm"
-                            style="cursor: pointer"
-                          >
-                            <i class="fa fa-eye"></i>
-                          </span>
-                          <label for="confirmPassword" class="floating-label"
-                            >Confirm Password</label
-                          >
-                        </div>
+                    <div class="col-12 col-md-6">
+                      <div class="input-group mb-3">
+                        <span class="input-group-text"
+                          ><i class="fa fa-lock"></i
+                        ></span>
+                        <input
+                          type="password"
+                          id="confirmPassword"
+                          class="form-control"
+                          placeholder=" "
+                          required
+                        />
+                        <span
+                          class="input-group-text"
+                          id="togglePasswordConfirm"
+                          style="cursor: pointer"
+                        >
+                          <i class="fa fa-eye"></i>
+                        </span>
+                        <label for="confirmPassword" class="floating-label"
+                          >Confirm Password</label
+                        >
                       </div>
                     </div>
-                    <span id="update_password">Update Password</span>
-                  </form>
+                  </div>
+                  <span id="update_password">Update Password</span>
                 </div>
                 <!-- /Account -->
               </div>
@@ -301,128 +293,102 @@
     </div>
     <script type="module">
       import { branches } from "/js/branches.js";
-      document
-        .getElementById("togglePasswordNew")
-        .addEventListener("click", function () {
-          const passwordField = document.getElementById("newPassword");
-          const eyeIcon = this.querySelector("i");
 
-          if (passwordField.type === "password") {
-            passwordField.type = "text";
-            eyeIcon.classList.remove("fa-eye");
-            eyeIcon.classList.add("fa-eye-slash");
-          } else {
-            passwordField.type = "password";
-            eyeIcon.classList.remove("fa-eye-slash");
-            eyeIcon.classList.add("fa-eye");
-          }
-        });
-      document
-        .getElementById("togglePasswordConfirm")
-        .addEventListener("click", function () {
-          const passwordField = document.getElementById("confirmPassword");
-          const eyeIcon = this.querySelector("i");
+      document.addEventListener("DOMContentLoaded", function () {
+        // Toggle password visibility
+        function togglePasswordVisibility(toggleId, inputId) {
+          document
+            .getElementById(toggleId)
+            .addEventListener("click", function () {
+              const passwordField = document.getElementById(inputId);
+              const eyeIcon = this.querySelector("i");
 
-          if (passwordField.type === "password") {
-            passwordField.type = "text";
-            eyeIcon.classList.remove("fa-eye");
-            eyeIcon.classList.add("fa-eye-slash");
-          } else {
-            passwordField.type = "password";
-            eyeIcon.classList.remove("fa-eye-slash");
-            eyeIcon.classList.add("fa-eye");
-          }
-        });
+              if (passwordField.type === "password") {
+                passwordField.type = "text";
+                eyeIcon.classList.remove("fa-eye");
+                eyeIcon.classList.add("fa-eye-slash");
+              } else {
+                passwordField.type = "password";
+                eyeIcon.classList.remove("fa-eye-slash");
+                eyeIcon.classList.add("fa-eye");
+              }
+            });
+        }
 
-      const branchSelect = document.getElementById("branchSelect");
-      branchSelect.innerHTML = ""; // Clear previous options
+        togglePasswordVisibility("togglePasswordNew", "newPassword");
+        togglePasswordVisibility("togglePasswordConfirm", "confirmPassword");
 
-      // Add default placeholder option
-      const defaultOption = document.createElement("option");
-      defaultOption.value = "";
-      defaultOption.disabled = true;
-      defaultOption.selected = true;
-      defaultOption.hidden = true;
-      defaultOption.textContent = "Branch";
-      branchSelect.appendChild(defaultOption);
+        // Populate Branch select options
+        const branchSelect = document.getElementById("branchSelect");
+        if (branchSelect) {
+          branchSelect.innerHTML = ""; // Clear previous options
 
-      // Append dynamic branch options
-      branches.forEach((branch) => {
-        const option = document.createElement("option");
-        option.value = branch;
-        option.textContent = branch;
-        branchSelect.appendChild(option);
-      });
+          // Add default placeholder option
+          const defaultOption = document.createElement("option");
+          defaultOption.value = "";
+          defaultOption.disabled = true;
+          defaultOption.selected = true;
+          defaultOption.hidden = true;
+          defaultOption.textContent = "Branch";
+          branchSelect.appendChild(defaultOption);
 
-    //   const userTypeSelect = document.getElementById("usertype");
-    //   const sbuContainer = document.getElementById("SBUContainer");
+          // Append dynamic branch options
+          branches.forEach((branch) => {
+            const option = document.createElement("option");
+            option.value = branch;
+            option.textContent = branch;
+            branchSelect.appendChild(option);
+          });
+        }
 
-    //   // Initial styles
-    //   sbuContainer.style.opacity = "0";
-    //   sbuContainer.style.transition = "opacity 0.5s ease";
-    //   sbuContainer.style.display = "none";
+        // Fetch user data
+        fetch("/api/validate-cookie")
+          .then(function (response) {
+            if (!response.ok) {
+              throw new Error("User is not logged in.");
+            }
+            return response.json();
+          })
+          .then(function (userData) {
+            if (!userData) return;
 
-    //   userTypeSelect.addEventListener("change", function () {
-    //     if (userTypeSelect.value === "FAST Employee") {
-    //       sbuContainer.style.display = "block";
-    //       // Small delay to trigger transition after display is set to block
-    //       requestAnimationFrame(() => {
-    //         sbuContainer.style.opacity = "1";
-    //       });
-    //     } else {
-    //       sbuContainer.style.opacity = "0";
-    //       // Wait for opacity transition to complete before setting display to none
-    //       setTimeout(() => {
-    //         sbuContainer.style.display = "none";
-    //       }, 500); // Match the transition duration
-    //     }
-    //   });
+            document.getElementById("user_id").value = userData.userId || "";
+            document.getElementById("email").value = userData.email || "";
+            document.getElementById("fname").value = userData.firstName || "";
+            document.getElementById("lname").value = userData.lastName || "";
+            document.getElementById("usertype").value = userData.usertype || "";
 
-      fetch("/api/validate-cookie") // API endpoint to validate the cookie
-        .then(function (response) {
-          if (response.ok) {
-            return response.json(); // Parse the response as JSON
-          } else {
-            console.error("User is not logged in.");
-          }
-        })
-        .then(function (userData) {
-          if (userData) {
-            // DOM manipulation: Populating the input fields with user data
-            document.getElementById("user_id").value = userData.userId;
-            document.getElementById("email").value = userData.email;
-            document.getElementById("fname").value = userData.firstName;
-            document.getElementById("lname").value = userData.lastName;
-            document.getElementById("usertype").value = userData.usertype;
-            // document.getElementById('branch').textContent = userData.branch;
-            // Hide FASTContainer if usertype is "Guest"
             if (userData.usertype === "Guest") {
               document.getElementById("div-SBU").style.display = "none";
               document.getElementById("div-Branch").style.display = "none";
             }
-            let businessUnitSelect = document.getElementById("businessunit");
-            let sbuValue = userData.sbu;
-            for (let i = 0; i < businessUnitSelect.options.length; i++) {
-              if (businessUnitSelect.options[i].value === sbuValue) {
-                businessUnitSelect.selectedIndex = i;
-                break;
+
+            // Set SBU selection
+            let sbuSelect = document.getElementById("SBU");
+            if (sbuSelect) {
+              for (let i = 0; i < sbuSelect.options.length; i++) {
+                if (sbuSelect.options[i].value === userData.sbu) {
+                  sbuSelect.selectedIndex = i;
+                  break;
+                }
               }
             }
 
-            // Set branch
-            let branchSelect = document.getElementById("branch");
-            let branchValue = userData.branch;
-            for (let i = 0; i < branchSelect.options.length; i++) {
-              if (branchSelect.options[i].value === branchValue) {
-                branchSelect.selectedIndex = i;
-                break;
+            // Set Branch selection
+            let branchSelect = document.getElementById("branchSelect");
+            if (branchSelect) {
+              for (let i = 0; i < branchSelect.options.length; i++) {
+                if (branchSelect.options[i].value === userData.branch) {
+                  branchSelect.selectedIndex = i;
+                  break;
+                }
               }
             }
-          }
-        })
-        .catch(function (error) {
-          console.error("Error fetching user data:", error);
-        });
+          })
+          .catch(function (error) {
+            console.error("Error fetching user data:", error);
+          });
+      });
     </script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="sneat/assets/vendor/libs/swiper/swiper.js"></script>
