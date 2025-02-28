@@ -166,7 +166,6 @@
 //     });
 //   });
 
-
 // });
 
 import { branches } from "/js/branches.js";
@@ -270,9 +269,57 @@ document.addEventListener("DOMContentLoaded", function () {
     .catch((error) => console.error("Error fetching user data:", error));
 
   // Handle button click to update user details
+  //   const updateButton = document.getElementById("update_UserDetails");
+  //   if (updateButton) {
+  //     updateButton.addEventListener("click", function () {
+  //       const usertype = document.getElementById("usertype").value;
+
+  //       const userUpdateData = {
+  //         user_id: document.getElementById("user_id").value,
+  //         fname: document.getElementById("fname").value,
+  //         lname: document.getElementById("lname").value,
+  //         userType: usertype,
+  //         email: document.getElementById("email").value,
+  //         sbu: usertype === "Guest" ? null : document.getElementById("SBU").value,
+  //         branch: usertype === "Guest" ? null : branchSelect.value,
+  //       };
+
+  //       Swal.fire({
+  //         title: "Confirm Update",
+  //         text: "Are you sure you want to update your profile details?",
+  //         icon: "question",
+  //         showCancelButton: true,
+  //         confirmButtonText: "Yes, update",
+  //         cancelButtonText: "Cancel",
+  //       }).then((result) => {
+  //         if (result.isConfirmed) {
+  //           fetch("/api/UserAuth", {
+  //             method: "POST",
+  //             headers: { "Content-Type": "application/json" },
+  //             body: JSON.stringify(userUpdateData),
+  //           })
+  //             .then((response) => response.json())
+  //             .then((data) => {
+  //               Swal.fire(
+  //                 data.message === "Successfully Updated." ? "Updated!" : "Error!",
+  //                 data.message || "Something went wrong.",
+  //                 data.message === "Successfully Updated." ? "success" : "error"
+  //               ).then(() => {
+  //                     window.location.reload();
+  //                 });
+  //             })
+  //             .catch((error) => {
+  //               console.error("Error:", error);
+  //               Swal.fire("Error!", "An error occurred. Please try again.", "error");
+  //             });
+  //         }
+  //       });
+  //     });
+  //   }
   const updateButton = document.getElementById("update_UserDetails");
+
   if (updateButton) {
-    updateButton.addEventListener("click", function () {
+    updateButton.addEventListener("click", async function () {
       const usertype = document.getElementById("usertype").value;
 
       const userUpdateData = {
@@ -292,34 +339,48 @@ document.addEventListener("DOMContentLoaded", function () {
         showCancelButton: true,
         confirmButtonText: "Yes, update",
         cancelButtonText: "Cancel",
-      }).then((result) => {
+      }).then(async (result) => {
         if (result.isConfirmed) {
-          fetch("/api/UserAuth", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(userUpdateData),
-          })
-            .then((response) => response.json())
-            .then((data) => {
-              Swal.fire(
-                data.message === "Successfully Updated." ? "Updated!" : "Error!",
-                data.message || "Something went wrong.",
-                data.message === "Successfully Updated." ? "success" : "error"
-              ).then(() => {
-                    window.location.reload();
-                });
-            })
-            .catch((error) => {
-              console.error("Error:", error);
-              Swal.fire("Error!", "An error occurred. Please try again.", "error");
+          try {
+            const response = await fetch("/api/UserAuth", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(userUpdateData),
             });
+
+            const data = await response.json();
+
+            if (data.error) {
+              Swal.fire({
+                title: "Error!",
+                text: data.error,
+                icon: "error",
+              });
+              return false;
+            } else {
+              Swal.fire({
+                title: "Success!",
+                text: "Successfully Updated.",
+                icon: "success",
+              }).then(() => {
+                window.location.reload();
+              });
+            }
+          } catch (error) {
+            Swal.fire({
+              title: "Error!",
+              text: "Something went wrong. Please try again.",
+              icon: "error",
+            });
+            return false;
+          }
         }
       });
     });
   }
+
   const updatePassButton = document.getElementById("update_password");
   if (updateButton) {
-  
     updatePassButton.addEventListener("click", function () {
       const user_id = document.getElementById("user_id").value;
       const newPassword = document.getElementById("newPassword").value;
@@ -350,16 +411,22 @@ document.addEventListener("DOMContentLoaded", function () {
             .then((response) => response.json())
             .then((data) => {
               Swal.fire(
-                data.message === "Successfully Updated." ? "Updated!" : "Error!",
+                data.message === "Successfully Updated."
+                  ? "Updated!"
+                  : "Error!",
                 data.message || "Something went wrong.",
                 data.message === "Successfully Updated." ? "success" : "error"
               ).then(() => {
-                    window.location.reload();
-                });
+                window.location.reload();
+              });
             })
             .catch((error) => {
               console.error("Error:", error);
-              Swal.fire("Error!", "An error occurred. Please try again.", "error");
+              Swal.fire(
+                "Error!",
+                "An error occurred. Please try again.",
+                "error"
+              );
             });
         }
       });
