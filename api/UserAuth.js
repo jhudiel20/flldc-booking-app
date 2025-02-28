@@ -777,19 +777,13 @@ async function handleUserDetailsUpdate(req, res) {
       return res.status(400).json({ error: "Missing required fields." });
     }
 
-    // Set SBU and Branch to NULL if user is a Guest
-    const finalSbu = userType === "Guest" ? null : sbu;
-    const finalBranch = userType === "Guest" ? null : branch;
-
     const updateQuery = `
       UPDATE user_reservation 
-      SET email = $1, fname = $2, lname = $3, usertype = $4, sbu = $5, branch = $6
+      SET email = $1, fname = $2, lname = $3, usertype = $4, sbu = COALESCE($5, NULL), branch = COALESCE($6, NULL)
       WHERE id = $7;
     `;
-    const queryParams = [email, fname, lname, userType, finalSbu, finalBranch, user_id];
 
-    // Execute update query
-    await pool.query(updateQuery, queryParams);
+    await pool.query(updateQuery, [email, fname, lname, userType, sbu || null, branch || null, user_id]);
 
     return res.status(200).json({ message: "Successfully Updated." });
   } catch (error) {
