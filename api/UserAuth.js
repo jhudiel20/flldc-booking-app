@@ -770,30 +770,30 @@ async function handleChangePassword(req, res) {
 async function handleUserDetailsUpdate(req, res) {
 
   try {
-    const { email, fname, lname, usertype, sbu, branch, user_id } = req.body;
+    const { email, fname, lname, userType, sbu, branch, user_id } = req.body;
 
     // Validate required fields
-    if (!email || !fname || !lname || !usertype || !user_id) {
+    if (!email || !fname || !lname || !userType || !user_id) {
       return res.status(400).json({ error: "Missing required fields." });
     }
 
     // Handle user type logic
     let updateQuery;
     let queryParams;
-    if (usertype === "FAST Employee") {
+    if (userType === "FAST Employee") {
       updateQuery = `
         UPDATE user_reservation 
         SET email = $1, fname = $2, lname = $3, usertype = $4, sbu = $5, branch = $6
         WHERE id = $7;
       `;
-      queryParams = [email, fname, lname, usertype, sbu, branch, user_id];
-    } else if (usertype === "Guest") {
+      queryParams = [email, fname, lname, userType, sbu, branch, user_id];
+    } else if (userType === "Guest") {
       updateQuery = `
         UPDATE user_reservation 
         SET email = $1, fname = $2, lname = $3, usertype = $4, sbu = $5, branch = $6
         WHERE id = $7;
       `;
-      queryParams = [email, fname, lname, usertype,sbu, branch, user_id];
+      queryParams = [email, fname, lname, userType,sbu, branch, user_id];
     } else {
       return res.status(400).json({ error: "Invalid user type." });
     }
