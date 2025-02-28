@@ -126,11 +126,11 @@ document.addEventListener("DOMContentLoaded", function () {
         branch: document.getElementById("branchSelect").value
     };
 
-    // If user is Guest, clear SBU and Branch
-    if (usertype === "Guest") {
-        userData.sbu = "";
-        userData.branch = "";
-    }
+          // If user is Guest, clear SBU and Branch
+          if (usertype === "Guest") {
+            userData.sbu = null;
+            userData.branch = null;
+        }
 
     // Confirmation alert before sending data
     Swal.fire({
