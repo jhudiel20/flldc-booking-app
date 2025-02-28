@@ -449,6 +449,9 @@ module.exports = async (req, res) => {
       } else if (fname && lname && email && userType && sbu && branch && user_id) {
         // **User Details Update Flow**
         return await handleUserDetailsUpdate(req, res);
+      } else if (user_id && password) {
+        // **Change Password Inside Flow**
+        return await handleChangePasswordInside(req, res);
       } else if (email && token && newPassword) {
         // **Change Password Flow**
         return await handleChangePassword(req, res);
@@ -771,6 +774,11 @@ async function handleUserDetailsUpdate(req, res) {
   try {
     const { email, fname, lname, userType, sbu, branch, user_id } = req.body;
 
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return res.status(400).json({ error: 'Invalid email format.' });
+    }
+
     // Validate required fields
     if (!email || !fname || !lname || !userType || !user_id) {
       return res.status(400).json({ error: "Missing required fields." });
@@ -824,3 +832,27 @@ async function handleUserDetailsUpdate(req, res) {
 }
 
 
+async function handleChangePasswordInside(req, res) {
+  const { user_id, password } = req.body;
+
+  if (!user_id || !password) {
+    return res.status(400).json({ error: "Missing required fields." });
+  }
+
+  const passwordError = validatePassword(password);
+  if (passwordError) {
+    return res.status(400).json({ error: passwordError });
+  }
+
+  const hashedPassword = await bcrypt.hash(password, 10);
+
+  const updateQuery = `
+    UPDATE user_reservation 
+    SET password = $1
+    WHERE id = $2;
+  `;
+
+  await pool.query(updateQuery, [hashedPassword, user_id]);
+
+  return res.status(200).json({ message: "Password changed successfully." });
+};

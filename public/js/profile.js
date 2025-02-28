@@ -317,4 +317,52 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   }
+  const updatePassButton = document.getElementById("update_password");
+  if (updateButton) {
+  
+    updatePassButton.addEventListener("click", function () {
+      const user_id = document.getElementById("user_id").value;
+      const newPassword = document.getElementById("newPassword").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+      if (newPassword !== confirmPassword) {
+        Swal.fire("Error!", "Passwords do not match.", "error");
+        return;
+      }
+      const userUpdateData = {
+        user_id: user_id,
+        password: newPassword,
+      };
+
+      Swal.fire({
+        title: "Confirm Update",
+        text: "Are you sure you want to update your password?",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonText: "Yes, update",
+        cancelButtonText: "Cancel",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          fetch("/api/UserAuth", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(userUpdateData),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              Swal.fire(
+                data.message === "Successfully Updated." ? "Updated!" : "Error!",
+                data.message || "Something went wrong.",
+                data.message === "Successfully Updated." ? "success" : "error"
+              ).then(() => {
+                    window.location.reload();
+                });
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+              Swal.fire("Error!", "An error occurred. Please try again.", "error");
+            });
+        }
+      });
+    });
+  }
 });
