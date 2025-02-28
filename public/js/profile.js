@@ -304,7 +304,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 data.message === "Successfully Updated." ? "Updated!" : "Error!",
                 data.message || "Something went wrong.",
                 data.message === "Successfully Updated." ? "success" : "error"
-              );
+              ).then(() => {
+                    window.location.reload();
+                });
             })
             .catch((error) => {
               console.error("Error:", error);
