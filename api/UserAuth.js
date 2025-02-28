@@ -447,8 +447,12 @@ module.exports = async (req, res) => {
         // **User Registration Flow**
         return await handleUserRegistration(req, res);
       } else if (fname && lname && email && userType && sbu && branch && user_id) {
-        if (!fname || !lname || !email || !userType || !sbu || !branch || !user_id) {
-          return res.status(400).json({ error: "All user update fields are required." });
+        if (!fname || !lname || !email || !userType || !user_id || (userType === "Guest" && (!sbu || !branch))) {
+          return res.status(400).json({ 
+            error: userType === "Guest" 
+              ? "For Guest users, SBU and Branch are required." 
+              : "All user update fields are required." 
+          });
         }
         // **User Details Update Flow**
         return await handleUserDetailsUpdate(req, res);
