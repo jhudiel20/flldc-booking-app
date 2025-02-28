@@ -779,7 +779,7 @@ async function handleUserDetailsUpdate(req, res) {
 
     const updateQuery = `
       UPDATE user_reservation 
-      SET email = $1, fname = $2, lname = $3, usertype = $4, sbu = COALESCE($5, NULL), branch = COALESCE($6, NULL)
+      SET email = $1, fname = $2, lname = $3, usertype = $4, sbu = $5, branch = $6
       WHERE id = $7;
     `;
 
@@ -787,9 +787,10 @@ async function handleUserDetailsUpdate(req, res) {
 
     return res.status(200).json({ message: "Successfully Updated." });
   } catch (error) {
-    console.error("Database error:", error);
-    return res.status(500).json({ error: "Internal Server Error." });
+    console.error("Database error:", error.message, error.stack);
+    return res.status(500).json({ error: "Internal Server Error.", details: error.message });
   }
+  
 };
 
 
