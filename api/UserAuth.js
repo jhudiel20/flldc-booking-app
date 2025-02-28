@@ -437,8 +437,7 @@ module.exports = async (req, res) => {
   try {
     if (req.method === "POST") {
       const {
-        email, password, recaptchaResponse,
-        fname, lname, confirmPassword, userType, sbu, branch, token, newPassword
+        email, password, recaptchaResponse,fname, lname, confirmPassword, userType, sbu, branch, token, newPassword, user_id
       } = req.body;
 
       if (email && password && recaptchaResponse && !fname) {
@@ -447,6 +446,9 @@ module.exports = async (req, res) => {
       } else if (fname && lname && email && password && confirmPassword && userType && recaptchaResponse) {
         // **User Registration Flow**
         return await handleUserRegistration(req, res);
+      } else if (fname && lname && email && userType && sbu && branch && user_id) {
+        // **User Details Update Flow**
+        return await handleUserDetailsUpdate(req, res);
       } else if (email && token && newPassword) {
         // **Change Password Flow**
         return await handleChangePassword(req, res);
@@ -764,5 +766,46 @@ async function handleChangePassword(req, res) {
 
   return res.status(200).json({ message: "Password changed successfully." });
 }
+
+async function handleUserDetailsUpdate(req, res) {
+
+  try {
+    const { email, fname, lname, usertype, sbu, branch, user_id } = req.body;
+
+    // Validate required fields
+    if (!email || !fname || !lname || !usertype || !user_id) {
+      return res.status(400).json({ error: "Missing required fields." });
+    }
+
+    // Handle user type logic
+    let updateQuery;
+    let queryParams;
+    if (usertype === "FAST Employee") {
+      updateQuery = `
+        UPDATE user_reservation 
+        SET email = $1, fname = $2, lname = $3, usertype = $4, sbu = $5, branch = $6
+        WHERE id = $7;
+      `;
+      queryParams = [email, fname, lname, usertype, sbu, branch, user_id];
+    } else if (usertype === "Guest") {
+      updateQuery = `
+        UPDATE user_reservation 
+        SET email = $1, fname = $2, lname = $3, usertype = $4, sbu = $5, branch = $6
+        WHERE id = $7;
+      `;
+      queryParams = [email, fname, lname, usertype,sbu, branch, user_id];
+    } else {
+      return res.status(400).json({ error: "Invalid user type." });
+    }
+
+    // Execute update query
+    await pool.query(updateQuery, queryParams);
+
+    return res.status(200).json({ message: "Successfully Updated." });
+  } catch (error) {
+    console.error("Database error:", error);
+    return res.status(500).json({ error: "Internal Server Error." });
+  }
+};
 
 

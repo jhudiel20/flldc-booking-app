@@ -63,9 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Event listener for User Type change
-  document
-    .getElementById("usertype")
-    .addEventListener("change", toggleSBUAndBranch);
+  document.getElementById("usertype").addEventListener("change", toggleSBUAndBranch);
 
   // Fetch user data
   fetch("/api/validate-cookie")
@@ -112,4 +110,62 @@ document.addEventListener("DOMContentLoaded", function () {
     .catch(function (error) {
       console.error("Error fetching user data:", error);
     });
+
+    // Handle button click to update user details
+  document.getElementById("update_UserDetails").addEventListener("click", function () {
+    const usertype = document.getElementById("usertype").value;
+
+    // Get input values
+    const userData = {
+        user_id: document.getElementById("user_id").value,
+        fname: document.getElementById("fname").value,
+        lname: document.getElementById("lname").value,
+        userType: usertype,
+        email: document.getElementById("email").value,
+        sbu: document.getElementById("SBU").value,
+        branch: document.getElementById("branchSelect").value
+    };
+
+    // If user is Guest, clear SBU and Branch
+    if (usertype === "Guest") {
+        userData.sbu = "";
+        userData.branch = "";
+    }
+
+    // Confirmation alert before sending data
+    Swal.fire({
+      title: "Confirm Update",
+      text: "Are you sure you want to update your profile details?",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonText: "Yes, update",
+      cancelButtonText: "Cancel"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Send data to server
+        fetch("/api/UserAuth", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(userData)
+        })
+          .then(response => response.json())
+          .then(data => {
+            if (data.success) {
+              Swal.fire("Updated!", "Your profile has been updated.", "success");
+            } else {
+              Swal.fire("Error!", "Something went wrong. Try again.", "error");
+            }
+          })
+          .catch(error => {
+            console.error("Error:", error);
+            Swal.fire("Error!", "An error occurred. Please try again.", "error");
+          });
+      }
+    });
+  });
+
+
 });
+
