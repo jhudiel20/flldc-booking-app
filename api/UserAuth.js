@@ -443,16 +443,16 @@ module.exports = async (req, res) => {
       if (email && password && recaptchaResponse && !fname) {
         // **User Login Flow**
         return await handleUserLogin(req, res);
-      } else if (fname && lname && email && password && confirmPassword && userType && recaptchaResponse) {
+      } else if (fname && lname && email && password && confirmPassword && userType && recaptchaResponse && !user_id) {
         // **User Registration Flow**
         return await handleUserRegistration(req, res);
       } else if (fname && lname && email && userType && sbu && branch && user_id) {
         // **User Details Update Flow**
         return await handleUserDetailsUpdate(req, res);
-      } else if (user_id && password) {
+      } else if (user_id && password && !email) {
         // **Change Password Inside Flow**
         return await handleChangePasswordInside(req, res);
-      } else if (email && token && newPassword) {
+      } else if (email && token && newPassword && !user_id) {
         // **Change Password Flow**
         return await handleChangePassword(req, res);
       } else if (email) {
