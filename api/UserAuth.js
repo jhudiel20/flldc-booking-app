@@ -455,7 +455,7 @@ module.exports = async (req, res) => {
       } else if (email && token && newPassword && !user_id) {
         // **Change Password Flow**
         return await handleChangePassword(req, res);
-      } else if (email) {
+      } else if (email && !user_id) {
         // **Forgot Password Flow**
         return await handleForgotPassword(req, res);
       } else {
