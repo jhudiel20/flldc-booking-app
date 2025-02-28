@@ -401,34 +401,42 @@ document.addEventListener("DOMContentLoaded", function () {
         showCancelButton: true,
         confirmButtonText: "Yes, update",
         cancelButtonText: "Cancel",
-      }).then((result) => {
+      }).then(async (result) => {
         if (result.isConfirmed) {
-          fetch("/api/UserAuth", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(userUpdateData),
-          })
-            .then((response) => response.json())
-            .then((data) => {
-              Swal.fire(
-                data.message === "Successfully Updated."
-                  ? "Updated!"
-                  : "Error!",
-                data.message || "Something went wrong.",
-                data.message === "Successfully Updated." ? "success" : "error"
-              ).then(() => {
-                window.location.reload();
+            try {
+              const response = await fetch("/api/UserAuth", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(userUpdateData),
               });
-            })
-            .catch((error) => {
-              console.error("Error:", error);
-              Swal.fire(
-                "Error!",
-                "An error occurred. Please try again.",
-                "error"
-              );
-            });
-        }
+  
+              const data = await response.json();
+  
+              if (data.error) {
+                Swal.fire({
+                  title: "Error!",
+                  text: data.error,
+                  icon: "error",
+                });
+                return false;
+              } else {
+                Swal.fire({
+                  title: "Success!",
+                  text: "Successfully Updated.",
+                  icon: "success",
+                }).then(() => {
+                  window.location.reload();
+                });
+              }
+            } catch (error) {
+              Swal.fire({
+                title: "Error!",
+                text: "Something went wrong. Please try again.",
+                icon: "error",
+              });
+              return false;
+            }
+          }  
       });
     });
   }
