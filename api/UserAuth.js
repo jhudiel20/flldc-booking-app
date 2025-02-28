@@ -447,13 +447,6 @@ module.exports = async (req, res) => {
         // **User Registration Flow**
         return await handleUserRegistration(req, res);
       } else if (fname && lname && email && userType && sbu && branch && user_id) {
-        if (!fname || !lname || !email || !userType || !user_id || (userType === "Guest" && (!sbu || !branch))) {
-          return res.status(400).json({ 
-            error: userType === "Guest" 
-              ? "For Guest users, SBU and Branch are required." 
-              : "All user update fields are required." 
-          });
-        }
         // **User Details Update Flow**
         return await handleUserDetailsUpdate(req, res);
       } else if (user_id && password && !email) {
@@ -466,7 +459,7 @@ module.exports = async (req, res) => {
         // **Forgot Password Flow**
         return await handleForgotPassword(req, res);
       } else {
-        return res.status(400).json({ error: "Invalid request. Please check the provided fields." });
+        return res.status(400).json({ error: "Please check the required fields." });
       }
     } else {
       return res.status(405).json({ error: "Method Not Allowed" });
