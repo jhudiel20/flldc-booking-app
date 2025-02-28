@@ -779,7 +779,7 @@ async function handleUserDetailsUpdate(req, res) {
 
     const updateQuery = `
       UPDATE user_reservation 
-      SET email = $1, fname = $2, lname = $3, usertype = $4, sbu = $5, branch = $6
+      SET email = $1, fname = $2, lname = $3, user_type = $4, business_unit = $5, branch = $6
       WHERE id = $7;
     `;
 
