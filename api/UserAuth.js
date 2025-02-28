@@ -446,7 +446,7 @@ module.exports = async (req, res) => {
       } else if (fname && lname && email && password && confirmPassword && userType && recaptchaResponse && !user_id) {
         // **User Registration Flow**
         return await handleUserRegistration(req, res);
-      } else if (fname && lname && email && userType && sbu && branch && user_id) {
+      } else if (fname && lname && email && userType && user_id) {
         // **User Details Update Flow**
         return await handleUserDetailsUpdate(req, res);
       } else if (user_id && password && !email) {
@@ -782,6 +782,9 @@ async function handleUserDetailsUpdate(req, res) {
     // Validate required fields
     if (!email || !fname || !lname || !userType || !user_id) {
       return res.status(400).json({ error: "Missing required fields." });
+    }
+    if(userType === 'Guest' && (sbu || branch)) {
+      return res.status(400).json({ error: "Guest users cannot have SBU or Branch." });
     }
 
     const updateQuery = `
