@@ -777,26 +777,16 @@ async function handleUserDetailsUpdate(req, res) {
       return res.status(400).json({ error: "Missing required fields." });
     }
 
-    // Handle user type logic
-    let updateQuery;
-    let queryParams;
-    if (userType === "FAST Employee") {
-      updateQuery = `
-        UPDATE user_reservation 
-        SET email = $1, fname = $2, lname = $3, usertype = $4, sbu = $5, branch = $6
-        WHERE id = $7;
-      `;
-      queryParams = [email, fname, lname, userType, sbu, branch, user_id];
-    } else if (userType === "Guest") {
-      updateQuery = `
-        UPDATE user_reservation 
-        SET email = $1, fname = $2, lname = $3, usertype = $4, sbu = $5, branch = $6
-        WHERE id = $7;
-      `;
-      queryParams = [email, fname, lname, userType,sbu, branch, user_id];
-    } else {
-      return res.status(400).json({ error: "Invalid user type." });
-    }
+    // Set SBU and Branch to NULL if user is a Guest
+    const finalSbu = userType === "Guest" ? null : sbu;
+    const finalBranch = userType === "Guest" ? null : branch;
+
+    const updateQuery = `
+      UPDATE user_reservation 
+      SET email = $1, fname = $2, lname = $3, usertype = $4, sbu = $5, branch = $6
+      WHERE id = $7;
+    `;
+    const queryParams = [email, fname, lname, userType, finalSbu, finalBranch, user_id];
 
     // Execute update query
     await pool.query(updateQuery, queryParams);

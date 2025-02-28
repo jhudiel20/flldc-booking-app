@@ -150,18 +150,18 @@ document.addEventListener("DOMContentLoaded", function () {
           },
           body: JSON.stringify(userData)
         })
-          .then(response => response.json())
-          .then(data => {
-            if (data.success) {
-              Swal.fire("Updated!", "Your profile has been updated.", "success");
+            .then(response => response.json())
+            .then(data => {
+            if (data.message === "Successfully Updated.") {
+                Swal.fire("Updated!", "Your profile has been updated.", "success");
             } else {
-              Swal.fire("Error!", "Something went wrong. Try again.", "error");
+                Swal.fire("Error!", data.error || "Something went wrong. Try again.", "error");
             }
-          })
-          .catch(error => {
-            console.error("Error:", error);
-            Swal.fire("Error!", "An error occurred. Please try again.", "error");
-          });
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                Swal.fire("Error!", "An error occurred. Please try again.", "error");
+            });
       }
     });
   });
