@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const usertype = document.getElementById("usertype").value;
 
     // Get input values
-    const userData = {
+    const userUpdateData = {
         user_id: document.getElementById("user_id").value,
         fname: document.getElementById("fname").value,
         lname: document.getElementById("lname").value,
@@ -128,8 +128,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
           // If user is Guest, clear SBU and Branch
           if (usertype === "Guest") {
-            userData.sbu = null;
-            userData.branch = null;
+            userUpdateData.sbu = null;
+            userUpdateData.branch = null;
         }
 
     // Confirmation alert before sending data
@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", function () {
           headers: {
             "Content-Type": "application/json"
           },
-          body: JSON.stringify(userData)
+          body: JSON.stringify(userUpdateData)
         })
             .then(response => response.json())
             .then(data => {
