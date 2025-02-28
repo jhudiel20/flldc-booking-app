@@ -768,7 +768,6 @@ async function handleChangePassword(req, res) {
 }
 
 async function handleUserDetailsUpdate(req, res) {
-
   try {
     const { email, fname, lname, userType, sbu, branch, user_id } = req.body;
 
@@ -785,12 +784,43 @@ async function handleUserDetailsUpdate(req, res) {
 
     await pool.query(updateQuery, [email, fname, lname, userType, sbu || null, branch || null, user_id]);
 
+    // Fetch the updated user data
+    const userQuery = `SELECT id, email, fname, lname, business_unit, branch, user_type FROM user_reservation WHERE id = $1`;
+    const { rows } = await pool.query(userQuery, [user_id]);
+
+    if (rows.length === 0) {
+      return res.status(404).json({ error: "User not found after update." });
+    }
+
+    const user = rows[0];
+
+    // Update the cookie with new user details
+    const cookieValue = {
+      userId: user.id,
+      email: user.email,
+      firstName: user.fname,
+      lastName: user.lname,
+      sbu: user.business_unit,
+      branch: user.branch,
+      usertype: user.user_type,
+    };
+
+    res.setHeader(
+      'Set-Cookie',
+      cookie.serialize('user_data', JSON.stringify(cookieValue), {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        maxAge: 3600,
+        path: '/',
+        sameSite: 'Strict',
+      })
+    );
+
     return res.status(200).json({ message: "Successfully Updated." });
   } catch (error) {
     console.error("Database error:", error.message, error.stack);
     return res.status(500).json({ error: "Internal Server Error.", details: error.message });
   }
-  
-};
+}
 
 
