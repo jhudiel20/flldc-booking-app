@@ -44,6 +44,10 @@
         // Fetch API to validate the cookie
         fetch('/api/validate-cookie') // API endpoint to validate the cookie
             .then(response => {
+                if (!response.ok) {
+                    window.location.href = "/index";
+                    throw new Error("User is not logged in.");
+                }
                 if (response.ok) {
                     return response.json(); // Parse the response as JSON
                 } else {

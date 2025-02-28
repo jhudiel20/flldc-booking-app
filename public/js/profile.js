@@ -242,6 +242,7 @@ document.addEventListener("DOMContentLoaded", function () {
   fetch("/api/validate-cookie")
     .then((response) => {
       if (!response.ok) {
+        window.location.href = "/index";
         throw new Error("User is not logged in.");
       }
       return response.json();
