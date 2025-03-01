@@ -957,7 +957,7 @@ textarea.form-control {
   padding: 12px 30px;
   text-transform: uppercase;
   letter-spacing: .15em;
-  border-radius: 20%;
+  border-radius: 20px;
 }
 
 .btn.btn-black {
