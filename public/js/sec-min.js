@@ -306,7 +306,7 @@ function includeHTML(file, elementID) {
                     width: '700px',
                     imageUrl: '/images/LOGO.png', // Replace with your logo path
                     imageWidth: 160, // Adjust as needed
-                    imageHeight: 100, // Adjust as needed
+                    imageHeight: 80, // Adjust as needed
                     html: `
                         <div class="row" style="text-align:left">
                             <div class="col-12 col-md-6">
@@ -562,7 +562,7 @@ function includeHTML(file, elementID) {
               title: 'Forgot Password',
               imageUrl: '/images/LOGO.png', // Replace with your logo path
               imageWidth: 160, // Adjust as needed
-              imageHeight: 100, // Adjust as needed
+              imageHeight: 80, // Adjust as needed
               html: `  
                   <div class="mb-3 text-start" style="text-align:left">
                       <div class="input-group">
@@ -709,7 +709,7 @@ document.addEventListener("DOMContentLoaded", function () {
         title: "Reset Password",
         imageUrl: '/images/LOGO.png', // Replace with your logo path
         imageWidth: 160, // Adjust as needed
-        imageHeight: 100, // Adjust as needed
+        imageHeight: 80, // Adjust as needed
         html: `
           <div>
             <p style="font-size: 16px;">Reset password for: <strong>${email}</strong></p>
