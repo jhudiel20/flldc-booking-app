@@ -970,8 +970,9 @@ textarea.form-control {
 }
 
 .btn.btn-primary:hover, .btn.btn-primary:active, .btn.btn-primary:focus {
-  border-color: #c9ac88;
-  background: #c9ac88;
+  color: #6c63ff;
+  background-color: #fff;
+  border-color: #6c63ff;
 }
 
 .btn.btn-sm {
