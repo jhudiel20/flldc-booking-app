@@ -524,12 +524,12 @@ header .navbar .dropdown-menu:before {
 }
 
 header .navbar .dropdown-menu .dropdown-item:hover {
-  background: #b99365;
+  background: #6c63ff;
   color: #fff;
 }
 
 header .navbar .dropdown-menu .dropdown-item.active {
-  background: #b99365;
+  background: #6c63ff;
   color: #fff;
 }
 
@@ -980,7 +980,7 @@ textarea.form-control {
 
 .btn.btn-outline-primary {
   border-width: 2px;
-  color: #b99365;
+  color: #6c63ff;
 }
 
 .btn.btn-outline-primary:hover, .btn.btn-outline-primary:focus, .btn.btn-outline-primary:active {
@@ -1006,7 +1006,7 @@ textarea.form-control {
 
 .custom-icon {
   font-size: 70px;
-  color: #b99365;
+  color: #6c63ff;
 }
 
 .no-nav .owl-nav {
@@ -1069,7 +1069,7 @@ textarea.form-control {
 }
 
 .owl-carousel .owl-dots .owl-dot.active {
-  background: #b99365;
+  background: #6c63ff;
 }
 
 .owl-carousel.home-slider {
@@ -1284,10 +1284,10 @@ textarea.form-control {
 }
 
 .box.hover:hover .box-body, .box.hover:focus .box-body {
-  background: #b99365;
+  background: #6c63ff;
   color: #fff;
   padding: 30px 20px;
-  border-color: #b99365;
+  border-color: #6c63ff;
 }
 
 .box.hover:hover h2, .box.hover:focus h2 {
@@ -1300,7 +1300,7 @@ textarea.form-control {
 }
 
 .breadcrumb-custom li a {
-  color: #b99365;
+  color: #6c63ff;
 }
 
 .breadcrumb-custom li a:hover {
@@ -1414,7 +1414,7 @@ textarea.form-control {
 
 .tags li a:hover {
   color: #fff;
-  background: #b99365;
+  background: #6c63ff;
 }
 
 .sidebar-box {
@@ -1525,7 +1525,7 @@ textarea.form-control {
 
 .media-feature .icon {
   font-size: 60px;
-  color: #b99365;
+  color: #6c63ff;
 }
 
 .media-feature h3 {
@@ -1540,7 +1540,7 @@ textarea.form-control {
   -ms-transform: scale(1.05);
   transform: scale(1.05);
   z-index: 2;
-  border-bottom: 10px solid #b99365;
+  border-bottom: 10px solid #6c63ff;
 }
 
 .media-custom {
@@ -1612,7 +1612,7 @@ textarea.form-control {
   display: block;
   text-align: left;
   text-decoration: none;
-  color: #b99365;
+  color: #6c63ff;
   position: relative;
   -webkit-box-shadow: 0 3px 10px -2px rgba(0, 0, 0, 0.2) !important;
   box-shadow: 0 3px 10px -2px rgba(0, 0, 0, 0.2) !important;
