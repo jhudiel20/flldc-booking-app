@@ -192,7 +192,7 @@ function includeHTML(file, elementID) {
                   </div>
                   <div class="mb-3">
                       <div style="text-align:right">
-                          <button id="forgotPasswordLink" class="btn btn-link p-0" style="color: #000; text-decoration: underline;" onmouseover="this.style.color='#757070'" onmouseout="this.style.color='#000'
+                          <button id="forgotPasswordLink" class="btn btn-link p-0" style="color: #000; text-decoration: underline;" onmouseover="this.style.color='#757070'" onmouseout="this.style.color='#000'"
                               data-bs-toggle="tooltip" 
                               data-bs-offset="0,4"
                               data-bs-placement="top"
@@ -212,7 +212,7 @@ function includeHTML(file, elementID) {
                   </div>
                   <div id="errorMessage" class="text-danger mt-3">${errorMessage}</div>
                   <div class="mt-3">
-                      <button id="registerLink" class="btn btn-link p-0" style="color: #000; text-decoration: underline;" onmouseover="this.style.color='#757070'" onmouseout="this.style.color='#000' >Don't have an account? Register here</button>
+                      <button id="registerLink" class="btn btn-link p-0" style="color: #000; text-decoration: underline;" onmouseover="this.style.color='#757070'" onmouseout="this.style.color='#000'" >Don't have an account? Register here</button>
                   </div>
                   <div id="recaptcha-container" class="mt-3" style="display: flex; justify-content: center; align-items: center;"></div>
                 `,
