@@ -66,6 +66,21 @@ const branches = [
     "TALISAY", "TALISAY-NA", "TALISAY-PMFTC", "TAYTAY-NA", "TAYTAY-PMFTC", "TOLEDO", "ZAMBOANGA"
   ];
 
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll("[data-scroll-next]").forEach((btn) => {
+      btn.addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent default anchor behavior
+        
+        let currentSection = this.closest("section"); // Find the closest section
+        if (currentSection) {
+          let nextSection = currentSection.nextElementSibling; // Get the next section
+          if (nextSection) {
+            nextSection.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        }
+      });
+    });
+  });
 
 
 if (typeof AOS !== 'undefined') {

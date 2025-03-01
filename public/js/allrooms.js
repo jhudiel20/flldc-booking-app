@@ -1,15 +1,3 @@
-document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll(".scroll-to").forEach((btn) => {
-      btn.addEventListener("click", function (event) {
-        event.preventDefault(); // Prevent default anchor behavior
-        const target = document.querySelector(this.getAttribute("href"));
-        if (target) {
-          target.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      });
-    });
-  });
-
 async function loadAllRooms() {
     const roomContainer = document.querySelector('#roomContainer');
 
