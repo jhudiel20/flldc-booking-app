@@ -1,1 +1,84 @@
-(function(_0x3f459a,_0x1c74a6){const _0x3d67fe=a0_0x5bb5,_0x348b64=_0x3f459a();while(!![]){try{const _0x40f2f4=parseInt(_0x3d67fe(0x176))/0x1*(-parseInt(_0x3d67fe(0x173))/0x2)+parseInt(_0x3d67fe(0x193))/0x3*(parseInt(_0x3d67fe(0x17c))/0x4)+parseInt(_0x3d67fe(0x182))/0x5+parseInt(_0x3d67fe(0x18e))/0x6*(-parseInt(_0x3d67fe(0x199))/0x7)+-parseInt(_0x3d67fe(0x16d))/0x8+parseInt(_0x3d67fe(0x183))/0x9+parseInt(_0x3d67fe(0x170))/0xa;if(_0x40f2f4===_0x1c74a6)break;else _0x348b64['push'](_0x348b64['shift']());}catch(_0x2829fa){_0x348b64['push'](_0x348b64['shift']());}}}(a0_0x1f5c,0xef9fe));function a0_0x5bb5(_0x4b0bce,_0x4cdaac){const _0x1f5cdf=a0_0x1f5c();return a0_0x5bb5=function(_0x5bb5c6,_0x97e29){_0x5bb5c6=_0x5bb5c6-0x16d;let _0x390181=_0x1f5cdf[_0x5bb5c6];return _0x390181;},a0_0x5bb5(_0x4b0bce,_0x4cdaac);}async function loadAllRooms(){const _0x38be29=a0_0x5bb5,_0x15c1fb={'CeuOV':_0x38be29(0x18a),'GasCj':_0x38be29(0x174),'ExuUK':function(_0x164d06,_0x518ab3){return _0x164d06+_0x518ab3;},'vdLnc':function(_0x128dbb,_0x1b342f){return _0x128dbb(_0x1b342f);},'iLOqs':function(_0x2dbf3c,_0x185f3e){return _0x2dbf3c(_0x185f3e);},'TACAC':_0x38be29(0x191),'wEqUU':_0x38be29(0x196),'kXdLt':'show','GARpj':_0x38be29(0x195)},_0x3a15fc=document[_0x38be29(0x188)](_0x15c1fb['TACAC']);loader[_0x38be29(0x179)][_0x38be29(0x198)](_0x38be29(0x19c));const _0x3dafeb=await _0x15c1fb[_0x38be29(0x185)](fetch,_0x15c1fb[_0x38be29(0x177)]);if(!_0x3dafeb['ok']){console[_0x38be29(0x18b)](_0x38be29(0x180)+_0x3dafeb['status']),loader[_0x38be29(0x179)]['remove'](_0x15c1fb[_0x38be29(0x181)]);return;}const _0x343a40=await _0x3dafeb[_0x38be29(0x17b)]();let _0x50acff='';try{const _0x10655e=await _0x15c1fb[_0x38be29(0x18c)](fetch,_0x38be29(0x17a));if(_0x10655e['ok']){const _0x3a1848=await _0x10655e[_0x38be29(0x17b)]();_0x50acff=_0x38be29(0x190)+_0x3a1848[_0x38be29(0x187)]+'/'+_0x3a1848[_0x38be29(0x18d)]+'/main/room-photo/';}else console[_0x38be29(0x18b)]('Failed\x20to\x20fetch\x20config');}catch(_0x169a05){console[_0x38be29(0x18b)](_0x15c1fb[_0x38be29(0x189)],_0x169a05);}_0x343a40[_0x38be29(0x16f)](_0x4ff98c=>{const _0x4dc54f=_0x38be29,_0x2bca4e=document[_0x4dc54f(0x18f)](_0x15c1fb[_0x4dc54f(0x19a)]);_0x2bca4e[_0x4dc54f(0x192)]=_0x15c1fb[_0x4dc54f(0x171)],_0x2bca4e[_0x4dc54f(0x197)]='\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22media\x20d-block\x20room\x20mb-0\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<figure>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<img\x20id=\x22roomImage\x22\x20src=\x22'+_0x15c1fb[_0x4dc54f(0x16e)](_0x50acff,_0x4ff98c['room_photo'])+_0x4dc54f(0x17e)+_0x4ff98c['room_name']+_0x4dc54f(0x194)+_0x15c1fb[_0x4dc54f(0x185)](encodeURIComponent,_0x4ff98c[_0x4dc54f(0x184)])+'\x22>'+_0x4ff98c[_0x4dc54f(0x186)]+_0x4dc54f(0x172)+_0x4ff98c[_0x4dc54f(0x17f)]+_0x4dc54f(0x178)+_0x4ff98c[_0x4dc54f(0x175)]+_0x4dc54f(0x17d)+_0x15c1fb[_0x4dc54f(0x18c)](encodeURIComponent,_0x4ff98c['room_id'])+_0x4dc54f(0x19b),_0x3a15fc['appendChild'](_0x2bca4e);}),loader[_0x38be29(0x179)]['remove'](_0x15c1fb[_0x38be29(0x181)]);}function a0_0x1f5c(){const _0x1069d3=['CeuOV','\x22\x20class=\x22btn\x20btn-primary\x20btn-sm\x22>Book\x20Now</a></p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','show','10117848Qbcwax','ExuUK','forEach','40520800tVCrTx','GasCj','</a></h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p>Features:</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<ul\x20class=\x22room-specs\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li><span\x20class=\x22ion-ios-people-outline\x22></span>\x20','8iKwKox','col-md-4\x20mb-4','usage','399473YFhGgW','wEqUU','\x20Guests</li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li><span\x20class=\x22ion-ios-crop\x22></span>\x20ft<sup>2</sup></li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</ul>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p>Usage:</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p>','classList','/api/fetch-image','json','20QGYCiz','</p>\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p><a\x20href=\x22rooms?ID=','\x22\x20alt=\x22','capacity','HTTP\x20error!\x20status:\x20','kXdLt','3189020LBMgzM','4987881PNoWcu','room_id','vdLnc','room_name','owner','querySelector','GARpj','div','error','iLOqs','repo','102294deLaON','createElement','https://raw.githubusercontent.com/','#roomContainer','className','152271LCJxvs','\x22\x20class=\x22img-fluid-allrooms\x20zoom-on-hover\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</figure>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22media-body\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20class=\x22mt-0\x22><a\x20href=\x22rooms?ID=','Error\x20fetching\x20config:','/api/available_rooms.js','innerHTML','add','679tdeIvr'];a0_0x1f5c=function(){return _0x1069d3;};return a0_0x1f5c();}
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".scroll-to").forEach((btn) => {
+      btn.addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent default anchor behavior
+        const target = document.querySelector(this.getAttribute("href"));
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    });
+  });
+
+async function loadAllRooms() {
+    const roomContainer = document.querySelector('#roomContainer');
+
+    // const loadingMessage = document.createElement('div');
+    // loadingMessage.className = 'loading-message';
+    // loadingMessage.innerHTML = '<p>Loading rooms...</p>'; // You can customize this message
+    // roomContainer.appendChild(loadingMessage);
+
+
+    // Show the loader
+    loader.classList.add('show');
+
+    // Fetch rooms from the API
+    const response = await fetch('/api/available_rooms.js');
+
+    // If the response is not OK, log an error and return
+    if (!response.ok) {
+        console.error(`HTTP error! status: ${response.status}`);
+        loader.classList.remove('show'); // Hide loader
+        // loadingMessage.remove();
+        return; // Exit if the response is not OK
+    }
+
+    const rooms = await response.json();
+
+    let baseImageUrl = '';
+    try {
+        const configResponse = await fetch('/api/fetch-image');
+        if (configResponse.ok) {
+            const configData = await configResponse.json();
+            baseImageUrl = `https://raw.githubusercontent.com/${configData.owner}/${configData.repo}/main/room-photo/`;
+        } else {
+            console.error('Failed to fetch config');
+        }
+    } catch (error) {
+        console.error('Error fetching config:', error);
+    }
+
+    // Clear existing room elements
+    // roomContainer.innerHTML = '';
+
+    rooms.forEach(room => {
+        // Create a room card
+        const roomCard = document.createElement('div');
+        roomCard.className = 'col-md-4 mb-4';
+
+        roomCard.innerHTML = `
+            <div class="media d-block room mb-0">
+                <figure>
+                    <img id="roomImage" src="${baseImageUrl + room.room_photo}" alt="${room.room_name}" class="img-fluid-allrooms zoom-on-hover">
+                </figure>
+                <div class="media-body">
+                    <h3 class="mt-0"><a href="rooms?ID=${encodeURIComponent(room.room_id)}">${room.room_name}</a></h3>
+                    <p>Features:</p>
+                    <ul class="room-specs">
+                        <li><span class="ion-ios-people-outline"></span> ${room.capacity} Guests</li>
+                        <li><span class="ion-ios-crop"></span> ft<sup>2</sup></li>
+                    </ul>
+                    <p>Usage:</p>
+                    <p>${room.usage}</p>              
+                    <p><a href="rooms?ID=${encodeURIComponent(room.room_id)}" class="btn btn-primary btn-sm">Book Now</a></p>
+                </div>
+            </div>
+        `;
+
+        // Append the room card to the room container
+        roomContainer.appendChild(roomCard);
+    });
+    loader.classList.remove('show');
+    // loadingMessage.remove();
+}
+
