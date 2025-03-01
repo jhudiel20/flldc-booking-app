@@ -487,6 +487,7 @@ header .navbar .cta > a span {
   display: inline-block;
   padding: 10px 20px;
   border: 2px solid #ccc;
+  border-radius: 10px;
 }
 
 header .navbar .dropdown.show > a {
@@ -957,7 +958,7 @@ textarea.form-control {
   padding: 12px 30px;
   text-transform: uppercase;
   letter-spacing: .15em;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 .btn.btn-black {
