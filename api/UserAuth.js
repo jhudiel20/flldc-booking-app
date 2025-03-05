@@ -486,42 +486,41 @@ const handleUserLogin = async (req, res) => {
     if (!recaptchaData.success) {
       return res.status(403).json({ error: 'reCAPTCHA verification failed.' });
     }
+    if (userType === 'FAST Employee') {
+      const result = await pool.query('SELECT * FROM user_reservation WHERE email = $1', [email]);
 
-    const result = await pool.query('SELECT * FROM user_reservation WHERE email = $1', [email]);
+      if (result.rows.length === 1) {
+        const user = result.rows[0];
+          const isPasswordValid = await bcrypt.compare(password, user.password);
 
-    if (result.rows.length === 1) {
-      const user = result.rows[0];
-      if (userType === 'FAST Employee') {
-        const isPasswordValid = await bcrypt.compare(password, user.password);
+          if (isPasswordValid) {
+            const cookieValue = {
+              userId: user.id,
+              email: user.email,
+              firstName: user.fname,
+              lastName: user.lname,
+              sbu: user.business_unit,
+              branch: user.branch,
+              usertype: user.user_type,
+            };
 
-        if (isPasswordValid) {
-          const cookieValue = {
-            userId: user.id,
-            email: user.email,
-            firstName: user.fname,
-            lastName: user.lname,
-            sbu: user.business_unit,
-            branch: user.branch,
-            usertype: user.user_type,
-          };
+            res.setHeader('Set-Cookie', cookie.serialize('user_data', JSON.stringify(cookieValue), {
+              httpOnly: true,
+              secure: process.env.NODE_ENV === 'production',
+              maxAge: 3600,
+              path: '/',
+              sameSite: 'Strict',
+            }));
 
-          res.setHeader('Set-Cookie', cookie.serialize('user_data', JSON.stringify(cookieValue), {
-            httpOnly: true,
-            secure: process.env.NODE_ENV === 'production',
-            maxAge: 3600,
-            path: '/',
-            sameSite: 'Strict',
-          }));
-
-          res.status(200).json({ message: 'Welcome.' });
-        } else {
-          res.status(401).json({ error: 'Incorrect password.' });
-        }
-      }else{
-        res.status(401).json({ error: 'Unauthorized User.' });
+            res.status(200).json({ message: 'Welcome.' });
+          } else {
+            res.status(401).json({ error: 'Incorrect password.' });
+          }
+      } else {
+        res.status(404).json({ error: 'Email not found.' });
       }
-    } else {
-      res.status(404).json({ error: 'Email not found.' });
+    }else{
+      res.status(401).json({ error: 'Unauthorized access.' });
     }
     
   } catch (error) {
