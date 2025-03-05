@@ -491,7 +491,7 @@ const handleUserLogin = async (req, res) => {
 
     if (result.rows.length === 1) {
       const user = result.rows[0];
-      if(user.user_type === 'FAST Employee'){
+      if (user.user_type.trim().toLowerCase() === 'fast employee') {
         const isPasswordValid = await bcrypt.compare(password, user.password);
 
         if (isPasswordValid) {
