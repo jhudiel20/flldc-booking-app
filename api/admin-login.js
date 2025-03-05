@@ -258,7 +258,7 @@ const cipherMethod = 'aes-256-cbc';
 
 module.exports = async (req, res) => {
     try {
-        if (req.method !== "POST") {
+        if (req.method === "POST") {
             return res.status(405).json({ error: "Method Not Allowed" });
         }
 
