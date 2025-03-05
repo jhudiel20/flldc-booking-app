@@ -440,7 +440,7 @@ module.exports = async (req, res) => {
         email, password, recaptchaResponse,fname, lname, confirmPassword, userType, sbu, branch, token, newPassword, user_id
       } = req.body;
 
-      if (email && password && recaptchaResponse && !fname) {
+      if (email && password && recaptchaResponse && !fname && userType) {
         // **User Login Flow**
         return await handleUserLogin(req, res);
       } else if (fname && lname && email && password && confirmPassword && recaptchaResponse && !user_id) {
@@ -471,7 +471,7 @@ module.exports = async (req, res) => {
 };
 
 const handleUserLogin = async (req, res) => {
-  const { email, password, recaptchaResponse } = req.body;
+  const { email, password, recaptchaResponse, userType } = req.body;
 
   if (!email || !password || !recaptchaResponse) {
     return res.status(400).json({ error: 'All fields are required, including reCAPTCHA.' });
@@ -491,30 +491,34 @@ const handleUserLogin = async (req, res) => {
 
     if (result.rows.length === 1) {
       const user = result.rows[0];
-      const isPasswordValid = await bcrypt.compare(password, user.password);
+      if(user.user_type === 'FAST Employee'){
+        const isPasswordValid = await bcrypt.compare(password, user.password);
 
-      if (isPasswordValid) {
-        const cookieValue = {
-          userId: user.id,
-          email: user.email,
-          firstName: user.fname,
-          lastName: user.lname,
-          sbu: user.business_unit,
-          branch: user.branch,
-          usertype: user.user_type,
-        };
+        if (isPasswordValid) {
+          const cookieValue = {
+            userId: user.id,
+            email: user.email,
+            firstName: user.fname,
+            lastName: user.lname,
+            sbu: user.business_unit,
+            branch: user.branch,
+            usertype: user.user_type,
+          };
 
-        res.setHeader('Set-Cookie', cookie.serialize('user_data', JSON.stringify(cookieValue), {
-          httpOnly: true,
-          secure: process.env.NODE_ENV === 'production',
-          maxAge: 3600,
-          path: '/',
-          sameSite: 'Strict',
-        }));
+          res.setHeader('Set-Cookie', cookie.serialize('user_data', JSON.stringify(cookieValue), {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            maxAge: 3600,
+            path: '/',
+            sameSite: 'Strict',
+          }));
 
-        res.status(200).json({ message: 'Welcome.' });
-      } else {
-        res.status(401).json({ error: 'Incorrect password.' });
+          res.status(200).json({ message: 'Welcome.' });
+        } else {
+          res.status(401).json({ error: 'Incorrect password.' });
+        }
+      }else{
+        res.status(401).json({ error: 'Unauthorized User.' });
       }
     } else {
       res.status(404).json({ error: 'Email not found.' });

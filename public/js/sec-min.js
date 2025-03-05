@@ -414,7 +414,7 @@ includeHTML("header", "header").then(() => {
                       <div class="input-group">
                           <span class="input-group-text"><i class="fa fa-envelope"></i></span>
                           <input type="email" id="email_login" class="form-control" placeholder=" " required>
-                          <label for="email_login" class="floating-label">Email</label>
+                          <label for="email_login" id="email_login_label" class="floating-label">Email</label>
                       </div>
                   </div>
                   <div class="mb-3">
@@ -477,6 +477,16 @@ includeHTML("header", "header").then(() => {
                   eyeIcon.classList.add("fa-eye");
                 }
               });
+
+              const emailLabel = document.getElementById('email_login_label');
+
+              emailLabel.addEventListener('change', function () {
+                  if (emailLabel.textContent === 'FAST Employee') {
+                      emailLabel.textContent = 'Email';
+                  } else {
+                      emailLabel.textContent = 'Username';
+                  }
+              });              
           },
           preConfirm: async () => {
             const email = document.getElementById("email_login").value.trim();
