@@ -570,9 +570,7 @@ includeHTML("header", "header").then(() => {
                               <div class="input-group mb-3">
                                 <span class="input-group-text"><i class="fas fa-user-tag"></i></span>
                                   <select id="usertype" name="usertype" class="form-control" required>
-                                    <option value="" disabled selected hidden>Select User Type</option>
-                                    <option value="FAST Employee">FAST Employee</option>
-                                    <option value="Admin">Admin</option>
+                                    <option value="FAST Employee" selected>FAST Employee</option>
                                   </select>
                                 <label for="usertype" class="floating-label">User Type</label>
                               </div>
