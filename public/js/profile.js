@@ -215,28 +215,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Function to toggle SBU & Branch visibility
-  function toggleSBUAndBranch() {
-    const userTypeField = document.getElementById("usertype");
-    const sbuDiv = document.getElementById("div-SBU");
-    const branchDiv = document.getElementById("div-Branch");
-
-    if (userTypeField && sbuDiv && branchDiv) {
-      if (userTypeField.value === "FAST Employee") {
-        sbuDiv.style.display = "block";
-        branchDiv.style.display = "block";
-      } else {
-        sbuDiv.style.display = "none";
-        branchDiv.style.display = "none";
-      }
-    }
-  }
-
-  const userTypeField = document.getElementById("usertype");
-  if (userTypeField) {
-    userTypeField.addEventListener("change", toggleSBUAndBranch);
-  }
-
   // Fetch user data
   fetch("/api/validate-cookie")
     .then((response) => {
@@ -328,8 +306,8 @@ document.addEventListener("DOMContentLoaded", function () {
         lname: document.getElementById("lname").value,
         userType: usertype,
         email: document.getElementById("email").value,
-        sbu: usertype === "Guest" ? null : document.getElementById("SBU").value,
-        branch: usertype === "Guest" ? null : branchSelect.value,
+        sbu: document.getElementById("SBU").value,
+        branch: branchSelect.value,
       };
 
       Swal.fire({
