@@ -5,41 +5,58 @@ const pool = new Pool({
     connectionString: process.env.POSTGRES_URL,
 });
 
-// Ensure a 32-byte encryption key for AES-256-CBC
-const encryption_key = crypto.createHash('sha256').update(
-    "qwertyuiopasdfghjklzxcvbnm1234567890johnjhudieljoycediannemnbvcxzlkjhgfdsapoiuytrewq0987654321diannejoycejohnjhudiel1qaz2wsx3edc4rfv5tgb6yhn7ujm8ik9ol0pp0lo9ki8mju7nhy6bgt5vfr4cde3xsw2zaq1"
-).digest('base64').substr(0, 32);
-
-const cipherMethod = 'aes-256-cbc';
-
 module.exports = async (req, res) => {
-    try {
-            const { email, password, recaptchaResponse, userType } = req.body;
+    if (req.method === "POST") {
+        try {
+                const { email, password, recaptchaResponse, userType } = req.body;
 
-            if (!email || !password || !recaptchaResponse || !userType) {
-                return res.status(400).json({ error: "Please check the required fields." });
-            }
-            return await handleAdminLogin(req, res);
+                if (!email || !password || !recaptchaResponse || !userType) {
+                    return res.status(400).json({ error: "Please check the required fields." });
+                }
+                return await handleAdminLogin(req, res);
 
-    } catch (error) {
-        console.error("Error handling user authentication:", error);
-        return res.status(500).json({ error: "Server error", details: error.message });
+        } catch (error) {
+            console.error("Error handling user authentication:", error);
+            return res.status(500).json({ error: "Server error", details: error.message });
+        }
+    } else {
+        return res.status(405).json({ error: "Method Not Allowed" });
     }
 };
 
-function encrypt_cookie(data, key) {
-    const iv = crypto.randomBytes(16); // 16-byte IV for AES-256-CBC
-    const cipher = crypto.createCipheriv(cipherMethod, Buffer.from(key, 'utf8'), iv);
-    
-    let encrypted = cipher.update(JSON.stringify(data), 'utf8', 'base64');
+function setPassword(text) {
+    if (text.trim() !== "") {
+        return crypto.createHash('sha1').update(text + SALT).digest('hex');
+    }
+    return '';
+}
+
+const cipherMethod = 'aes-256-cbc';
+const encryptionKey = "qwertyuiopasdfghjklzxcvbnm1234567890johnjhudieljoycediannemnbvcxzlkjhgfdsapoiuytrewq0987654321diannejoycejohnjhudiel1qaz2wsx3edc4rfv5tgb6yhn7ujm8ik9ol0pp0lo9ki8mju7nhy6bgt5vfr4cde3xsw2zaq1";
+
+// Ensure the encryption key is 32 bytes
+const key = crypto.createHash('sha256').update(encryptionKey).digest();
+
+// Function to encrypt data
+function encrypt_cookie(data) {
+    const iv = crypto.randomBytes(16); // Generate a 16-byte IV
+    const cipher = crypto.createCipheriv(cipherMethod, key, iv);
+
+    // Serialize data (like PHP's serialize)
+    const serializedData = JSON.stringify(data); 
+
+    let encrypted = cipher.update(serializedData, 'utf8', 'base64');
     encrypted += cipher.final('base64');
 
-    return `${iv.toString('hex')}:${encrypted}`;
+    // Combine IV and encrypted data (Base64 encoding to match PHP)
+    return Buffer.concat([iv, Buffer.from(encrypted, 'base64')]).toString('base64');
 }
 
 const handleAdminLogin = async (req, res) => {
     try {
         const { email, password, recaptchaResponse, userType } = req.body;
+
+        const hashedpassword = setPassword(req.body.password);
 
         if (!email || !password || !userType || !recaptchaResponse) {
             return res.status(400).json({ error: "All fields are required, including reCAPTCHA." });
@@ -49,12 +66,12 @@ const handleAdminLogin = async (req, res) => {
         const userRes = await pool.query("SELECT * FROM user_account WHERE username = $1", [email]);
         const user = userRes.rows[0];
 
-        if (!user) {
-            return res.status(401).json({ error: "Invalid username or password." });
+        if (user.email !== email) {
+            return res.status(401).json({ error: "Invalid username." });
         }
 
-        if(user.password !== password){
-            return res.status(401).json({ error: "Invalid username or password." });
+        if(user.password !== hashedpassword){
+            return res.status(401).json({ error: "Invalid password." });
         }
 
         if (user.approved_status === 1) {
