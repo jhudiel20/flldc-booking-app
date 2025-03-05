@@ -1,6 +1,5 @@
 const crypto = require('crypto');
 const { Pool } = require("pg");
-const bcrypt = require('bcrypt');
 
 const pool = new Pool({
     connectionString: process.env.POSTGRES_URL,
@@ -54,10 +53,8 @@ const handleAdminLogin = async (req, res) => {
             return res.status(401).json({ error: "Invalid username or password." });
         }
 
-        // Compare bcrypt-hashed password
-        const passwordMatch = await bcrypt.compare(password, user.password);
-        if (!passwordMatch) {
-            return res.status(401).json({ error: "Wrong Password!" });
+        if(user.password !== password){
+            return res.status(401).json({ error: "Invalid username or password." });
         }
 
         if (user.approved_status === 1) {
