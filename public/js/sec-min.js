@@ -526,11 +526,18 @@ includeHTML("header", "header").then(() => {
                   result.error;
                 return false;
               } else {
-                Swal.fire("Success!", "Successfully Login.", "success").then(
-                  () => {
-                    window.location.reload();
+                // Swal.fire("Success!", "Successfully Login.", "success").then(
+                //   () => {
+                //     window.location.reload();
+                //   }
+                // );
+                Swal.fire("Success!", "Successfully Login.", "success").then(() => {
+                  if (userType === "Admin") {
+                      window.location.href = "https://flldc-ims.vercel.app/dashboard-lnd"; // Replace with actual admin URL
+                  } else {
+                      window.location.reload();
                   }
-                );
+              });
               }
             } catch (error) {
               document.getElementById("errorMessage").innerText =
