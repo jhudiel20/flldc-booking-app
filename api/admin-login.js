@@ -259,16 +259,17 @@ const cipherMethod = 'aes-256-cbc';
 module.exports = async (req, res) => {
     try {
         if (req.method === "POST") {
+            const { email, password, recaptchaResponse, userType } = req.body;
+
+            if (!email || !password || !recaptchaResponse || !userType) {
+                return res.status(400).json({ error: "Please check the required fields." });
+            }
+    
+            return await handleAdminLogin(req, res);
+        }else{
             return res.status(405).json({ error: "Method Not Allowed" });
         }
 
-        const { email, password, recaptchaResponse, userType } = req.body;
-
-        if (!email || !password || !recaptchaResponse || !userType) {
-            return res.status(400).json({ error: "Please check the required fields." });
-        }
-
-        return await handleAdminLogin(req, res);
     } catch (error) {
         console.error("Error handling user authentication:", error);
         return res.status(500).json({ error: "Server error", details: error.message });
