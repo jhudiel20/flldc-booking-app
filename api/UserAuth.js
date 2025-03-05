@@ -440,7 +440,7 @@ module.exports = async (req, res) => {
         email, password, recaptchaResponse,fname, lname, confirmPassword, userType, sbu, branch, token, newPassword, user_id
       } = req.body;
 
-      if (email && password && recaptchaResponse && !fname && userType) {
+      if (email && password && recaptchaResponse && !fname) {
         // **User Login Flow**
         return await handleUserLogin(req, res);
       } else if (fname && lname && email && password && confirmPassword && recaptchaResponse && !user_id) {
