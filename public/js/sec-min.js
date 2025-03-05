@@ -512,7 +512,8 @@ includeHTML("header", "header").then(() => {
                 recaptchaResponse,
                 userType,
               };
-              const loginURL = userType === "Admin" ? "/admin-login" : "/api/UserAuth";
+
+              const loginURL = loginData.userType === "Admin" ? "/admin-login" : "/api/UserAuth";
 
               const response = await fetch(loginURL, {
                 method: "POST",
