@@ -440,10 +440,10 @@ module.exports = async (req, res) => {
         email, password, recaptchaResponse,fname, lname, confirmPassword, userType, sbu, branch, token, newPassword, user_id
       } = req.body;
 
-      if (email && password && recaptchaResponse && !fname && userType) {
+      if (email && password && recaptchaResponse && !fname) {
         // **User Login Flow**
         return await handleUserLogin(req, res);
-      } else if (fname && lname && email && password && confirmPassword && recaptchaResponse && !user_id) {
+      } else if (fname && lname && email && password && confirmPassword && recaptchaResponse && !user_id && userType) {
         // **User Registration Flow**
         return await handleUserRegistration(req, res);
       } else if (fname && lname && email && userType && user_id) {
@@ -471,7 +471,7 @@ module.exports = async (req, res) => {
 };
 
 const handleUserLogin = async (req, res) => {
-  const { email, password, recaptchaResponse, userType } = req.body;
+  const { email, password, recaptchaResponse } = req.body;
 
   if (!email || !password || !recaptchaResponse) {
     return res.status(400).json({ error: 'All fields are required, including reCAPTCHA.' });
@@ -530,7 +530,7 @@ const handleUserLogin = async (req, res) => {
 };
 
 const handleUserRegistration = async (req, res) => {
-  const { fname, lname, email, password, confirmPassword, sbu, branch, recaptchaResponse } = req.body;
+  const { fname, lname, email, password, confirmPassword, sbu, branch, recaptchaResponse, userType} = req.body;
 
   if (!fname || !lname || !email || !password || !confirmPassword || !recaptchaResponse) {
     return res.status(400).json({ error: 'All fields are required, including reCAPTCHA.' });
@@ -568,9 +568,9 @@ const handleUserRegistration = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     await pool.query(`
-      INSERT INTO user_reservation (fname, lname, email, password, business_unit, branch)
+      INSERT INTO user_reservation (fname, lname, email, password, business_unit, branch, user_type)
       VALUES ($1, $2, $3, $4, $5, $6)
-    `, [fname, lname, email, hashedPassword, sbu, branch]);
+    `, [fname, lname, email, hashedPassword, sbu, branch, userType]);
 
     res.status(200).json({ message: 'Registration successful.' });
   } catch (error) {
