@@ -569,7 +569,7 @@ const handleUserRegistration = async (req, res) => {
 
     await pool.query(`
       INSERT INTO user_reservation (fname, lname, email, password, business_unit, branch, user_type)
-      VALUES ($1, $2, $3, $4, $5, $6)
+      VALUES ($1, $2, $3, $4, $5, $6, $7)
     `, [fname, lname, email, hashedPassword, sbu, branch, userType]);
 
     res.status(200).json({ message: 'Registration successful.' });
