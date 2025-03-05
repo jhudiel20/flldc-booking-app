@@ -440,7 +440,7 @@ module.exports = async (req, res) => {
         email, password, recaptchaResponse,fname, lname, confirmPassword, userType, sbu, branch, token, newPassword, user_id
       } = req.body;
 
-      if (email && password && recaptchaResponse && !fname) {
+      if (email && password && recaptchaResponse && !fname && userType) {
         // **User Login Flow**
         return await handleUserLogin(req, res);
       } else if (fname && lname && email && password && confirmPassword && recaptchaResponse && !user_id && userType) {
@@ -471,7 +471,7 @@ module.exports = async (req, res) => {
 };
 
 const handleUserLogin = async (req, res) => {
-  const { email, password, recaptchaResponse } = req.body;
+  const { email, password, recaptchaResponse, userType } = req.body;
 
   if (!email || !password || !recaptchaResponse) {
     return res.status(400).json({ error: 'All fields are required, including reCAPTCHA.' });
@@ -491,7 +491,7 @@ const handleUserLogin = async (req, res) => {
 
     if (result.rows.length === 1) {
       const user = result.rows[0];
-      if (user.user_type.trim().toLowerCase() === 'fast employee') {
+      if (userType === 'fast employee') {
         const isPasswordValid = await bcrypt.compare(password, user.password);
 
         if (isPasswordValid) {
