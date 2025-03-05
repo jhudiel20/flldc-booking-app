@@ -479,9 +479,9 @@ includeHTML("header", "header").then(() => {
               });
 
               const emailLabel = document.getElementById('email_login_label');
-
-              emailLabel.addEventListener('change', function () {
-                  if (emailLabel.textContent === 'FAST Employee') {
+              const userTypeSelect = document.getElementById('usertype');
+              userTypeSelect.addEventListener('change', function () {
+                  if (userTypeSelect.textContent === 'FAST Employee') {
                       emailLabel.textContent = 'Email';
                   } else {
                       emailLabel.textContent = 'Username';
