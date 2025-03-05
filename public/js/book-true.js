@@ -360,10 +360,17 @@ document.addEventListener("DOMContentLoaded", function () {
               <li>The reserving party assumes full responsibility for ensuring the safety and well-being of attendees.</li>
           </ul>
 
+          <p><strong>14. Privacy Act Policy</strong></p>
+          <ul>
+              <li>All personal data collected during the reservation process will be handled in accordance with applicable data protection laws.</li>
+              <li>Your information will only be used for reservation and administrative purposes and will not be shared with third parties without your consent.</li>
+              <li>By proceeding with your reservation, you acknowledge and consent to the collection, storage, and processing of your personal data.</li>
+          </ul>
+          
           <p><strong>By proceeding with your reservation, you acknowledge and agree to these terms and conditions.</strong></p>
         </div>
         <div id="proceedContainer" style="display: none; text-align: center; margin-top: 10px;">
-          <button id="proceedBtn" class="btn btn-primary" style="cursor: pointer;">Proceed</button>
+          <button id="proceedBtn" class="btn btn-primary" style="cursor: pointer;">Agree</button>
           <button id="cancelBtn" class="btn btn-secondary" style="cursor: pointer;">Cancel</button>
         </div>
       `,

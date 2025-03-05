@@ -440,10 +440,10 @@ module.exports = async (req, res) => {
         email, password, recaptchaResponse,fname, lname, confirmPassword, userType, sbu, branch, token, newPassword, user_id
       } = req.body;
 
-      if (email && password && recaptchaResponse && !fname) {
+      if (email && password && recaptchaResponse && !fname && userType) {
         // **User Login Flow**
         return await handleUserLogin(req, res);
-      } else if (fname && lname && email && password && confirmPassword && userType && recaptchaResponse && !user_id) {
+      } else if (fname && lname && email && password && confirmPassword && recaptchaResponse && !user_id) {
         // **User Registration Flow**
         return await handleUserRegistration(req, res);
       } else if (fname && lname && email && userType && user_id) {
@@ -526,9 +526,9 @@ const handleUserLogin = async (req, res) => {
 };
 
 const handleUserRegistration = async (req, res) => {
-  const { fname, lname, email, password, confirmPassword, userType, sbu, branch, recaptchaResponse } = req.body;
+  const { fname, lname, email, password, confirmPassword, sbu, branch, recaptchaResponse } = req.body;
 
-  if (!fname || !lname || !email || !password || !confirmPassword || !userType || !recaptchaResponse) {
+  if (!fname || !lname || !email || !password || !confirmPassword || !recaptchaResponse) {
     return res.status(400).json({ error: 'All fields are required, including reCAPTCHA.' });
   }
 
@@ -564,9 +564,9 @@ const handleUserRegistration = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     await pool.query(`
-      INSERT INTO user_reservation (fname, lname, email, password, user_type, business_unit, branch)
-      VALUES ($1, $2, $3, $4, $5, $6, $7)
-    `, [fname, lname, email, hashedPassword, userType, sbu, branch]);
+      INSERT INTO user_reservation (fname, lname, email, password, business_unit, branch)
+      VALUES ($1, $2, $3, $4, $5, $6)
+    `, [fname, lname, email, hashedPassword, sbu, branch]);
 
     res.status(200).json({ message: 'Registration successful.' });
   } catch (error) {
@@ -833,7 +833,6 @@ async function handleUserDetailsUpdate(req, res) {
     return res.status(500).json({ error: "Internal Server Error.", details: error.message });
   }
 }
-
 
 async function handleChangePasswordInside(req, res) {
   const { user_id, password } = req.body;
