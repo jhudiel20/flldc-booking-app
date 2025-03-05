@@ -491,7 +491,7 @@ const handleUserLogin = async (req, res) => {
 
     if (result.rows.length === 1) {
       const user = result.rows[0];
-      if (userType === 'fast employee') {
+      if (userType === 'FAST Employee') {
         const isPasswordValid = await bcrypt.compare(password, user.password);
 
         if (isPasswordValid) {
@@ -523,6 +523,7 @@ const handleUserLogin = async (req, res) => {
     } else {
       res.status(404).json({ error: 'Email not found.' });
     }
+    
   } catch (error) {
     console.error('Error during login:', error);
     res.status(500).json({ error: 'Internal Server Error' });
