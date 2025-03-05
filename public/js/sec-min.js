@@ -519,44 +519,41 @@ includeHTML("header", "header").then(() => {
                   headers: { "Content-Type": "application/json" },
                   body: JSON.stringify(loginData),
                 });
+
+                const result = await response.json();
+
+                if (result.ok) {
+                  Swal.fire("Success!", "Successfully Logged in.", "success").then(() => {
+                    window.location.href = result.redirectUrl || "/";
+                  });
+                } else {
+                    errorMessage.innerText = result.error || "Login failed. Please try again.";
+                    return false;
+                }
               }else{
                 const response = await fetch("/api/UserAuth", {
                   method: "POST",
                   headers: { "Content-Type": "application/json" },
                   body: JSON.stringify(loginData),
                 });
-              }
 
-            
-
-              const result = await response.json();
-
-              // if (result.error) {
-              //   document.getElementById("errorMessage").innerText =
-              //     result.error;
-              //   return false;
-              // } else {
-              //   // Swal.fire("Success!", "Successfully Login.", "success").then(
-              //   //   () => {
-              //   //     window.location.reload();
-              //   //   }
-              //   // );
-              //   Swal.fire("Success!", "Successfully Login.", "success").then(() => {
-              //     if (userType === "Admin") {
-              //         window.location.href = "https://flldc-ims.vercel.app/dashboard-lnd"; // Replace with actual admin URL
-              //     } else {
-              //         window.location.reload();
-              //     }
-              // });
-              // }
-              if (response.ok) {
-                Swal.fire("Success!", "Successfully Logged in.", "success").then(() => {
-                  window.location.href = result.redirectUrl || "/";
-                });
-              } else {
-                  errorMessage.innerText = result.error || "Login failed. Please try again.";
+                const result = await response.json();
+                
+                if (result.error) {
+                  document.getElementById("errorMessage").innerText =
+                    result.error;
                   return false;
+                } else {
+                  Swal.fire(
+                    "Success!",
+                    "Successfully Logged in.",
+                    "success"
+                  ).then(() => {
+                    window.location.reload();
+                  });
+                }
               }
+              
             } catch (error) {
               document.getElementById("errorMessage").innerText =
                 "Login failed. Please try again.";
