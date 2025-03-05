@@ -428,7 +428,7 @@ includeHTML("header", "header").then(() => {
                               <small>Forgot Password?</small>
                           </button>
                       </div>
-                      <div class="input-group">
+                      <div class="input-group mb-3">
                           <span class="input-group-text"><i class="fa fa-lock"></i></span>
                           <input type="password" id="password" class="form-control" placeholder="" required>
                           <span class="input-group-text" id="togglePassword" style="cursor: pointer;">
