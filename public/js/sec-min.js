@@ -512,8 +512,9 @@ includeHTML("header", "header").then(() => {
                 recaptchaResponse,
                 userType,
               };
+              const loginURL = userType === "Admin" ? "/admin-login" : "/api/UserAuth";
 
-              const response = await fetch("/api/UserAuth", {
+              const response = await fetch(loginURL, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(loginData),
@@ -521,23 +522,31 @@ includeHTML("header", "header").then(() => {
 
               const result = await response.json();
 
-              if (result.error) {
-                document.getElementById("errorMessage").innerText =
-                  result.error;
-                return false;
+              // if (result.error) {
+              //   document.getElementById("errorMessage").innerText =
+              //     result.error;
+              //   return false;
+              // } else {
+              //   // Swal.fire("Success!", "Successfully Login.", "success").then(
+              //   //   () => {
+              //   //     window.location.reload();
+              //   //   }
+              //   // );
+              //   Swal.fire("Success!", "Successfully Login.", "success").then(() => {
+              //     if (userType === "Admin") {
+              //         window.location.href = "https://flldc-ims.vercel.app/dashboard-lnd"; // Replace with actual admin URL
+              //     } else {
+              //         window.location.reload();
+              //     }
+              // });
+              // }
+              if (response.ok) {
+                Swal.fire("Success!", "Successfully Logged in.", "success").then(() => {
+                  window.location.href = result.redirectUrl || "/";
+                });
               } else {
-                // Swal.fire("Success!", "Successfully Login.", "success").then(
-                //   () => {
-                //     window.location.reload();
-                //   }
-                // );
-                Swal.fire("Success!", "Successfully Login.", "success").then(() => {
-                  if (userType === "Admin") {
-                      window.location.href = "https://flldc-ims.vercel.app/dashboard-lnd"; // Replace with actual admin URL
-                  } else {
-                      window.location.reload();
-                  }
-              });
+                  errorMessage.innerText = result.error || "Login failed. Please try again.";
+                  return false;
               }
             } catch (error) {
               document.getElementById("errorMessage").innerText =

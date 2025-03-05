@@ -413,8 +413,6 @@ const { Pool } = require("pg");
 const cookie = require('cookie');
 const bcrypt = require('bcryptjs');
 const crypto = require('crypto');
-const { URL } = require('url');
-const http = require('http');
 const nodemailer = require('nodemailer');
 const path = require('path');
 
@@ -434,20 +432,6 @@ const transporter = nodemailer.createTransport({
     pass: process.env.EMAIL_PASS, // Your email password
   },
 });
-
-
-// Function to hash passwords (simulate set_password function)
-function hashPassword(password) {
-  return crypto.createHash('sha256').update(password).digest('hex');
-}
-
-// Function to encrypt cookie data
-function encryptData(data, secretKey) {
-  const cipher = crypto.createCipher('aes-256-cbc', secretKey);
-  let encrypted = cipher.update(JSON.stringify(data), 'utf8', 'hex');
-  encrypted += cipher.final('hex');
-  return encrypted;
-}
 
 module.exports = async (req, res) => {
   try {
@@ -535,74 +519,8 @@ const handleUserLogin = async (req, res) => {
       } else {
         res.status(404).json({ error: 'Email not found.' });
       }
-    }else {
-        // Admin Panel Login - Separate URL handling
-        const server = http.createServer(async (req, res) => {
-          if (req.method === "POST" && req.url === "/login") {
-            let body = "";
-  
-            req.on("data", (chunk) => {
-              body += chunk.toString();
-            });
-  
-            req.on("end", async () => {
-              try {
-                const { email, password } = JSON.parse(body);
-  
-                // Input validation
-                if (!email || !password || email.includes("'") || password.includes("'")) {
-                  res.writeHead(400, { "Content-Type": "application/json" });
-                  return res.end(JSON.stringify({ success: false, message: "Invalid input!" }));
-                }
-  
-                const hashedPassword = hashPassword(password);
-                const query = "SELECT * FROM user_account WHERE username = $1";
-                const { rows } = await db.query(query, [email]);
-  
-                if (rows.length === 0) {
-                  res.writeHead(401, { "Content-Type": "application/json" });
-                  return res.end(JSON.stringify({ success: false, message: "Invalid username or password." }));
-                }
-  
-                const user = rows[0];
-  
-                if (user.password !== hashedPassword) {
-                  res.writeHead(401, { "Content-Type": "application/json" });
-                  return res.end(JSON.stringify({ success: false, message: "Wrong password!" }));
-                }
-  
-                if (user.approved_status == 1) {
-                  res.writeHead(403, { "Content-Type": "application/json" });
-                  return res.end(JSON.stringify({ success: false, message: "Your registration was rejected!" }));
-                }
-  
-                // Encrypt user data for cookies
-                const encryptedData = encryptData(
-                  { id: user.id, username: user.username, access: user.access },
-                  "your_secret_key"
-                );
-  
-                // Set cookies
-                res.setHeader("Set-Cookie", `secure_data=${encryptedData}; HttpOnly; Secure; SameSite=Strict; Path=/`);
-  
-                // Update user status
-                await db.query("UPDATE user_account SET status = 1, locked = 0 WHERE id = $1", [user.id]);
-  
-                res.writeHead(200, { "Content-Type": "application/json" });
-                return res.end(JSON.stringify({ success: true, message: "Login successful!" }));
-              } catch (error) {
-                console.error(error);
-                res.writeHead(500, { "Content-Type": "application/json" });
-                return res.end(JSON.stringify({ success: false, message: "Internal server error" }));
-              }
-            });
-          } else {
-            res.writeHead(404, { "Content-Type": "application/json" });
-            res.end(JSON.stringify({ message: "Not found" }));
-          }
-        });
-  
-        server.listen(3001, () => console.log("Admin panel login server running on port 3001"));
+    }else{  
+      res.status(401).json({ error: 'Invalid Auth.' });
     }
     
   } catch (error) {
