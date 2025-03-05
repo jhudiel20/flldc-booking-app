@@ -56,7 +56,7 @@ const handleAdminLogin = async (req, res) => {
     try {
         const { email, password, recaptchaResponse, userType } = req.body;
 
-        const hashedpassword = setPassword(req.body.password);
+        const hashedpassword = setPassword(password);
 
         if (!email || !password || !userType || !recaptchaResponse) {
             return res.status(400).json({ error: "All fields are required, including reCAPTCHA." });
