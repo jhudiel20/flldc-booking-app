@@ -489,6 +489,7 @@ includeHTML("header", "header").then(() => {
               });              
           },
           preConfirm: async () => {
+            const userType = document.getElementById("usertype").value;
             const email = document.getElementById("email_login").value.trim();
             const password = document.getElementById("password").value.trim();
             const recaptchaResponse = grecaptcha.getResponse();
@@ -744,12 +745,12 @@ includeHTML("header", "header").then(() => {
                     email,
                     password,
                     confirmPassword,
-
+                    userType,
                     sbu,
                     branch,
                     recaptchaResponse,
                   };
-                  // userType,
+                  
                   const response = await fetch("/api/UserAuth", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
