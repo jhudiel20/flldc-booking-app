@@ -437,17 +437,15 @@ includeHTML("header", "header").then(() => {
                           <label class="floating-label" for="password">Password</label>
                       </div>
 
-                      <div class="col-12 col-md-6 position-relative">
-                                <div class="input-group mb-3">
-                                  <span class="input-group-text"><i class="fas fa-user-tag"></i></span>
-                                    <select id="usertype" name="usertype" class="form-control" required>
-                                        <option value="" disabled selected hidden>Select User Type</option>
-                                        <option value="FAST Employee">FAST Employee</option>
-                                        <option value="Admin">Admin</option>
-                                    </select>
-                                    <label for="usertype" class="floating-label">User Type</label>
-                                </div>
-                            </div>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="fas fa-user-tag"></i></span>
+                          <select id="usertype" name="usertype" class="form-control" required>
+                            <option value="" disabled selected hidden>Select User Type</option>
+                            <option value="FAST Employee">FAST Employee</option>
+                            <option value="Admin">Admin</option>
+                          </select>
+                        <label for="usertype" class="floating-label">User Type</label>
+                      </div>
                   </div>
                   <div id="errorMessage" class="text-danger mt-3">${errorMessage}</div>
                   <div class="mt-3">
