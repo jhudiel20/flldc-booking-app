@@ -522,9 +522,23 @@ includeHTML("header", "header").then(() => {
 
                 const result = await response.json();
 
+                if (result.error) {
+                  document.getElementById("errorMessage").innerText =
+                    result.error;
+                  return false;
+                } else {
+                  Swal.fire(
+                    "Success!",
+                    "Successfully Logged in.",
+                    "success"
+                  ).then(() => {
+                    window.location.href 
+                  });
+                }
+
                 if (result.ok) {
                   Swal.fire("Success!", "Successfully Logged in.", "success").then(() => {
-                    window.location.href = result.redirectUrl || "/";
+                    window.location.href = "https://flldc-ims.vercel.app/dashboard-lnd";
                   });
                 } else {
                     errorMessage.innerText = result.error || "Login failed. Please try again.";
@@ -538,7 +552,7 @@ includeHTML("header", "header").then(() => {
                 });
 
                 const result = await response.json();
-                
+
                 if (result.error) {
                   document.getElementById("errorMessage").innerText =
                     result.error;

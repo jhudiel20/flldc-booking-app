@@ -99,7 +99,9 @@ const handleAdminLogin = async (req, res) => {
         await pool.query("INSERT INTO logs (USER_ID, ACTION_MADE) VALUES ($1, $2)", [user.id, "Logged in the system."]);
         await pool.query("UPDATE user_account SET status = '1', locked = '0' WHERE id = $1", [user.id]);
 
-        return res.json({ success: true });
+        // return res.json({ success: true });
+
+        res.status(200).json({ success: true });
     } catch (error) {
         console.error("Login Error:", error);
         return res.status(500).json({ error: "Database error", details: error.message });
