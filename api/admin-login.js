@@ -24,12 +24,7 @@ module.exports = async (req, res) => {
     }
 };
 
-function setPassword(text) {
-    if (text.trim() !== "") {
-        return crypto.createHash('sha1').update(text + SALT).digest('hex');
-    }
-    return '';
-}
+
 
 const cipherMethod = 'aes-256-cbc';
 const encryptionKey = "qwertyuiopasdfghjklzxcvbnm1234567890johnjhudieljoycediannemnbvcxzlkjhgfdsapoiuytrewq0987654321diannejoycejohnjhudiel1qaz2wsx3edc4rfv5tgb6yhn7ujm8ik9ol0pp0lo9ki8mju7nhy6bgt5vfr4cde3xsw2zaq1";
@@ -52,6 +47,12 @@ function encrypt_cookie(data) {
     // Combine IV and encrypted data (Base64 encoding to match PHP)
     return Buffer.concat([iv, Buffer.from(encrypted, 'base64')]).toString('base64');
 }
+function setPassword(text) {
+    if (text.trim() !== "") {
+        return crypto.createHash('sha1').update(text + SALT).digest('hex');
+    }
+    return '';
+}
 
 const handleAdminLogin = async (req, res) => {
     try {
@@ -68,7 +69,7 @@ const handleAdminLogin = async (req, res) => {
         const user = userRes.rows[0];
 
         if (user.email !== email) {
-            return res.status(401).json({ error: "Invalid username." });
+            return res.status(401).json({ error: "Invalid username.", email, hashedpassword });
         }
 
         if(user.password !== hashedpassword){
