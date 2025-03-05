@@ -1,1 +1,523 @@
-function a0_0x4ca4(_0x5b6f24,_0xce3a7c){const _0x159b75=a0_0x159b();return a0_0x4ca4=function(_0x4ca4f7,_0x2c688b){_0x4ca4f7=_0x4ca4f7-0x144;let _0x3d642d=_0x159b75[_0x4ca4f7];return _0x3d642d;},a0_0x4ca4(_0x5b6f24,_0xce3a7c);}const a0_0x3e1af5=a0_0x4ca4;function a0_0x159b(){const _0x459d55=['erZDv','close','select','lZfZH','YHcAk','Logout\x20failed','7661vfJRrt','reserve_date','LogoutDropdown','2188998mnYxZw','BookNow','2578408dNAmgg','classList','fname','Terms\x20and\x20Agreement','1:00PM-6:00PM','7:00AM-6:00PM','KifMK','6152960crdwxP','/api/validate-cookie','roomGuest','extension','rqnRQ','message','min','JnJZp','HppsF','TbKlb','RZgme','FmqjS','Guest','PBtHm','DnVbC','stringify','firstChild','#bookingForm','contact','show','location','MbZoK','172zrCWyY','required','reload','cvCtS','21HIXZTG','JnNrS','CYyPk','BIyKO','placeholder','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22termsContent\x22\x20style=\x22height:\x20500px;\x20overflow-y:\x20auto;\x20text-align:\x20left;\x20padding:\x2010px;\x20border:\x201px\x20solid\x20#ccc;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20<p><strong>By\x20reserving\x20the\x20Learning\x20and\x20Development\x20Center\x20(L&D\x20Center),\x20you\x20agree\x20to\x20the\x20following\x20terms\x20and\x20conditions:</strong></p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p><strong>1.\x20Reservation\x20Confirmation</strong></p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<ul>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li>All\x20reservations\x20are\x20subject\x20to\x20approval\x20and\x20availability.</li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li>A\x20reservation\x20is\x20confirmed\x20only\x20upon\x20receipt\x20of\x20full\x20payment\x20or\x20a\x20valid\x20payment\x20method.</li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li>If\x20an\x20internal\x20business\x20unit\x20is\x20responsible\x20for\x20payment,\x20confirmation\x20will\x20be\x20provided\x20via\x20email,\x20and\x20costs\x20will\x20be\x20charged\x20accordingly.</li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</ul>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p><strong>2.\x20Cancellation\x20and\x20No-Show\x20Policy</strong></p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<ul>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li>Cancellations\x20made\x20within\x20120\x20hours\x20(5\x20days)\x20of\x20the\x20scheduled\x20booking\x20are\x20non-refundable,\x20and\x20the\x20full\x20booking\x20cost\x20will\x20be\x20charged.</li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li>Failure\x20to\x20arrive\x20at\x20the\x20scheduled\x20time\x20without\x20prior\x20cancellation\x20(no-show)\x20will\x20result\x20in\x20the\x20full\x20cost\x20being\x20charged\x20to\x20the\x20responsible\x20party.</li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</ul>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p><strong>3.\x20Reservation\x20Modifications</strong></p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<ul>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li>Any\x20changes\x20to\x20the\x20reservation\x20(date,\x20time,\x20or\x20room\x20adjustments)\x20must\x20be\x20requested\x20at\x20least\x20120\x20hours\x20before\x20the\x20scheduled\x20booking.</li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li>Modifications\x20within\x20this\x20period\x20will\x20not\x20be\x20accepted\x20unless\x20exceptional\x20circumstances\x20arise,\x20subject\x20to\x20L&D\x20Center\x20management\x20approval.</li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</ul>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p><strong>4.\x20Payment\x20Terms</strong></p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<ul>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li>Full\x20payment\x20is\x20required\x20upon\x20reservation\x20approval.</li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li>Where\x20applicable,\x20costs\x20will\x20be\x20directly\x20charged\x20to\x20the\x20responsible\x20department\x20or\x20business\x20unit/company.</li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</ul>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p><strong>5.\x20Usage\x20Guidelines</strong></p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<ul>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li>The\x20L&D\x20Center\x20must\x20be\x20used\x20for\x20its\x20intended\x20purpose,\x20such\x20as\x20training,\x20meetings,\x20workshops,\x20and\x20corporate\x20events.</li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li>The\x20use\x20of\x20the\x20facility\x20for\x20personal\x20events,\x20non-work-related\x20gatherings,\x20or\x20external\x20commercial\x20purposes\x20is\x20subject\x20to\x20prior\x20approval.</li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</ul>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p><strong>6.\x20Facility\x20Access\x20and\x20Security</strong></p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<ul>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li>Access\x20to\x20the\x20L&D\x20Center\x20is\x20granted\x20only\x20for\x20the\x20approved\x20booking\x20duration.\x20Additional\x20time\x20beyond\x20the\x20reservation\x20period\x20requires\x20prior\x20approval\x20and\x20may\x20incur\x20additional\x20charges.</li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li>Security\x20protocols\x20must\x20be\x20followed\x20at\x20all\x20times,\x20and\x20all\x20visitors\x20must\x20register\x20at\x20the\x20reception\x20upon\x20arrival.</li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</ul>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p><strong>7.\x20Property\x20Damage\x20and\x20Liability</strong></p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<ul>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li>Any\x20damage\x20to\x20property,\x20furniture,\x20or\x20fixtures\x20during\x20the\x20reservation\x20period\x20will\x20be\x20charged\x20to\x20the\x20responsible\x20individual\x20or\x20organization.</li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li>The\x20reserving\x20party\x20is\x20fully\x20liable\x20for\x20any\x20damages\x20or\x20losses\x20incurred.</li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</ul>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p><strong>8.\x20Personal\x20Belongings</strong></p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<ul>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li>The\x20L&D\x20Center\x20is\x20not\x20responsible\x20for\x20lost,\x20stolen,\x20or\x20misplaced\x20personal\x20items.\x20Attendees\x20must\x20secure\x20their\x20belongings.</li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</ul>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p><strong>9.\x20Cleanliness\x20and\x20Maintenance</strong></p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<ul>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li>The\x20L&D\x20Center\x20must\x20be\x20kept\x20clean\x20and\x20orderly\x20throughout\x20and\x20after\x20the\x20event.</li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li>Any\x20additional\x20cleaning\x20required\x20due\x20to\x20improper\x20use\x20of\x20the\x20facility\x20may\x20result\x20in\x20extra\x20charges.</li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</ul>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p><strong>10.\x20Catering\x20and\x20Food\x20Policy</strong></p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<ul>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li>Food\x20and\x20beverages\x20are\x20not\x20included\x20in\x20the\x20reservation\x20fee.</li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li>A\x20canteen\x20is\x20available\x20on\x20the\x20first\x20floor\x20where\x20meals\x20and\x20snacks\x20can\x20be\x20purchased.</li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li>Outside\x20catering\x20may\x20be\x20allowed\x20but\x20requires\x20prior\x20approval.</li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</ul>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p><strong>11.\x20Wi-Fi\x20and\x20Technical\x20Support</strong></p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<ul>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li>Complimentary\x20Wi-Fi\x20is\x20available,\x20with\x20one\x20access\x20voucher\x20per\x20person.\x20Vouchers\x20can\x20be\x20collected\x20from\x20the\x20security\x20desk.</li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li>Technical\x20support\x20(e.g.,\x20for\x20projectors,\x20sound\x20systems,\x20or\x20video\x20conferencing)\x20must\x20be\x20requested\x20in\x20advance\x20and\x20may\x20be\x20subject\x20to\x20additional\x20fees.</li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</ul>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p><strong>12.\x20Compliance\x20with\x20Policies\x20and\x20Regulations</strong></p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<ul>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li>All\x20users\x20must\x20comply\x20with\x20company\x20policies,\x20safety\x20regulations,\x20and\x20emergency\x20procedures\x20while\x20using\x20the\x20L&D\x20Center.</li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li>Any\x20violations\x20of\x20these\x20policies\x20may\x20result\x20in\x20additional\x20penalties,\x20cancellation\x20of\x20future\x20bookings,\x20or\x20disciplinary\x20action\x20where\x20applicable.</li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</ul>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p><strong>13.\x20Liability\x20Disclaimer</strong></p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<ul>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li>The\x20L&D\x20Center\x20is\x20not\x20liable\x20for\x20any\x20personal\x20injuries,\x20losses,\x20or\x20damages\x20incurred\x20during\x20the\x20reservation\x20period.</li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li>The\x20reserving\x20party\x20assumes\x20full\x20responsibility\x20for\x20ensuring\x20the\x20safety\x20and\x20well-being\x20of\x20attendees.</li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</ul>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p><strong>By\x20proceeding\x20with\x20your\x20reservation,\x20you\x20acknowledge\x20and\x20agree\x20to\x20these\x20terms\x20and\x20conditions.</strong></p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22proceedContainer\x22\x20style=\x22display:\x20none;\x20text-align:\x20center;\x20margin-top:\x2010px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22proceedBtn\x22\x20class=\x22btn\x20btn-primary\x22\x20style=\x22cursor:\x20pointer;\x22>Proceed</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22cancelBtn\x22\x20class=\x22btn\x20btn-secondary\x22\x20style=\x22cursor:\x20pointer;\x22>Cancel</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20','NlcQG','zxzzA','status','roomName','Hdtkj','User\x20is\x20not\x20logged\x20in.','Error\x20checking\x20user\x20status:','obqoK','lastName','iPRXs','cQGjM','bookingForm','addEventListener','rPwmm','oAKpG','block','UJahN','HALFDAY\x20(7:00AM-12:00PM)','CxgVu','An\x20unexpected\x20error\x20occurred.\x20Please\x20try\x20again.\x20Error:\x20','vXodf','UjRPf','getElementById','yVnfQ','RCTCx','VzFLz','Logout\x20button\x20not\x20found','then','qRjUH','VaMOh','PaRpv','errors','loader','jSPPw','HPhZU','preventDefault','display','kHwOy','HALFDAY\x20(1:00PM-6:00PM)','PfwIC','setup','opacity','&date=','roomID','businessunit','Mxqxi','input','options','usertype','outerHTML','xmWDV','proceedBtn','remove','User\x20Data:','uFuBE','ycEnf','vCsrA','time','/api/logout','oOacI','parentNode','/api/reservation?room=','Error\x20fetching\x20reservations:\x20','pXZis','kwGHz','userId','application/json','catch','You\x20will\x20be\x20logged\x20out!','AYGJS','data-img','700px','Please\x20wait\x20for\x20the\x20email\x20confirmation\x20of\x20your\x20booking.','Error\x20fetching\x20user\x20data:','text','guest','termsContent','user_id','POST','disabled','3118422BYslEl','rRHIY','noRPz','WHOLE\x20DAY\x20(7:00AM-6:00PM)','pkFWt','nfqMy','createElement','FULLY\x20BOOKED','replaceChild','appendChild','className','option','branch','/api/rooms','Error\x20logging\x20out:','logoutBtn','href','qmqXX','length','eUmtM','removeChild','type','RvgKE','lnJYo','scrollTop','ffpKg','VwXop','PGdNo','value','jetBu','nqpLt','submit','click','GzNAW','DIWhI','mfarN','KvzOr','scroll','dVRTU','none','clientHeight','proceedContainer','Yes,\x20log\x20me\x20out','chair','Savby','tCDZV','rYdLy','pointerEvents','zIkWO','querySelector','7:00AM-12:00PM','ZcIzn','LcGIu','sbu','FnnUI','dpQPl','AanxB','forEach','urCgP','ZYkzl','toISOString','isConfirmed','sOqZu','egxru','hdmi','previewLink','cancelBtn','selectedIndex','roomPrices','Booking\x20Submitted','textContent','8005266DZNdbt','style','error','warning','jjaBt','dcIos','DOMContentLoaded','scrollHeight','log','aARhT','table','json','checked','6578910FRmALX','Error','email','ZIztf','firstName','LLLDu','abjsP','fire','lname','OUiyI','IT-Room'];a0_0x159b=function(){return _0x459d55;};return a0_0x159b();}(function(_0x41f0af,_0xb13475){const _0x103fa4=a0_0x4ca4,_0x2c174e=_0x41f0af();while(!![]){try{const _0x7acda9=-parseInt(_0x103fa4(0x21b))/0x1*(parseInt(_0x103fa4(0x15c))/0x2)+parseInt(_0x103fa4(0x21e))/0x3+-parseInt(_0x103fa4(0x220))/0x4+parseInt(_0x103fa4(0x20a))/0x5+-parseInt(_0x103fa4(0x1b6))/0x6*(parseInt(_0x103fa4(0x160))/0x7)+parseInt(_0x103fa4(0x146))/0x8+parseInt(_0x103fa4(0x1fd))/0x9;if(_0x7acda9===_0xb13475)break;else _0x2c174e['push'](_0x2c174e['shift']());}catch(_0x50a4de){_0x2c174e['push'](_0x2c174e['shift']());}}}(a0_0x159b,0xcd6a7),fetch(a0_0x3e1af5(0x147))[a0_0x3e1af5(0x181)](function(_0x1fba74){const _0x413f44=a0_0x3e1af5,_0x84e46d={'RvgKE':_0x413f44(0x16b)};if(_0x1fba74['ok'])return _0x1fba74[_0x413f44(0x208)]();else console[_0x413f44(0x1ff)](_0x84e46d[_0x413f44(0x1cc)]);})['then'](function(_0x426018){const _0x4ff907=a0_0x3e1af5,_0xe94c27={'dVRTU':_0x4ff907(0x1b3),'nfqMy':_0x4ff907(0x222),'auNWR':_0x4ff907(0x212),'pXZis':_0x4ff907(0x152),'jSPPw':_0x4ff907(0x1dd),'Savby':_0x4ff907(0x192),'abjsP':function(_0x41c7ad,_0x1419e6){return _0x41c7ad<_0x1419e6;},'VwXop':_0x4ff907(0x1c2),'RCTCx':function(_0x5929a6,_0x32f489){return _0x5929a6<_0x32f489;},'erZDv':function(_0x2e21ae,_0x63279a){return _0x2e21ae===_0x63279a;}};if(_0x426018){document[_0x4ff907(0x17c)](_0xe94c27[_0x4ff907(0x1dc)])[_0x4ff907(0x1d2)]=_0x426018[_0x4ff907(0x1a7)],document[_0x4ff907(0x17c)](_0x4ff907(0x20c))[_0x4ff907(0x1d2)]=_0x426018['email'],document[_0x4ff907(0x17c)](_0xe94c27[_0x4ff907(0x1bb)])[_0x4ff907(0x1d2)]=_0x426018[_0x4ff907(0x20e)],document[_0x4ff907(0x17c)](_0xe94c27['auNWR'])[_0x4ff907(0x1d2)]=_0x426018[_0x4ff907(0x16e)];_0x426018[_0x4ff907(0x196)]===_0xe94c27[_0x4ff907(0x1a5)]&&(document['getElementById']('div-SBU')[_0x4ff907(0x1fe)][_0x4ff907(0x18a)]=_0xe94c27['jSPPw'],document['getElementById']('div-Branch')[_0x4ff907(0x1fe)]['display']=_0xe94c27[_0x4ff907(0x187)]);let _0x379677=document[_0x4ff907(0x17c)](_0xe94c27[_0x4ff907(0x1e2)]),_0x2e049e=_0x426018[_0x4ff907(0x1eb)];for(let _0x4cefe9=0x0;_0xe94c27[_0x4ff907(0x210)](_0x4cefe9,_0x379677[_0x4ff907(0x195)][_0x4ff907(0x1c8)]);_0x4cefe9++){if(_0x379677[_0x4ff907(0x195)][_0x4cefe9][_0x4ff907(0x1d2)]===_0x2e049e){_0x379677[_0x4ff907(0x1f9)]=_0x4cefe9;break;}}let _0xa73e61=document[_0x4ff907(0x17c)](_0xe94c27[_0x4ff907(0x1d0)]),_0x5f4ca0=_0x426018[_0x4ff907(0x1c2)];for(let _0x557df8=0x0;_0xe94c27[_0x4ff907(0x17e)](_0x557df8,_0xa73e61[_0x4ff907(0x195)][_0x4ff907(0x1c8)]);_0x557df8++){if(_0xe94c27[_0x4ff907(0x215)](_0xa73e61[_0x4ff907(0x195)][_0x557df8][_0x4ff907(0x1d2)],_0x5f4ca0)){_0xa73e61[_0x4ff907(0x1f9)]=_0x557df8;break;}}}})['catch'](function(_0x798170){const _0x3f02d1=a0_0x3e1af5,_0xd53868={'osLsH':_0x3f02d1(0x1af)};console[_0x3f02d1(0x1ff)](_0xd53868['osLsH'],_0x798170);}));async function checkUserStatus(){const _0xc582bd=a0_0x3e1af5,_0x4e4e9a={'sGPUR':function(_0x26203d,_0x404846,_0x1c946f){return _0x26203d(_0x404846,_0x1c946f);},'VaMOh':_0xc582bd(0x1a0),'Mxqxi':_0xc582bd(0x1c4),'ZYkzl':'Are\x20you\x20sure?','egxru':function(_0x5d6872,_0x56e6da){return _0x5d6872(_0x56e6da);},'yVnfQ':_0xc582bd(0x147),'mfarN':_0xc582bd(0x19b),'BIyKO':_0xc582bd(0x1dd),'PBtHm':'block','qElwh':'User\x20is\x20not\x20logged\x20in.','ftotc':_0xc582bd(0x16c),'kHwOy':_0xc582bd(0x1d6),'CYyPk':_0xc582bd(0x180)};try{const _0x19a2ce=await _0x4e4e9a[_0xc582bd(0x1f5)](fetch,_0x4e4e9a[_0xc582bd(0x17d)]);if(_0x19a2ce['ok']){const _0x5d3b46=await _0x19a2ce[_0xc582bd(0x208)]();console[_0xc582bd(0x205)](_0x4e4e9a[_0xc582bd(0x1d9)],_0x5d3b46);const _0x27f06a=document[_0xc582bd(0x17c)]('loginItem');_0x27f06a&&(_0x27f06a['style'][_0xc582bd(0x18a)]=_0x4e4e9a[_0xc582bd(0x163)]);const _0x4c1ccb=document[_0xc582bd(0x17c)](_0xc582bd(0x21f));_0x4c1ccb&&(_0x4c1ccb[_0xc582bd(0x1fe)]['display']=_0x4e4e9a[_0xc582bd(0x153)]);const _0x14c13e=document[_0xc582bd(0x17c)](_0xc582bd(0x21d));_0x14c13e&&(_0x14c13e[_0xc582bd(0x1fe)][_0xc582bd(0x18a)]=_0xc582bd(0x175));}else console[_0xc582bd(0x1ff)](_0x4e4e9a['qElwh']);}catch(_0x160e29){console[_0xc582bd(0x1ff)](_0x4e4e9a['ftotc'],_0x160e29);}const _0x153824=document['getElementById'](_0xc582bd(0x1c5));_0x153824?_0x153824[_0xc582bd(0x172)](_0x4e4e9a[_0xc582bd(0x18b)],function(_0xbef1ff){const _0x6218e7=_0xc582bd,_0x34046={'GmhAH':function(_0x594b31,_0x5de51e,_0xc2d9cc){return _0x4e4e9a['sGPUR'](_0x594b31,_0x5de51e,_0xc2d9cc);},'pkFWt':_0x4e4e9a[_0x6218e7(0x183)],'CwZNO':_0x4e4e9a[_0x6218e7(0x193)]};_0xbef1ff[_0x6218e7(0x189)](),Swal[_0x6218e7(0x211)]({'title':_0x4e4e9a[_0x6218e7(0x1f1)],'text':_0x6218e7(0x1aa),'icon':_0x6218e7(0x200),'showCancelButton':!![],'confirmButtonText':_0x6218e7(0x1e0),'cancelButtonText':'No,\x20stay\x20logged\x20in','reverseButtons':!![]})['then'](async _0x15ba00=>{const _0x38e95e=_0x6218e7;if(_0x15ba00[_0x38e95e(0x1f3)])try{const _0x321002=await _0x34046['GmhAH'](fetch,_0x34046[_0x38e95e(0x1ba)],{'method':_0x38e95e(0x1b4),'credentials':'same-origin'});_0x321002['ok']?window[_0x38e95e(0x15a)]['reload']():console[_0x38e95e(0x1ff)](_0x38e95e(0x21a));}catch(_0x3208f5){console[_0x38e95e(0x1ff)](_0x34046['CwZNO'],_0x3208f5);}});}):console[_0xc582bd(0x205)](_0x4e4e9a[_0xc582bd(0x162)]);}document['addEventListener'](a0_0x3e1af5(0x203),function(){const _0x29c842=a0_0x3e1af5,_0x552239={'UIgwa':_0x29c842(0x169),'nVJpH':function(_0x46cb00,_0x2b49ce,_0x5b860b){return _0x46cb00(_0x2b49ce,_0x5b860b);},'ffpKg':function(_0x7d59f1,_0x5787b2){return _0x7d59f1(_0x5787b2);},'kwGHz':function(_0x5a7ca5,_0x3800c8){return _0x5a7ca5===_0x3800c8;},'lZfZH':_0x29c842(0x144),'cvCtS':function(_0x3e1365,_0x2db017){return _0x3e1365===_0x2db017;},'JnJZp':_0x29c842(0x1e8),'xmWDV':_0x29c842(0x224),'PfwIC':_0x29c842(0x1c1),'lpaDM':_0x29c842(0x177),'RFfYz':function(_0x9b166f,_0x16a00f){return _0x9b166f||_0x16a00f;},'lnJYo':function(_0x4e0da4,_0x4f7505){return _0x4e0da4||_0x4f7505;},'FnnUI':_0x29c842(0x1b9),'dcIos':_0x29c842(0x1dd),'rqnRQ':_0x29c842(0x19f),'DIWhI':'form-control','cQGjM':_0x29c842(0x1bd),'Hdtkj':_0x29c842(0x175),'VRVJV':_0x29c842(0x1b0),'GzNAW':_0x29c842(0x217),'CxgVu':_0x29c842(0x171),'hnfAA':'reserve_date','iPRXs':'submit','JnNrS':'change'},_0x451572=document['getElementById'](_0x552239[_0x29c842(0x178)]),_0x39d4ca=document[_0x29c842(0x17c)](_0x552239['hnfAA']),_0x2ac609=document[_0x29c842(0x17c)](_0x552239[_0x29c842(0x14a)]),_0x34baa3=document['getElementById'](_0x552239[_0x29c842(0x16f)]),_0x5d6f13=_0x2ac609[_0x29c842(0x197)];_0x39d4ca[_0x29c842(0x172)](_0x552239[_0x29c842(0x161)],function(){const _0x47d791=_0x29c842,_0x6fc02=_0x39d4ca[_0x47d791(0x1d2)],_0x764b17=document[_0x47d791(0x17c)](_0x552239['UIgwa'])[_0x47d791(0x1d2)];_0x552239['nVJpH'](_0x4855ed,_0x764b17,_0x6fc02);});function _0x4855ed(_0xc57131,_0x2105f9){const _0x136b5e=_0x29c842;_0x552239[_0x136b5e(0x1cf)](fetch,_0x136b5e(0x1a3)+_0xc57131+_0x136b5e(0x190)+_0x2105f9)[_0x136b5e(0x181)](_0xb6bb4c=>{const _0x5cecf7=_0x136b5e;if(!_0xb6bb4c['ok'])throw new Error('HTTP\x20error!\x20Status:\x20'+_0xb6bb4c[_0x5cecf7(0x168)]);return _0xb6bb4c[_0x5cecf7(0x208)]();})[_0x136b5e(0x181)](_0x4319e8=>{const _0x265567=_0x136b5e;_0x552239[_0x265567(0x1cf)](_0x200e23,_0x4319e8);})[_0x136b5e(0x1a9)](_0x6217e9=>alert(_0x136b5e(0x1a4)+_0x6217e9[_0x136b5e(0x14b)]));}function _0x200e23(_0x14331a){const _0x4d24fb=_0x29c842,_0x2f970b={'jjaBt':_0x552239[_0x4d24fb(0x18d)]};while(_0x2ac609['firstChild']){_0x2ac609[_0x4d24fb(0x1ca)](_0x2ac609[_0x4d24fb(0x156)]);}let _0x3d227d=![],_0x35b809=![],_0x51ac7b=![];_0x14331a['forEach'](_0x1865c4=>{const _0x705aed=_0x4d24fb,_0x47ef45=_0x1865c4[_0x705aed(0x19f)];if(_0x552239[_0x705aed(0x1a6)](_0x47ef45,_0x552239[_0x705aed(0x218)]))_0x3d227d=!![],_0x35b809=!![],_0x51ac7b=!![];else{if(_0x552239[_0x705aed(0x15f)](_0x47ef45,_0x552239[_0x705aed(0x14d)]))_0x35b809=!![];else _0x47ef45===_0x552239[_0x705aed(0x198)]&&(_0x51ac7b=!![]);}});const _0x2fec5c=[{'value':_0x552239[_0x4d24fb(0x14d)],'text':_0x552239['lpaDM'],'remove':_0x552239['RFfYz'](_0x35b809,_0x3d227d)},{'value':_0x552239['xmWDV'],'text':_0x4d24fb(0x18c),'remove':_0x552239[_0x4d24fb(0x1cd)](_0x51ac7b,_0x3d227d)},{'value':_0x552239['lZfZH'],'text':_0x552239[_0x4d24fb(0x1ec)],'remove':_0x3d227d||_0x35b809||_0x51ac7b}];let _0x58cdfd=![];_0x2fec5c[_0x4d24fb(0x1ef)](_0x41c8d7=>{const _0x260a65=_0x4d24fb;if(!_0x41c8d7['remove']){const _0x3f664f=document[_0x260a65(0x1bc)](_0x2f970b['jjaBt']);_0x3f664f[_0x260a65(0x1d2)]=_0x41c8d7[_0x260a65(0x1d2)],_0x3f664f[_0x260a65(0x1fc)]=_0x41c8d7[_0x260a65(0x1b0)],_0x2ac609['appendChild'](_0x3f664f),_0x58cdfd=!![];}});if(!_0x58cdfd){_0x34baa3&&(_0x34baa3[_0x4d24fb(0x1fe)][_0x4d24fb(0x18a)]=_0x552239[_0x4d24fb(0x202)]);if(document[_0x4d24fb(0x17c)](_0x552239[_0x4d24fb(0x14a)])&&_0x2ac609['parentNode']){const _0x5bf1f4=document[_0x4d24fb(0x1bc)](_0x4d24fb(0x194));_0x5bf1f4[_0x4d24fb(0x1cb)]='text',_0x5bf1f4['id']=_0x552239[_0x4d24fb(0x14a)],_0x5bf1f4[_0x4d24fb(0x1c0)]=_0x552239['DIWhI'],_0x5bf1f4[_0x4d24fb(0x164)]=_0x552239[_0x4d24fb(0x170)],_0x5bf1f4[_0x4d24fb(0x1b5)]=!![],_0x2ac609[_0x4d24fb(0x1a2)][_0x4d24fb(0x1be)](_0x5bf1f4,_0x2ac609);}}else{_0x34baa3&&(_0x34baa3[_0x4d24fb(0x1fe)][_0x4d24fb(0x18a)]=_0x552239[_0x4d24fb(0x16a)]);if(document[_0x4d24fb(0x17c)](_0x552239[_0x4d24fb(0x14a)])&&document[_0x4d24fb(0x17c)](_0x552239[_0x4d24fb(0x14a)])['type']===_0x552239['VRVJV']){const _0x3b4c62=document[_0x4d24fb(0x1bc)](_0x552239[_0x4d24fb(0x1d7)]);_0x3b4c62['id']=_0x552239['rqnRQ'],_0x3b4c62[_0x4d24fb(0x1c0)]=_0x552239[_0x4d24fb(0x1d8)],_0x3b4c62[_0x4d24fb(0x15d)]=!![],_0x2fec5c[_0x4d24fb(0x1ef)](_0x4b8f38=>{const _0x223115=_0x4d24fb;if(!_0x4b8f38[_0x223115(0x19a)]){const _0x5c7a63=document['createElement'](_0x2f970b[_0x223115(0x201)]);_0x5c7a63[_0x223115(0x1d2)]=_0x4b8f38[_0x223115(0x1d2)],_0x5c7a63[_0x223115(0x1fc)]=_0x4b8f38[_0x223115(0x1b0)],_0x3b4c62[_0x223115(0x1bf)](_0x5c7a63);}});const _0x2ed753=document[_0x4d24fb(0x17c)](_0x4d24fb(0x19f));_0x2ed753&&_0x2ed753[_0x4d24fb(0x1a2)]&&_0x2ed753[_0x4d24fb(0x1a2)]['replaceChild'](_0x3b4c62,_0x2ed753);}}}});function validateGuest(){const _0x486daf=a0_0x3e1af5,_0x4ae43b={'vXodf':_0x486daf(0x1b1),'ZcIzn':_0x486daf(0x148),'UJahN':function(_0x59deae,_0x3ba936){return _0x59deae(_0x3ba936);},'sOqZu':function(_0x2026f9,_0x5538c6){return _0x2026f9<_0x5538c6;}},_0x50daba=document[_0x486daf(0x17c)](_0x4ae43b[_0x486daf(0x17a)]),_0x37f602=document[_0x486daf(0x17c)](_0x4ae43b[_0x486daf(0x1e9)]),_0x19e9ee=_0x4ae43b[_0x486daf(0x176)](parseInt,_0x37f602[_0x486daf(0x1d2)]),_0x1b61ff=parseInt(_0x50daba[_0x486daf(0x1d2)]);if(_0x1b61ff>_0x19e9ee)_0x50daba[_0x486daf(0x1d2)]=_0x19e9ee;else _0x4ae43b[_0x486daf(0x1f4)](_0x1b61ff,_0x4ae43b[_0x486daf(0x176)](parseInt,_0x50daba[_0x486daf(0x14c)]))&&(_0x50daba[_0x486daf(0x1d2)]=_0x50daba['min']);}function validateMinDate(_0x5554dd){const _0x18491e=a0_0x3e1af5,_0x57e457={'NlcQG':function(_0xe3f83d,_0x48e0f7){return _0xe3f83d<_0x48e0f7;}},_0x3a084e=new Date()[_0x18491e(0x1f2)]()['split']('T')[0x0];_0x57e457[_0x18491e(0x166)](_0x5554dd[_0x18491e(0x1d2)],_0x3a084e)&&(_0x5554dd[_0x18491e(0x1d2)]=_0x3a084e);}document[a0_0x3e1af5(0x172)]('DOMContentLoaded',function(){const _0x2b636e=a0_0x3e1af5,_0x16a5dc={'JOTaN':function(_0x11ff0d,_0x53d3aa){return _0x11ff0d>=_0x53d3aa;},'tCDZV':function(_0xeda7ac,_0x5ddf87){return _0xeda7ac+_0x5ddf87;},'AYGJS':function(_0x1bbbac,_0x32c66f){return _0x1bbbac-_0x32c66f;},'ZnXvJ':function(_0x57f4b9,_0x2f3ca3,_0x5561e1){return _0x57f4b9(_0x2f3ca3,_0x5561e1);},'uFuBE':function(_0x1203b6){return _0x1203b6();},'ChKbW':_0x2b636e(0x1df),'nENdH':_0x2b636e(0x199),'TjAIT':_0x2b636e(0x1db),'AanxB':_0x2b636e(0x1d6),'obqoK':_0x2b636e(0x223),'VXpOb':_0x2b636e(0x1ad),'jetBu':_0x2b636e(0x186),'DnVbC':_0x2b636e(0x1ff),'rYdLy':_0x2b636e(0x20b),'HppsF':'success','rPwmm':_0x2b636e(0x1fb),'RZgme':_0x2b636e(0x1ae),'urCgP':_0x2b636e(0x159),'LuwQD':_0x2b636e(0x1b3),'wGFWY':'fname','FmqjS':_0x2b636e(0x19f),'PGdNo':'businessunit','zIkWO':_0x2b636e(0x1c2),'YHcAk':_0x2b636e(0x169),'MbZoK':_0x2b636e(0x1b1),'noRPz':_0x2b636e(0x207),'LcGIu':_0x2b636e(0x1e1),'HPhZU':_0x2b636e(0x1f6),'oAKpG':_0x2b636e(0x149),'KvzOr':_0x2b636e(0x14b),'TjOkH':_0x2b636e(0x1c3),'XqOZf':_0x2b636e(0x1b4),'KifMK':_0x2b636e(0x1a8),'zxzzA':_0x2b636e(0x157),'dpQPl':_0x2b636e(0x1d5)};document[_0x2b636e(0x1e7)](_0x16a5dc[_0x2b636e(0x167)])['addEventListener'](_0x16a5dc[_0x2b636e(0x1ed)],function(_0x4a6f25){const _0x1f0c92=_0x2b636e,_0x1123bb={'nqpLt':function(_0x4cc728,_0x53920b){return _0x16a5dc['JOTaN'](_0x4cc728,_0x53920b);},'LLLDu':function(_0x11c2ce,_0x28e724){const _0x2d91ee=a0_0x4ca4;return _0x16a5dc[_0x2d91ee(0x1e3)](_0x11c2ce,_0x28e724);},'pHqwu':function(_0x30653,_0x2e9149){const _0x34990d=a0_0x4ca4;return _0x16a5dc[_0x34990d(0x1ab)](_0x30653,_0x2e9149);},'qOWxs':'block','PaRpv':function(_0x1ef507,_0x5cbac6,_0x3a5b70){return _0x16a5dc['ZnXvJ'](_0x1ef507,_0x5cbac6,_0x3a5b70);},'ZIztf':function(_0x50dcfb){const _0x8e97c6=a0_0x4ca4;return _0x16a5dc[_0x8e97c6(0x19c)](_0x50dcfb);},'vwYaU':_0x16a5dc['ChKbW'],'nhMmw':_0x16a5dc['nENdH'],'VzFLz':_0x16a5dc['TjAIT'],'OUiyI':_0x16a5dc[_0x1f0c92(0x1ee)]};_0x4a6f25[_0x1f0c92(0x189)](),Swal['fire']({'title':_0x16a5dc[_0x1f0c92(0x16d)],'width':_0x16a5dc['VXpOb'],'html':_0x1f0c92(0x165),'showCancelButton':![],'showConfirmButton':![],'didOpen':()=>{const _0x4eda66=_0x1f0c92,_0x5b6e18={'aARhT':function(_0x589b46){const _0x4bc297=a0_0x4ca4;return _0x1123bb[_0x4bc297(0x20d)](_0x589b46);}};let _0x1d5083=document[_0x4eda66(0x17c)](_0x4eda66(0x1b2)),_0x5b40fe=document['getElementById'](_0x1123bb['vwYaU']),_0x3868cc=document[_0x4eda66(0x17c)](_0x1123bb['nhMmw']),_0x40027b=document['getElementById'](_0x4eda66(0x1f8));_0x1d5083[_0x4eda66(0x172)](_0x1123bb[_0x4eda66(0x17f)],function(){const _0x1e0b07=_0x4eda66;_0x1123bb[_0x1e0b07(0x1d4)](_0x1123bb[_0x1e0b07(0x20f)](_0x1d5083[_0x1e0b07(0x1ce)],_0x1d5083[_0x1e0b07(0x1de)]),_0x1123bb['pHqwu'](_0x1d5083[_0x1e0b07(0x204)],0xa))&&(_0x5b40fe[_0x1e0b07(0x1fe)][_0x1e0b07(0x18a)]=_0x1123bb['qOWxs'],_0x5b40fe[_0x1e0b07(0x1fe)]['opacity']=0x0,_0x1123bb[_0x1e0b07(0x184)](setTimeout,()=>_0x5b40fe[_0x1e0b07(0x1fe)][_0x1e0b07(0x18f)]=0x1,0x12c));}),_0x3868cc[_0x4eda66(0x172)](_0x1123bb['OUiyI'],()=>{const _0x5df417=_0x4eda66;Swal['close'](),_0x5b6e18[_0x5df417(0x206)](_0x3387da);}),_0x40027b[_0x4eda66(0x172)](_0x1123bb[_0x4eda66(0x213)],()=>{const _0x562ecb=_0x4eda66;Swal[_0x562ecb(0x216)]();});}});});function _0x3387da(){const _0x56bc91=_0x2b636e;document[_0x56bc91(0x17c)](_0x16a5dc[_0x56bc91(0x1d3)])[_0x56bc91(0x221)]['add'](_0x16a5dc[_0x56bc91(0x1f0)]);const _0x17a4e1={'user_id':document[_0x56bc91(0x17c)](_0x16a5dc['LuwQD'])[_0x56bc91(0x1d2)],'fname':document[_0x56bc91(0x17c)](_0x16a5dc['wGFWY'])[_0x56bc91(0x1d2)],'lname':document[_0x56bc91(0x17c)](_0x56bc91(0x212))['value'],'reserve_date':document[_0x56bc91(0x17c)](_0x56bc91(0x21c))[_0x56bc91(0x1d2)],'time':document['getElementById'](_0x16a5dc[_0x56bc91(0x151)])['value'],'setup':document[_0x56bc91(0x17c)]('setup')[_0x56bc91(0x1d2)],'businessunit':document[_0x56bc91(0x17c)](_0x16a5dc[_0x56bc91(0x1d1)])[_0x56bc91(0x1d2)],'branch':document[_0x56bc91(0x17c)](_0x16a5dc[_0x56bc91(0x1e6)])['value'],'roomID':document[_0x56bc91(0x17c)](_0x56bc91(0x191))[_0x56bc91(0x1d2)],'roomPrices':document[_0x56bc91(0x17c)](_0x56bc91(0x1fa))[_0x56bc91(0x1d2)],'roomName':document[_0x56bc91(0x17c)](_0x16a5dc[_0x56bc91(0x219)])['value'],'guest':document[_0x56bc91(0x17c)](_0x16a5dc[_0x56bc91(0x15b)])[_0x56bc91(0x1d2)],'contact':document['getElementById'](_0x56bc91(0x158))['value'],'email':document[_0x56bc91(0x17c)](_0x56bc91(0x20c))[_0x56bc91(0x1d2)],'table':document[_0x56bc91(0x17c)](_0x16a5dc[_0x56bc91(0x1b8)])['checked'],'chair':document['getElementById'](_0x16a5dc[_0x56bc91(0x1ea)])[_0x56bc91(0x209)],'hdmi':document[_0x56bc91(0x17c)](_0x16a5dc[_0x56bc91(0x188)])['checked'],'extension':document['getElementById'](_0x16a5dc[_0x56bc91(0x174)])[_0x56bc91(0x209)],'message':document['getElementById'](_0x16a5dc[_0x56bc91(0x1da)])[_0x56bc91(0x1d2)]};fetch(_0x16a5dc['TjOkH'],{'method':_0x16a5dc['XqOZf'],'headers':{'Content-Type':_0x16a5dc[_0x56bc91(0x145)]},'body':JSON[_0x56bc91(0x155)](_0x17a4e1)})[_0x56bc91(0x181)](_0x1f26c5=>_0x1f26c5[_0x56bc91(0x208)]())['then'](_0x1408dc=>{const _0x371de4=_0x56bc91;document[_0x371de4(0x17c)](_0x16a5dc[_0x371de4(0x1d3)])[_0x371de4(0x221)][_0x371de4(0x19a)](_0x371de4(0x159)),_0x1408dc[_0x371de4(0x1ff)]||_0x1408dc[_0x371de4(0x185)]?Swal[_0x371de4(0x211)]({'icon':_0x16a5dc['DnVbC'],'title':_0x16a5dc[_0x371de4(0x1e4)],'text':_0x1408dc[_0x371de4(0x185)]})[_0x371de4(0x181)](()=>{const _0x5ba1fa=_0x371de4;window[_0x5ba1fa(0x15a)][_0x5ba1fa(0x15e)]();}):Swal[_0x371de4(0x211)]({'icon':_0x16a5dc[_0x371de4(0x14e)],'title':_0x16a5dc[_0x371de4(0x173)],'text':_0x16a5dc[_0x371de4(0x150)],'timer':0x5dc})[_0x371de4(0x181)](()=>{const _0x3b82c3=_0x371de4;window[_0x3b82c3(0x15a)][_0x3b82c3(0x15e)]();});})[_0x56bc91(0x1a9)](_0x31a061=>{const _0x29603d=_0x56bc91;document[_0x29603d(0x17c)](_0x16a5dc[_0x29603d(0x1d3)])[_0x29603d(0x221)][_0x29603d(0x19a)](_0x16a5dc[_0x29603d(0x1f0)]),Swal['fire']({'icon':_0x16a5dc[_0x29603d(0x154)],'title':_0x16a5dc['rYdLy'],'text':_0x29603d(0x179)+(_0x31a061[_0x29603d(0x14b)]||_0x31a061)})[_0x29603d(0x181)](()=>{const _0x4a419f=_0x29603d;window['location'][_0x4a419f(0x15e)]();});});}});const selectElement=document['getElementById'](a0_0x3e1af5(0x18e)),previewLink=document[a0_0x3e1af5(0x17c)](a0_0x3e1af5(0x1f7)),roomInput=document[a0_0x3e1af5(0x17c)](a0_0x3e1af5(0x191));function updatePreviewLink(){const _0x44b10e=a0_0x3e1af5,_0x6ab18d={'TbKlb':_0x44b10e(0x1ac),'UjRPf':function(_0x38246c,_0x1c9b3a){return _0x38246c===_0x1c9b3a;},'eUmtM':_0x44b10e(0x214),'oOacI':_0x44b10e(0x1dd),'kYFmO':'CUSTOM-SETUP','qRjUH':function(_0x5a187c,_0x5a9b76){return _0x5a187c!==_0x5a9b76;},'vCsrA':'inline','qmqXX':'auto','rRHIY':'error','ycEnf':'No\x20image\x20available\x20for\x20this\x20option.'},_0x43e973=selectElement['options'][selectElement[_0x44b10e(0x1f9)]],_0x4d7fb3=roomInput['value'],_0x2b55ca=_0x43e973['getAttribute'](_0x6ab18d[_0x44b10e(0x14f)]);if(_0x6ab18d[_0x44b10e(0x17b)](_0x4d7fb3,_0x6ab18d['eUmtM']))previewLink[_0x44b10e(0x1fe)][_0x44b10e(0x18a)]=_0x6ab18d[_0x44b10e(0x1a1)];else{if(_0x6ab18d[_0x44b10e(0x17b)](_0x43e973[_0x44b10e(0x1d2)],_0x6ab18d['kYFmO']))previewLink['style'][_0x44b10e(0x18a)]=_0x6ab18d['oOacI'];else _0x6ab18d[_0x44b10e(0x182)](_0x4d7fb3,_0x6ab18d[_0x44b10e(0x1c9)])&&_0x2b55ca?(previewLink[_0x44b10e(0x1c6)]=_0x2b55ca,previewLink['style'][_0x44b10e(0x18a)]=_0x6ab18d[_0x44b10e(0x19e)],previewLink[_0x44b10e(0x1fe)][_0x44b10e(0x1e5)]=_0x6ab18d[_0x44b10e(0x1c7)]):(previewLink['href']='#',previewLink[_0x44b10e(0x1fe)][_0x44b10e(0x1e5)]=_0x6ab18d[_0x44b10e(0x1a1)],previewLink[_0x44b10e(0x1fe)][_0x44b10e(0x18a)]=_0x6ab18d[_0x44b10e(0x19e)],Swal[_0x44b10e(0x211)]({'icon':_0x6ab18d[_0x44b10e(0x1b7)],'title':_0x44b10e(0x20b),'text':_0x6ab18d[_0x44b10e(0x19d)]}));}}window['onload']=function(){const _0x34cc8e={'eEZfS':function(_0x35ba6b){return _0x35ba6b();}};_0x34cc8e['eEZfS'](updatePreviewLink);},selectElement[a0_0x3e1af5(0x172)]('change',updatePreviewLink),previewLink[a0_0x3e1af5(0x1fe)]['pointerEvents']='none';
+fetch('/api/validate-cookie') // API endpoint to validate the cookie
+    .then(function(response) {
+        if (response.ok) {
+            return response.json();  // Parse the response as JSON
+        } else {
+            console.error('User is not logged in.');
+        }
+    })
+    .then(function(userData) {
+        if (userData) {
+
+            // DOM manipulation: Populating the input fields with user data
+            document.getElementById('user_id').value = userData.userId;
+            document.getElementById('email').value = userData.email;
+            document.getElementById('fname').value = userData.firstName;
+            document.getElementById('lname').value = userData.lastName;
+            // document.getElementById('branch').textContent = userData.branch;
+            // Hide FASTContainer if usertype is "Guest"
+            if (userData.usertype === "Guest") {
+              document.getElementById('div-SBU').style.display = "none";
+              document.getElementById('div-Branch').style.display = "none";
+            }
+            let businessUnitSelect = document.getElementById('businessunit');
+            let sbuValue = userData.sbu;
+            for (let i = 0; i < businessUnitSelect.options.length; i++) {
+                if (businessUnitSelect.options[i].value === sbuValue) {
+                    businessUnitSelect.selectedIndex = i;
+                    break;
+                }
+            }
+
+            // Set branch
+            let branchSelect = document.getElementById('branch');
+            let branchValue = userData.branch;
+            for (let i = 0; i < branchSelect.options.length; i++) {
+                if (branchSelect.options[i].value === branchValue) {
+                    branchSelect.selectedIndex = i;
+                    break;
+                }
+            }
+        }
+    })
+    .catch(function(error) {
+        console.error('Error fetching user data:', error);
+    });
+
+
+async function checkUserStatus() {
+  try {
+      const response = await fetch('/api/validate-cookie'); // API endpoint to validate the cookie
+      if (response.ok) {
+          const userData = await response.json();
+          console.log('User Data:', userData);
+
+          // Hide the "Login" link
+          const loginItem = document.getElementById('loginItem');
+          if (loginItem) {
+              loginItem.style.display = 'none';
+          }
+
+          const BookNow = document.getElementById('BookNow');
+          if (BookNow) {
+              BookNow.style.display = 'block';
+          }
+
+          const LogoutDropdown = document.getElementById('LogoutDropdown');
+          if (LogoutDropdown) {
+              LogoutDropdown.style.display = 'block';
+          }
+      } else {
+          console.error('User is not logged in.');
+      }
+  } catch (error) {
+      console.error('Error checking user status:', error);
+  }
+
+  // Add event listener to logout button
+  const logoutBtn = document.getElementById('logoutBtn');
+  if (logoutBtn) {
+      logoutBtn.addEventListener('click', function(event) {
+          event.preventDefault(); // Prevent the default link action
+
+          // Show SweetAlert confirmation dialog
+          Swal.fire({
+              title: 'Are you sure?',
+              text: 'You will be logged out!',
+              icon: 'warning',
+              showCancelButton: true,
+              confirmButtonText: 'Yes, log me out',
+              cancelButtonText: 'No, stay logged in',
+              reverseButtons: true
+          }).then(async (result) => {
+              if (result.isConfirmed) {
+                  try {
+                      // Send a POST request to the /logout route to delete the cookie
+                      const logoutResponse = await fetch('/api/logout', {
+                          method: 'POST', // POST method for logout
+                          credentials: 'same-origin', // Include cookies with the request
+                      });
+
+                      if (logoutResponse.ok) {
+                          // Reload the current page after logout
+                          window.location.reload(); // This reloads the current page
+                      } else {
+                          console.error('Logout failed');
+                      }
+                  } catch (error) {
+                      console.error('Error logging out:', error);
+                  }
+              }
+          });
+      });
+  } else {
+      console.log('Logout button not found');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    const bookingForm = document.getElementById('bookingForm');
+    const reserveDateInput = document.getElementById('reserve_date');
+    const timeSelect = document.getElementById('time');
+    const reserveNowButton = document.getElementById('submit');
+    const originalTimeHTML = timeSelect.outerHTML; // Store the original HTML of the time select
+
+    // Event listener for date change
+    reserveDateInput.addEventListener('change', function () {
+        const selectedDate = reserveDateInput.value;
+        const selectedRoom = document.getElementById('roomName').value;
+
+        fetchReservations(selectedRoom, selectedDate);
+    });
+
+    // Fetch reservations from the backend
+    function fetchReservations(room, date) {
+        fetch(`/api/reservation?room=${room}&date=${date}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                updateAvailability(data);
+            })
+            .catch(error => alert(`Error fetching reservations: ${error.message}`));
+    }
+
+    // Update the time options based on reservations
+    function updateAvailability(reservations) {
+        // Clear current time options
+        while (timeSelect.firstChild) {
+            timeSelect.removeChild(timeSelect.firstChild);
+        }
+
+        // Initialize availability flags
+        let isFullyBooked = false;
+        let halfDayMorningBooked = false;
+        let halfDayAfternoonBooked = false;
+
+        // Check reservations
+        reservations.forEach(reservation => {
+            const reservedTime = reservation.time;
+
+            if (reservedTime === "7:00AM-6:00PM") {
+              isFullyBooked = true;
+              halfDayMorningBooked = true; // Automatically mark both morning and afternoon as booked
+              halfDayAfternoonBooked = true;
+            } else if (reservedTime === "7:00AM-12:00PM") {
+                halfDayMorningBooked = true; // Morning half booked
+            } else if (reservedTime === "1:00PM-6:00PM") {
+                halfDayAfternoonBooked = true; // Afternoon half booked
+            }
+        });
+
+          // Populate available times based on bookings
+        const availableTimes = [
+            // If morning is not booked and whole day isn't booked, morning slot is available
+            { value: "7:00AM-12:00PM", text: "HALFDAY (7:00AM-12:00PM)", remove: halfDayMorningBooked || isFullyBooked },
+            // If afternoon is not booked and whole day isn't booked, afternoon slot is available
+            { value: "1:00PM-6:00PM", text: "HALFDAY (1:00PM-6:00PM)", remove: halfDayAfternoonBooked || isFullyBooked },
+            // If either morning or afternoon is booked, whole day option should be removed
+            { value: "7:00AM-6:00PM", text: "WHOLE DAY (7:00AM-6:00PM)", remove: isFullyBooked || halfDayMorningBooked || halfDayAfternoonBooked }
+        ];
+
+        let hasAvailableTimes = false;
+        
+        // Populate time select with available times
+        availableTimes.forEach(time => {
+            if (!time.remove) {
+                const option = document.createElement('option');
+                option.value = time.value;
+                option.textContent = time.text;
+                timeSelect.appendChild(option);
+                hasAvailableTimes = true;
+            }
+        });
+
+        // Handle fully booked condition
+        if (!hasAvailableTimes) {
+                      // Hide the Reserve Now button
+                        if (reserveNowButton) {
+                          reserveNowButton.style.display = 'none';
+                      }
+            if (document.getElementById('time') && timeSelect.parentNode) {
+                // Create a new input element
+                const inputElement = document.createElement('input');
+                inputElement.type = 'text';
+                inputElement.id = 'time';
+                inputElement.className = 'form-control';
+                inputElement.placeholder = 'FULLY BOOKED';
+                inputElement.disabled = true;
+
+                // Replace the time select with the new input element
+                timeSelect.parentNode.replaceChild(inputElement, timeSelect);
+            }
+        } else {
+          if (reserveNowButton) {
+              reserveNowButton.style.display = 'block';
+          }
+            // If not fully booked, ensure the time select is present
+            if (document.getElementById('time') && document.getElementById('time').type === 'text') {
+                // Create a new time select element
+                const newTimeSelect = document.createElement('select');
+                newTimeSelect.id = 'time';
+                newTimeSelect.className = 'form-control';
+                newTimeSelect.required = true;
+
+                // Re-add original options
+                availableTimes.forEach(time => {
+                    if (!time.remove) {
+                        const option = document.createElement('option');
+                        option.value = time.value;
+                        option.textContent = time.text;
+                        newTimeSelect.appendChild(option);
+                    }
+                });
+
+                // Replace the input element with the time select
+                const inputElement = document.getElementById('time');
+                if (inputElement && inputElement.parentNode) {
+                    inputElement.parentNode.replaceChild(newTimeSelect, inputElement);
+                }
+            }
+        }
+    }
+});
+
+function validateGuest() {
+  const input = document.getElementById('guest');
+  const roomGuestMax = document.getElementById('roomGuest');
+
+  // Get the maximum value from the 'roomGuest' element
+  const max = parseInt(roomGuestMax.value);
+
+  // Convert input value to an integer for comparison, defaulting to 0 if not a valid number
+  const value = parseInt(input.value);
+
+  // If the input exceeds the maximum, set it to the max
+  if (value > max) {
+      input.value = max;
+  } else if (value < parseInt(input.min)) {
+      input.value = input.min;
+  }
+}
+
+function validateMinDate(input) {
+  const today = new Date().toISOString().split('T')[0];
+  if (input.value < today) {
+      input.value = today;  // Reset the value to today if it's earlier
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelector('#bookingForm').addEventListener('submit', function (e) {
+    e.preventDefault(); // Prevent default form submission
+
+    // Show Terms and Agreement Modal
+    Swal.fire({
+      title: 'Terms and Agreement',
+      width: '700px',
+      html: `
+        <div id="termsContent" style="height: 500px; overflow-y: auto; text-align: left; padding: 10px; border: 1px solid #ccc;">
+         <p><strong>By reserving the Learning and Development Center (L&D Center), you agree to the following terms and conditions:</strong></p>
+          <p><strong>1. Reservation Confirmation</strong></p>
+          <ul>
+              <li>All reservations are subject to approval and availability.</li>
+              <li>A reservation is confirmed only upon receipt of full payment or a valid payment method.</li>
+              <li>If an internal business unit is responsible for payment, confirmation will be provided via email, and costs will be charged accordingly.</li>
+          </ul>
+
+          <p><strong>2. Cancellation and No-Show Policy</strong></p>
+          <ul>
+              <li>Cancellations made within 120 hours (5 days) of the scheduled booking are non-refundable, and the full booking cost will be charged.</li>
+              <li>Failure to arrive at the scheduled time without prior cancellation (no-show) will result in the full cost being charged to the responsible party.</li>
+          </ul>
+
+          <p><strong>3. Reservation Modifications</strong></p>
+          <ul>
+              <li>Any changes to the reservation (date, time, or room adjustments) must be requested at least 120 hours before the scheduled booking.</li>
+              <li>Modifications within this period will not be accepted unless exceptional circumstances arise, subject to L&D Center management approval.</li>
+          </ul>
+
+          <p><strong>4. Payment Terms</strong></p>
+          <ul>
+              <li>Full payment is required upon reservation approval.</li>
+              <li>Where applicable, costs will be directly charged to the responsible department or business unit/company.</li>
+          </ul>
+
+          <p><strong>5. Usage Guidelines</strong></p>
+          <ul>
+              <li>The L&D Center must be used for its intended purpose, such as training, meetings, workshops, and corporate events.</li>
+              <li>The use of the facility for personal events, non-work-related gatherings, or external commercial purposes is subject to prior approval.</li>
+          </ul>
+
+          <p><strong>6. Facility Access and Security</strong></p>
+          <ul>
+              <li>Access to the L&D Center is granted only for the approved booking duration. Additional time beyond the reservation period requires prior approval and may incur additional charges.</li>
+              <li>Security protocols must be followed at all times, and all visitors must register at the reception upon arrival.</li>
+          </ul>
+
+          <p><strong>7. Property Damage and Liability</strong></p>
+          <ul>
+              <li>Any damage to property, furniture, or fixtures during the reservation period will be charged to the responsible individual or organization.</li>
+              <li>The reserving party is fully liable for any damages or losses incurred.</li>
+          </ul>
+
+          <p><strong>8. Personal Belongings</strong></p>
+          <ul>
+              <li>The L&D Center is not responsible for lost, stolen, or misplaced personal items. Attendees must secure their belongings.</li>
+          </ul>
+
+          <p><strong>9. Cleanliness and Maintenance</strong></p>
+          <ul>
+              <li>The L&D Center must be kept clean and orderly throughout and after the event.</li>
+              <li>Any additional cleaning required due to improper use of the facility may result in extra charges.</li>
+          </ul>
+
+          <p><strong>10. Catering and Food Policy</strong></p>
+          <ul>
+              <li>Food and beverages are not included in the reservation fee.</li>
+              <li>A canteen is available on the first floor where meals and snacks can be purchased.</li>
+              <li>Outside catering may be allowed but requires prior approval.</li>
+          </ul>
+
+          <p><strong>11. Wi-Fi and Technical Support</strong></p>
+          <ul>
+              <li>Complimentary Wi-Fi is available, with one access voucher per person. Vouchers can be collected from the security desk.</li>
+              <li>Technical support (e.g., for projectors, sound systems, or video conferencing) must be requested in advance and may be subject to additional fees.</li>
+          </ul>
+
+          <p><strong>12. Compliance with Policies and Regulations</strong></p>
+          <ul>
+              <li>All users must comply with company policies, safety regulations, and emergency procedures while using the L&D Center.</li>
+              <li>Any violations of these policies may result in additional penalties, cancellation of future bookings, or disciplinary action where applicable.</li>
+          </ul>
+
+          <p><strong>13. Liability Disclaimer</strong></p>
+          <ul>
+              <li>The L&D Center is not liable for any personal injuries, losses, or damages incurred during the reservation period.</li>
+              <li>The reserving party assumes full responsibility for ensuring the safety and well-being of attendees.</li>
+          </ul>
+
+          <p><strong>14. Privacy Act Policy</strong></p>
+          <ul>
+              <li>All personal data collected during the reservation process will be handled in accordance with applicable data protection laws.</li>
+              <li>Your information will only be used for reservation and administrative purposes and will not be shared with third parties without your consent.</li>
+              <li>By proceeding with your reservation, you acknowledge and consent to the collection, storage, and processing of your personal data.</li>
+          </ul>
+          
+          <p><strong>By proceeding with your reservation, you acknowledge and agree to these terms and conditions.</strong></p>
+        </div>
+        <div id="proceedContainer" style="display: none; text-align: center; margin-top: 10px;">
+          <button id="proceedBtn" class="btn btn-primary" style="cursor: pointer;">Agree</button>
+          <button id="cancelBtn" class="btn btn-secondary" style="cursor: pointer;">Cancel</button>
+        </div>
+      `,
+      showCancelButton: false,
+      showConfirmButton: false,
+      didOpen: () => {
+        let termsContent = document.getElementById("termsContent");
+        let proceedContainer = document.getElementById("proceedContainer");
+        let proceedBtn = document.getElementById("proceedBtn");
+        let cancelBtn = document.getElementById("cancelBtn");
+
+        termsContent.addEventListener("scroll", function () {
+          if (termsContent.scrollTop + termsContent.clientHeight >= termsContent.scrollHeight - 10) {
+            proceedContainer.style.display = "block"; // Show the button
+            proceedContainer.style.opacity = 0;
+            setTimeout(() => proceedContainer.style.opacity = 1, 300);
+          }
+        });
+
+        proceedBtn.addEventListener("click", () => {
+          Swal.close(); // Close modal
+          submitBookingForm(); // Proceed with booking form submission
+        });
+
+        // Cancel button functionality
+        cancelBtn.addEventListener("click", () => {
+          Swal.close(); // Close modal
+        });
+      }
+    });
+  });
+
+  function submitBookingForm() {
+    // Show the loader
+    document.getElementById('loader').classList.add('show');
+
+    // Gather form data
+    const formData = {
+      user_id: document.getElementById('user_id').value,
+      fname: document.getElementById('fname').value,
+      lname: document.getElementById('lname').value,
+      reserve_date: document.getElementById('reserve_date').value,
+      time: document.getElementById('time').value,
+      setup: document.getElementById('setup').value,
+      businessunit: document.getElementById('businessunit').value,
+      branch: document.getElementById('branch').value,
+      roomID: document.getElementById('roomID').value,
+      roomPrices: document.getElementById('roomPrices').value,
+      roomName: document.getElementById('roomName').value,
+      guest: document.getElementById('guest').value,
+      contact: document.getElementById('contact').value,
+      email: document.getElementById('email').value,
+      table: document.getElementById('table').checked, // Checkbox
+      chair: document.getElementById('chair').checked, // Checkbox
+      hdmi: document.getElementById('hdmi').checked,  // Checkbox
+      extension: document.getElementById('extension').checked, // Checkbox
+      message: document.getElementById('message').value
+    };
+
+    // Send form data to the backend via fetch
+    fetch('/api/rooms', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    })
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('loader').classList.remove('show'); // Hide loader
+
+      if (data.error || data.errors) {
+        // Show error message
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: data.errors,
+        }).then(() => {
+          window.location.reload(); // Optionally reload the page
+        });
+      } else {
+        // Success message
+        Swal.fire({
+          icon: 'success',
+          title: 'Booking Submitted',
+          text: 'Please wait for the email confirmation of your booking.',
+          timer: 1500,
+        }).then(() => {
+          window.location.reload(); // Optionally reload the page
+        });
+      }
+    })
+    .catch(err => {
+      document.getElementById('loader').classList.remove('show'); // Hide loader
+
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: `An unexpected error occurred. Please try again. Error: ${err.message || err}`,
+      }).then(() => {
+        window.location.reload(); // Optionally reload the page
+      });
+    });
+  }
+});
+
+
+
+  const selectElement = document.getElementById('setup');
+  const previewLink = document.getElementById('previewLink');
+  const roomInput = document.getElementById('roomID');  // Hidden input for room
+  
+  // Function to update the preview link and hidden input
+  function updatePreviewLink() {
+    const selectedOption = selectElement.options[selectElement.selectedIndex];
+    const RoomselectedValue = roomInput.value;
+    const selectedImage = selectedOption.getAttribute('data-img');
+    
+    // Special case for IT-Room
+    if (RoomselectedValue === "IT-Room") {
+      previewLink.style.display = 'none';  // Hide the preview link for IT-Room
+    } else if (selectedOption.value === "CUSTOM-SETUP") {
+      previewLink.style.display = 'none';  // Hide the preview link for Custom Setup
+    } else if (RoomselectedValue !== "IT-Room" && selectedImage) {
+      previewLink.href = selectedImage;  // Set the href of the link
+      previewLink.style.display = 'inline';  // Show the preview link if image exists
+      previewLink.style.pointerEvents = 'auto';  // Enable the link
+    } else {
+      previewLink.href = '#';  // Reset href if no image is available
+      previewLink.style.pointerEvents = 'none';  // Disable the link
+      previewLink.style.display = 'inline';  // Show the preview link (for other cases)
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'No image available for this option.',
+      });
+    }
+  }
+  
+  // Trigger the change event on page load to set the default preview
+  window.onload = function() {
+    updatePreviewLink(); // Set preview for the default selected option
+  };
+  
+  // Update the preview link and hidden input when the user changes the selection
+  selectElement.addEventListener('change', updatePreviewLink);
+  
+  // Optionally set the initial state to disabled
+  previewLink.style.pointerEvents = 'none';
+  
