@@ -558,7 +558,7 @@ includeHTML("header", "header").then(() => {
                             </div>
                         </div>
                         <div class="row" style="text-align:left">
-                            <div class="col-12 col-md-6">
+                            <div class="col-12 col-md-12">
                               <div class="input-group mb-3">
                                 <span class="input-group-text"><i class="fa fa-envelope"></i></span>
                                 <input type="email" id="email" class="form-control" placeholder=" " required autocomplete="off">
