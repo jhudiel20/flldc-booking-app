@@ -521,20 +521,7 @@ includeHTML("header", "header").then(() => {
                 });
 
                 const result = await response.json();
-
-                if (result.error) {
-                  document.getElementById("errorMessage").innerText =
-                    result.error;
-                  return false;
-                } else {
-                  Swal.fire(
-                    "Success!",
-                    "Successfully Logged in.",
-                    "success"
-                  ).then(() => {
-                    window.location.href 
-                  });
-                }
+                console.log(loginData);
 
                 if (result.ok) {
                   Swal.fire("Success!", "Successfully Logged in.", "success").then(() => {
