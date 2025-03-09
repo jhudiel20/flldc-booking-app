@@ -96,7 +96,7 @@ const handleAdminLogin = async (req, res) => {
         };
 
         const encryptedValue = encrypt_cookie(cookieData);
-        
+
         // **Set cookies in Node.js**
         res.cookie('secure_data', encryptedValue, {
             expires: new Date(Date.now() + 1800 * 1000), // 30 minutes
@@ -117,8 +117,8 @@ const handleAdminLogin = async (req, res) => {
         });
 
         // Save logs & update user status
-        await pool.query("INSERT INTO logs (USER_ID, ACTION_MADE) VALUES ($1, $2)", [user.id, "Logged in the system."]);
-        await pool.query("UPDATE user_account SET status = '1', locked = '0' WHERE id = $1", [user.id]);
+        // await pool.query("INSERT INTO logs (USER_ID, ACTION_MADE) VALUES ($1, $2)", [user.id, "Logged in the system."]);
+        // await pool.query("UPDATE user_account SET status = '1', locked = '0' WHERE id = $1", [user.id]);
 
         res.status(200).json({ success: true });
     } catch (error) {
