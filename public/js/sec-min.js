@@ -514,7 +514,7 @@ includeHTML("header", "header").then(() => {
               };
 
               if(loginData.userType === "Admin") {
-                const response = await fetch("/api/admin-login", {
+                const response = await fetch("/api/Admin", {
                   method: "POST",
                   headers: { "Content-Type": "application/json" },
                   body: JSON.stringify(loginData),
