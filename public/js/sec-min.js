@@ -478,14 +478,12 @@ includeHTML("header", "header").then(() => {
                 }
               });
 
-              const emailLabel = document.getElementById('email_login_label');
-              const userTypeSelect = document.getElementById('usertype');
-              userTypeSelect.addEventListener('change', function () {
-                  if (userTypeSelect.value === 'FAST Employee') {
-                      emailLabel.textContent = 'Email';
-                  } else {
-                      emailLabel.textContent = 'Username';
-                  }
+              // Change email label based on user type selection
+              const emailLabel = document.getElementById("email_login_label");
+              const userTypeSelect = document.getElementById("usertype");
+
+              userTypeSelect.addEventListener("change", function () {
+                emailLabel.textContent = userTypeSelect.value === "Admin" ? "Username" : "Email";
               });              
           },
           preConfirm: async () => {
@@ -494,14 +492,15 @@ includeHTML("header", "header").then(() => {
             const password = document.getElementById("password").value.trim();
             const recaptchaResponse = grecaptcha.getResponse();
             if (!recaptchaResponse) {
-              document.getElementById("errorMessage").innerText =
-                "Please verify the reCAPTCHA.";
+              errorMessageElement.innerText = "Please verify the reCAPTCHA.";
               return false;
             }
-
+            if (!userType) {
+              errorMessageElement.innerText = "Please select a user type.";
+              return false;
+            }
             if (!email || !password) {
-              document.getElementById("errorMessage").innerText =
-                "Please fill in all fields.";
+              errorMessageElement.innerText = "Please fill in all fields.";
               return false;
             }
 
@@ -512,52 +511,29 @@ includeHTML("header", "header").then(() => {
                 recaptchaResponse,
                 userType,
               };
-
-              if(loginData.userType === "Admin") {
-                const response = await fetch("/api/Admin", {
-                  method: "POST",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify(loginData),
-                });
-
-                const result = await response.json();
-                console.log(loginData);
-
-                if (result.ok) {
-                  Swal.fire("Success!", "Successfully Logged in.", "success").then(() => {
-                    window.location.href = "https://flldc-ims.vercel.app/dashboard-lnd";
-                  });
-                } else {
-                    errorMessage.innerText = result.error || "Login failed. Please try again.";
-                    return false;
-                }
-              }else{
-                const response = await fetch("/api/UserAuth", {
-                  method: "POST",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify(loginData),
-                });
-
-                const result = await response.json();
-
-                if (result.error) {
-                  document.getElementById("errorMessage").innerText =
-                    result.error;
-                  return false;
-                } else {
-                  Swal.fire(
-                    "Success!",
-                    "Successfully Logged in.",
-                    "success"
-                  ).then(() => {
-                    window.location.reload();
-                  });
-                }
+      
+              const apiEndpoint = userType === "Admin" ? "/api/Admin" : "/api/UserAuth";
+              const response = await fetch(apiEndpoint, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(loginData),
+              });
+      
+              const result = await response.json();
+      
+              if (!response.ok || result.error) {
+                errorMessageElement.innerText = result.error || "Login failed. Please try again.";
+                return false;
               }
-              
+      
+              Swal.fire("Success!", "Successfully Logged in.", "success").then(() => {
+                window.location.href = userType === "Admin"
+                  ? "https://flldc-ims.vercel.app/dashboard-lnd"
+                  : "/";
+              });
             } catch (error) {
-              document.getElementById("errorMessage").innerText =
-                "Login failed. Please try again.";
+              console.error("Login error:", error);
+              errorMessageElement.innerText = "An error occurred. Please try again.";
               return false;
             }
           },
