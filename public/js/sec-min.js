@@ -492,15 +492,15 @@ includeHTML("header", "header").then(() => {
             const password = document.getElementById("password").value.trim();
             const recaptchaResponse = grecaptcha.getResponse();
             if (!recaptchaResponse) {
-              errorMessageElement.innerText = "Please verify the reCAPTCHA.";
+              document.getElementById("errorMessage").innerText = "Please verify the reCAPTCHA.";
               return false;
             }
             if (!userType) {
-              errorMessageElement.innerText = "Please select a user type.";
+              document.getElementById("errorMessage").innerText = "Please select a user type.";
               return false;
             }
             if (!email || !password) {
-              errorMessageElement.innerText = "Please fill in all fields.";
+              document.getElementById("errorMessage").innerText = "Please fill in all fields.";
               return false;
             }
 
@@ -522,7 +522,7 @@ includeHTML("header", "header").then(() => {
               const result = await response.json();
       
               if (!response.ok || result.error) {
-                errorMessageElement.innerText = result.error || "Login failed. Please try again.";
+                document.getElementById("errorMessage").innerText = result.error || "Login failed. Please try again.";
                 return false;
               }
       
@@ -533,7 +533,7 @@ includeHTML("header", "header").then(() => {
               });
             } catch (error) {
               console.error("Login error:", error);
-              errorMessageElement.innerText = "An error occurred. Please try again.";
+              document.getElementById("errorMessage").innerText = "An error occurred. Please try again.";
               return false;
             }
           },
