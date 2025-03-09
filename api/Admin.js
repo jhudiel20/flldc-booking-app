@@ -109,10 +109,10 @@ const handleAdminLogin = async (req, res) => {
 
 
         // Save logs & update user status
-        // await pool.query("INSERT INTO logs (USER_ID, ACTION_MADE) VALUES ($1, $2)", [user.id, "Logged in the system."]);
-        // await pool.query("UPDATE user_account SET status = '1', locked = '0' WHERE id = $1", [user.id]);
+        await pool.query("INSERT INTO logs (USER_ID, ACTION_MADE) VALUES ($1, $2)", [user.id, "Logged in the system."]);
+        await pool.query("UPDATE user_account SET status = '1', locked = '0' WHERE id = $1", [user.id]);
 
-        res.status(200).json({ success: true });
+        return res.status(200).json({ success: true, redirectUrl: "/" });
     } catch (error) {
         console.error("Database Error Details:", error.stack);
         return res.status(500).json({ success: false, error: "Database error", details: error.message });

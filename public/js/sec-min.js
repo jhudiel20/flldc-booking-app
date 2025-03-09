@@ -512,32 +512,38 @@ includeHTML("header", "header").then(() => {
             console.log("Sending loginData:", loginData); // DEBUG
 
             try {
-              
-              const apiEndpoint = userType === "Admin" ? "/api/Admin" : "/api/UserAuth";
+              const apiEndpoint = userType === "Admin" 
+                ? "https://flldc-ims.vercel.app/api/action/login" 
+                : "/api/UserAuth";
+            
               const response = await fetch(apiEndpoint, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(loginData),
               });
-      
+            
               const result = await response.json();
               console.log("Server Response:", result);
-
+            
               if (!response.ok || result.error) {
                 document.getElementById("errorMessage").innerText = result.error || "Login failed. Please try again.";
-                return false;
+                return;
               }
-      
-              Swal.fire("Success!", "Successfully Logged in.", "success").then(() => {
-                window.location.href = userType === "Admin"
-                  ? "https://flldc-ims.vercel.app/dashboard-lnd"
-                  : "/";
+            
+              Swal.fire({
+                title: "Success!",
+                text: "Successfully Logged in.",
+                icon: "success",
+                confirmButtonText: "OK",
+              }).then(() => {
+                  window.location.href = result.redirectUrl || "/";
               });
+              
             } catch (error) {
               console.error("Login error:", error);
               document.getElementById("errorMessage").innerText = "An error occurred. Please try again.";
-              return false;
             }
+            
           },
         });
       };
