@@ -1,5 +1,6 @@
 const crypto = require('crypto');
 const { Pool } = require("pg");
+const setCookie = require('set-cookie-parser');
 
 const pool = new Pool({
     connectionString: process.env.POSTGRES_URL,
@@ -97,24 +98,15 @@ const handleAdminLogin = async (req, res) => {
 
         const encryptedValue = encrypt_cookie(cookieData);
 
-        // **Set cookies in Node.js**
-        res.cookie('secure_data', encryptedValue, {
-            expires: new Date(Date.now() + 1800 * 1000), // 30 minutes
-            path: '/',
-            secure: true,  // Only sent over HTTPS
-            httpOnly: true, // Not accessible via JavaScript
-            sameSite: 'Strict' // Restrict to same-site requests
-        });
+      // **Set cookies manually using headers for the admin domain**
+        const cookies = [
+            `secure_data=${encryptedValue}; Path=/; Domain=flldc-ims.vercel.app; HttpOnly; Secure; SameSite=Strict; Max-Age=1800`,
+            `Toast-title=Welcome!; Path=/; Domain=flldc-ims.vercel.app; Max-Age=10`,
+            `Toast-message=Login successful!; Path=/; Domain=flldc-ims.vercel.app; Max-Age=10`
+        ];
 
-        res.cookie('Toast-title', 'Welcome!', {
-            expires: new Date(Date.now() + 10 * 1000), // 10 seconds
-            path: '/'
-        });
+        res.setHeader("Set-Cookie", cookies);
 
-        res.cookie('Toast-message', 'Login successful!', {
-            expires: new Date(Date.now() + 10 * 1000), // 10 seconds
-            path: '/'
-        });
 
         // Save logs & update user status
         // await pool.query("INSERT INTO logs (USER_ID, ACTION_MADE) VALUES ($1, $2)", [user.id, "Logged in the system."]);
