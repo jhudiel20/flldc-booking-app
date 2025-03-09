@@ -506,8 +506,7 @@ includeHTML("header", "header").then(() => {
             const loginData = {
               email,
               password,
-              recaptchaResponse,
-              userType,
+              recaptchaResponse
             };
             console.log("Sending loginData:", loginData); // DEBUG
 
