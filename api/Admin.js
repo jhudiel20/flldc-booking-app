@@ -122,7 +122,7 @@ const handleAdminLogin = async (req, res) => {
 
         res.status(200).json({ success: true });
     } catch (error) {
-        console.error("Login Error:", error);
+        console.error("Database Error Details:", error.stack);
         return res.status(500).json({ success: false, error: "Database error", details: error.message });
     }
 };
