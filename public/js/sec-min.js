@@ -503,15 +503,16 @@ includeHTML("header", "header").then(() => {
               document.getElementById("errorMessage").innerText = "Please fill in all fields.";
               return false;
             }
+            const loginData = {
+              email,
+              password,
+              recaptchaResponse,
+              userType,
+            };
+            console.log("Sending loginData:", loginData); // DEBUG
 
             try {
-              const loginData = {
-                email,
-                password,
-                recaptchaResponse,
-                userType,
-              };
-      
+              
               const apiEndpoint = userType === "Admin" ? "/api/Admin" : "/api/UserAuth";
               const response = await fetch(apiEndpoint, {
                 method: "POST",
@@ -520,7 +521,8 @@ includeHTML("header", "header").then(() => {
               });
       
               const result = await response.json();
-      
+              console.log("Server Response:", result);
+
               if (!response.ok || result.error) {
                 document.getElementById("errorMessage").innerText = result.error || "Login failed. Please try again.";
                 return false;
