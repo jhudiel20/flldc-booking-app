@@ -512,7 +512,7 @@ includeHTML("header", "header").then(() => {
 
             try {
               const apiEndpoint = userType === "Admin" 
-                ? "https://flldc-ims.vercel.app/api/action/login" 
+                ? "https://flldc-ims.vercel.app/login" 
                 : "/api/UserAuth";
             
               const response = await fetch(apiEndpoint, {
