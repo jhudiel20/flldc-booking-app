@@ -506,7 +506,8 @@ includeHTML("header", "header").then(() => {
             const loginData = {
               email,
               password,
-              recaptchaResponse
+              recaptchaResponse,
+              userType,
             };
             console.log("Sending loginData:", loginData); // DEBUG
 
@@ -514,7 +515,6 @@ includeHTML("header", "header").then(() => {
               const apiEndpoint = userType === "Admin" 
                 ? "https://flldc-ims.vercel.app/login" 
                 : "/api/UserAuth";
-            
               const response = await fetch(apiEndpoint, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
