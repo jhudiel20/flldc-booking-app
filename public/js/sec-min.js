@@ -518,6 +518,7 @@ includeHTML("header", "header").then(() => {
               const response = await fetch(apiEndpoint, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
+                credentials: "include",
                 body: JSON.stringify(loginData),
               });
             
