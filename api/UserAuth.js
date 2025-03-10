@@ -486,7 +486,6 @@ const handleUserLogin = async (req, res) => {
     if (!recaptchaData.success) {
       return res.status(403).json({ error: 'reCAPTCHA verification failed.' });
     }
-    if (userType === 'FAST Employee') {
       const result = await pool.query('SELECT * FROM user_reservation WHERE email = $1', [email]);
 
       if (result.rows.length === 1) {
@@ -519,9 +518,7 @@ const handleUserLogin = async (req, res) => {
       } else {
         res.status(404).json({ error: 'Email not found.' });
       }
-    }else{  
-      res.status(401).json({ error: 'Invalid Auth.' });
-    }
+  
     
   } catch (error) {
     console.error('Error during login:', error);
