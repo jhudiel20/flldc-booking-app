@@ -526,7 +526,7 @@ includeHTML("header", "header").then(() => {
               console.log("Server Response:", result);
             
               if (!response.ok || result.error) {
-                document.getElementById("errorMessage").innerText = result.error || "Login failed. Please try again.";
+                document.getElementById("errorMessage").innerText = result.message`` || result.error || "Login failed. Please try again.";
                 return;
               }else{
                 Swal.fire({
