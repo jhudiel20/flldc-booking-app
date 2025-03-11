@@ -528,16 +528,18 @@ includeHTML("header", "header").then(() => {
               if (!response.ok || result.error) {
                 document.getElementById("errorMessage").innerText = result.error || "Login failed. Please try again.";
                 return;
+              }else{
+                Swal.fire({
+                  title: "Success!",
+                  text: "Successfully Logged in.",
+                  icon: "success",
+                  confirmButtonText: "OK",
+                }).then(() => {
+                    window.location.href = result.redirectUrl || "/";
+                });
               }
             
-              Swal.fire({
-                title: "Success!",
-                text: "Successfully Logged in.",
-                icon: "success",
-                confirmButtonText: "OK",
-              }).then(() => {
-                  window.location.href = result.redirectUrl || "/";
-              });
+         
               
             } catch (error) {
               console.error("Login error:", error);
