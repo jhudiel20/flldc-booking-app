@@ -513,10 +513,10 @@ const handleUserLogin = async (req, res) => {
 
             res.status(200).json({ message: 'Welcome.' });
           } else {
-            res.status(401).json({ error: 'Incorrect password.' });
+            res.status(401).json({ message: 'Incorrect password.' });
           }
       } else {
-        res.status(404).json({ error: 'Email not found.' });
+        res.status(404).json({ message: 'Email not found.' });
       }
   
     

@@ -525,8 +525,8 @@ includeHTML("header", "header").then(() => {
               const result = await response.json();
               console.log("Server Response:", result);
             
-              if (!response.ok || result.error || result.success === false) {
-                document.getElementById("errorMessage").innerText = result.message || result.error || "Login failed. Please try again.";
+              if (!response.ok || result.success === false) {
+                document.getElementById("errorMessage").innerText = result.message || "Login failed. Please try again.";
                 return;
               }else{
                 Swal.fire({
