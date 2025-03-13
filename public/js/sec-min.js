@@ -527,7 +527,7 @@ includeHTML("header", "header").then(() => {
             
               if (!response.ok || result.success === false) {
                 document.getElementById("errorMessage").innerText = result.message || "Login failed. Please try again.";
-                return;
+                return false;
               }else{
                 Swal.fire({
                   title: "Success!",
