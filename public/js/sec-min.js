@@ -413,7 +413,7 @@ includeHTML("header", "header").then(() => {
                   <div class="text-start" style="text-align:left; position: relative;">
                       <div class="input-group">
                           <span class="input-group-text"><i class="fa fa-envelope"></i></span>
-                          <input type="email" id="email_login" class="form-control" placeholder=" " required>
+                          <input type="email" id="email_login" class="form-control" placeholder="" autocomplete="off" required>
                           <label for="email_login" id="email_login_label" class="floating-label">Email</label>
                       </div>
                   </div>
@@ -430,7 +430,7 @@ includeHTML("header", "header").then(() => {
                       </div>
                       <div class="input-group mb-3">
                           <span class="input-group-text"><i class="fa fa-lock"></i></span>
-                          <input type="password" id="password" class="form-control" placeholder="" required>
+                          <input type="password" id="password" class="form-control" placeholder="" autocomplete="off" required>
                           <span class="input-group-text" id="togglePassword" style="cursor: pointer;">
                               <i class="fa fa-eye"></i>
                           </span>
