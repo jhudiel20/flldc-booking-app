@@ -397,566 +397,566 @@ async function loadRooms() {
   dropdown.dataset.loaded = "true";
 }
 
-includeHTML("header", "header").then(() => {
-  const loginModal = document.getElementById("LoginModal");
-  if (loginModal) {
-    loginModal.addEventListener("click", function (event) {
-      event.preventDefault(); // Prevent default anchor link behavior
+// includeHTML("header", "header").then(() => {
+//   const loginModal = document.getElementById("LoginModal");
+//   if (loginModal) {
+//     loginModal.addEventListener("click", function (event) {
+//       event.preventDefault(); // Prevent default anchor link behavior
 
-      const showLoginModal = (errorMessage = "") => {
-        Swal.fire({
-          title: "Sign In",
-          imageUrl: "/images/LOGO.png", // Replace with your logo path
-          imageWidth: 160, // Adjust as needed
-          imageHeight: 80, // Adjust as needed
-          html: `
-                  <div class="text-start" style="text-align:left; position: relative;">
-                      <div class="input-group">
-                          <span class="input-group-text"><i class="fa fa-envelope"></i></span>
-                          <input type="email" id="email_login" class="form-control" placeholder="" autocomplete="off" required>
-                          <label for="email_login" id="email_login_label" class="floating-label">Email</label>
-                      </div>
-                  </div>
-                  <div class="mb-3">
-                      <div style="text-align:right">
-                          <button id="forgotPasswordLink" class="btn btn-link p-0" style="color: #353131; text-decoration: underline;" onmouseover="this.style.color='#757070'" onmouseout="this.style.color='#000'"
-                              data-bs-toggle="tooltip" 
-                              data-bs-offset="0,4"
-                              data-bs-placement="top"
-                              data-bs-html="true"
-                              title="To reset your password, please click this link to process your reset.">
-                              <small>Forgot Password?</small>
-                          </button>
-                      </div>
-                      <div class="input-group mb-3">
-                          <span class="input-group-text"><i class="fa fa-lock"></i></span>
-                          <input type="password" id="password" class="form-control" placeholder="" autocomplete="off" required>
-                          <span class="input-group-text" id="togglePassword" style="cursor: pointer;">
-                              <i class="fa fa-eye"></i>
-                          </span>
-                          <label class="floating-label" for="password">Password</label>
-                      </div>
+//       const showLoginModal = (errorMessage = "") => {
+//         Swal.fire({
+//           title: "Sign In",
+//           imageUrl: "/images/LOGO.png", // Replace with your logo path
+//           imageWidth: 160, // Adjust as needed
+//           imageHeight: 80, // Adjust as needed
+//           html: `
+//                   <div class="text-start" style="text-align:left; position: relative;">
+//                       <div class="input-group">
+//                           <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+//                           <input type="email" id="email_login" class="form-control" placeholder="" autocomplete="off" required>
+//                           <label for="email_login" id="email_login_label" class="floating-label">Email</label>
+//                       </div>
+//                   </div>
+//                   <div class="mb-3">
+//                       <div style="text-align:right">
+//                           <button id="forgotPasswordLink" class="btn btn-link p-0" style="color: #353131; text-decoration: underline;" onmouseover="this.style.color='#757070'" onmouseout="this.style.color='#000'"
+//                               data-bs-toggle="tooltip" 
+//                               data-bs-offset="0,4"
+//                               data-bs-placement="top"
+//                               data-bs-html="true"
+//                               title="To reset your password, please click this link to process your reset.">
+//                               <small>Forgot Password?</small>
+//                           </button>
+//                       </div>
+//                       <div class="input-group mb-3">
+//                           <span class="input-group-text"><i class="fa fa-lock"></i></span>
+//                           <input type="password" id="password" class="form-control" placeholder="" autocomplete="off" required>
+//                           <span class="input-group-text" id="togglePassword" style="cursor: pointer;">
+//                               <i class="fa fa-eye"></i>
+//                           </span>
+//                           <label class="floating-label" for="password">Password</label>
+//                       </div>
 
-                      <div class="input-group mb-3">
-                        <span class="input-group-text"><i class="fas fa-user-tag"></i></span>
-                          <select id="usertype" name="usertype" class="form-control" required>
-                            <option value="" disabled selected hidden>Select User Type</option>
-                            <option value="FAST Employee">FAST Employee</option>
-                            <option value="Admin">Admin</option>
-                          </select>
-                        <label for="usertype" class="floating-label">User Type</label>
-                      </div>
-                  </div>
-                  <div id="errorMessage" class="text-danger mt-3">${errorMessage}</div>
-                  <div class="mt-3">
-                      <button id="registerLink" class="btn btn-link p-0" style="color: #353131; text-decoration: underline;" onmouseover="this.style.color='#757070'" onmouseout="this.style.color='#000'" >Don't have an account? Register here</button>
-                  </div>
-                  <div id="recaptcha-container" class="mt-3" style="display: flex; justify-content: center; align-items: center;"></div>
-                `,
-          showCancelButton: true,
-          confirmButtonText: "Login",
-          didOpen: () => {
-            grecaptcha.render("recaptcha-container", {
-              sitekey: "6LcEwdUqAAAAAFnSG67vpecp_r_Ow1TWd25DDKCX",
-            });
+//                       <div class="input-group mb-3">
+//                         <span class="input-group-text"><i class="fas fa-user-tag"></i></span>
+//                           <select id="usertype" name="usertype" class="form-control" required>
+//                             <option value="" disabled selected hidden>Select User Type</option>
+//                             <option value="FAST Employee">FAST Employee</option>
+//                             <option value="Admin">Admin</option>
+//                           </select>
+//                         <label for="usertype" class="floating-label">User Type</label>
+//                       </div>
+//                   </div>
+//                   <div id="errorMessage" class="text-danger mt-3">${errorMessage}</div>
+//                   <div class="mt-3">
+//                       <button id="registerLink" class="btn btn-link p-0" style="color: #353131; text-decoration: underline;" onmouseover="this.style.color='#757070'" onmouseout="this.style.color='#000'" >Don't have an account? Register here</button>
+//                   </div>
+//                   <div id="recaptcha-container" class="mt-3" style="display: flex; justify-content: center; align-items: center;"></div>
+//                 `,
+//           showCancelButton: true,
+//           confirmButtonText: "Login",
+//           didOpen: () => {
+//             grecaptcha.render("recaptcha-container", {
+//               sitekey: "6LcEwdUqAAAAAFnSG67vpecp_r_Ow1TWd25DDKCX",
+//             });
 
-            // Password toggle logic
-            document
-              .getElementById("togglePassword")
-              .addEventListener("click", function () {
-                const passwordField = document.getElementById("password");
-                const eyeIcon = this.querySelector("i");
+//             // Password toggle logic
+//             document
+//               .getElementById("togglePassword")
+//               .addEventListener("click", function () {
+//                 const passwordField = document.getElementById("password");
+//                 const eyeIcon = this.querySelector("i");
 
-                if (passwordField.type === "password") {
-                  passwordField.type = "text";
-                  eyeIcon.classList.remove("fa-eye");
-                  eyeIcon.classList.add("fa-eye-slash");
-                } else {
-                  passwordField.type = "password";
-                  eyeIcon.classList.remove("fa-eye-slash");
-                  eyeIcon.classList.add("fa-eye");
-                }
-              });
+//                 if (passwordField.type === "password") {
+//                   passwordField.type = "text";
+//                   eyeIcon.classList.remove("fa-eye");
+//                   eyeIcon.classList.add("fa-eye-slash");
+//                 } else {
+//                   passwordField.type = "password";
+//                   eyeIcon.classList.remove("fa-eye-slash");
+//                   eyeIcon.classList.add("fa-eye");
+//                 }
+//               });
 
-              // Change email label based on user type selection
-              const emailLabel = document.getElementById("email_login_label");
-              const userTypeSelect = document.getElementById("usertype");
+//               // Change email label based on user type selection
+//               const emailLabel = document.getElementById("email_login_label");
+//               const userTypeSelect = document.getElementById("usertype");
 
-              userTypeSelect.addEventListener("change", function () {
-                emailLabel.textContent = userTypeSelect.value === "Admin" ? "Username" : "Email";
-              });              
-          },
-          preConfirm: async () => {
-            const userType = document.getElementById("usertype").value;
-            const email = document.getElementById("email_login").value.trim();
-            const password = document.getElementById("password").value.trim();
-            const recaptchaResponse = grecaptcha.getResponse();
-            if (!recaptchaResponse) {
-              document.getElementById("errorMessage").innerText = "Please verify the reCAPTCHA.";
-              return false;
-            }
-            if (!userType) {
-              document.getElementById("errorMessage").innerText = "Please select a user type.";
-              return false;
-            }
-            if (!email || !password) {
-              document.getElementById("errorMessage").innerText = "Please fill in all fields.";
-              return false;
-            }
-            const loginData = {
-              email,
-              password,
-              recaptchaResponse,
-              userType,
-            };
-            console.log("Sending loginData:", loginData); // DEBUG
+//               userTypeSelect.addEventListener("change", function () {
+//                 emailLabel.textContent = userTypeSelect.value === "Admin" ? "Username" : "Email";
+//               });              
+//           },
+//           preConfirm: async () => {
+//             const userType = document.getElementById("usertype").value;
+//             const email = document.getElementById("email_login").value.trim();
+//             const password = document.getElementById("password").value.trim();
+//             const recaptchaResponse = grecaptcha.getResponse();
+//             if (!recaptchaResponse) {
+//               document.getElementById("errorMessage").innerText = "Please verify the reCAPTCHA.";
+//               return false;
+//             }
+//             if (!userType) {
+//               document.getElementById("errorMessage").innerText = "Please select a user type.";
+//               return false;
+//             }
+//             if (!email || !password) {
+//               document.getElementById("errorMessage").innerText = "Please fill in all fields.";
+//               return false;
+//             }
+//             const loginData = {
+//               email,
+//               password,
+//               recaptchaResponse,
+//               userType,
+//             };
+//             console.log("Sending loginData:", loginData); // DEBUG
 
-            try {
-              const apiEndpoint = userType === "Admin" 
-                ? "https://flldc-ims.vercel.app/login" 
-                : "/api/UserAuth";
-              const response = await fetch(apiEndpoint, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                credentials: "include",
-                body: JSON.stringify(loginData),
-              });
+//             try {
+//               const apiEndpoint = userType === "Admin" 
+//                 ? "https://flldc-ims.vercel.app/login" 
+//                 : "/api/UserAuth";
+//               const response = await fetch(apiEndpoint, {
+//                 method: "POST",
+//                 headers: { "Content-Type": "application/json" },
+//                 credentials: "include",
+//                 body: JSON.stringify(loginData),
+//               });
             
-              const result = await response.json();
-              console.log("Server Response:", result);
+//               const result = await response.json();
+//               console.log("Server Response:", result);
             
-              if (!response.ok || result.success === false) {
-                document.getElementById("errorMessage").innerText = result.message || "Login failed. Please try again.";
-                return false;
-              }else{
-                Swal.fire({
-                  title: "Success!",
-                  text: "Successfully Logged in.",
-                  icon: "success",
-                  confirmButtonText: "OK",
-                }).then(() => {
-                    window.location.href = result.redirectUrl || "/";
-                });
-              }
+//               if (!response.ok || result.success === false) {
+//                 document.getElementById("errorMessage").innerText = result.message || "Login failed. Please try again.";
+//                 return false;
+//               }else{
+//                 Swal.fire({
+//                   title: "Success!",
+//                   text: "Successfully Logged in.",
+//                   icon: "success",
+//                   confirmButtonText: "OK",
+//                 }).then(() => {
+//                     window.location.href = result.redirectUrl || "/";
+//                 });
+//               }
             
          
               
-            } catch (error) {
-              console.error("Login error:", error);
-              document.getElementById("errorMessage").innerText = "An error occurred. Please try again.";
-            }
+//             } catch (error) {
+//               console.error("Login error:", error);
+//               document.getElementById("errorMessage").innerText = "An error occurred. Please try again.";
+//             }
             
-          },
-        });
-      };
-      showLoginModal();
-      document
-        .getElementById("registerLink")
-        .addEventListener("click", function () {
-          const showSignUpModal = (errorMessage = "") => {
-            Swal.fire({
-              title: "Sign Up",
-              width: "700px",
-              imageUrl: "/images/LOGO.png", // Replace with your logo path
-              imageWidth: 160, // Adjust as needed
-              imageHeight: 80, // Adjust as needed
-              html: `
-                        <div class="row" style="text-align:left">
-                            <div class="col-12 col-md-6">
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text"><i class="fa fa-user"></i></span>
-                                    <input type="text" id="fname" name="fname" class="form-control" required autocomplete="off" placeholder="">
-                                    <label for="fname" class="floating-label">First Name</label>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text"><i class="fa fa-user"></i></span>
-                                    <input type="text" id="lname" name="lname" class="form-control" required autocomplete="off" placeholder="">
-                                    <label for="lname" class="floating-label">Last Name</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row" style="text-align:left">
-                            <div class="col-12 col-md-6">
-                              <div class="input-group mb-3">
-                                <span class="input-group-text"><i class="fa fa-envelope"></i></span>
-                                <input type="email" id="email" class="form-control" placeholder=" " required autocomplete="off">
-                                <label for="email" class="floating-label">Email</label>
-                              </div>
-                            </div>
+//           },
+//         });
+//       };
+//       showLoginModal();
+//       document
+//         .getElementById("registerLink")
+//         .addEventListener("click", function () {
+//           const showSignUpModal = (errorMessage = "") => {
+//             Swal.fire({
+//               title: "Sign Up",
+//               width: "700px",
+//               imageUrl: "/images/LOGO.png", // Replace with your logo path
+//               imageWidth: 160, // Adjust as needed
+//               imageHeight: 80, // Adjust as needed
+//               html: `
+//                         <div class="row" style="text-align:left">
+//                             <div class="col-12 col-md-6">
+//                                 <div class="input-group mb-3">
+//                                     <span class="input-group-text"><i class="fa fa-user"></i></span>
+//                                     <input type="text" id="fname" name="fname" class="form-control" required autocomplete="off" placeholder="">
+//                                     <label for="fname" class="floating-label">First Name</label>
+//                                 </div>
+//                             </div>
+//                             <div class="col-12 col-md-6">
+//                                 <div class="input-group mb-3">
+//                                     <span class="input-group-text"><i class="fa fa-user"></i></span>
+//                                     <input type="text" id="lname" name="lname" class="form-control" required autocomplete="off" placeholder="">
+//                                     <label for="lname" class="floating-label">Last Name</label>
+//                                 </div>
+//                             </div>
+//                         </div>
+//                         <div class="row" style="text-align:left">
+//                             <div class="col-12 col-md-6">
+//                               <div class="input-group mb-3">
+//                                 <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+//                                 <input type="email" id="email" class="form-control" placeholder=" " required autocomplete="off">
+//                                 <label for="email" class="floating-label">Email</label>
+//                               </div>
+//                             </div>
                             
-                            <div class="col-12 col-md-6">
-                              <div class="input-group mb-3">
-                                <span class="input-group-text"><i class="fas fa-user-tag"></i></span>
-                                  <select id="usertype" name="usertype" class="form-control" required>
-                                    <option value="FAST Employee" selected>FAST Employee</option>
-                                  </select>
-                                <label for="usertype" class="floating-label">User Type</label>
-                              </div>
-                            </div>
+//                             <div class="col-12 col-md-6">
+//                               <div class="input-group mb-3">
+//                                 <span class="input-group-text"><i class="fas fa-user-tag"></i></span>
+//                                   <select id="usertype" name="usertype" class="form-control" required>
+//                                     <option value="FAST Employee" selected>FAST Employee</option>
+//                                   </select>
+//                                 <label for="usertype" class="floating-label">User Type</label>
+//                               </div>
+//                             </div>
 
-                        </div>
-                        <div id="SBUContainer" style="text-align:left">
-                          <div class="row">
-                              <div class="col-12 col-md-6">
-                                  <div class="input-group mb-3">
-                                    <span class="input-group-text"><i class="fas fa-sitemap"></i></span>
-                                    <select id="SBU" name="SBU" class="form-control" required>
-                                      <option value="" disabled selected hidden>SBU</option>
-                                      <option value="FSC">FSC</option>
-                                      <option value="FLC">FLC</option>
-                                      <option value="FTMC">FTMC</option>
-                                      <option value="FCSI">FCSI</option>
-                                      <option value="FDC">FDC</option>
-                                      <option value="FUI">FUI</option>
-                                    </select>
-                                    <label for="SBU" class="floating-label">SBU</label>
-                                  </div>
-                              </div>
-                            <div class="col-12 col-md-6">
-                              <div class="input-group mb-3">
-                                <span class="input-group-text"><i class="fas fa-code-branch"></i></span>
-                                <select id="branchSelect" class="form-control">
-                                  <option value="" disabled selected hidden>Branch</option>
-                                </select>
-                                <label for="branch" class="floating-label">Branch</label>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row" style="text-align:left">
-                          <div class="col-12 col-md-6">
-                            <div class="input-group mb-3">
-                              <span class="input-group-text"><i class="fa fa-lock"></i></span>
-                              <input type="password" id="newPassword" class="form-control" placeholder=" " required>
-                              <span class="input-group-text" id="togglePasswordNew" style="cursor: pointer;">
-                                <i class="fa fa-eye"></i>
-                              </span>
-                              <label for="newPassword" class="floating-label">Password</label>
-                            </div>
-                          </div>
+//                         </div>
+//                         <div id="SBUContainer" style="text-align:left">
+//                           <div class="row">
+//                               <div class="col-12 col-md-6">
+//                                   <div class="input-group mb-3">
+//                                     <span class="input-group-text"><i class="fas fa-sitemap"></i></span>
+//                                     <select id="SBU" name="SBU" class="form-control" required>
+//                                       <option value="" disabled selected hidden>SBU</option>
+//                                       <option value="FSC">FSC</option>
+//                                       <option value="FLC">FLC</option>
+//                                       <option value="FTMC">FTMC</option>
+//                                       <option value="FCSI">FCSI</option>
+//                                       <option value="FDC">FDC</option>
+//                                       <option value="FUI">FUI</option>
+//                                     </select>
+//                                     <label for="SBU" class="floating-label">SBU</label>
+//                                   </div>
+//                               </div>
+//                             <div class="col-12 col-md-6">
+//                               <div class="input-group mb-3">
+//                                 <span class="input-group-text"><i class="fas fa-code-branch"></i></span>
+//                                 <select id="branchSelect" class="form-control">
+//                                   <option value="" disabled selected hidden>Branch</option>
+//                                 </select>
+//                                 <label for="branch" class="floating-label">Branch</label>
+//                               </div>
+//                             </div>
+//                           </div>
+//                         </div>
+//                         <div class="row" style="text-align:left">
+//                           <div class="col-12 col-md-6">
+//                             <div class="input-group mb-3">
+//                               <span class="input-group-text"><i class="fa fa-lock"></i></span>
+//                               <input type="password" id="newPassword" class="form-control" placeholder=" " required>
+//                               <span class="input-group-text" id="togglePasswordNew" style="cursor: pointer;">
+//                                 <i class="fa fa-eye"></i>
+//                               </span>
+//                               <label for="newPassword" class="floating-label">Password</label>
+//                             </div>
+//                           </div>
 
-                          <div class="col-12 col-md-6">
-                            <div class="input-group mb-3">
-                              <span class="input-group-text"><i class="fa fa-lock"></i></span>
-                              <input type="password" id="confirmPassword" class="form-control" placeholder=" " required>
-                              <span class="input-group-text" id="togglePasswordConfirm" style="cursor: pointer;">
-                                <i class="fa fa-eye"></i>
-                              </span>
-                              <label for="confirmPassword" class="floating-label">Confirm Password</label>
-                            </div>
-                          </div>
-                        </div>
+//                           <div class="col-12 col-md-6">
+//                             <div class="input-group mb-3">
+//                               <span class="input-group-text"><i class="fa fa-lock"></i></span>
+//                               <input type="password" id="confirmPassword" class="form-control" placeholder=" " required>
+//                               <span class="input-group-text" id="togglePasswordConfirm" style="cursor: pointer;">
+//                                 <i class="fa fa-eye"></i>
+//                               </span>
+//                               <label for="confirmPassword" class="floating-label">Confirm Password</label>
+//                             </div>
+//                           </div>
+//                         </div>
                         
-                        <div id="errorMessage" class="text-danger mt-3">${errorMessage}</div>
-                        <div id="recaptcha-container" class="mt-3" style="display: flex; justify-content: center; align-items: center;"></div>
-                    `,
+//                         <div id="errorMessage" class="text-danger mt-3">${errorMessage}</div>
+//                         <div id="recaptcha-container" class="mt-3" style="display: flex; justify-content: center; align-items: center;"></div>
+//                     `,
 
-              showCancelButton: true,
-              confirmButtonText: "Register",
-              cancelButtonText: "Cancel",
-              didOpen: () => {
-                grecaptcha.render("recaptcha-container", {
-                  sitekey: "6LcEwdUqAAAAAFnSG67vpecp_r_Ow1TWd25DDKCX",
-                });
+//               showCancelButton: true,
+//               confirmButtonText: "Register",
+//               cancelButtonText: "Cancel",
+//               didOpen: () => {
+//                 grecaptcha.render("recaptcha-container", {
+//                   sitekey: "6LcEwdUqAAAAAFnSG67vpecp_r_Ow1TWd25DDKCX",
+//                 });
 
-                document
-                  .getElementById("togglePasswordNew")
-                  .addEventListener("click", function () {
-                    const passwordField =
-                      document.getElementById("newPassword");
-                    const eyeIcon = this.querySelector("i");
+//                 document
+//                   .getElementById("togglePasswordNew")
+//                   .addEventListener("click", function () {
+//                     const passwordField =
+//                       document.getElementById("newPassword");
+//                     const eyeIcon = this.querySelector("i");
 
-                    if (passwordField.type === "password") {
-                      passwordField.type = "text";
-                      eyeIcon.classList.remove("fa-eye");
-                      eyeIcon.classList.add("fa-eye-slash");
-                    } else {
-                      passwordField.type = "password";
-                      eyeIcon.classList.remove("fa-eye-slash");
-                      eyeIcon.classList.add("fa-eye");
-                    }
-                  });
-                document
-                  .getElementById("togglePasswordConfirm")
-                  .addEventListener("click", function () {
-                    const passwordField =
-                      document.getElementById("confirmPassword");
-                    const eyeIcon = this.querySelector("i");
+//                     if (passwordField.type === "password") {
+//                       passwordField.type = "text";
+//                       eyeIcon.classList.remove("fa-eye");
+//                       eyeIcon.classList.add("fa-eye-slash");
+//                     } else {
+//                       passwordField.type = "password";
+//                       eyeIcon.classList.remove("fa-eye-slash");
+//                       eyeIcon.classList.add("fa-eye");
+//                     }
+//                   });
+//                 document
+//                   .getElementById("togglePasswordConfirm")
+//                   .addEventListener("click", function () {
+//                     const passwordField =
+//                       document.getElementById("confirmPassword");
+//                     const eyeIcon = this.querySelector("i");
 
-                    if (passwordField.type === "password") {
-                      passwordField.type = "text";
-                      eyeIcon.classList.remove("fa-eye");
-                      eyeIcon.classList.add("fa-eye-slash");
-                    } else {
-                      passwordField.type = "password";
-                      eyeIcon.classList.remove("fa-eye-slash");
-                      eyeIcon.classList.add("fa-eye");
-                    }
-                  });
-              },
-              preConfirm: async () => {
-                const fname = document.getElementById("fname").value.trim();
-                const lname = document.getElementById("lname").value.trim();
-                const email = document.getElementById("email").value.trim();
-                const password = document
-                  .getElementById("newPassword")
-                  .value.trim();
-                const confirmPassword = document
-                  .getElementById("confirmPassword")
-                  .value.trim();
-                const userType = document.getElementById("usertype").value;
-                const sbu = document.getElementById("SBU")
-                  ? document.getElementById("SBU").value
-                  : null;
-                const branch = document.getElementById("branchSelect")
-                  ? document.getElementById("branchSelect").value
-                  : null;
-                const recaptchaResponse = grecaptcha.getResponse();
-                if (!recaptchaResponse) {
-                  document.getElementById("errorMessage").innerText =
-                    "Please verify the reCAPTCHA.";
-                  return false;
-                }
+//                     if (passwordField.type === "password") {
+//                       passwordField.type = "text";
+//                       eyeIcon.classList.remove("fa-eye");
+//                       eyeIcon.classList.add("fa-eye-slash");
+//                     } else {
+//                       passwordField.type = "password";
+//                       eyeIcon.classList.remove("fa-eye-slash");
+//                       eyeIcon.classList.add("fa-eye");
+//                     }
+//                   });
+//               },
+//               preConfirm: async () => {
+//                 const fname = document.getElementById("fname").value.trim();
+//                 const lname = document.getElementById("lname").value.trim();
+//                 const email = document.getElementById("email").value.trim();
+//                 const password = document
+//                   .getElementById("newPassword")
+//                   .value.trim();
+//                 const confirmPassword = document
+//                   .getElementById("confirmPassword")
+//                   .value.trim();
+//                 const userType = document.getElementById("usertype").value;
+//                 const sbu = document.getElementById("SBU")
+//                   ? document.getElementById("SBU").value
+//                   : null;
+//                 const branch = document.getElementById("branchSelect")
+//                   ? document.getElementById("branchSelect").value
+//                   : null;
+//                 const recaptchaResponse = grecaptcha.getResponse();
+//                 if (!recaptchaResponse) {
+//                   document.getElementById("errorMessage").innerText =
+//                     "Please verify the reCAPTCHA.";
+//                   return false;
+//                 }
 
-                // Enhanced validation
-                if (
-                  !fname ||
-                  !lname ||
-                  !email ||
-                  !password ||
-                  !confirmPassword
-                ) {
-                  document.getElementById("errorMessage").innerText =
-                    "All fields are required.";
-                  return false;
-                }
+//                 // Enhanced validation
+//                 if (
+//                   !fname ||
+//                   !lname ||
+//                   !email ||
+//                   !password ||
+//                   !confirmPassword
+//                 ) {
+//                   document.getElementById("errorMessage").innerText =
+//                     "All fields are required.";
+//                   return false;
+//                 }
 
-                if (password !== confirmPassword) {
-                  document.getElementById("errorMessage").innerText =
-                    "Passwords do not match.";
-                  return false;
-                }
+//                 if (password !== confirmPassword) {
+//                   document.getElementById("errorMessage").innerText =
+//                     "Passwords do not match.";
+//                   return false;
+//                 }
 
-                const emailRegex =
-                  /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-                if (!emailRegex.test(email)) {
-                  document.getElementById("errorMessage").innerText =
-                    "Please enter a valid email address.";
-                  return false;
-                }
+//                 const emailRegex =
+//                   /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+//                 if (!emailRegex.test(email)) {
+//                   document.getElementById("errorMessage").innerText =
+//                     "Please enter a valid email address.";
+//                   return false;
+//                 }
 
-                try {
-                  const registrationData = {
-                    fname,
-                    lname,
-                    email,
-                    password,
-                    confirmPassword,
-                    userType,
-                    sbu,
-                    branch,
-                    recaptchaResponse,
-                  };
+//                 try {
+//                   const registrationData = {
+//                     fname,
+//                     lname,
+//                     email,
+//                     password,
+//                     confirmPassword,
+//                     userType,
+//                     sbu,
+//                     branch,
+//                     recaptchaResponse,
+//                   };
                   
-                  const response = await fetch("/api/UserAuth", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(registrationData),
-                  });
+//                   const response = await fetch("/api/UserAuth", {
+//                     method: "POST",
+//                     headers: { "Content-Type": "application/json" },
+//                     body: JSON.stringify(registrationData),
+//                   });
 
-                  const result = await response.json();
+//                   const result = await response.json();
 
-                  if (result.error) {
-                    document.getElementById("errorMessage").innerText =
-                      result.error;
-                    return false;
-                  } else {
-                    Swal.fire(
-                      "Success!",
-                      "Registration completed.",
-                      "success"
-                    ).then(() => {
-                      window.location.reload();
-                    });
-                  }
-                } catch (error) {
-                  document.getElementById("errorMessage").innerText =
-                    "Registration failed. Please try again.";
-                  return false;
-                }
-              },
-            });
+//                   if (result.error) {
+//                     document.getElementById("errorMessage").innerText =
+//                       result.error;
+//                     return false;
+//                   } else {
+//                     Swal.fire(
+//                       "Success!",
+//                       "Registration completed.",
+//                       "success"
+//                     ).then(() => {
+//                       window.location.reload();
+//                     });
+//                   }
+//                 } catch (error) {
+//                   document.getElementById("errorMessage").innerText =
+//                     "Registration failed. Please try again.";
+//                   return false;
+//                 }
+//               },
+//             });
 
-            const branchSelect = document.getElementById("branchSelect");
-            branchSelect.innerHTML = ""; // Clear previous options
+//             const branchSelect = document.getElementById("branchSelect");
+//             branchSelect.innerHTML = ""; // Clear previous options
 
-            // Add default placeholder option
-            const defaultOption = document.createElement("option");
-            defaultOption.value = "";
-            defaultOption.disabled = true;
-            defaultOption.selected = true;
-            defaultOption.hidden = true;
-            defaultOption.textContent = "Branch";
-            branchSelect.appendChild(defaultOption);
+//             // Add default placeholder option
+//             const defaultOption = document.createElement("option");
+//             defaultOption.value = "";
+//             defaultOption.disabled = true;
+//             defaultOption.selected = true;
+//             defaultOption.hidden = true;
+//             defaultOption.textContent = "Branch";
+//             branchSelect.appendChild(defaultOption);
 
-            // Append dynamic branch options
-            branches.forEach((branch) => {
-              const option = document.createElement("option");
-              option.value = branch;
-              option.textContent = branch;
-              branchSelect.appendChild(option);
-            });
+//             // Append dynamic branch options
+//             branches.forEach((branch) => {
+//               const option = document.createElement("option");
+//               option.value = branch;
+//               option.textContent = branch;
+//               branchSelect.appendChild(option);
+//             });
 
-            // const userTypeSelect = document.getElementById('usertype');
-            // const sbuContainer = document.getElementById('SBUContainer');
+//             // const userTypeSelect = document.getElementById('usertype');
+//             // const sbuContainer = document.getElementById('SBUContainer');
 
-            // // Initial styles
-            // sbuContainer.style.opacity = '0';
-            // sbuContainer.style.transition = 'opacity 0.5s ease';
-            // sbuContainer.style.display = 'none';
+//             // // Initial styles
+//             // sbuContainer.style.opacity = '0';
+//             // sbuContainer.style.transition = 'opacity 0.5s ease';
+//             // sbuContainer.style.display = 'none';
 
-            // userTypeSelect.addEventListener('change', function () {
-            //     if (userTypeSelect.value === 'FAST Employee') {
-            //         sbuContainer.style.display = 'block';
-            //         // Small delay to trigger transition after display is set to block
-            //         requestAnimationFrame(() => {
-            //             sbuContainer.style.opacity = '1';
-            //         });
-            //     } else {
-            //         sbuContainer.style.opacity = '0';
-            //         // Wait for opacity transition to complete before setting display to none
-            //         setTimeout(() => {
-            //             sbuContainer.style.display = 'none';
-            //         }, 500); // Match the transition duration
-            //     }
-            // });
-          };
+//             // userTypeSelect.addEventListener('change', function () {
+//             //     if (userTypeSelect.value === 'FAST Employee') {
+//             //         sbuContainer.style.display = 'block';
+//             //         // Small delay to trigger transition after display is set to block
+//             //         requestAnimationFrame(() => {
+//             //             sbuContainer.style.opacity = '1';
+//             //         });
+//             //     } else {
+//             //         sbuContainer.style.opacity = '0';
+//             //         // Wait for opacity transition to complete before setting display to none
+//             //         setTimeout(() => {
+//             //             sbuContainer.style.display = 'none';
+//             //         }, 500); // Match the transition duration
+//             //     }
+//             // });
+//           };
 
-          showSignUpModal();
-        });
-      document
-        .getElementById("forgotPasswordLink")
-        .addEventListener("click", function () {
-          Swal.fire({
-            title: "Forgot Password",
-            imageUrl: "/images/LOGO.png", // Replace with your logo path
-            imageWidth: 160, // Adjust as needed
-            imageHeight: 80, // Adjust as needed
-            html: `  
-                  <div class="mb-3 text-start" style="text-align:left">
-                      <div class="input-group">
-                          <span class="input-group-text"><i class="fa fa-envelope"></i></span>
-                          <input type="email" id="forgot_email" class="form-control" placeholder=" ">
-                          <label for="forgot_email" class="floating-label">Email</label>
-                      </div>
-                  </div>
+//           showSignUpModal();
+//         });
+//       document
+//         .getElementById("forgotPasswordLink")
+//         .addEventListener("click", function () {
+//           Swal.fire({
+//             title: "Forgot Password",
+//             imageUrl: "/images/LOGO.png", // Replace with your logo path
+//             imageWidth: 160, // Adjust as needed
+//             imageHeight: 80, // Adjust as needed
+//             html: `  
+//                   <div class="mb-3 text-start" style="text-align:left">
+//                       <div class="input-group">
+//                           <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+//                           <input type="email" id="forgot_email" class="form-control" placeholder=" ">
+//                           <label for="forgot_email" class="floating-label">Email</label>
+//                       </div>
+//                   </div>
 
-                  <div id="forgotErrorMessage" class="text-danger mt-3"></div>
-                  <div id="recaptcha-container-forgot" class="mt-3" style="display: flex; justify-content: center; align-items: center;"></div>
-              `,
-            showCancelButton: true,
-            confirmButtonText: "Reset Password",
-            didOpen: () => {
-              grecaptcha.render("recaptcha-container-forgot", {
-                sitekey: "6LcEwdUqAAAAAFnSG67vpecp_r_Ow1TWd25DDKCX",
-              });
-            },
-            preConfirm: async () => {
-              const email = document
-                .getElementById("forgot_email")
-                .value.trim();
-              const recaptchaResponse = grecaptcha.getResponse();
+//                   <div id="forgotErrorMessage" class="text-danger mt-3"></div>
+//                   <div id="recaptcha-container-forgot" class="mt-3" style="display: flex; justify-content: center; align-items: center;"></div>
+//               `,
+//             showCancelButton: true,
+//             confirmButtonText: "Reset Password",
+//             didOpen: () => {
+//               grecaptcha.render("recaptcha-container-forgot", {
+//                 sitekey: "6LcEwdUqAAAAAFnSG67vpecp_r_Ow1TWd25DDKCX",
+//               });
+//             },
+//             preConfirm: async () => {
+//               const email = document
+//                 .getElementById("forgot_email")
+//                 .value.trim();
+//               const recaptchaResponse = grecaptcha.getResponse();
 
-              if (!recaptchaResponse) {
-                document.getElementById("forgotErrorMessage").innerText =
-                  "Please verify the reCAPTCHA.";
-                return false;
-              }
+//               if (!recaptchaResponse) {
+//                 document.getElementById("forgotErrorMessage").innerText =
+//                   "Please verify the reCAPTCHA.";
+//                 return false;
+//               }
 
-              const emailRegex =
-                /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-              if (!emailRegex.test(email)) {
-                document.getElementById("forgotErrorMessage").innerText =
-                  "Please enter a valid email address.";
-                return false;
-              }
+//               const emailRegex =
+//                 /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+//               if (!emailRegex.test(email)) {
+//                 document.getElementById("forgotErrorMessage").innerText =
+//                   "Please enter a valid email address.";
+//                 return false;
+//               }
 
-              try {
-                const forgotPasswordData = { email, recaptchaResponse };
-                const response = await fetch("/api/UserAuth", {
-                  method: "POST",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify(forgotPasswordData),
-                });
+//               try {
+//                 const forgotPasswordData = { email, recaptchaResponse };
+//                 const response = await fetch("/api/UserAuth", {
+//                   method: "POST",
+//                   headers: { "Content-Type": "application/json" },
+//                   body: JSON.stringify(forgotPasswordData),
+//                 });
 
-                const result = await response.json();
-                if (result.error) {
-                  document.getElementById("forgotErrorMessage").innerText =
-                    result.error;
-                  return false;
-                } else {
-                  Swal.fire(
-                    "Success!",
-                    "Password reset instructions sent to your email.",
-                    "success"
-                  );
-                }
-              } catch (error) {
-                document.getElementById("forgotErrorMessage").innerText =
-                  "Request failed. Please try again.";
-                return false;
-              }
-            },
-          });
-        });
-    });
-  } else {
-    console.error("Element with ID 'LoginModal' not found.");
-  }
-  const logoutButton = document.getElementById("LogoutButton");
+//                 const result = await response.json();
+//                 if (result.error) {
+//                   document.getElementById("forgotErrorMessage").innerText =
+//                     result.error;
+//                   return false;
+//                 } else {
+//                   Swal.fire(
+//                     "Success!",
+//                     "Password reset instructions sent to your email.",
+//                     "success"
+//                   );
+//                 }
+//               } catch (error) {
+//                 document.getElementById("forgotErrorMessage").innerText =
+//                   "Request failed. Please try again.";
+//                 return false;
+//               }
+//             },
+//           });
+//         });
+//     });
+//   } else {
+//     console.error("Element with ID 'LoginModal' not found.");
+//   }
+//   const logoutButton = document.getElementById("LogoutButton");
 
-  if (logoutButton) {
-    logoutButton.addEventListener("click", function () {
-      // Confirm the logout action with the user
-      Swal.fire({
-        title: "Are you sure?",
-        text: "You will be logged out of your account.",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonText: "Yes, log out",
-        cancelButtonText: "Cancel",
-      }).then((result) => {
-        if (result.isConfirmed) {
-          // Perform the logout action (e.g., API call, session clear)
-          fetch("/api/logout", {
-            method: "POST",
-          })
-            .then((response) => {
-              if (response.ok) {
-                Swal.fire(
-                  "Logged Out",
-                  "You have been successfully logged out.",
-                  "success"
-                ).then(() => {
-                  window.location.reload(); // Redirect to login page
-                });
-              } else {
-                Swal.fire("Error", "Logout failed. Please try again.", "error");
-              }
-            })
-            .catch((error) => {
-              Swal.fire("Error", "An unexpected error occurred.", "error");
-              console.error("Logout error:", error);
-            });
-        }
-      });
-    });
-  } else {
-    console.warn("Logout button not found");
-  }
-});
+//   if (logoutButton) {
+//     logoutButton.addEventListener("click", function () {
+//       // Confirm the logout action with the user
+//       Swal.fire({
+//         title: "Are you sure?",
+//         text: "You will be logged out of your account.",
+//         icon: "warning",
+//         showCancelButton: true,
+//         confirmButtonText: "Yes, log out",
+//         cancelButtonText: "Cancel",
+//       }).then((result) => {
+//         if (result.isConfirmed) {
+//           // Perform the logout action (e.g., API call, session clear)
+//           fetch("/api/logout", {
+//             method: "POST",
+//           })
+//             .then((response) => {
+//               if (response.ok) {
+//                 Swal.fire(
+//                   "Logged Out",
+//                   "You have been successfully logged out.",
+//                   "success"
+//                 ).then(() => {
+//                   window.location.reload(); // Redirect to login page
+//                 });
+//               } else {
+//                 Swal.fire("Error", "Logout failed. Please try again.", "error");
+//               }
+//             })
+//             .catch((error) => {
+//               Swal.fire("Error", "An unexpected error occurred.", "error");
+//               console.error("Logout error:", error);
+//             });
+//         }
+//       });
+//     });
+//   } else {
+//     console.warn("Logout button not found");
+//   }
+// });
 
 function checkUserStatus() {
   fetch("/api/validate-cookie") // API endpoint to validate the cookie
